@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>A hypothesis testing problem in R</title>
+
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="shortcut icon" href="favicon.jpg">
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="generic-css.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">fujinai</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="music_page.html">music</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    outlines &amp; guides
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="DS_classification-basics.html">Getting started with classifiers in R</a>
+    </li>
+    <li>
+      <a href="ML_classification-basics.html">Getting started with classification in Python</a>
+    </li>
+    <li>
+      <a href="R_hypothesis-testing.html">Hypothesis testing in R</a>
+    </li>
+    <li class="dropdown-header">writing reminders</li>
+    <li class="dropdown-header">study reminders</li>
+    <li>
+      <a href="writing_temp_typora2rmd.html">writing temp</a>
+    </li>
+    <li class="dropdown-header">coding temp</li>
+    <li class="dropdown-header">plotting temp</li>
+    <li>
+      <a href="organization-of-ideas.html">programming a brain</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    writing
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">me</li>
+    <li class="dropdown-header">OCD and the fear of eternity</li>
+    <li class="dropdown-header">math</li>
+    <li class="dropdown-header">machine learning</li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">thesis abridged</li>
+  </ul>
+</li>
+<li>
+  <a href="shelf_page.html">bookshelf</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://www.youtube.com/@fujinai9/featured">
+    <span class="fa fa-youtube fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://soundcloud.com/user-752823440">
+    <span class="fa fa-brands fa-soundcloud"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/mattlabcode">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/matthew-bain314/">
+    <span class="fab fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">A hypothesis testing problem in R</h1>
+<h4 class="author">Matthew Bain</h4>
+
+</div>
+
+
+<div id="the-problem" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> The problem</h1>
+<p>A psychologist is interested in testing three types of therapy for modifying ophidiophobia (fear of snakes). She suspects that one type of therapy may not be best for everyone - rather the best type of therapy may depend on the severity of the phobia.</p>
+<p>Undergraduate students in an introductory psychology course are given the Fear Schedule Survey (FSS) to screen out subjects showing no fear of snakes. Those displaying some degree of phobia are classified as mildly, moderately, or severely phobic. One third of subjects within each level of severity are then randomly assigned to a treatment condition: systematic desensitization, implosive therapy, or insight therapy.</p>
+<p>What follows is an analysis of BAT scores following therapy for snake phobia (higher scores are better, indicating less phobia): </br></br></p>
+</div>
+<div id="analysis" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Analysis</h1>
+<div id="step-1-import-the-data." class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Step 1: Import the data.</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>snake <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;snakedata.csv&#39;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>severity_levels <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;Mild&#39;</span>, <span class="st">&#39;Moderate&#39;</span>, <span class="st">&#39;Severe&#39;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>treatment_levels <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;Desensitization&#39;</span>, <span class="st">&#39;Implosion&#39;</span>, <span class="st">&#39;Insight&#39;</span>)</span></code></pre></div>
+<p></br></p>
+</div>
+<div id="step-2-test-model-assumptions." class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Step 2: Test model assumptions.</h2>
+<p>Since these data were collected under a 3x3 between-subjects factorial design, we need to perform a 2-way ANOVA in order to analyze the results. Before performing an ANOVA, however, we need to ensure that the dataset does not violate the assumptions of the test. </br></br></p>
+<div id="assumption-1-normality" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Assumption 1: Normality</h3>
+<p>We can check for violation of the assumption of normality using the Shapiro-Wilk test (on each of the 9 groups).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> severity_levels) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> treatment_levels) {  </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    group_data <span class="ot">=</span> snake<span class="sc">$</span>BAT[<span class="fu">which</span>(snake<span class="sc">$</span>Severity <span class="sc">==</span> i <span class="sc">&amp;</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                                   snake<span class="sc">$</span>Therapy <span class="sc">==</span> j)]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    p_shapiro <span class="ot">=</span> <span class="fu">shapiro.test</span>(group_data)<span class="sc">$</span>p <span class="co"># normality test on group</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (p_shapiro <span class="sc">&gt;</span> <span class="fl">0.05</span>) {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">&quot;p_shapiro(severity = %s; </span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">                  treatment = %s) = %f (&gt; 0.05);</span><span class="sc">\n</span><span class="st"> </span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">                  ∴ fail to reject null hypothesis that sample is</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">                  normally distributed.</span><span class="sc">\n\n</span><span class="st">&quot;</span>, i, j, p_shapiro))</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## p_shapiro(severity = Mild; 
+##                   treatment = Desensitization) = 0.954644 (&gt; 0.05);
+##  
+##                   ∴ fail to reject null hypothesis that sample is
+##                   normally distributed.
+## 
+## p_shapiro(severity = Mild; 
+##                   treatment = Implosion) = 0.103419 (&gt; 0.05);
+##  
+##                   ∴ fail to reject null hypothesis that sample is
+##                   normally distributed.
+## 
+## p_shapiro(severity = Mild; 
+##                   treatment = Insight) = 0.999803 (&gt; 0.05);
+##  
+##                   ∴ fail to reject null hypothesis that sample is
+##                   normally distributed.
+## 
+## p_shapiro(severity = Moderate; 
+##                   treatment = Desensitization) = 0.685296 (&gt; 0.05);
+##  
+##                   ∴ fail to reject null hypothesis that sample is
+##                   normally distributed.
+## 
+## p_shapiro(severity = Moderate; 
+##                   treatment = Implosion) = 0.967174 (&gt; 0.05);
+##  
+##                   ∴ fail to reject null hypothesis that sample is
+##                   normally distributed.
+## 
+## p_shapiro(severity = Moderate; 
+##                   treatment = Insight) = 0.691856 (&gt; 0.05);
+##  
+##                   ∴ fail to reject null hypothesis that sample is
+##                   normally distributed.
+## 
+## p_shapiro(severity = Severe; 
+##                   treatment = Desensitization) = 0.813952 (&gt; 0.05);
+##  
+##                   ∴ fail to reject null hypothesis that sample is
+##                   normally distributed.
+## 
+## p_shapiro(severity = Severe; 
+##                   treatment = Implosion) = 0.737421 (&gt; 0.05);
+##  
+##                   ∴ fail to reject null hypothesis that sample is
+##                   normally distributed.
+## 
+## p_shapiro(severity = Severe; 
+##                   treatment = Insight) = 0.967174 (&gt; 0.05);
+##  
+##                   ∴ fail to reject null hypothesis that sample is
+##                   normally distributed.</code></pre>
+<p>The p-value for each Shapiro-Wilk normality test is &gt; 0.05. </br><br />
+Therefore, we fail to reject all null hypotheses that the observations are normally distributed. </br></br></p>
+</div>
+<div id="assumption-2-equal-variance" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Assumption 2: Equal variance</h3>
+<p>We can check for violation of the assumption of equal variance using the Bartlett test.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>p_bartlett <span class="ot">=</span> <span class="fu">bartlett.test</span>(BAT <span class="sc">~</span> <span class="fu">interaction</span>(Therapy, Severity), </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">data =</span> snake)<span class="sc">$</span>p.value</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (p_bartlett <span class="sc">&gt;</span> <span class="fl">0.05</span>) {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">&quot;p_bartlett = %f (&gt; 0.05); </span><span class="sc">\n</span><span class="st"> </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">              ∴ fail to reject null hypothesis that </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">              samples drawn from populations with equal variance.</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>              p_bartlett))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<pre><code>## p_bartlett = 0.378506 (&gt; 0.05); 
+##  
+##               ∴ fail to reject null hypothesis that 
+##               samples drawn from populations with equal variance.</code></pre>
+<p>The p-value for the Bartlett test of homogeneity of variance is &gt; 0.05. </br><br />
+Therefore, we Fail to reject null hypothesis that samples are drawn from populations with equal variance. </br></br></p>
+</div>
+</div>
+<div id="step-3-perform-anova." class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Step 3: Perform ANOVA.</h2>
+<p>Below we perform all omnibus tests. We test the main effect of treatment, the main effect of severity, and their interaction.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># omnibus F-tests</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">contrasts =</span> <span class="fu">c</span>(<span class="st">&quot;contr.sum&quot;</span>, <span class="st">&quot;contr.poly&quot;</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>myaov <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="fu">lm</span>(BAT <span class="sc">~</span> Therapy<span class="sc">*</span>Severity, <span class="at">data =</span> snake))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(myaov)</span></code></pre></div>
+<pre><code>##                  Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## Therapy           2  51.51   25.76   4.017  0.02662 *  
+## Severity          2 235.24  117.62  18.347 3.21e-06 ***
+## Therapy:Severity  4 112.36   28.09   4.381  0.00547 ** 
+## Residuals        36 230.80    6.41                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>From this test, we can conclude that there is a significant interaction between the effect of therapy and the effect of severity at the <em>p</em> &lt; .01 level. This is in line with the prediction implied by this experiment that the treatment effectiveness depends on the severity of the disorder. In other words, the effect of treatment depends on the level of severity of the phobia. </br></p>
+<p>We can not, however, make any inferences about which groups are significantly different until conducting follow-up pairwise tests. </br></p>
+<p><strong>Note</strong>: There is also a significant main effect of each variable, but given that there is an interaction, which tells us that the effect of one variable depends on the level of the other, reading into these main effects is not informative. </br></br></p>
+</div>
+<div id="step-4-perform-follow-up-tests." class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Step 4: Perform follow-up tests.</h2>
+<p>We now conduct a post-hoc analysis of differences in group means. We have a 3-by-3 factorial design, so we will perform 36 follow-up tests (<span class="math inline">\(\left(\frac{(9 ~ \text{groups}) * 8}{2}\right)\)</span>). </br></p>
+<p>Since the experimenter in question doesn’t appear to have any predictions about what the data will show (beyond hypothesizing that the effect of one variable depends on the level of the other), we cannot plan our comparisons in advance. Therefore, in the interest of minimizing type II error (i.e., failing to detect any real effects), it is most wise to conduct every possible pairwise test, accepting the cost of multiple comparisons correction. </br></p>
+<p>To conduct every pairwise comparison and also control for type-I error, we can use the Tukey test:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute Tukey test to perform all pairwise comparisons w/ </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># built-in multiple comparison correction</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>tukey_test <span class="ot">=</span> <span class="fu">TukeyHSD</span>(myaov, <span class="at">which =</span> <span class="st">&quot;Therapy:Severity&quot;</span>, <span class="at">data =</span> <span class="st">&quot;snake&quot;</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># identify and store indices of all significant pairwise tests</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>sig_tests <span class="ot">=</span> <span class="fu">c</span>() </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">36</span>) {</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (tukey_test<span class="sc">$</span><span class="st">`</span><span class="at">Therapy:Severity</span><span class="st">`</span>[i, <span class="st">&quot;p adj&quot;</span>] <span class="sc">&lt;</span> <span class="fl">0.05</span>) {</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    sig_tests <span class="ot">=</span> <span class="fu">c</span>(sig_tests, i)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>tukey_test<span class="sc">$</span><span class="st">`</span><span class="at">Therapy:Severity</span><span class="st">`</span>[sig_tests,] <span class="co"># display significant tests</span></span></code></pre></div>
+<pre><code>##                                            diff       lwr        upr
+## Implosion:Severe-Desensitization:Mild      -7.4 -12.67992 -2.1200788
+## Insight:Mild-Implosion:Mild                -5.8 -11.07992 -0.5200788
+## Desensitization:Moderate-Implosion:Mild    -5.4 -10.67992 -0.1200788
+## Insight:Moderate-Implosion:Mild            -7.8 -13.07992 -2.5200788
+## Desensitization:Severe-Implosion:Mild      -6.4 -11.67992 -1.1200788
+## Implosion:Severe-Implosion:Mild           -11.0 -16.27992 -5.7200788
+## Insight:Severe-Implosion:Mild              -8.8 -14.07992 -3.5200788
+## Implosion:Severe-Desensitization:Moderate  -5.6 -10.87992 -0.3200788
+## Implosion:Severe-Implosion:Moderate        -6.2 -11.47992 -0.9200788
+##                                                  p adj
+## Implosion:Severe-Desensitization:Mild     1.412159e-03
+## Insight:Mild-Implosion:Mild               2.230721e-02
+## Desensitization:Moderate-Implosion:Mild   4.171883e-02
+## Insight:Moderate-Implosion:Mild           6.793105e-04
+## Desensitization:Severe-Implosion:Mild     8.249777e-03
+## Implosion:Severe-Implosion:Mild           1.645513e-06
+## Insight:Severe-Implosion:Mild             1.050373e-04
+## Implosion:Severe-Desensitization:Moderate 3.063428e-02
+## Implosion:Severe-Implosion:Moderate       1.156835e-02</code></pre>
+<p>All significant Tukey tests (at the <em>p</em> &lt; .05 level) are displayed above. </br></br></p>
+</div>
+</div>
+<div id="visualization" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Visualization</h1>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize interaction as line plot</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(<span class="at">x.factor =</span> snake<span class="sc">$</span>Therapy, </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">trace.factor =</span> snake<span class="sc">$</span>Severity, </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">response =</span> snake<span class="sc">$</span>BAT, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xlab =</span> <span class="st">&#39;Therapy&#39;</span>, <span class="at">ylab =</span> <span class="st">&#39;Mean BAT score&#39;</span>, </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">trace.label =</span> <span class="st">&#39;Severity&#39;</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;BAT score vs ophidiophobia &amp; form of therapy&quot;</span>)</span></code></pre></div>
+<p><img src="R_hypothesis-testing_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate means of each group</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mean_snake <span class="ot">=</span> <span class="fu">aggregate</span>(snake[, <span class="dv">1</span>], </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">list</span>(<span class="at">Therapy =</span> snake<span class="sc">$</span>Therapy,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">Severity =</span> snake<span class="sc">$</span>Severity),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                       mean)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mean_snake)[<span class="fu">colnames</span>(mean_snake) <span class="sc">==</span> <span class="st">&quot;x&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;BAT&quot;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate standard error of each group</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>se_snake <span class="ot">=</span> <span class="fu">aggregate</span>(snake[, <span class="dv">1</span>], </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">list</span>(<span class="at">Therapy =</span> snake<span class="sc">$</span>Therapy,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>                          <span class="at">Severity =</span> snake<span class="sc">$</span>Severity), sd)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(se_snake)[<span class="fu">colnames</span>(se_snake) <span class="sc">==</span> <span class="st">&quot;x&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;BAT&quot;</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>n_obs <span class="ot">=</span> <span class="fu">length</span>(snake<span class="sc">$</span>BAT[<span class="fu">which</span>(snake<span class="sc">$</span>Severity <span class="sc">==</span> <span class="st">&quot;Mild&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>                                 snake<span class="sc">$</span>Therapy <span class="sc">==</span> <span class="st">&quot;Desensitization&quot;</span>)]</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>               ) <span class="co"># obs per group </span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>se_snake<span class="sc">$</span>BAT <span class="ot">=</span> se_snake<span class="sc">$</span>BAT <span class="sc">/</span> <span class="fu">sqrt</span>(n_obs)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co"># add error bars</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>line_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mean_snake, </span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Therapy, </span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">y =</span> BAT, </span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">group =</span> Severity, </span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">color =</span> Severity)) <span class="sc">+</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> BAT <span class="sc">-</span> se_snake<span class="sc">$</span>BAT, </span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax =</span> BAT <span class="sc">+</span> se_snake<span class="sc">$</span>BAT), </span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> .<span class="dv">2</span>,</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.05</span>)) <span class="sc">+</span> </span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># theme_classic() +</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Mean BAT score&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;BAT score vs ophidiophobia &amp; form of therapy&quot;</span>) <span class="sc">+</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(line_plot)</span></code></pre></div>
+<p><img src="R_hypothesis-testing_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the same data using a bar graph</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>bar_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mean_snake, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">aes</span>(<span class="at">x =</span> Therapy, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> BAT)) <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data =</span> mean_snake, </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">fill =</span> Severity), </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>, </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Mean BAT score&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;BAT score vs ophidophobia &amp; form of therapy&quot;</span>) <span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bar_plot)</span></code></pre></div>
+<p><img src="R_hypothesis-testing_files/figure-html/unnamed-chunk-6-3.png" width="672" /></p>
+</div>
+<div id="discussion" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Discussion</h1>
+<p>Based on these results, we can make a number of inferences: </br><br />
+For instance: </br></p>
+<ol style="list-style-type: decimal">
+<li><p>Implosion therapy BAT scores are significantly higher than insight therapy BAT scores for individuals with moderate ophidiophobia (<em>p-adj</em> = 2.230721e-02), suggesting that implosion therapy is more effective than insight therapy for individuals with moderate ophidiophobia (note that this effect appears to be reversed for individuals with severe ophidiophobia, although this is only a trend as the difference is not significant); </br></p></li>
+<li><p>Implosion therapy BAT scores are significantly higher for individuals with mild and moderate ophidiophobia than those for individuals with severe ophidiophobia (<em>p-adj</em> = 1.050373e-04; <em>p-adj</em> = 1.156835e-02), suggesting that implosion therapy is more effective for individuals with mild ophidiophobia than with moderate or severe (this effect is probably compounded with the main effect of severity - i.e., individuals with more mild ophidiophobia have higher BAT scores overall).</p></li>
+</ol>
+<p>It is interesting to note that the effect of therapy for individuals with severe ophidiophobia appears to be in the opposite direction of that for individuals with mild and moderate ophidiophobia. This finding lends support to the experimenter’s hypothesis that the effectiveness of a treatment for ophidiophobia depends on the severity of the phobia.</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
