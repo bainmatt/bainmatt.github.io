@@ -36,7 +36,7 @@
 .Ruserdata
 .Rproj.user/
 
-# knitr and R Markdown temporary files
+# knitr and R Markdown temporary files 
 /cache/
 *_cache/
 *_files/
