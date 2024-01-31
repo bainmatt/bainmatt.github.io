@@ -1,0 +1,4 @@
+Branch settings temporarily changed for remote branch main
+- Require a pull request before merging (unchecked)
+- Require signed commits (unchecked)
+- Allow force pushes (checked)

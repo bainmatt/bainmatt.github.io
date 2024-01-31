@@ -4,7 +4,7 @@
 
 # allow the build directory (and its contents, subdirectories, their contents & subdirectories)
 !.gitignore
-!.nojekyll
+!.nojekyllg
 !docs/
 !docs/**
 
