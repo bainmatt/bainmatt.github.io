@@ -2,13 +2,14 @@
 # ignore everything by default
 *
 
-# allow the build directory
+# allow the build directory (and its contents, subdirectories, their contents & subdirectories)
 !.gitignore
 !docs/
+!docs/**
 
 ### Exclude specific contents within the build directory ###
 ## Generic user-specific
-# archived
+# archived (irrespective of subdirectory/basename)
 **/archive/
 *_archive
 
@@ -39,4 +40,4 @@
 # knitr and R Markdown temporary files 
 /cache/
 *_cache/
-*_files/
+#*_files/

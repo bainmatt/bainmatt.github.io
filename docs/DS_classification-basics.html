@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Matthew Bain" />
+
+
+<title>DS_classification-basics.knit</title>
+
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="shortcut icon" href="favicon.jpg">
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="generic-css.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">fujinai</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="music_page.html">music</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    outlines &amp; guides
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="DS_classification-basics.html">Getting started with classifiers in R</a>
+    </li>
+    <li>
+      <a href="ML_classification-basics.html">Getting started with classification in Python</a>
+    </li>
+    <li>
+      <a href="R_hypothesis-testing.html">Hypothesis testing in R</a>
+    </li>
+    <li class="dropdown-header">writing reminders</li>
+    <li class="dropdown-header">study reminders</li>
+    <li>
+      <a href="writing_temp_typora2rmd.html">writing temp</a>
+    </li>
+    <li class="dropdown-header">coding temp</li>
+    <li class="dropdown-header">plotting temp</li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    writing
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">me</li>
+    <li class="dropdown-header">math</li>
+    <li class="dropdown-header">machine learning</li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">thesis abridged</li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://www.youtube.com/@fujinai9/featured">
+    <span class="fa fa-youtube fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://soundcloud.com/user-752823440">
+    <span class="fa fa-brands fa-soundcloud"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/mattlabcode">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/matthew-bain314/">
+    <span class="fab fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><div class="line-block">K-nearest
+neighbours &amp; classification trees</div></h1>
+<h4 class="author">Matthew Bain</h4>
+
+</div>
+
+
+<p>We start by loading in all the R packages we need for this report
+<span class="citation">(R Core Team 2020)</span>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)        <span class="co"># tools for data wangling</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)     <span class="co"># operators that improve data manipulation workflow</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)        <span class="co"># tools for manipulating data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)      <span class="co"># for plotting</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomcoloR)  <span class="co"># produces colour palettes for plots</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)      <span class="co"># for manipulating factor variables</span></span></code></pre></div>
+<div style="page-break-after: always;"></div>
+<div id="k-nearest-neighbours" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> K-nearest
+neighbours</h1>
+<div id="loading-the-data" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Loading the data</h2>
+<!-- We will use `iris` data in the `datasets` package for this question. The help page says that `iris` is a famous (Fisher's or Anderson's) `iris` dataset gives the measurements in centimeters of the variables `sepal length`, `sepal width`, and `petal length` and `petal width`, respectively, for 50 flowers from each of 3 species of Iris. The species are Iris _setosa_, _versicolor_, and _virginica_. -->
+<!-- Identify quantitative and qualitative variables in _iris_ data.  -->
+<p>We start by reading in the <code>iris</code> data in the
+<code>datasets</code> package.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasets)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>iris_data <span class="ot">=</span> datasets<span class="sc">::</span>iris</span></code></pre></div>
+<p>Observing the imported data frame, we can see that the the
+<code>iris</code> dataset contains the following qualitative and
+quantitative variables:</p>
+<p>Qualitative:</p>
+<ul>
+<li>species: the species of Iris (categorical variable consisting of
+three categories, ‘setosa’, ‘versicolor’, and ‘virginica’, each
+containing 50 observations from different flowers)</li>
+</ul>
+<p>Quantitative:</p>
+<ul>
+<li>sepal length</li>
+<li>sepal width</li>
+<li>petal length</li>
+<li>petal width</li>
+</ul>
+<p>The dataset contains, for each flower examined, measurements of the
+four anatomical features above, each of which is a continuous numerical
+variable.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="observations-on-the-dataset" class="section level2"
+number="1.2">
+<h2><span class="header-section-number">1.2</span> Observations on the
+dataset</h2>
+<!-- Use `summary()` to explore the variables in the `iris` data. Then, comment on the distribution (mean, median, range or number of categories, frequency of each category) of sepal length, petal length, and species variables. -->
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>iris_summary <span class="ot">=</span> <span class="fu">summary</span>(iris_data)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>iris_summary</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Median :5.800   Median :3.000   Median :4.350   Median :1.300  </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  </span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        Species  </span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  setosa    :50  </span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  versicolor:50  </span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  virginica :50  </span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 </span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 </span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span></code></pre></div>
+<p>From the above summary, we make the following observations:</p>
+<ul>
+<li>the measurement with the widest range is <code>petal length</code>,
+with a range of 5.9 cm; <code>petal width</code> and
+<code>sepal width</code> share the smallest range, of 2.4 cm.</li>
+<li>for both <code>sepal length</code> and <code>width</code>, the
+median is lower than the mean, and for both <code>petal length</code>
+and <code>width</code>, the median is higher than the mean. This could
+suggest that the sepal measurements are positively skewed, whereas the
+petal measurements are negatively skewed.</li>
+<li><code>sepal length</code> has the highest mean and median of all the
+measurements, whereas <code>petal width</code> has the lowest.</li>
+<li>the dataset contains 50 observations for each species.</li>
+</ul>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="potential-approaches" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Potential
+approaches</h2>
+<!-- Suppose we want to predict species type of Iris plant using sepal length, sepal width, petal length, petal width. Identify the type of statistical learning method that we can use for this task. -->
+<p>The task of identifying the Iris species of an unknown plant specimen
+based on these anatomical measurements is a classification problem.
+Since we already know the potential species of Iris and we have a
+dataset containing observations that we could train a classifier on,
+this is a problem we could approach using supervised statistical
+learning methods.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="relationships-among-predictors" class="section level2"
+number="1.4">
+<h2><span class="header-section-number">1.4</span> Relationships among
+predictors</h2>
+<!-- Use the `cor()` function to produce a matrix that contains all of the pairwise correlations among the predictors in the iris data set. Comment on the pairwise correlations (which predictors are highly/weakly correlated). -->
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we prune categorical variables (`species`) before passing dataset to `cor` </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>iris_data_nocat <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(iris_data, <span class="sc">-</span>Species)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>iris_data_pwcorrs <span class="ot">=</span> <span class="fu">cor</span>(iris_data_nocat)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>iris_data_pwcorrs</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              Sepal.Length Sepal.Width Petal.Length Petal.Width</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Sepal.Length    1.0000000  -0.1175698    0.8717538   0.8179411</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Sepal.Width    -0.1175698   1.0000000   -0.4284401  -0.3661259</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Petal.Length    0.8717538  -0.4284401    1.0000000   0.9628654</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000</span></span></code></pre></div>
+<p>From the above correlation matrix, we can observe that
+<code>petal length</code> &amp; <code>width</code> appear to be very
+highly correlated (0.9628654). <code>Petal length</code> &amp;
+<code>sepal length</code> (0.8717538) and <code>petal width</code> &amp;
+<code>sepal length</code> (0.8179411) also have high correlations. On
+the other hand, <code>sepal width</code> &amp; <code>sepal length</code>
+appear to have no correlation (-0.1175698), whereas
+<code>petal length</code> &amp; <code>sepal width</code> (-0.4284401)
+and <code>petal width</code> &amp; <code>sepal width</code> (-0.3661259)
+appear to be moderately negatively correlated. Further statistical
+analysis needs to be conducted before we can make inferences about the
+significance of these observations.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="examining-pairwise-relationships" class="section level2"
+number="1.5">
+<h2><span class="header-section-number">1.5</span> Examining pairwise
+relationships</h2>
+<!-- Create a pairwise plot matrix for response and all predictor variables in the `iris` dataset and comment on the plot (what are the off-diagonal plots, do plots show a correlation between variables, etc.). We can use `GGally::ggpairs()`. -->
+<p>We use the <code>GGally</code> package for the plot below <span
+class="citation">(Schloerke, Crowley, and Cook 2018)</span>.s</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot correlation matrix of scatterplots, filtered by species</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggpairs</span>(iris_data, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">colour =</span> Species))</span></code></pre></div>
+<p><img src="DS_classification-basics_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>The above is a correlation matrix which shows the relationships
+(pairwise Pearson correlations) among the measurements in the
+<code>iris</code> dataset. Only ‘off-diagonal’ pairwise correlations are
+shown – i.e., only correlations between different measurements (e.g.,
+petal length and width), as opposed to between the same measurements
+(e.g., petal length and itself), which are trivial, and always equal to
+1. The plots are all filtered into 3 groups, corresponding to the 3
+species of Iris (blue = setosa, green = versicolor, blue = virginica).
+The numerical correlation values given on the upper triangle of the
+matrix give the precise Pearson correlations for each species. The grey
+values are the average correlations for a given pairwise comparison,
+irrespective of species.<br />
+</p>
+<p>The length and width measurements serve as our predictor variables.
+The scatter plots on the lower triangle of the matrix roughly show the
+relationship between these measurements, and the histograms show their
+individual distributions. As we observed in (1.4), the highest pairwise
+correlation is between petal length and width, which can be seen in the
+scatterplot for the corresponding comparison, in which the values all
+appear to be roughly clustered along the positive diagonal, indicating a
+strong positive correlation. The corresponding numerical correlation
+values corroborate this observation, as they all have asterisks beside
+them, indicating statistical significance. However, with the
+scatterplots stratified according to species, we can see that this high
+average correlation seems to be due, at least in part, to the way the
+observations for the individual species are clustered. The setosa
+observations are clustered in the bottom left corner, the versicolor
+observations in the middle, and the virginica observations in the top
+right, giving rise to an artificially high average correlation.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="confusion-matrix" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Confusion matrix</h2>
+<!-- This question asks to comment on a confusion matrix. We will look at the steps of fitting KNN. We use stratified sampling to select observations for the training and validation sets. Let's say we choose 50%/50% (training and validation sets). -->
+<!-- We can find the proportion of each species type in the whole data set. -->
+<p>The code below identifies the proportion of each species in the
+<code>iris</code> dataset.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n))</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 × 3</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Species        n  prop</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;      &lt;int&gt; &lt;dbl&gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 setosa        50 0.333</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 versicolor    50 0.333</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 virginica     50 0.333</span></span></code></pre></div>
+<!-- We want to sample (1/3, 1/3, 1/3) the proportion of observations from each species type to train and validation sets. Therefore, we run the following code to create train and validation sets. -->
+<p>The code below partitions the dataset into training and validation
+sets, each with 1/3 of the observations representing each species.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>train_ind <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(iris<span class="sc">$</span>Species, <span class="at">p =</span> <span class="fl">0.5</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># proportion of species types in training set</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris<span class="sc">$</span>Species[train_ind])<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">table</span>(iris<span class="sc">$</span>Species[train_ind]))</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     setosa versicolor  virginica </span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.3333333  0.3333333  0.3333333</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># proportion of species types in validation set</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris<span class="sc">$</span>Species[<span class="sc">-</span>train_ind])<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">table</span>(iris<span class="sc">$</span>Species[<span class="sc">-</span>train_ind]))</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     setosa versicolor  virginica </span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.3333333  0.3333333  0.3333333</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># train and validation set split</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>train_iris <span class="ot">&lt;-</span> <span class="fu">slice</span>(iris, train_ind)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>validation_iris <span class="ot">&lt;-</span> <span class="fu">slice</span>(iris, <span class="sc">-</span>train_ind)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co"># knn needs response in train set</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>train_iris_species <span class="ot">&lt;-</span> <span class="fu">pull</span>(train_iris, Species)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># To compute misclassification error, we need response in validation set</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>validation_iris_species <span class="ot">&lt;-</span> <span class="fu">pull</span>(validation_iris, Species)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co"># knn needs predictors in train and validation set</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>train_predictors <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(train_iris, <span class="sc">-</span>Species)</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>validation_predictors <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(validation_iris, <span class="sc">-</span>Species)</span></code></pre></div>
+<!-- Next, we use K-nearest neighbor to predict species type. `prop = TRUE` returns predicted probability for the winning species type. -->
+<!-- We produce a confusion matrix to determine how many observations were correctly or incorrectly classified in the validation set. -->
+<p>The code below uses the K-nearest neighbours method to predict the
+Iris species of the observations in the validation set, based on those
+in the training set, which are used to create the model. A confusion
+matrix showing the performance of the model is outputted.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(class)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>) <span class="co"># to ensure reproducibility of the results</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use KNN to predict the labels for validation set.</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>fit_knn <span class="ot">&lt;-</span> <span class="fu">knn</span>(</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale</span>(train_predictors), </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale</span>(validation_predictors), </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">cl =</span> train_iris_species, </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">k =</span> <span class="dv">3</span>, </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">prob =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># produce confusion matrix</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(validation_iris_species, fit_knn)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>tab</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                        fit_knn</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; validation_iris_species setosa versicolor virginica</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              setosa         25          0         0</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              versicolor      0         23         2</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              virginica       0          4        21</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(tab)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 75</span></span></code></pre></div>
+<!-- Comment on the following confusion matrix. [Hint: how many correct predictions are on the validation set and the proportion of correct prediction. What is an estimate of test set error rate.] -->
+<p>From the above confusion matrix we observe that all 25 setosa
+specimens are classified correctly, 2 versicolor specimens are
+misclassified as virginica, and 1 virginica specimen is misclassified as
+a versicolor. The overall proportion of correct predictions is <span
+class="math inline">\(\frac{25 + 24 + 23}{75} = .96\)</span>, i.e.,
+96%.</p>
+<p>The test set error rate is the proportion of misclassified specimens
+in the validation set, i.e., <span class="math inline">\(3/75\)</span> =
+4%.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="alternate-testvalidation-partition" class="section level2"
+number="1.7">
+<h2><span class="header-section-number">1.7</span> Alternate
+test/validation partition</h2>
+<!-- Now repeat (1.6) with 70%/30% - training and validation sets. What is an estimate of the test set error rate? -->
+<p>In the below code, we repeat the above analysis but instead of a
+50%/50% training/validation split, we use a 70%/30% split. The resulting
+split has 45 observations in the validation set. The adjusted confusion
+matrix is outputted below.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># use p = .7 (70%) of the data for training</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>train_ind <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(iris<span class="sc">$</span>Species, <span class="at">p =</span> <span class="fl">0.7</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># proportion of species types in training set</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris<span class="sc">$</span>Species[train_ind])<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">table</span>(iris<span class="sc">$</span>Species[train_ind]))</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     setosa versicolor  virginica </span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.3333333  0.3333333  0.3333333</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># proportion of species types in validation set</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris<span class="sc">$</span>Species[<span class="sc">-</span>train_ind])<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">table</span>(iris<span class="sc">$</span>Species[<span class="sc">-</span>train_ind]))</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     setosa versicolor  virginica </span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.3333333  0.3333333  0.3333333</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># train and validation set split</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>train_iris <span class="ot">&lt;-</span> <span class="fu">slice</span>(iris, train_ind)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>validation_iris <span class="ot">&lt;-</span> <span class="fu">slice</span>(iris, <span class="sc">-</span>train_ind)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co"># knn needs response in train set</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>train_iris_species <span class="ot">&lt;-</span> <span class="fu">pull</span>(train_iris, Species)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co"># To compute misclassification error, we need response in validation set</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>validation_iris_species <span class="ot">&lt;-</span> <span class="fu">pull</span>(validation_iris, Species)</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co"># knn needs predictors in train and validation set</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>train_predictors <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(train_iris, <span class="sc">-</span>Species)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>validation_predictors <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(validation_iris, <span class="sc">-</span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(class)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>) <span class="co"># to ensure reproducibility of the results</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use KNN to predict the labels for validation set.</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>fit_knn <span class="ot">&lt;-</span> <span class="fu">knn</span>(</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale</span>(train_predictors), </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale</span>(validation_predictors), </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">cl =</span> train_iris_species, </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">k =</span> <span class="dv">3</span>, </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">prob =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># produce confusion matrix</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(validation_iris_species, fit_knn)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>tab</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                        fit_knn</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; validation_iris_species setosa versicolor virginica</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              setosa         15          0         0</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              versicolor      0         14         1</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              virginica       0          1        14</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(tab)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 45</span></span></code></pre></div>
+<p>From the above confusion matrix, we can estimate the adjusted test
+set error rate as the proportion of misclassified specimens, i.e., <span
+class="math inline">\(\frac{1 + 2}{45} = .066\)</span>, i.e., 6.67%.</p>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div id="intro-to-classification-trees" class="section level1"
+number="2">
+<h1><span class="header-section-number">2</span> Intro to classification
+trees</h1>
+<div id="classification-tree-diagram" class="section level2"
+number="2.1">
+<h2><span class="header-section-number">2.1</span> Classification tree
+diagram</h2>
+<!-- Consider a classification tree below. It contains classification results for three different types of wine, Type 1, Type 2, and Type 3 (numbered as 1, 2, and 3). The following explains the summary of classification tree fit. -->
+<!-- In the data set, what percentage of observations are from Type 2? -->
+<p><img src="images/DS_Q2_ref.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>Based on the classification tree above, 40% of the observations
+correspond to Type 2 wine.</p>
+<!-- Based on the above classification tree, what percentage of observations are classified by the tree as Type 3? -->
+<p>Furthermore, 26% of observations are classified as Type 3 – 4% in
+region 5 (seen in the bottom level of the tree) and 22% in region
+15.</p>
+<!-- Based on the above classification tree, if an observation had a "Proline" value of 620, an "OD280/OD315 of Diluted Wines" value of 2, a "Hue" of 0.8, and a "Flavanoids" value of 2.1, which Type would it be classified as? -->
+<p>We note that an observation with a “Proline” value of 620, an
+“OD280/OD315 of Diluted Wines” value of 2, a “Hue” of 0.8, and a
+“Flavanoids” value of 2.1 would be classified as Type 3, as the tree
+would place it in region 15.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="classification-tree-implementation" class="section level2"
+number="2.2">
+<h2><span class="header-section-number">2.2</span> Classification tree
+implementation</h2>
+<div id="loading-the-data-1" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Loading the
+data</h3>
+<!-- We consider the `bankruptcy` data from the `MixGHD` package. We will use this data set to predict the firm's status: bankruptcy (0) or financially sound (1). Read the help page for `bankruptcy` data from the `MixGHD` package. -->
+<!-- Identify the response and predictor variables. Then, convert the response variable to a factor. -->
+<p>We start by reading in the <code>bankruptcy</code> data from the
+<code>MixGHD</code> package.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MixGHD)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(bankruptcy)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bankruptcy)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        Y             RE               EBIT         </span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Min.   :0.0   Min.   :-308.90   Min.   :-280.000  </span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1st Qu.:0.0   1st Qu.: -39.05   1st Qu.: -17.675  </span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Median :0.5   Median :   7.85   Median :   4.100  </span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Mean   :0.5   Mean   : -13.63   Mean   :  -8.226  </span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3rd Qu.:1.0   3rd Qu.:  35.75   3rd Qu.:  14.400  </span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Max.   :1.0   Max.   :  68.60   Max.   :  34.100</span></span></code></pre></div>
+<p>The the <code>bankruptcy</code> dataset contains data for American
+firms, half of which had filed for bankruptcy at the time the data was
+collected, measuring their financial status. Based on the summary above,
+we identify the following predictor and response variables in the
+dataset:</p>
+<p>Predictor:</p>
+<ul>
+<li><code>RE</code>: ratio of retained earnings to total assets</li>
+<li><code>EBIT</code>: ratio of earnings before interest and taxes to
+total assets</li>
+</ul>
+<p>Response:</p>
+<ul>
+<li><code>Y</code>: binary value (1 or 0) representing whether the firm
+is financially sound or not, respectively</li>
+</ul>
+<p>Below we convert the response variable <code>Y</code> to a
+factor:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert response variable to factor</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>bankruptcy_data <span class="ot">=</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">.data =</span> bankruptcy, <span class="at">Y =</span> <span class="fu">factor</span>(Y))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(bankruptcy_data<span class="sc">$</span>Y)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;factor&quot;</span></span></code></pre></div>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="measures-of-financial-soundness" class="section level3"
+number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Measures of
+financial soundness</h3>
+<!-- Find the proportion of observations in the bankruptcy (0) and financially sound (1) classes. -->
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>prop_brupt <span class="ot">=</span> <span class="fu">sum</span>(bankruptcy<span class="sc">$</span>Y <span class="sc">==</span> <span class="dv">0</span>)<span class="sc">/</span><span class="fu">dim</span>(bankruptcy)[<span class="dv">1</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>prop_sound <span class="ot">=</span> <span class="fu">sum</span>(bankruptcy<span class="sc">$</span>Y <span class="sc">==</span> <span class="dv">1</span>)<span class="sc">/</span><span class="fu">dim</span>(bankruptcy)[<span class="dv">1</span>]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>prop_brupt</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.5</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>prop_sound</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.5</span></span></code></pre></div>
+<p>The dataset is split down the middle, with 50% of observations in the
+<code>bankruptcy</code> class, and 50% in the
+<code>financially sound</code> class.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="constructing-the-tree" class="section level3" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Constructing the
+tree</h3>
+<!-- We use 60%/40% training/validation sets. Run the following code. From the fit summary, what are the predictor variables used in the construction? -->
+<p>The code below constructs a classification tree on the
+<code>bankruptcy</code> dataset using a 60%/40% training/validation set
+split.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MixGHD)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(bankruptcy, <span class="at">package=</span><span class="st">&quot;MixGHD&quot;</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample 60% of observations so that the training set has </span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the same proportion of each class of Y as in the original data.</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tree)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Registered S3 method overwritten by &#39;tree&#39;:</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   method     from</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   print.tree cli</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co"># training set indices</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>bankruptcy_train_index <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(bankruptcy<span class="sc">$</span>Y, <span class="at">p =</span> <span class="fl">0.6</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Build a tree </span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>bank_tree <span class="ot">&lt;-</span> <span class="fu">tree</span>(</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  Y <span class="sc">~</span> ., </span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> bankruptcy,</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">subset =</span> bankruptcy_train_index,</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">method=</span><span class="st">&quot;class&quot;</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bank_tree)</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Regression tree:</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tree(formula = Y ~ ., data = bankruptcy, subset = bankruptcy_train_index, </span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     method = &quot;class&quot;)</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Variables actually used in tree construction:</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;RE&quot;</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Number of terminal nodes:  4 </span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residual mean deviance:  0.04444 = 1.6 / 36 </span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Distribution of residuals:</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    -0.8     0.0     0.0     0.0     0.0     0.8</span></span></code></pre></div>
+<p>From the summary above, we observe that the only predictor variable
+used in the construction of the tree is <code>RE</code>. The resulting
+tree has 4 terminal nodes.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="estimating-test-error" class="section level3" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Estimating test
+error</h3>
+<!-- Estimate the test error (misclassification error rate) using the validation set. -->
+<p>Below we estimate the test error using the validation set.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># store data frame consisting of test set</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>bank_test_set <span class="ot">=</span> bankruptcy[<span class="sc">-</span>bankruptcy_train_index, ]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># test set correct labels</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>bank_test_set_Y <span class="ot">=</span> bankruptcy<span class="sc">$</span>Y[<span class="sc">-</span>bankruptcy_train_index]</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># predict class of test observations based on constructed tree</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>bank_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  bank_tree, </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  bank_test_set</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bank_pred)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3  6  8 12 13 16 </span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0  0  0  0  0  0</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bank_pred, bank_test_set_Y)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          bank_test_set_Y</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; bank_pred  0  1</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       0   12  0</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       0.2  1  0</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       0.8  0  6</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       1    0  7</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="co"># test error prediction</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>(<span class="fu">table</span>(bank_pred, bank_test_set_Y)[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">table</span>(bank_pred, bank_test_set_Y)[<span class="dv">2</span>,<span class="dv">2</span>])<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">table</span>(bank_pred, bank_test_set_Y))</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.4615385</span></span></code></pre></div>
+<p>The model’s test error on the validation set is 0.4615385.</p>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1 class="unnumbered">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-citeR" class="csl-entry">
+R Core Team. 2020. <em>R: A Language and Environment for Statistical
+Computing</em>. Vienna, Austria: R Foundation for Statistical Computing.
+<a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-schloerke2018package" class="csl-entry">
+Schloerke, Barret, Jason Crowley, and Di Cook. 2018. <span>“Package
+<span>‘GGally’</span>.”</span> <em>Extension to ‘Ggplot2.’See</em> 713.
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
