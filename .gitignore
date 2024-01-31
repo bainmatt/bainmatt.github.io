@@ -1,0 +1,42 @@
+### Only track specified contents of website build ###
+# ignore everything by default
+*
+
+# allow the build directory
+!.gitignore
+!docs/
+
+### Exclude specific contents within the build directory ###
+## Generic user-specific
+# archived
+**/archive/
+*_archive
+
+## Particular user-specific
+
+## System-generated
+# settings
+*.DS_Store
+
+## R-generated
+# session data files
+.RData
+.RDataTmp
+
+# history files
+.Rhistory
+.Rapp.history
+
+# logs & other files
+*.log
+*.aux
+*.out
+
+# user files
+.Ruserdata
+.Rproj.user/
+
+# knitr and R Markdown temporary files 
+/cache/
+*_cache/
+*_files/
