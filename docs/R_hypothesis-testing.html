@@ -419,71 +419,70 @@ div.tocify {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="music_page.html">music</a>
-</li>
-<li class="dropdown">
+        <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    outlines &amp; guides
+    data guides
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="DS_classification-basics.html">Getting started with classifiers in R</a>
+      <a href="DS_classification-basics.html">Classification in R</a>
     </li>
+    <li class="dropdown-header">Classification in Python</li>
+    <li class="dropdown-header">Frequentist hypothesis testing in R</li>
     <li>
-      <a href="ML_classification-basics.html">Getting started with classification in Python</a>
+      <a href="writing_temp_typora2rmd.html">Writing template</a>
     </li>
-    <li>
-      <a href="R_hypothesis-testing.html">Hypothesis testing in R</a>
-    </li>
-    <li class="dropdown-header">writing reminders</li>
-    <li class="dropdown-header">study reminders</li>
-    <li>
-      <a href="writing_temp_typora2rmd.html">writing temp</a>
-    </li>
-    <li class="dropdown-header">coding temp</li>
-    <li class="dropdown-header">plotting temp</li>
+    <li class="dropdown-header">Plotting template</li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    writing
+    data projects
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">me</li>
-    <li class="dropdown-header">math</li>
-    <li class="dropdown-header">machine learning</li>
+    <li class="dropdown-header">[placeholder]</li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    projects
+    math
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">thesis abridged</li>
+    <li class="dropdown-header">[placeholder]</li>
   </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    machines
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">[placeholder]</li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    art
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">[placeholder]</li>
+  </ul>
+</li>
+<li>
+  <a href="music_page.html">original music</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://www.youtube.com/@fujinai9/featured">
-    <span class="fa fa-youtube fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a href="https://soundcloud.com/user-752823440">
-    <span class="fa fa-brands fa-soundcloud"></span>
-     
-  </a>
-</li>
-<li>
   <a href="https://github.com/mattlabcode">
     <span class="fab fa-github fa-lg"></span>
      
@@ -492,6 +491,18 @@ div.tocify {
 <li>
   <a href="https://www.linkedin.com/in/matthew-bain314/">
     <span class="fab fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.youtube.com/@fujinai9/featured">
+    <span class="fa fa-youtube fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://soundcloud.com/user-752823440">
+    <span class="fa fa-brands fa-soundcloud"></span>
      
   </a>
 </li>
@@ -531,7 +542,7 @@ phobia (higher scores are better, indicating less phobia):
 <div id="step-1-import-the-data." class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Step 1: Import the
 data.</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>snake <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;snakedata.csv&#39;</span>)</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>snake <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;data/snakedata.csv&#39;</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>severity_levels <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;Mild&#39;</span>, <span class="st">&#39;Moderate&#39;</span>, <span class="st">&#39;Severe&#39;</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>treatment_levels <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;Desensitization&#39;</span>, <span class="st">&#39;Implosion&#39;</span>, <span class="st">&#39;Insight&#39;</span>)</span></code></pre></div>
 <p></br></p>

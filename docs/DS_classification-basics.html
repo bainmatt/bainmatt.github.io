@@ -17,7 +17,7 @@
 <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -84,43 +84,46 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
+    background-color: #ffffff;
+    color: #a0a0a0;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #1f1c1b; background-color: #ffffff; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
 
 </style>
 <script>
@@ -442,71 +445,70 @@ div.tocify {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="music_page.html">music</a>
-</li>
-<li class="dropdown">
+        <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    outlines &amp; guides
+    data guides
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="DS_classification-basics.html">Getting started with classifiers in R</a>
+      <a href="DS_classification-basics.html">Classification in R</a>
     </li>
+    <li class="dropdown-header">Classification in Python</li>
+    <li class="dropdown-header">Frequentist hypothesis testing in R</li>
     <li>
-      <a href="ML_classification-basics.html">Getting started with classification in Python</a>
+      <a href="writing_temp_typora2rmd.html">Writing template</a>
     </li>
-    <li>
-      <a href="R_hypothesis-testing.html">Hypothesis testing in R</a>
-    </li>
-    <li class="dropdown-header">writing reminders</li>
-    <li class="dropdown-header">study reminders</li>
-    <li>
-      <a href="writing_temp_typora2rmd.html">writing temp</a>
-    </li>
-    <li class="dropdown-header">coding temp</li>
-    <li class="dropdown-header">plotting temp</li>
+    <li class="dropdown-header">Plotting template</li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    writing
+    data projects
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">me</li>
-    <li class="dropdown-header">math</li>
-    <li class="dropdown-header">machine learning</li>
+    <li class="dropdown-header">[placeholder]</li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    projects
+    math
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">thesis abridged</li>
+    <li class="dropdown-header">[placeholder]</li>
   </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    machines
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">[placeholder]</li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    art
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">[placeholder]</li>
+  </ul>
+</li>
+<li>
+  <a href="music_page.html">original music</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://www.youtube.com/@fujinai9/featured">
-    <span class="fa fa-youtube fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a href="https://soundcloud.com/user-752823440">
-    <span class="fa fa-brands fa-soundcloud"></span>
-     
-  </a>
-</li>
-<li>
   <a href="https://github.com/mattlabcode">
     <span class="fab fa-github fa-lg"></span>
      
@@ -515,6 +517,18 @@ div.tocify {
 <li>
   <a href="https://www.linkedin.com/in/matthew-bain314/">
     <span class="fab fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.youtube.com/@fujinai9/featured">
+    <span class="fa fa-youtube fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://soundcloud.com/user-752823440">
+    <span class="fa fa-brands fa-soundcloud"></span>
      
   </a>
 </li>
@@ -527,13 +541,16 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore"><div class="line-block">K-nearest
-neighbours &amp; classification trees</div></h1>
+<h1 class="title toc-ignore"><div class="line-block">Basic data
+classification with R</div></h1>
 <h4 class="author">Matthew Bain</h4>
 
 </div>
 
 
+<hr>
+<em>This page is a placeholder.</em>
+<hr>
 <p>We start by loading in all the R packages we need for this report
 <span class="citation">(R Core Team 2020)</span>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)        <span class="co"># tools for data wangling</span></span>
@@ -544,7 +561,7 @@ neighbours &amp; classification trees</div></h1>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)      <span class="co"># for manipulating factor variables</span></span></code></pre></div>
 <div style="page-break-after: always;"></div>
 <div id="k-nearest-neighbours" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> K-nearest
+<h1><span class="header-section-number">1</span> k-nearest
 neighbours</h1>
 <div id="loading-the-data" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Loading the data</h2>
@@ -658,9 +675,11 @@ number="1.5">
 relationships</h2>
 <!-- Create a pairwise plot matrix for response and all predictor variables in the `iris` dataset and comment on the plot (what are the off-diagonal plots, do plots show a correlation between variables, etc.). We can use `GGally::ggpairs()`. -->
 <p>We use the <code>GGally</code> package for the plot below <span
-class="citation">(Schloerke, Crowley, and Cook 2018)</span>.s</p>
+class="citation">(Schloerke, Crowley, and Cook 2018)</span>.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot correlation matrix of scatterplots, filtered by species</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggpairs</span>(iris_data, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">colour =</span> Species))</span></code></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggpairs</span>(iris_data, <span class="at">columns =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">aes</span>(<span class="at">colour =</span> Species, <span class="at">alpha =</span> <span class="fl">0.5</span>),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="st">&quot;smooth&quot;</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div>
 <p><img src="DS_classification-basics_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>The above is a correlation matrix which shows the relationships
 (pairwise Pearson correlations) among the measurements in the
@@ -763,7 +782,7 @@ matrix showing the performance of the model is outputted.</p>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                        fit_knn</span></span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; validation_iris_species setosa versicolor virginica</span></span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              setosa         25          0         0</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              versicolor      0         22         3</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              versicolor      0         23         2</span></span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              virginica       0          3        22</span></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(tab)</span>
@@ -845,40 +864,41 @@ class="math inline">\(\frac{1 + 2}{45} = .066\)</span>, i.e., 6.67%.</p>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
-<div id="intro-to-classification-trees" class="section level1"
-number="2">
-<h1><span class="header-section-number">2</span> Intro to classification
+<div id="classification-trees" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Classification
 trees</h1>
-<div id="classification-tree-diagram" class="section level2"
-number="2.1">
-<h2><span class="header-section-number">2.1</span> Classification tree
-diagram</h2>
+<!--
+## Classification tree diagram
+-->
 <!-- Consider a classification tree below. It contains classification results for three different types of wine, Type 1, Type 2, and Type 3 (numbered as 1, 2, and 3). The following explains the summary of classification tree fit. -->
 <!-- In the data set, what percentage of observations are from Type 2? -->
-<p><img src="images/DS_Q2_ref.png" width="90%" style="display: block; margin: auto;" /></p>
-<p>Based on the classification tree above, 40% of the observations
-correspond to Type 2 wine.</p>
+<!--
+Based on the classification tree above, 40% of the observations
+correspond to Type 2 wine.
+-->
 <!-- Based on the above classification tree, what percentage of observations are classified by the tree as Type 3? -->
-<p>Furthermore, 26% of observations are classified as Type 3 – 4% in
-region 5 (seen in the bottom level of the tree) and 22% in region
-15.</p>
+<!--
+Furthermore, 26% of observations are classified as Type 3 -- 4% in
+region 5 (seen in the bottom level of the tree) and 22% in region 15.
+-->
 <!-- Based on the above classification tree, if an observation had a "Proline" value of 620, an "OD280/OD315 of Diluted Wines" value of 2, a "Hue" of 0.8, and a "Flavanoids" value of 2.1, which Type would it be classified as? -->
-<p>We note that an observation with a “Proline” value of 620, an
-“OD280/OD315 of Diluted Wines” value of 2, a “Hue” of 0.8, and a
-“Flavanoids” value of 2.1 would be classified as Type 3, as the tree
-would place it in region 15.</p>
+<!--
+We note that an observation with a "Proline" value of 620, an
+"OD280/OD315 of Diluted Wines" value of 2, a "Hue" of 0.8, and a
+"Flavanoids" value of 2.1 would be classified as Type 3, as the tree
+would place it in region 15.
+-->
 <div style="page-break-after: always;"></div>
-</div>
 <div id="classification-tree-implementation" class="section level2"
-number="2.2">
-<h2><span class="header-section-number">2.2</span> Classification tree
+number="2.1">
+<h2><span class="header-section-number">2.1</span> Classification tree
 implementation</h2>
-<div id="loading-the-data-1" class="section level3" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Loading the
+<div id="loading-the-data-1" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Loading the
 data</h3>
 <!-- We consider the `bankruptcy` data from the `MixGHD` package. We will use this data set to predict the firm's status: bankruptcy (0) or financially sound (1). Read the help page for `bankruptcy` data from the `MixGHD` package. -->
 <!-- Identify the response and predictor variables. Then, convert the response variable to a factor. -->
-<p>We start by reading in the <code>bankruptcy</code> data from the
+<p>We start by reading in the <code>bankruptcy</code> dataset from the
 <code>MixGHD</code> package.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MixGHD)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(bankruptcy)</span>
@@ -890,11 +910,10 @@ data</h3>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Mean   :0.5   Mean   : -13.63   Mean   :  -8.226  </span></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3rd Qu.:1.0   3rd Qu.:  35.75   3rd Qu.:  14.400  </span></span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Max.   :1.0   Max.   :  68.60   Max.   :  34.100</span></span></code></pre></div>
-<p>The the <code>bankruptcy</code> dataset contains data for American
-firms, half of which had filed for bankruptcy at the time the data was
-collected, measuring their financial status. Based on the summary above,
-we identify the following predictor and response variables in the
-dataset:</p>
+<p>The <code>bankruptcy</code> dataset contains data for American firms,
+half of which had filed for bankruptcy at the time the data was
+collected, measuring their financial status. From this summary we
+determine the predictor and response variables in the dataset:</p>
 <p>Predictor:</p>
 <ul>
 <li><code>RE</code>: ratio of retained earnings to total assets</li>
@@ -916,8 +935,8 @@ factor:</p>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="measures-of-financial-soundness" class="section level3"
-number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Measures of
+number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Measures of
 financial soundness</h3>
 <!-- Find the proportion of observations in the bankruptcy (0) and financially sound (1) classes. -->
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>prop_brupt <span class="ot">=</span> <span class="fu">sum</span>(bankruptcy<span class="sc">$</span>Y <span class="sc">==</span> <span class="dv">0</span>)<span class="sc">/</span><span class="fu">dim</span>(bankruptcy)[<span class="dv">1</span>]</span>
@@ -931,8 +950,8 @@ financial soundness</h3>
 <code>financially sound</code> class.</p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="constructing-the-tree" class="section level3" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Constructing the
+<div id="constructing-the-tree" class="section level3" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Constructing the
 tree</h3>
 <!-- We use 60%/40% training/validation sets. Run the following code. From the fit summary, what are the predictor variables used in the construction? -->
 <p>The code below constructs a classification tree on the
@@ -977,8 +996,8 @@ used in the construction of the tree is <code>RE</code>. The resulting
 tree has 4 terminal nodes.</p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="estimating-test-error" class="section level3" number="2.2.4">
-<h3><span class="header-section-number">2.2.4</span> Estimating test
+<div id="estimating-test-error" class="section level3" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Estimating test
 error</h3>
 <!-- Estimate the test error (misclassification error rate) using the validation set. -->
 <p>Below we estimate the test error using the validation set.</p>
@@ -1076,7 +1095,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1,h2,h3,h4,h5",
+      selectors: "h1,h2",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {

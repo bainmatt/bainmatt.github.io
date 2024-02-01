@@ -11,12 +11,12 @@
 
 
 
-<title>fujinai.</title>
+<title>Data-driven brain.</title>
 
 <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -241,71 +241,70 @@ $(document).ready(function () {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="music_page.html">music</a>
-</li>
-<li class="dropdown">
+        <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    outlines &amp; guides
+    data guides
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="DS_classification-basics.html">Getting started with classifiers in R</a>
+      <a href="DS_classification-basics.html">Classification in R</a>
     </li>
+    <li class="dropdown-header">Classification in Python</li>
+    <li class="dropdown-header">Frequentist hypothesis testing in R</li>
     <li>
-      <a href="ML_classification-basics.html">Getting started with classification in Python</a>
+      <a href="writing_temp_typora2rmd.html">Writing template</a>
     </li>
-    <li>
-      <a href="R_hypothesis-testing.html">Hypothesis testing in R</a>
-    </li>
-    <li class="dropdown-header">writing reminders</li>
-    <li class="dropdown-header">study reminders</li>
-    <li>
-      <a href="writing_temp_typora2rmd.html">writing temp</a>
-    </li>
-    <li class="dropdown-header">coding temp</li>
-    <li class="dropdown-header">plotting temp</li>
+    <li class="dropdown-header">Plotting template</li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    writing
+    data projects
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">me</li>
-    <li class="dropdown-header">math</li>
-    <li class="dropdown-header">machine learning</li>
+    <li class="dropdown-header">[placeholder]</li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    projects
+    math
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">thesis abridged</li>
+    <li class="dropdown-header">[placeholder]</li>
   </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    machines
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">[placeholder]</li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    art
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">[placeholder]</li>
+  </ul>
+</li>
+<li>
+  <a href="music_page.html">original music</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://www.youtube.com/@fujinai9/featured">
-    <span class="fa fa-youtube fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a href="https://soundcloud.com/user-752823440">
-    <span class="fa fa-brands fa-soundcloud"></span>
-     
-  </a>
-</li>
-<li>
   <a href="https://github.com/mattlabcode">
     <span class="fab fa-github fa-lg"></span>
      
@@ -314,6 +313,18 @@ $(document).ready(function () {
 <li>
   <a href="https://www.linkedin.com/in/matthew-bain314/">
     <span class="fab fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.youtube.com/@fujinai9/featured">
+    <span class="fa fa-youtube fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://soundcloud.com/user-752823440">
+    <span class="fa fa-brands fa-soundcloud"></span>
      
   </a>
 </li>
@@ -326,19 +337,41 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">fujinai.</h1>
+<h1 class="title toc-ignore">Data-driven brain.</h1>
 
 </div>
 
 
-<p><img src="images/banner_fuji-01.jpg" title="fujinai"
-style="justify-content: center" /></p>
-<hr />
-<div style="text-align: center">
-<p><em>I’m Matt. I make music, write, read about math, and analyze data.
-I share some of what I make here.</em></p>
+<!--
+------------------------------------------------------------------------
+
+::: {style="text-align: center"}
+I'm Matt. Above is a picture of Mount Fuji. I do data science and math
+and try to write about it from time to time. You'll find some of that
+here. I also make music, and I mean to catalogue some of that here, too.
+
+**Bear with me while I revamp this site.**
+:::
+
+------------------------------------------------------------------------
+-->
+<div style="display: flex;">
+<!-- Col 1 -->
+<div style="justify-content: center; padding: 10px">
+<p><img src="images/banner_fuji-01.jpg" title="fujinai" /></p>
 </div>
-<hr />
+<!-- Col 2 -->
+<div style="text-align: left; padding: 10px">
+<p>I’m Matt. To the left is a picture of Mount Fuji. I do data science
+and math. I try to write about it from time to time. You’ll find some of
+that here. I also make music, and I mean to catalogue some of that here,
+too.</p>
+</div>
+</div>
+<hr>
+<center>
+<em>Bear with me while I revamp this site.</em>
+</center>
 
 
 
