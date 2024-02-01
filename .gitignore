@@ -5,6 +5,7 @@
 # allow the build directory (and its contents, subdirectories, their contents & subdirectories)
 !.gitignore
 !.nojekyllg
+!README.md
 !docs/
 !docs/**
 
