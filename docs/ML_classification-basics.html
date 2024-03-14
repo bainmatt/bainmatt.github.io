@@ -84,46 +84,40 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    background-color: #ffffff;
-    color: #a0a0a0;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { color: #1f1c1b; background-color: #ffffff; }
+  {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span { color: #1f1c1b; } /* Normal */
-code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
-code span.an { color: #ca60ca; } /* Annotation */
-code span.at { color: #0057ae; } /* Attribute */
-code span.bn { color: #b08000; } /* BaseN */
-code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
-code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #924c9d; } /* Char */
-code span.cn { color: #aa5500; } /* Constant */
-code span.co { color: #898887; } /* Comment */
-code span.cv { color: #0095ff; } /* CommentVar */
-code span.do { color: #607880; } /* Documentation */
-code span.dt { color: #0057ae; } /* DataType */
-code span.dv { color: #b08000; } /* DecVal */
-code span.er { color: #bf0303; text-decoration: underline; } /* Error */
-code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
-code span.fl { color: #b08000; } /* Float */
-code span.fu { color: #644a9b; } /* Function */
-code span.im { color: #ff5500; } /* Import */
-code span.in { color: #b08000; } /* Information */
-code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
-code span.op { color: #1f1c1b; } /* Operator */
-code span.ot { color: #006e28; } /* Other */
-code span.pp { color: #006e28; } /* Preprocessor */
-code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
-code span.sc { color: #3daee9; } /* SpecialChar */
-code span.ss { color: #ff5500; } /* SpecialString */
-code span.st { color: #bf0303; } /* String */
-code span.va { color: #0057ae; } /* Variable */
-code span.vs { color: #bf0303; } /* VerbatimString */
-code span.wa { color: #bf0303; } /* Warning */
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { color: #585cf6; } /* Constant */
+code span.co { color: #4c886b; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.dv { color: #0000cd; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cd; } /* Float */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { color: #687687; } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #036a07; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
 </style>
 <script>
@@ -419,7 +413,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">fujinai</a>
+      <a class="navbar-brand" href="index.html">data-driven-brain</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -431,16 +425,12 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">--- tours ---</li>
-    <li>
-      <a href="DS_classification-basics.html">Classification in R</a>
-    </li>
+    <li class="dropdown-header">Classification in R</li>
     <li class="dropdown-header">Classification in Python</li>
     <li class="dropdown-header">Frequentist hypothesis testing in R</li>
     <li class="dropdown-header">--- templates ---</li>
-    <li>
-      <a href="writing_temp_typora2rmd.html">Writing template</a>
-    </li>
-    <li class="dropdown-header">Plotting template</li>
+    <li class="dropdown-header">Writing template</li>
+    <li class="dropdown-header">Plotting roadmap</li>
     <li class="dropdown-header">--- worked ---</li>
   </ul>
 </li>
@@ -772,7 +762,6 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a hr
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>plot_cost_and_miscount(plot_data)</span></code></pre></div>
-<p><img src="ML_classification-basics_files/figure-html/unnamed-chunk-8-1.png" width="624" /></p>
 <p>Below we identify and return the minimum number of misclassifications
 for each cost function over all iterations of gradient descent.</p>
 <div class="sourceCode" id="cb9"><pre
@@ -781,9 +770,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a hr
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>min_misclass_PT <span class="op">=</span> <span class="bu">min</span>(miscount_history_PT)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;softmax minimum misclassifications:    &quot;</span> <span class="op">+</span> <span class="bu">str</span>(min_misclass_SM))</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; softmax minimum misclassifications:    21</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;perceptron minimum misclassifications: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(min_misclass_PT))</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; perceptron minimum misclassifications: 20</span></span></code></pre></div>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;perceptron minimum misclassifications: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(min_misclass_PT))</span></code></pre></div>
 <p>Below we modify the <code>miscount</code> function to consider only
 misclassified malignant cases (i.e., cases corresponding to the class
 label <span class="math inline">\(-1\)</span>).</p>
@@ -823,7 +810,6 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a h
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>plot_cost_and_miscount(plot_data)</span></code></pre></div>
-<p><img src="ML_classification-basics_files/figure-html/unnamed-chunk-11-3.png" width="624" /></p>
 </div>
 <div id="logistic-regression-cross-entropy" class="section level2"
 number="1.5">
@@ -1007,7 +993,6 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a h
 <span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
 <span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>plot_cost_and_miscount(plot_data)</span></code></pre></div>
-<p><img src="ML_classification-basics_files/figure-html/unnamed-chunk-17-5.png" width="624" /></p>
 </div>
 </div>
 <div id="exercise-2-spam-detection" class="section level1" number="2">
@@ -1151,7 +1136,6 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a h
 <span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="co">## plot</span></span>
 <span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>plot_cost_and_miscount(plot_data)</span></code></pre></div>
-<p><img src="ML_classification-basics_files/figure-html/unnamed-chunk-22-7.png" width="624" /></p>
 <p>The plots above reveal some interesting results. The perceptron cost
 appears to attain a stable minimum cost, but its misclassification
 history appears to fluctuate rapidly between ~250 and 750
@@ -1183,19 +1167,14 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a h
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>min_misclass_PT_spam <span class="op">=</span> <span class="bu">min</span>(miscount_history_PT_spam)</span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;softmax minimum misclassifications:    &quot;</span> <span class="op">+</span> <span class="bu">str</span>(min_misclass_SM_spam))</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; softmax minimum misclassifications:    329</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;perceptron minimum misclassifications: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(min_misclass_PT_spam))</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to accuracies</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; perceptron minimum misclassifications: 332</span></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>accuracy_SM_spam <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> (min_misclass_SM_spam)<span class="op">/</span>np.shape(x)[<span class="dv">1</span>]</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>accuracy_PT_spam <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> (min_misclass_PT_spam)<span class="op">/</span>np.shape(x)[<span class="dv">1</span>]</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">softmax accuracy:    &quot;</span> <span class="op">+</span> <span class="bu">str</span>(accuracy_SM_spam))</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; softmax accuracy:    0.9284938056944143</span></span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;perceptron accuracy: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(accuracy_PT_spam))</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; perceptron accuracy: 0.927841773527494</span></span></code></pre></div>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;perceptron minimum misclassifications: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(min_misclass_PT_spam))</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to accuracies</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>accuracy_SM_spam <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> (min_misclass_SM_spam)<span class="op">/</span>np.shape(x)[<span class="dv">1</span>]</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>accuracy_PT_spam <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> (min_misclass_PT_spam)<span class="op">/</span>np.shape(x)[<span class="dv">1</span>]</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">softmax accuracy:    &quot;</span> <span class="op">+</span> <span class="bu">str</span>(accuracy_SM_spam))</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;perceptron accuracy: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(accuracy_PT_spam))</span></code></pre></div>
 <p>As we can see above, both classifiers, trained using a softmax and
 perceptron cost, respectively, appear to perform relatively well, with
 accuracies above 90%. However, softmax cost performs slighly better,
@@ -1267,7 +1246,6 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a h
 <span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a><span class="co">## plot confusion matrix for softmax and optimal weight</span></span>
 <span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a>confusion_matrix <span class="op">=</span> plot_confusion_matrix(w_optimal_SM_spam, x, y)</span></code></pre></div>
-<p><img src="ML_classification-basics_files/figure-html/unnamed-chunk-24-9.png" width="624" /></p>
 </div>
 </div>
 <div id="exercise-3-credit-check" class="section level1" number="3">
@@ -1379,13 +1357,11 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a h
 <span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_ylabel(<span class="st">&#39;cost&#39;</span>, fontsize <span class="op">=</span> font_size)</span>
 <span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="ML_classification-basics_files/figure-html/unnamed-chunk-30-11.png" width="624" /></p>
 <div class="sourceCode" id="cb31"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">### compute and output perceptron accuracy</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>min_misclass_PT_cred <span class="op">=</span> <span class="bu">min</span>(miscount_history_PT_cred)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>accuracy_PT_cred <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> (min_misclass_PT_cred)<span class="op">/</span>np.shape(x)[<span class="dv">1</span>]</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;perceptron accuracy: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(accuracy_PT_cred))</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; perceptron accuracy: 0.768</span></span></code></pre></div>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;perceptron accuracy: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(accuracy_PT_cred))</span></code></pre></div>
 <p>The perceptron achieves a classification accuracy of ~76%, which is
 within the range of the accuracy achieved in <em>Machine Learning
 Refined</em>.</p>
@@ -1398,7 +1374,6 @@ identified by the perceptron.</p>
 class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">### plot confusion matrix for perceptron and optimal weight</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>w_optimal_PT_cred <span class="op">=</span> weight_history_PT_cred[np.argmin(miscount_history_PT_cred)]</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>confusion_matrix <span class="op">=</span> plot_confusion_matrix(w_optimal_PT_cred, x, y)</span></code></pre></div>
-<p><img src="ML_classification-basics_files/figure-html/unnamed-chunk-32-13.png" width="624" /></p>
 </div>
 </div>
 <div id="exercise-4-three-class-classification" class="section level1"
@@ -1503,38 +1478,14 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a h
 <span id="cb36-33"><a href="#cb36-33" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
 <span id="cb36-34"><a href="#cb36-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-35"><a href="#cb36-35" aria-hidden="true" tabindex="-1"></a>plot_cost_history(x_plt, y_cost_3CPT)</span></code></pre></div>
-<p><img src="ML_classification-basics_files/figure-html/unnamed-chunk-36-15.png" width="480" /></p>
 <div class="sourceCode" id="cb37"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>weight_history_3CPT[<span class="dv">1</span>]</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; array([[ 0.06573661,  0.01541691,  0.20276985],</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        [-0.02465962, -0.1375957 , -0.05824389],</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        [ 0.02797428,  0.09216265, -0.15160187]])</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>model(x, w)</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; array([[ 0.02671998,  0.01185122,  0.02747747,  0.04776334,  0.05285182,</span></span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          0.04383541,  0.03613223,  0.04295764,  0.03019206,  0.01846417,</span></span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          0.11328256,  0.09353925,  0.11479853,  0.09061231,  0.0807937 ,</span></span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          0.06893522,  0.07141272,  0.10814671,  0.10072803,  0.11749133,</span></span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          0.01754971,  0.0155085 ,  0.03217638,  0.02676368,  0.00493056,</span></span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          0.02829916,  0.00556571,  0.00828726, -0.00706251,  0.04209431],</span></span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        [ 0.35283678,  0.37264722,  0.27534822,  0.34120135,  0.2203831 ,</span></span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          0.29876139,  0.41624608,  0.18707278,  0.18164218,  0.26270757,</span></span>
-<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -0.08492133, -0.06352734, -0.28541782, -0.24401699, -0.17614886,</span></span>
-<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -0.05671885, -0.22639049, -0.35451466, -0.16407254, -0.22641744,</span></span>
-<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -0.07352672,  0.02353862, -0.07828907, -0.25497499, -0.13349932,</span></span>
-<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -0.16924497, -0.00675535,  0.11092433,  0.11532398, -0.19768949],</span></span>
-<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        [ 0.15707047,  0.22108698,  0.19363217,  0.05792917,  0.09540129,</span></span>
-<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          0.0996643 ,  0.07699936,  0.16220907,  0.22885443,  0.24527345,</span></span>
-<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -0.04773089,  0.03982989,  0.04908961,  0.14844376,  0.16218981,</span></span>
-<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          0.1592851 ,  0.23524811,  0.11832232,  0.05624597,  0.00490607,</span></span>
-<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          0.42492329,  0.38458551,  0.35428148,  0.47334156,  0.51923687,</span></span>
-<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          0.42102546,  0.45006561,  0.37518389,  0.44962947,  0.36687197]])</span></span>
-<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>np.shape(model(x, w))</span>
-<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (3, 30)</span></span>
-<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>all_evals <span class="op">=</span> model(x, weight_history_3CPT[<span class="dv">1</span>])</span>
-<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>np.shape(all_evals)</span>
-<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (3, 30)</span></span>
-<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a>np.shape(np.<span class="bu">max</span>(all_evals, axis <span class="op">=</span> <span class="dv">0</span>))</span>
-<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (30,)</span></span></code></pre></div>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>model(x, w)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>np.shape(model(x, w))</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>all_evals <span class="op">=</span> model(x, weight_history_3CPT[<span class="dv">1</span>])</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>np.shape(all_evals)</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>np.shape(np.<span class="bu">max</span>(all_evals, axis <span class="op">=</span> <span class="dv">0</span>))</span></code></pre></div>
 <div class="sourceCode" id="cb38"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">### define new function to compute multi-class misclassification history</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> miscount_3CPT(w, x, y):</span>
@@ -1561,11 +1512,9 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a h
 <span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>      <span class="op">+</span> <span class="bu">str</span>(min_misclass_3CPT))</span>
 <span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to accuracies</span></span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; multi-class perceptron minimum misclassifications: 0</span></span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>accuracy_3CPT <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> (min_misclass_3CPT)<span class="op">/</span>np.shape(x)[<span class="dv">1</span>]</span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;multi-class perceptron accuracy: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(accuracy_3CPT))</span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; multi-class perceptron accuracy: 1.0</span></span></code></pre></div>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>accuracy_3CPT <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> (min_misclass_3CPT)<span class="op">/</span>np.shape(x)[<span class="dv">1</span>]</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;multi-class perceptron accuracy: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(accuracy_3CPT))</span></code></pre></div>
 </div>
 <div id="plotting-the-decision-boundary" class="section level2"
 number="4.2">
@@ -1603,11 +1552,9 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a h
 <span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>demo <span class="op">=</span> superlearn.multiclass_illustrator.Visualizer(data_norm)</span>
 <span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>demo.show_dataset()</span>
 <span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a><span class="co"># add DBs (pass weights defining 3 class DBs that give perfect accuracy)</span></span></code></pre></div>
-<p><img src="ML_classification-basics_files/figure-html/unnamed-chunk-41-17.png" width="768" /></p>
-<div class="sourceCode" id="cb42"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>demo.show_complete_coloring([weight_history_3CPT[<span class="op">-</span><span class="dv">1</span>]], cost <span class="op">=</span> </span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>                            multiclass_perceptron)</span></code></pre></div>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a><span class="co"># add DBs (pass weights defining 3 class DBs that give perfect accuracy)</span></span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>demo.show_complete_coloring([weight_history_3CPT[<span class="op">-</span><span class="dv">1</span>]], cost <span class="op">=</span> </span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>                            multiclass_perceptron)</span></code></pre></div>
 <p>The multi-class perceptron achieves a classification accuracy of
 100%, yielding results that are comparable to those shown in <em>Machine
 Learning Refined</em>.</p>
