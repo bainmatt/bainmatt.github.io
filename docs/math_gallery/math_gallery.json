@@ -1,0 +1,62 @@
+[
+  {
+    "path": "math_gallery/2024-03-15-asset-volatility/",
+    "title": "Asset Volatility",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Matthew Bain",
+        "url": {}
+      }
+    ],
+    "date": "2024-03-15",
+    "categories": [
+      "linear algebra",
+      "clustering"
+    ],
+    "contents": "\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2024-03-15T11:24:29-04:00",
+    "input_file": {}
+  },
+  {
+    "path": "math_gallery/2024-03-15-the-sharpe-ratio/",
+    "title": "The Sharpe Ratio",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Matthew Bain",
+        "url": {}
+      }
+    ],
+    "date": "2024-03-15",
+    "categories": [
+      "linear algebra"
+    ],
+    "contents": "\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2024-03-15T12:06:23-04:00",
+    "input_file": {}
+  },
+  {
+    "path": "math_gallery/2024-03-15-visualizing-asset-returns/",
+    "title": "Visualizing Asset Returns",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Matthew Bain",
+        "url": {}
+      }
+    ],
+    "date": "2024-03-15",
+    "categories": [
+      "calculus",
+      "linear algebra",
+      "neural networks"
+    ],
+    "contents": "\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2024-03-15T02:26:31-04:00",
+    "input_file": {}
+  }
+]

@@ -14,13 +14,1111 @@
 
 <title>DS_classification-basics.knit</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<!--radix_placeholder_navigation_in_header-->
+<meta name="distill:offset" content=""/>
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      tolerance: 5,
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.distill-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.distill-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #0F2E3D;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.distill-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.distill-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .distill-site-nav {
+    display: none;
+  }
+}
+
+.distill-site-header {
+
+}
+
+.distill-site-footer {
+
+}
+
+
+/* Site Header */
+
+.distill-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.distill-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.distill-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.distill-site-header a,
+.distill-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.distill-site-header .title {
+  font-size: 18px;
+  min-width: 150px;
+}
+
+.distill-site-header .logo {
+  padding: 0;
+}
+
+.distill-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.distill-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .distill-site-header .logo img {
+    display: inline-block;
+  }
+  .distill-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .distill-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.distill-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .distill-site-header .title {
+    margin-left: 0;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 0;
+  }
+  .distill-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-header.responsive {position: relative; min-height: 500px; }
+  .distill-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.distill-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+/* adjust viewport for navbar height */
+/* helps vertically center bootstrap (non-distill) content */
+.min-vh-100 {
+  min-height: calc(100vh - 100px) !important;
+}
+
+</style>
+
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet"/>
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet"/>
+<script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
+<script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
+<script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
+
+<script type="application/javascript">
+
+function getMeta(metaName) {
+  var metas = document.getElementsByTagName('meta');
+  for (let i = 0; i < metas.length; i++) {
+    if (metas[i].getAttribute('name') === metaName) {
+      return metas[i].getAttribute('content');
+    }
+  }
+  return '';
+}
+
+function offsetURL(url) {
+  var offset = getMeta('distill:offset');
+  return offset ? offset + '/' + url : url;
+}
+
+function createFuseIndex() {
+
+  // create fuse index
+  var options = {
+    keys: [
+      { name: 'title', weight: 20 },
+      { name: 'categories', weight: 15 },
+      { name: 'description', weight: 10 },
+      { name: 'contents', weight: 5 },
+    ],
+    ignoreLocation: true,
+    threshold: 0
+  };
+  var fuse = new window.Fuse([], options);
+
+  // fetch the main search.json
+  return fetch(offsetURL('search.json'))
+    .then(function(response) {
+      if (response.status == 200) {
+        return response.json().then(function(json) {
+          // index main articles
+          json.articles.forEach(function(article) {
+            fuse.add(article);
+          });
+          // download collections and index their articles
+          return Promise.all(json.collections.map(function(collection) {
+            return fetch(offsetURL(collection)).then(function(response) {
+              if (response.status === 200) {
+                return response.json().then(function(articles) {
+                  articles.forEach(function(article) {
+                    fuse.add(article);
+                  });
+                })
+              } else {
+                return Promise.reject(
+                  new Error('Unexpected status from search index request: ' +
+                            response.status)
+                );
+              }
+            });
+          })).then(function() {
+            return fuse;
+          });
+        });
+
+      } else {
+        return Promise.reject(
+          new Error('Unexpected status from search index request: ' +
+                      response.status)
+        );
+      }
+    });
+}
+
+window.document.addEventListener("DOMContentLoaded", function (event) {
+
+  // get search element (bail if we don't have one)
+  var searchEl = window.document.getElementById('distill-search');
+  if (!searchEl)
+    return;
+
+  createFuseIndex()
+    .then(function(fuse) {
+
+      // make search box visible
+      searchEl.classList.remove('hidden');
+
+      // initialize autocomplete
+      var options = {
+        autoselect: true,
+        hint: false,
+        minLength: 2,
+      };
+      window.autocomplete(searchEl, options, [{
+        source: function(query, callback) {
+          const searchOptions = {
+            isCaseSensitive: false,
+            shouldSort: true,
+            minMatchCharLength: 2,
+            limit: 10,
+          };
+          var results = fuse.search(query, searchOptions);
+          callback(results
+            .map(function(result) { return result.item; })
+          );
+        },
+        templates: {
+          suggestion: function(suggestion) {
+            var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
+              ? `<img src="${offsetURL(suggestion.preview)}"</img>`
+              : '';
+            var html = `
+              <div class="search-item">
+                <h3>${suggestion.title}</h3>
+                <div class="search-item-description">
+                  ${suggestion.description || ''}
+                </div>
+                <div class="search-item-preview">
+                  ${img}
+                </div>
+              </div>
+            `;
+            return html;
+          }
+        }
+      }]).on('autocomplete:selected', function(event, suggestion) {
+        window.location.href = offsetURL(suggestion.path);
+      });
+      // remove inline display style on autocompleter (we want to
+      // manage responsive display via css)
+      $('.algolia-autocomplete').css("display", "");
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+
+});
+
+</script>
+
+<style type="text/css">
+
+.nav-search {
+  font-size: x-small;
+}
+
+/* Algolioa Autocomplete */
+
+.algolia-autocomplete {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: sub;
+  background-color: white;
+  color: black;
+  padding: 6px;
+  padding-top: 8px;
+  padding-bottom: 0;
+  border-radius: 6px;
+  border: 1px #0F2E3D solid;
+  width: 180px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-nav .algolia-autocomplete {
+    display: none;
+    visibility: hidden;
+  }
+  .distill-site-nav.responsive .algolia-autocomplete {
+    display: inline-block;
+    visibility: visible;
+  }
+  .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
+    margin-left: 0;
+    width: 400px;
+    max-height: 400px;
+  }
+}
+
+.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+  width: 90%;
+  outline: none;
+  border: none;
+}
+
+.algolia-autocomplete .aa-hint {
+  color: #999;
+}
+.algolia-autocomplete .aa-dropdown-menu {
+  width: 550px;
+  max-height: 70vh;
+  overflow-x: visible;
+  overflow-y: scroll;
+  padding: 5px;
+  margin-top: 3px;
+  margin-left: -150px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #999;
+  border-top: none;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+  cursor: pointer;
+  padding: 5px 4px;
+  border-bottom: 1px solid #eee;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
+  border-bottom: none;
+  margin-bottom: 2px;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
+  overflow: hidden;
+  font-size: 0.8em;
+  line-height: 1.4em;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
+  font-size: 1rem;
+  margin-block-start: 0;
+  margin-block-end: 5px;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
+  display: inline-block;
+  overflow: hidden;
+  height: 2.8em;
+  width: 80%;
+  margin-right: 4%;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
+  display: inline-block;
+  width: 15%;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
+  height: 3em;
+  width: auto;
+  display: none;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
+  display: initial;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+  background-color: #eee;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+</style>
+
+
+<!--/radix_placeholder_navigation_in_header-->
+<!--radix_placeholder_site_in_header-->
+<!--/radix_placeholder_site_in_header-->
+
+<style type="text/css">
+body {
+  padding-top: 60px;
+}
+</style>
+<style type="text/css">
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+
+
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      50px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     #000000;
+  --header-color:    rgba(0, 0, 0, 0.8);
+  --body-color:      rgba(0, 0, 0, 0.8);
+  --aside-color:     rgba(0, 0, 0, 0.6);
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    sans-serif;
+  --mono-font:       monospace;
+  --body-font:       sans-serif;
+  --navbar-font:     sans-serif;  /* websites + blogs only */
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    0.6rem;
+  --heading-color:   rgba(0, 0, 0, 0.5);
+  --body-size:       0.8rem;
+  --body-color:      rgba(0, 0, 0, 0.8);
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;
+  --contents-size:   13px;
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;
+  --heading-color:   rgba(0, 0, 0, 0.65);
+  --text-size:       0.8em;
+  --text-color:      rgba(0, 0, 0, 0.5);
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+
+.distill-site-header {
+  --title-size:       18px;
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #0F2E3D;
+}
+
+.distill-site-footer {
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #0F2E3D;
+}
+
+/*-- Additional custom styles --*/
+/* Add any additional CSS rules below                      */
+</style>
+<style type="text/css">/* ---------------------------------- */
+/* --- DEFAULT RMD CUSTOMIZATIONS --- */
+/* ---------------------------------- */
+
+/* --- GLOBAL DOCUMENT SETTINGS --- */
+body {
+    /* font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unixcode', Geneva, Verdana, sans-serif; */
+    /* font-size: 12pt; */  
+    /* font-weight: 100; */
+}
+
+/* --- HEADERS --- */
+h1, h2, h3 {
+  /* padding-top: 10em; */
+  padding-bottom: .3em;
+  /* margin-top: 10em; */
+  margin-bottom: .75em;
+  /* border-top: 10px; */
+  border-bottom: 1px solid #eee; /* add horizontal rule under each header */
+  /* font-size: 14pt, 13pt, 12pt, 11pt; */
+  /* font-weight: 320; */
+}
+
+h1 {
+  font-size: 19pt;                                    /* alt: 19pt */
+}
+
+h2 {
+  font-size: 16pt;                                    /* alt: 16pt */
+}
+
+h3 {
+  font-size: 13pt;                                    /* alt: 13pt */
+}
+
+/* --- CODE --- */
+code {
+  /* font-size: 12px; */
+  /* font-weight: 550; */
+}
+
+/* --- ORDERED LISTS --- */
+/* Bulletted list items padding */
+ul {
+  margin-top: 0; 
+  margin-bottom: 0;
+}
+
+ul > li {
+  margin-bottom: 2px;
+}
+
+/* Numbered list items padding */
+ol {
+  margin-top: 0; /* Remove default top margin for the list */
+  margin-bottom: 0; /* Remove default bottom margin for the list */
+}
+
+ol > li {
+  margin-bottom: 2px; /* Adjust the spacing between list items as needed */
+}
+
+/* --- OTHER --- */
+/* --- Supress page title from  displaying in knit but keep metadata --- */
+#header {
+  display: none;
+}
+
+/* --- FLOATING TOC --- */
+/* Change background colour */
+.tocify-item {
+    /* background-color: rgb(251, 250, 247); */
+    font-size: 10pt;
+}
+
+.tocify-subheader {
+    font-size: 9.75pt;
+}
+
+/* Ensure floating TOC idents successive lines */
+.tocify-subheader > .tocify-item {
+    text-indent: initial;
+    padding-left: 2em;
+}
+
+/*
+scope {
+  --a-property:       50px;
+  --another-property: #fff;
+}
+*/
+
+/* -------------------------------------- */
+/* --- FURTHER DISTILL CUSTOMIZATIONS --- */
+/* -------------------------------------- */
+
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP:300, 300i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      44px;                        /* default: 50px */
+  --body-size:       1.06rem;                      /* default: 1.06rem */                  
+  --code-size:       13.25px;                     /* default: 14px */                  
+  --aside-size:      12px;                        /* default: 12px */                  
+  --fig-cap-size:    13.5px;                        /* default: 13px */
+  
+  /* [MB] Left justify figure captions */
+
+
+  /* [MB] Bold the "Figure" or "Table" tag */
+
+  
+  /*
+  --title-size:      30x;                         
+  --body-size:       0.9rem;                    
+  --code-size:       13.25px;                     
+  --aside-size:      11px;                        
+  --fig-cap-size:    12px;                        
+  */
+  
+  /*-- Main font colors --*/
+  --title-color:     #ca225e;                     /* default: #ca225e */
+  --header-color:    #ca225e;                     /* theme: #ca225e */
+  --body-color:      #404040;                     /* theme: #404040 */
+  --aside-color:     rgba(0, 0, 0, 0.6);
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    "Noto Serif JP", sans-serif; /* theme */
+  --mono-font:       "IBM Plex Mono", monospace;  /* theme */
+  --body-font:       "Lato", sans-serif;          /* theme */
+  --navbar-font:     "Lato", sans-serif;          /* theme */
+  
+  /*
+  --heading-font:    "Amiri", serif;
+  --mono-font:       "DM Mono", monospace;
+  --body-font:       "Bitter", sans-serif;
+  --navbar-font:     "Amiri", serif;
+  */
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    0.9rem;                      /* theme: 0.9rem */
+  --heading-color:   rgba(0, 0, 0, 0.5);          /* default: rgba(0, 0, 0, 0.5) */
+  --body-size:       0.95rem;                     /* theme: 0.95rem */
+  --body-color:      rgba(0, 0, 0, 0.8);          /* default: rgba(0, 0, 0, 0.8) */
+  
+  /* [MB] Hide the Author field */
+  .author,
+  {
+    display: none;                              
+  }
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;                        /* default: 18px */
+  --contents-size:   13px;                        /* default: 13px */
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;                        /* default: 15px */
+  --heading-color:   rgba(0, 0, 0, 0.65);         /* default: rgba(0, 0, 0, 0.65) */
+  --text-size:       0.9rem;                      /* theme: 0.9rem */
+  --text-color:      #1a162d;                     /* theme: 0.9rem */
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+.distill-site-header {
+  --title-size:       18px;                       /* default: 18px */
+  --text-color:       #1f1f1f;                    /* theme: #1f1f1f */
+  --text-size:        15px;                       /* default: 15px */
+  --hover-color:      #787878;                    /* default: #787878 */
+  --bkgd-color:       #fff;                       /* theme: #fff */
+  
+  /*
+  --title-size:       18px;    
+  --text-color:       #ff414b;
+  --text-size:        15px;
+  --hover-color:      #dd424c;
+  --bkgd-color:       #ffd8db;
+  */
+}
+
+.distill-site-footer {
+  --text-color:       #7e7b88;                    /* theme: #7e7b88 */
+  --text-size:        15px;                       /* default: 15px */
+  --hover-color:      white;                      /* defaultl: white */
+  --bkgd-color:       #ca225e3d;                  /* theme: #ca225e3d */
+}
+
+/*-- ADDITIONAL CUSTOM STYLES --*/
+/* Ordered list index colour */
+ul > li::marker {                 
+  color: #ca225e;                                 /* default: #ca225e */
+}
+
+ol > li::marker {                 
+  color: #ca225e;                                 /* default: #ca225e */
+}
+
+/* Navigation bar letter case */
+.distill-site-header { 
+  letter-spacing: 2px;                            /* default: 2px */
+  /*text-transform: uppercase;*/                      /* default: uppercase */
+}
+
+/* Font weights and letter spacing */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 2px;                            /* default: 2px */
+  font-weight: 300;                               /* default: 300 */
+}
+
+/* Makes logo bigger */
+.distill-site-header .logo img{
+  max-height: 40px;                               /* theme: 20px */
+}
+
+.distill-site-header {
+  padding-top: 1rem;                              /* default: 1rem */
+}
+
+d-title h1,
+d-article h2,
+.posts-list .description h2,
+.posts-list > h1 {
+    font-weight: 300;                             /* default: 300 */
+}
+
+d-appendix {
+  background-color: #fdf7f9;                      /* default: #fdf7f9 */
+  border-top: none;                               /* default: none */
+}</style>
+<style type="text/css">
+/* base style */
+
+/* FONT FAMILIES */
+
+:root {
+  --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+body,
+.posts-list .post-preview p,
+.posts-list .description p {
+  font-family: var(--body-font), var(--body-default);
+}
+
+h1, h2, h3, h4, h5, h6,
+.posts-list .post-preview h2,
+.posts-list .description h2 {
+  font-family: var(--heading-font), var(--heading-default);
+}
+
+d-article div.sourceCode code,
+d-article pre code {
+  font-family: var(--mono-font), var(--mono-default);
+}
+
+
+/*-- TITLE --*/
+d-title h1,
+.posts-list > h1 {
+  color: var(--title-color, black);
+}
+
+d-title h1 {
+  font-size: var(--title-size, 50px);
+}
+
+/*-- HEADERS --*/
+d-article h1,
+d-article h2,
+d-article h3,
+d-article h4,
+d-article h5,
+d-article h6 {
+  color: var(--header-color, rgba(0, 0, 0, 0.8));
+}
+
+/*-- BODY --*/
+d-article > p,  /* only text inside of <p> tags */
+d-article > ul, /* lists */
+d-article > ol {
+  color: var(--body-color, rgba(0, 0, 0, 0.8));
+  font-size: var(--body-size, 1.06rem);
+}
+
+
+/*-- CODE --*/
+d-article div.sourceCode code,
+d-article pre code {
+  font-size: var(--code-size, 14px);
+}
+
+/*-- ASIDE --*/
+d-article aside {
+  font-size: var(--aside-size, 12px);
+  color: var(--aside-color, rgba(0, 0, 0, 0.6));
+}
+
+/*-- FIGURE CAPTIONS --*/
+figure .caption,
+figure figcaption,
+.figure .caption {
+  font-size: var(--fig-cap-size, 13px);
+  color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
+}
+
+/*-- METADATA --*/
+d-byline h3 {
+  font-size: var(--heading-size, 0.6rem);
+  color: var(--heading-color, rgba(0, 0, 0, 0.5));
+}
+
+d-byline {
+  font-size: var(--body-size, 0.8rem);
+  color: var(--body-color, rgba(0, 0, 0, 0.8));
+}
+
+d-byline a,
+d-article d-byline a {
+  color: var(--body-color, rgba(0, 0, 0, 0.8));
+}
+
+/*-- TABLE OF CONTENTS --*/
+.d-contents nav h3 {
+  font-size: var(--heading-size, 18px);
+}
+
+.d-contents nav a {
+  font-size: var(--contents-size, 13px);
+}
+
+/*-- APPENDIX --*/
+d-appendix h3 {
+  font-size: var(--heading-size, 15px);
+  color: var(--heading-color, rgba(0, 0, 0, 0.65));
+}
+
+d-appendix {
+  font-size: var(--text-size, 0.8em);
+  color: var(--text-color, rgba(0, 0, 0, 0.5));
+}
+
+d-appendix d-footnote-list a.footnote-backlink {
+  color: var(--text-color, rgba(0, 0, 0, 0.5));
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+.distill-site-header .title {
+  font-size: var(--title-size, 18px);
+  font-family: var(--navbar-font), var(--heading-default);
+}
+
+.distill-site-header a,
+.nav-dropdown .nav-dropbtn {
+  font-family: var(--navbar-font), var(--heading-default);
+}
+
+.nav-dropdown .nav-dropbtn {
+  color: var(--text-color, rgba(255, 255, 255, 0.8));
+  font-size: var(--text-size, 15px);
+}
+
+.distill-site-header a:hover,
+.nav-dropdown:hover .nav-dropbtn {
+  color: var(--hover-color, white);
+}
+
+.distill-site-header {
+  font-size: var(--text-size, 15px);
+  color: var(--text-color, rgba(255, 255, 255, 0.8));
+  background-color: var(--bkgd-color, #0F2E3D);
+}
+
+.distill-site-footer {
+  font-size: var(--text-size, 15px);
+  color: var(--text-color, rgba(255, 255, 255, 0.8));
+  background-color: var(--bkgd-color, #0F2E3D);
+}
+
+.distill-site-footer a:hover {
+  color: var(--hover-color, white);
+}</style>
+<script src="/Users/matthewbain/Library/R/arm64/4.3/library/rmarkdown/rmd/h/pandoc/header-attrs.js"></script>
+<script src="/Users/matthewbain/Library/R/arm64/4.3/library/jquerylib/lib/3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<link href="/Users/matthewbain/Library/R/arm64/4.3/library/rmarkdown/rmd/h/bootstrap/css/cosmo.min.css" rel="stylesheet" />
+<script src="/Users/matthewbain/Library/R/arm64/4.3/library/rmarkdown/rmd/h/bootstrap/js/bootstrap.min.js"></script>
+<script src="/Users/matthewbain/Library/R/arm64/4.3/library/rmarkdown/rmd/h/bootstrap/shim/html5shiv.min.js"></script>
+<script src="/Users/matthewbain/Library/R/arm64/4.3/library/rmarkdown/rmd/h/bootstrap/shim/respond.min.js"></script>
 <style>h1 {font-size: 34px;}
        h1.title {font-size: 38px;}
        h2 {font-size: 30px;}
@@ -30,12 +1128,12 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<script src="/Users/matthewbain/Library/R/arm64/4.3/library/rmarkdown/rmd/h/jqueryui/jquery-ui.min.js"></script>
+<link href="/Users/matthewbain/Library/R/arm64/4.3/library/rmarkdown/rmd/h/tocify/jquery.tocify.css" rel="stylesheet" />
+<script src="/Users/matthewbain/Library/R/arm64/4.3/library/rmarkdown/rmd/h/tocify/jquery.tocify.js"></script>
+<script src="/Users/matthewbain/Library/R/arm64/4.3/library/rmarkdown/rmd/h/navigation-1.1/tabsets.js"></script>
+<link href="/Users/matthewbain/Library/R/arm64/4.3/library/fontawesome/fontawesome/css/all.min.css" rel="stylesheet" />
+<link href="/Users/matthewbain/Library/R/arm64/4.3/library/fontawesome/fontawesome/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="shortcut icon" href="favicon.jpg">
 
 <style type="text/css">
@@ -295,8 +1393,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -304,16 +1402,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -426,6 +1517,73 @@ div.tocify {
 
 
 
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a href="index.html" class="title">data-driven-brain</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+data guides
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<span class="nav-dropdown-header">--- tours ---</span>
+<span class="nav-dropdown-header">Classification in R</span>
+<span class="nav-dropdown-header">Classification in Python</span>
+<span class="nav-dropdown-header">Frequentist hypothesis testing in R</span>
+<span class="nav-dropdown-header">--- templates ---</span>
+<a href="writing_temp_typora2rmd.html">Writing template</a>
+<a href="stylesheet_tests.html">Plotting roadmap</a>
+<span class="nav-dropdown-header">--- worked ---</span>
+</div>
+</div>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+data projects
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<span class="nav-dropdown-header">[placeholder]</span>
+</div>
+</div>
+<a href="music_page.html">original music</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+blog
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="math_gallery.html">Math</a>
+<span class="nav-dropdown-header">Machines</span>
+<span class="nav-dropdown-header">Art</span>
+</div>
+</div>
+<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
+</div>
+<div class="nav-right">
+<a href="https://github.com/mattlabcode">
+<i class="fab fa-github fa-lg" aria-hidden="true"></i>
+</a>
+<a href="https://www.linkedin.com/in/matthew-bain314/">
+<i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+</a>
+<a href="https://www.youtube.com/@fujinai9/featured">
+<i class="fa fa-youtube fa-lg" aria-hidden="true"></i>
+</a>
+<a href="https://soundcloud.com/user-752823440">
+<i class="fa fa-brands fa-soundcloud" aria-hidden="true"></i>
+</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
 
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
@@ -451,8 +1609,12 @@ div.tocify {
     <li class="dropdown-header">Classification in Python</li>
     <li class="dropdown-header">Frequentist hypothesis testing in R</li>
     <li class="dropdown-header">--- templates ---</li>
-    <li class="dropdown-header">Writing template</li>
-    <li class="dropdown-header">Plotting roadmap</li>
+    <li>
+      <a href="writing_temp_typora2rmd.html">Writing template</a>
+    </li>
+    <li>
+      <a href="stylesheet_tests.html">Plotting roadmap</a>
+    </li>
     <li class="dropdown-header">--- worked ---</li>
   </ul>
 </li>
@@ -466,38 +1628,22 @@ div.tocify {
     <li class="dropdown-header">[placeholder]</li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    math
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">[placeholder]</li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    machines
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">[placeholder]</li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    art
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">[placeholder]</li>
-  </ul>
-</li>
 <li>
   <a href="music_page.html">original music</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    blog
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="math_gallery.html">Math</a>
+    </li>
+    <li class="dropdown-header">Machines</li>
+    <li class="dropdown-header">Art</li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -534,8 +1680,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore"><div class="line-block">Basic data
-classification with R</div></h1>
+<h1 class="title toc-ignore"><div class="line-block">Basic data classification with R</div></h1>
 <h4 class="author">Matthew Bain</h4>
 
 </div>
@@ -544,8 +1689,7 @@ classification with R</div></h1>
 <hr>
 <em>This page is a placeholder.</em>
 <hr>
-<p>We start by loading in all the R packages we need for this report
-<span class="citation">(R Core Team 2020)</span>.</p>
+<p>We start by loading in all the R packages we need for this report <span class="citation">(R Core Team 2020)</span>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)        <span class="co"># tools for data wangling</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)     <span class="co"># operators that improve data manipulation workflow</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)        <span class="co"># tools for manipulating data</span></span>
@@ -554,24 +1698,18 @@ classification with R</div></h1>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)      <span class="co"># for manipulating factor variables</span></span></code></pre></div>
 <div style="page-break-after: always;"></div>
 <div id="k-nearest-neighbours" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> k-nearest
-neighbours</h1>
+<h1><span class="header-section-number">1</span> k-nearest neighbours</h1>
 <div id="loading-the-data" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Loading the data</h2>
 <!-- We will use `iris` data in the `datasets` package for this question. The help page says that `iris` is a famous (Fisher's or Anderson's) `iris` dataset gives the measurements in centimeters of the variables `sepal length`, `sepal width`, and `petal length` and `petal width`, respectively, for 50 flowers from each of 3 species of Iris. The species are Iris _setosa_, _versicolor_, and _virginica_. -->
 <!-- Identify quantitative and qualitative variables in _iris_ data.  -->
-<p>We start by reading in the <code>iris</code> data in the
-<code>datasets</code> package.</p>
+<p>We start by reading in the <code>iris</code> data in the <code>datasets</code> package.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasets)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>iris_data <span class="ot">=</span> datasets<span class="sc">::</span>iris</span></code></pre></div>
-<p>Observing the imported data frame, we can see that the the
-<code>iris</code> dataset contains the following qualitative and
-quantitative variables:</p>
+<p>Observing the imported data frame, we can see that the the <code>iris</code> dataset contains the following qualitative and quantitative variables:</p>
 <p>Qualitative:</p>
 <ul>
-<li>species: the species of Iris (categorical variable consisting of
-three categories, ‘setosa’, ‘versicolor’, and ‘virginica’, each
-containing 50 observations from different flowers)</li>
+<li>species: the species of Iris (categorical variable consisting of three categories, ‘setosa’, ‘versicolor’, and ‘virginica’, each containing 50 observations from different flowers)</li>
 </ul>
 <p>Quantitative:</p>
 <ul>
@@ -580,15 +1718,11 @@ containing 50 observations from different flowers)</li>
 <li>petal length</li>
 <li>petal width</li>
 </ul>
-<p>The dataset contains, for each flower examined, measurements of the
-four anatomical features above, each of which is a continuous numerical
-variable.</p>
+<p>The dataset contains, for each flower examined, measurements of the four anatomical features above, each of which is a continuous numerical variable.</p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="observations-on-the-dataset" class="section level2"
-number="1.2">
-<h2><span class="header-section-number">1.2</span> Observations on the
-dataset</h2>
+<div id="observations-on-the-dataset" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Observations on the dataset</h2>
 <!-- Use `summary()` to explore the variables in the `iris` data. Then, comment on the distribution (mean, median, range or number of categories, frequency of each category) of sepal length, petal length, and species variables. -->
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>iris_summary <span class="ot">=</span> <span class="fu">summary</span>(iris_data)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>iris_summary</span>
@@ -608,36 +1742,21 @@ dataset</h2>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span></code></pre></div>
 <p>From the above summary, we make the following observations:</p>
 <ul>
-<li>the measurement with the widest range is <code>petal length</code>,
-with a range of 5.9 cm; <code>petal width</code> and
-<code>sepal width</code> share the smallest range, of 2.4 cm.</li>
-<li>for both <code>sepal length</code> and <code>width</code>, the
-median is lower than the mean, and for both <code>petal length</code>
-and <code>width</code>, the median is higher than the mean. This could
-suggest that the sepal measurements are positively skewed, whereas the
-petal measurements are negatively skewed.</li>
-<li><code>sepal length</code> has the highest mean and median of all the
-measurements, whereas <code>petal width</code> has the lowest.</li>
+<li>the measurement with the widest range is <code>petal length</code>, with a range of 5.9 cm; <code>petal width</code> and <code>sepal width</code> share the smallest range, of 2.4 cm.</li>
+<li>for both <code>sepal length</code> and <code>width</code>, the median is lower than the mean, and for both <code>petal length</code> and <code>width</code>, the median is higher than the mean. This could suggest that the sepal measurements are positively skewed, whereas the petal measurements are negatively skewed.</li>
+<li><code>sepal length</code> has the highest mean and median of all the measurements, whereas <code>petal width</code> has the lowest.</li>
 <li>the dataset contains 50 observations for each species.</li>
 </ul>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="potential-approaches" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Potential
-approaches</h2>
+<h2><span class="header-section-number">1.3</span> Potential approaches</h2>
 <!-- Suppose we want to predict species type of Iris plant using sepal length, sepal width, petal length, petal width. Identify the type of statistical learning method that we can use for this task. -->
-<p>The task of identifying the Iris species of an unknown plant specimen
-based on these anatomical measurements is a classification problem.
-Since we already know the potential species of Iris and we have a
-dataset containing observations that we could train a classifier on,
-this is a problem we could approach using supervised statistical
-learning methods.</p>
+<p>The task of identifying the Iris species of an unknown plant specimen based on these anatomical measurements is a classification problem. Since we already know the potential species of Iris and we have a dataset containing observations that we could train a classifier on, this is a problem we could approach using supervised statistical learning methods.</p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="relationships-among-predictors" class="section level2"
-number="1.4">
-<h2><span class="header-section-number">1.4</span> Relationships among
-predictors</h2>
+<div id="relationships-among-predictors" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Relationships among predictors</h2>
 <!-- Use the `cor()` function to produce a matrix that contains all of the pairwise correlations among the predictors in the iris data set. Comment on the pairwise correlations (which predictors are highly/weakly correlated). -->
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we prune categorical variables (`species`) before passing dataset to `cor` </span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>iris_data_nocat <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(iris_data, <span class="sc">-</span>Species)</span>
@@ -648,69 +1767,28 @@ predictors</h2>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Sepal.Width    -0.1175698   1.0000000   -0.4284401  -0.3661259</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Petal.Length    0.8717538  -0.4284401    1.0000000   0.9628654</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000</span></span></code></pre></div>
-<p>From the above correlation matrix, we can observe that
-<code>petal length</code> &amp; <code>width</code> appear to be very
-highly correlated (0.9628654). <code>Petal length</code> &amp;
-<code>sepal length</code> (0.8717538) and <code>petal width</code> &amp;
-<code>sepal length</code> (0.8179411) also have high correlations. On
-the other hand, <code>sepal width</code> &amp; <code>sepal length</code>
-appear to have no correlation (-0.1175698), whereas
-<code>petal length</code> &amp; <code>sepal width</code> (-0.4284401)
-and <code>petal width</code> &amp; <code>sepal width</code> (-0.3661259)
-appear to be moderately negatively correlated. Further statistical
-analysis needs to be conducted before we can make inferences about the
-significance of these observations.</p>
+<p>From the above correlation matrix, we can observe that <code>petal length</code> &amp; <code>width</code> appear to be very highly correlated (0.9628654). <code>Petal length</code> &amp; <code>sepal length</code> (0.8717538) and <code>petal width</code> &amp; <code>sepal length</code> (0.8179411) also have high correlations. On the other hand, <code>sepal width</code> &amp; <code>sepal length</code> appear to have no correlation (-0.1175698), whereas <code>petal length</code> &amp; <code>sepal width</code> (-0.4284401) and <code>petal width</code> &amp; <code>sepal width</code> (-0.3661259) appear to be moderately negatively correlated. Further statistical analysis needs to be conducted before we can make inferences about the significance of these observations.</p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="examining-pairwise-relationships" class="section level2"
-number="1.5">
-<h2><span class="header-section-number">1.5</span> Examining pairwise
-relationships</h2>
+<div id="examining-pairwise-relationships" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Examining pairwise relationships</h2>
 <!-- Create a pairwise plot matrix for response and all predictor variables in the `iris` dataset and comment on the plot (what are the off-diagonal plots, do plots show a correlation between variables, etc.). We can use `GGally::ggpairs()`. -->
-<p>We use the <code>GGally</code> package for the plot below <span
-class="citation">(Schloerke, Crowley, and Cook 2018)</span>.</p>
+<p>We use the <code>GGally</code> package for the plot below <span class="citation">(Schloerke, Crowley, and Cook 2018)</span>.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot correlation matrix of scatterplots, filtered by species</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggpairs</span>(iris_data, <span class="at">columns =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">aes</span>(<span class="at">colour =</span> Species, <span class="at">alpha =</span> <span class="fl">0.5</span>),</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="st">&quot;smooth&quot;</span>),</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div>
 <p><img src="DS_classification-basics_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>The above is a correlation matrix which shows the relationships
-(pairwise Pearson correlations) among the measurements in the
-<code>iris</code> dataset. Only ‘off-diagonal’ pairwise correlations are
-shown – i.e., only correlations between different measurements (e.g.,
-petal length and width), as opposed to between the same measurements
-(e.g., petal length and itself), which are trivial, and always equal to
-1. The plots are all filtered into 3 groups, corresponding to the 3
-species of Iris (blue = setosa, green = versicolor, blue = virginica).
-The numerical correlation values given on the upper triangle of the
-matrix give the precise Pearson correlations for each species. The grey
-values are the average correlations for a given pairwise comparison,
-irrespective of species.<br />
+<p>The above is a correlation matrix which shows the relationships (pairwise Pearson correlations) among the measurements in the <code>iris</code> dataset. Only ‘off-diagonal’ pairwise correlations are shown – i.e., only correlations between different measurements (e.g., petal length and width), as opposed to between the same measurements (e.g., petal length and itself), which are trivial, and always equal to 1. The plots are all filtered into 3 groups, corresponding to the 3 species of Iris (blue = setosa, green = versicolor, blue = virginica). The numerical correlation values given on the upper triangle of the matrix give the precise Pearson correlations for each species. The grey values are the average correlations for a given pairwise comparison, irrespective of species.<br />
 </p>
-<p>The length and width measurements serve as our predictor variables.
-The scatter plots on the lower triangle of the matrix roughly show the
-relationship between these measurements, and the histograms show their
-individual distributions. As we observed in (1.4), the highest pairwise
-correlation is between petal length and width, which can be seen in the
-scatterplot for the corresponding comparison, in which the values all
-appear to be roughly clustered along the positive diagonal, indicating a
-strong positive correlation. The corresponding numerical correlation
-values corroborate this observation, as they all have asterisks beside
-them, indicating statistical significance. However, with the
-scatterplots stratified according to species, we can see that this high
-average correlation seems to be due, at least in part, to the way the
-observations for the individual species are clustered. The setosa
-observations are clustered in the bottom left corner, the versicolor
-observations in the middle, and the virginica observations in the top
-right, giving rise to an artificially high average correlation.</p>
+<p>The length and width measurements serve as our predictor variables. The scatter plots on the lower triangle of the matrix roughly show the relationship between these measurements, and the histograms show their individual distributions. As we observed in (1.4), the highest pairwise correlation is between petal length and width, which can be seen in the scatterplot for the corresponding comparison, in which the values all appear to be roughly clustered along the positive diagonal, indicating a strong positive correlation. The corresponding numerical correlation values corroborate this observation, as they all have asterisks beside them, indicating statistical significance. However, with the scatterplots stratified according to species, we can see that this high average correlation seems to be due, at least in part, to the way the observations for the individual species are clustered. The setosa observations are clustered in the bottom left corner, the versicolor observations in the middle, and the virginica observations in the top right, giving rise to an artificially high average correlation.</p>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="confusion-matrix" class="section level2" number="1.6">
 <h2><span class="header-section-number">1.6</span> Confusion matrix</h2>
 <!-- This question asks to comment on a confusion matrix. We will look at the steps of fitting KNN. We use stratified sampling to select observations for the training and validation sets. Let's say we choose 50%/50% (training and validation sets). -->
 <!-- We can find the proportion of each species type in the whole data set. -->
-<p>The code below identifies the proportion of each species in the
-<code>iris</code> dataset.</p>
+<p>The code below identifies the proportion of each species in the <code>iris</code> dataset.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
@@ -724,8 +1802,7 @@ right, giving rise to an artificially high average correlation.</p>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 versicolor    50 0.333</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 virginica     50 0.333</span></span></code></pre></div>
 <!-- We want to sample (1/3, 1/3, 1/3) the proportion of observations from each species type to train and validation sets. Therefore, we run the following code to create train and validation sets. -->
-<p>The code below partitions the dataset into training and validation
-sets, each with 1/3 of the observations representing each species.</p>
+<p>The code below partitions the dataset into training and validation sets, each with 1/3 of the observations representing each species.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>train_ind <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(iris<span class="sc">$</span>Species, <span class="at">p =</span> <span class="fl">0.5</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -756,10 +1833,7 @@ sets, each with 1/3 of the observations representing each species.</p>
 <span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>validation_predictors <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(validation_iris, <span class="sc">-</span>Species)</span></code></pre></div>
 <!-- Next, we use K-nearest neighbor to predict species type. `prop = TRUE` returns predicted probability for the winning species type. -->
 <!-- We produce a confusion matrix to determine how many observations were correctly or incorrectly classified in the validation set. -->
-<p>The code below uses the K-nearest neighbours method to predict the
-Iris species of the observations in the validation set, based on those
-in the training set, which are used to create the model. A confusion
-matrix showing the performance of the model is outputted.</p>
+<p>The code below uses the K-nearest neighbours method to predict the Iris species of the observations in the validation set, based on those in the training set, which are used to create the model. A confusion matrix showing the performance of the model is outputted.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(class)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>) <span class="co"># to ensure reproducibility of the results</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use KNN to predict the labels for validation set.</span></span>
@@ -775,32 +1849,20 @@ matrix showing the performance of the model is outputted.</p>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                        fit_knn</span></span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; validation_iris_species setosa versicolor virginica</span></span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              setosa         25          0         0</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              versicolor      0         25         0</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              versicolor      0         23         2</span></span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              virginica       0          2        23</span></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(tab)</span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 75</span></span></code></pre></div>
 <!-- Comment on the following confusion matrix. [Hint: how many correct predictions are on the validation set and the proportion of correct prediction. What is an estimate of test set error rate.] -->
-<p>From the above confusion matrix we observe that all 25 setosa
-specimens are classified correctly, 2 versicolor specimens are
-misclassified as virginica, and 1 virginica specimen is misclassified as
-a versicolor. The overall proportion of correct predictions is <span
-class="math inline">\(\frac{25 + 24 + 23}{75} = .96\)</span>, i.e.,
-96%.</p>
-<p>The test set error rate is the proportion of misclassified specimens
-in the validation set, i.e., <span class="math inline">\(3/75\)</span> =
-4%.</p>
+<p>From the above confusion matrix we observe that all 25 setosa specimens are classified correctly, 2 versicolor specimens are misclassified as virginica, and 1 virginica specimen is misclassified as a versicolor. The overall proportion of correct predictions is <span class="math inline">\(\frac{25 + 24 + 23}{75} = .96\)</span>, i.e., 96%.</p>
+<p>The test set error rate is the proportion of misclassified specimens in the validation set, i.e., <span class="math inline">\(3/75\)</span> = 4%.</p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="alternate-testvalidation-partition" class="section level2"
-number="1.7">
-<h2><span class="header-section-number">1.7</span> Alternate
-test/validation partition</h2>
+<div id="alternate-testvalidation-partition" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> Alternate test/validation partition</h2>
 <!-- Now repeat (1.6) with 70%/30% - training and validation sets. What is an estimate of the test set error rate? -->
-<p>In the below code, we repeat the above analysis but instead of a
-50%/50% training/validation split, we use a 70%/30% split. The resulting
-split has 45 observations in the validation set. The adjusted confusion
-matrix is outputted below.</p>
+<p>In the below code, we repeat the above analysis but instead of a 50%/50% training/validation split, we use a 70%/30% split. The resulting split has 45 observations in the validation set. The adjusted confusion matrix is outputted below.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># use p = .7 (70%) of the data for training</span></span>
@@ -846,20 +1908,17 @@ matrix is outputted below.</p>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                        fit_knn</span></span>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; validation_iris_species setosa versicolor virginica</span></span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              setosa         15          0         0</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              versicolor      0         14         1</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              versicolor      0         13         2</span></span>
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              virginica       0          1        14</span></span>
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(tab)</span>
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 45</span></span></code></pre></div>
-<p>From the above confusion matrix, we can estimate the adjusted test
-set error rate as the proportion of misclassified specimens, i.e., <span
-class="math inline">\(\frac{1 + 2}{45} = .066\)</span>, i.e., 6.67%.</p>
+<p>From the above confusion matrix, we can estimate the adjusted test set error rate as the proportion of misclassified specimens, i.e., <span class="math inline">\(\frac{1 + 2}{45} = .066\)</span>, i.e., 6.67%.</p>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 <div id="classification-trees" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Classification
-trees</h1>
+<h1><span class="header-section-number">2</span> Classification trees</h1>
 <!--
 ## Classification tree diagram
 -->
@@ -882,17 +1941,13 @@ We note that an observation with a "Proline" value of 620, an
 would place it in region 15.
 -->
 <div style="page-break-after: always;"></div>
-<div id="classification-tree-implementation" class="section level2"
-number="2.1">
-<h2><span class="header-section-number">2.1</span> Classification tree
-implementation</h2>
+<div id="classification-tree-implementation" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Classification tree implementation</h2>
 <div id="loading-the-data-1" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Loading the
-data</h3>
+<h3><span class="header-section-number">2.1.1</span> Loading the data</h3>
 <!-- We consider the `bankruptcy` data from the `MixGHD` package. We will use this data set to predict the firm's status: bankruptcy (0) or financially sound (1). Read the help page for `bankruptcy` data from the `MixGHD` package. -->
 <!-- Identify the response and predictor variables. Then, convert the response variable to a factor. -->
-<p>We start by reading in the <code>bankruptcy</code> dataset from the
-<code>MixGHD</code> package.</p>
+<p>We start by reading in the <code>bankruptcy</code> dataset from the <code>MixGHD</code> package.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MixGHD)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(bankruptcy)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bankruptcy)</span>
@@ -903,23 +1958,17 @@ data</h3>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Mean   :0.5   Mean   : -13.63   Mean   :  -8.226  </span></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3rd Qu.:1.0   3rd Qu.:  35.75   3rd Qu.:  14.400  </span></span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Max.   :1.0   Max.   :  68.60   Max.   :  34.100</span></span></code></pre></div>
-<p>The <code>bankruptcy</code> dataset contains data for American firms,
-half of which had filed for bankruptcy at the time the data was
-collected, measuring their financial status. From this summary we
-determine the predictor and response variables in the dataset:</p>
+<p>The <code>bankruptcy</code> dataset contains data for American firms, half of which had filed for bankruptcy at the time the data was collected, measuring their financial status. From this summary we determine the predictor and response variables in the dataset:</p>
 <p>Predictor:</p>
 <ul>
 <li><code>RE</code>: ratio of retained earnings to total assets</li>
-<li><code>EBIT</code>: ratio of earnings before interest and taxes to
-total assets</li>
+<li><code>EBIT</code>: ratio of earnings before interest and taxes to total assets</li>
 </ul>
 <p>Response:</p>
 <ul>
-<li><code>Y</code>: binary value (1 or 0) representing whether the firm
-is financially sound or not, respectively</li>
+<li><code>Y</code>: binary value (1 or 0) representing whether the firm is financially sound or not, respectively</li>
 </ul>
-<p>Below we convert the response variable <code>Y</code> to a
-factor:</p>
+<p>Below we convert the response variable <code>Y</code> to a factor:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert response variable to factor</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>bankruptcy_data <span class="ot">=</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">.data =</span> bankruptcy, <span class="at">Y =</span> <span class="fu">factor</span>(Y))</span>
@@ -927,10 +1976,8 @@ factor:</p>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;factor&quot;</span></span></code></pre></div>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="measures-of-financial-soundness" class="section level3"
-number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> Measures of
-financial soundness</h3>
+<div id="measures-of-financial-soundness" class="section level3" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Measures of financial soundness</h3>
 <!-- Find the proportion of observations in the bankruptcy (0) and financially sound (1) classes. -->
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>prop_brupt <span class="ot">=</span> <span class="fu">sum</span>(bankruptcy<span class="sc">$</span>Y <span class="sc">==</span> <span class="dv">0</span>)<span class="sc">/</span><span class="fu">dim</span>(bankruptcy)[<span class="dv">1</span>]</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>prop_sound <span class="ot">=</span> <span class="fu">sum</span>(bankruptcy<span class="sc">$</span>Y <span class="sc">==</span> <span class="dv">1</span>)<span class="sc">/</span><span class="fu">dim</span>(bankruptcy)[<span class="dv">1</span>]</span>
@@ -938,18 +1985,13 @@ financial soundness</h3>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.5</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>prop_sound</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.5</span></span></code></pre></div>
-<p>The dataset is split down the middle, with 50% of observations in the
-<code>bankruptcy</code> class, and 50% in the
-<code>financially sound</code> class.</p>
+<p>The dataset is split down the middle, with 50% of observations in the <code>bankruptcy</code> class, and 50% in the <code>financially sound</code> class.</p>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="constructing-the-tree" class="section level3" number="2.1.3">
-<h3><span class="header-section-number">2.1.3</span> Constructing the
-tree</h3>
+<h3><span class="header-section-number">2.1.3</span> Constructing the tree</h3>
 <!-- We use 60%/40% training/validation sets. Run the following code. From the fit summary, what are the predictor variables used in the construction? -->
-<p>The code below constructs a classification tree on the
-<code>bankruptcy</code> dataset using a 60%/40% training/validation set
-split.</p>
+<p>The code below constructs a classification tree on the <code>bankruptcy</code> dataset using a 60%/40% training/validation set split.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MixGHD)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(bankruptcy, <span class="at">package=</span><span class="st">&quot;MixGHD&quot;</span>)</span>
@@ -970,14 +2012,11 @@ split.</p>
 <span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bank_tree)</span></code></pre></div>
-<p>From the summary above, we observe that the only predictor variable
-used in the construction of the tree is <code>RE</code>. The resulting
-tree has 4 terminal nodes.</p>
+<p>From the summary above, we observe that the only predictor variable used in the construction of the tree is <code>RE</code>. The resulting tree has 4 terminal nodes.</p>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="estimating-test-error" class="section level3" number="2.1.4">
-<h3><span class="header-section-number">2.1.4</span> Estimating test
-error</h3>
+<h3><span class="header-section-number">2.1.4</span> Estimating test error</h3>
 <!-- Estimate the test error (misclassification error rate) using the validation set. -->
 <p>Below we estimate the test error using the validation set.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># store data frame consisting of test set</span></span>
@@ -1005,17 +2044,18 @@ error</h3>
 <h1 class="unnumbered">References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-citeR" class="csl-entry">
-R Core Team. 2020. <em>R: A Language and Environment for Statistical
-Computing</em>. Vienna, Austria: R Foundation for Statistical Computing.
-<a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
 <div id="ref-schloerke2018package" class="csl-entry">
-Schloerke, Barret, Jason Crowley, and Di Cook. 2018. <span>“Package
-<span>‘GGally’</span>.”</span> <em>Extension to ‘Ggplot2.’See</em> 713.
+Schloerke, Barret, Jason Crowley, and Di Cook. 2018. <span>“Package <span>‘GGally’</span>.”</span> <em>Extension to ‘Ggplot2.’See</em> 713.
 </div>
 </div>
 </div>
 
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
 
 
 </div>
