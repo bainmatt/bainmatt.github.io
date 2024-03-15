@@ -1,6 +1,6 @@
 [
   {
-    "path": "math_gallery/2024-03-15-asset-volatility/",
+    "path": "math_articles/2024-03-15-asset-volatility/",
     "title": "Asset Volatility",
     "description": "A short description of the post.",
     "author": [
@@ -20,7 +20,7 @@
     "input_file": {}
   },
   {
-    "path": "math_gallery/2024-03-15-the-sharpe-ratio/",
+    "path": "math_articles/2024-03-15-the-sharpe-ratio/",
     "title": "The Sharpe Ratio",
     "description": "A short description of the post.",
     "author": [
@@ -39,7 +39,7 @@
     "input_file": {}
   },
   {
-    "path": "math_gallery/2024-03-15-visualizing-asset-returns/",
+    "path": "math_articles/2024-03-15-visualizing-asset-returns/",
     "title": "Visualizing Asset Returns",
     "description": "A short description of the post.",
     "author": [

@@ -781,7 +781,36 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /*-- Additional custom styles --*/
   /* Add any additional CSS rules below                      */
   </style>
-  <style type="text/css">/* ---------------------------------- */
+  <style type="text/css">/* ---------------------- */
+  /* --- STYLE ELEMENTS --- */
+  /* ---------------------- */
+  /* 
+  Text elements:
+  - page: title, subtitle, metadata, toc levels 1-3
+  - content: h1-h4, body, code, math
+  - site: nav bar, menu items, footer
+  - other: captions, asides, references/footnotes
+
+  Text properties:
+  - font face, size, weight, colour
+  - text spacing, padding below, padding above
+  - text alignment
+
+  List (bulleted, numbered) properties:
+  - vertical spacing
+  - bullet/number colour
+
+  Header properties:
+  - number padding, number colour
+
+  Nav bar properties:
+  - background colour, height
+
+  Page properties:
+  - page width
+  */
+
+  /* ---------------------------------- */
   /* --- DEFAULT RMD CUSTOMIZATIONS --- */
   /* ---------------------------------- */
 
@@ -845,12 +874,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-bottom: 2px; /* Adjust the spacing between list items as needed */
   }
 
-  /* --- OTHER --- */
-  /* --- Supress page title from  displaying in knit but keep metadata --- */
-  #header {
-    display: none;
-  }
-
   /* --- FLOATING TOC --- */
   /* Change background colour */
   .tocify-item {
@@ -866,6 +889,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   .tocify-subheader > .tocify-item {
       text-indent: initial;
       padding-left: 2em;
+  }
+
+  /* --- OTHER --- */
+  /* --- Supress page title from  displaying in knit but keep metadata --- */
+  #header {
+    display: none;
   }
 
   /*
@@ -3278,7 +3307,36 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /*-- Additional custom styles --*/
   /* Add any additional CSS rules below                      */
   </style>
-  <style type="text/css">/* ---------------------------------- */
+  <style type="text/css">/* ---------------------- */
+  /* --- STYLE ELEMENTS --- */
+  /* ---------------------- */
+  /* 
+  Text elements:
+  - page: title, subtitle, metadata, toc levels 1-3
+  - content: h1-h4, body, code, math
+  - site: nav bar, menu items, footer
+  - other: captions, asides, references/footnotes
+
+  Text properties:
+  - font face, size, weight, colour
+  - text spacing, padding below, padding above
+  - text alignment
+
+  List (bulleted, numbered) properties:
+  - vertical spacing
+  - bullet/number colour
+
+  Header properties:
+  - number padding, number colour
+
+  Nav bar properties:
+  - background colour, height
+
+  Page properties:
+  - page width
+  */
+
+  /* ---------------------------------- */
   /* --- DEFAULT RMD CUSTOMIZATIONS --- */
   /* ---------------------------------- */
 
@@ -3342,12 +3400,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-bottom: 2px; /* Adjust the spacing between list items as needed */
   }
 
-  /* --- OTHER --- */
-  /* --- Supress page title from  displaying in knit but keep metadata --- */
-  #header {
-    display: none;
-  }
-
   /* --- FLOATING TOC --- */
   /* Change background colour */
   .tocify-item {
@@ -3363,6 +3415,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   .tocify-subheader > .tocify-item {
       text-indent: initial;
       padding-left: 2em;
+  }
+
+  /* --- OTHER --- */
+  /* --- Supress page title from  displaying in knit but keep metadata --- */
+  #header {
+    display: none;
   }
 
   /*
@@ -3711,27 +3769,13 @@ data guides
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<span class="nav-dropdown-header">--- tours ---</span>
-<span class="nav-dropdown-header">Classification in R</span>
-<span class="nav-dropdown-header">Classification in Python</span>
-<span class="nav-dropdown-header">Frequentist hypothesis testing in R</span>
-<span class="nav-dropdown-header">--- templates ---</span>
-<a href="writing_temp_typora2rmd.html">Writing template</a>
-<a href="stylesheet_tests.html">Plotting roadmap</a>
-<span class="nav-dropdown-header">--- worked ---</span>
+<a href="mlr_gallery.html">map of machine learning</a>
+<a href="roadmap_gallery.html">references for working with data</a>
+<a href="demo_gallery.html">demos</a>
+<a href="worked_gallery.html">worked examples</a>
 </div>
 </div>
-<div class="nav-dropdown">
-<button class="nav-dropbtn">
-data projects
- 
-<span class="down-arrow">&#x25BE;</span>
-</button>
-<div class="nav-dropdown-content">
-<span class="nav-dropdown-header">[placeholder]</span>
-</div>
-</div>
-<a href="music_page.html">original music</a>
+<a href="data_stories.html">data stories</a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
 blog
@@ -3739,11 +3783,12 @@ blog
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="math_gallery.html">Math</a>
-<span class="nav-dropdown-header">Machines</span>
-<span class="nav-dropdown-header">Art</span>
+<a href="math_articles.html">math</a>
+<a href="ml_articles.html">machines</a>
+<a href="commentary_artices.html">art</a>
 </div>
 </div>
+<a href="music_page.html">original music</a>
 <input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
 </div>
 <div class="nav-right">
@@ -3755,9 +3800,6 @@ blog
 </a>
 <a href="https://www.youtube.com/@fujinai9/featured">
 <i class="fa fa-youtube fa-lg" aria-hidden="true"></i>
-</a>
-<a href="https://soundcloud.com/user-752823440">
-<i class="fa fa-brands fa-soundcloud" aria-hidden="true"></i>
 </a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
@@ -3785,27 +3827,13 @@ data guides
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<span class="nav-dropdown-header">--- tours ---</span>
-<span class="nav-dropdown-header">Classification in R</span>
-<span class="nav-dropdown-header">Classification in Python</span>
-<span class="nav-dropdown-header">Frequentist hypothesis testing in R</span>
-<span class="nav-dropdown-header">--- templates ---</span>
-<a href="writing_temp_typora2rmd.html">Writing template</a>
-<a href="stylesheet_tests.html">Plotting roadmap</a>
-<span class="nav-dropdown-header">--- worked ---</span>
+<a href="mlr_gallery.html">map of machine learning</a>
+<a href="roadmap_gallery.html">references for working with data</a>
+<a href="demo_gallery.html">demos</a>
+<a href="worked_gallery.html">worked examples</a>
 </div>
 </div>
-<div class="nav-dropdown">
-<button class="nav-dropbtn">
-data projects
- 
-<span class="down-arrow">&#x25BE;</span>
-</button>
-<div class="nav-dropdown-content">
-<span class="nav-dropdown-header">[placeholder]</span>
-</div>
-</div>
-<a href="music_page.html">original music</a>
+<a href="data_stories.html">data stories</a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
 blog
@@ -3813,11 +3841,12 @@ blog
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="math_gallery.html">Math</a>
-<span class="nav-dropdown-header">Machines</span>
-<span class="nav-dropdown-header">Art</span>
+<a href="math_articles.html">math</a>
+<a href="ml_articles.html">machines</a>
+<a href="commentary_artices.html">art</a>
 </div>
 </div>
+<a href="music_page.html">original music</a>
 <input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
 </div>
 <div class="nav-right">
@@ -3829,9 +3858,6 @@ blog
 </a>
 <a href="https://www.youtube.com/@fujinai9/featured">
 <i class="fa fa-youtube fa-lg" aria-hidden="true"></i>
-</a>
-<a href="https://soundcloud.com/user-752823440">
-<i class="fa fa-brands fa-soundcloud" aria-hidden="true"></i>
 </a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>

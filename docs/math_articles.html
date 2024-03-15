@@ -88,26 +88,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>data-driven-brain: Math gallery</title>
+  <title>data-driven-brain: Math things |
+  Proofs, derivations, and discussion. 
+  </title>
 
+  <meta property="description" itemprop="description" content="A home for proofs, derivations, and discussion about important my favourite results&#10;and algorithms."/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="data-driven-brain: Math gallery"/>
+  <meta property="og:title" content="data-driven-brain: Math things |&#10;Proofs, derivations, and discussion. &#10;"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="A home for proofs, derivations, and discussion about important my favourite results&#10;and algorithms."/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="data-driven-brain"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="data-driven-brain: Math gallery"/>
+  <meta property="twitter:title" content="data-driven-brain: Math things |&#10;Proofs, derivations, and discussion. &#10;"/>
+  <meta property="twitter:description" content="A home for proofs, derivations, and discussion about important my favourite results&#10;and algorithms."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","listing"]}},"value":[{"type":"character","attributes":{},"value":["Math gallery"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["math_gallery"]}},"value":[{"type":"character","attributes":{},"value":["2024-03-15-the-sharpe-ratio","2024-03-15-asset-volatility","2024-03-15-visualizing-asset-returns"]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site","includes","listing"]}},"value":[{"type":"character","attributes":{},"value":["Math things |\nProofs, derivations, and discussion. \n"]},{"type":"character","attributes":{},"value":["A home for proofs, derivations, and discussion about important my favourite results\nand algorithms.\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["in_header"]}},"value":[{"type":"character","attributes":{},"value":["favicon.html"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["math_articles"]}},"value":[{"type":"character","attributes":{},"value":["2024-03-15-the-sharpe-ratio","2024-03-15-asset-volatility","2024-03-15-visualizing-asset-returns"]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2173,7 +2178,36 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /*-- Additional custom styles --*/
   /* Add any additional CSS rules below                      */
   </style>
-  <style type="text/css">/* ---------------------------------- */
+  <style type="text/css">/* ---------------------- */
+  /* --- STYLE ELEMENTS --- */
+  /* ---------------------- */
+  /* 
+  Text elements:
+  - page: title, subtitle, metadata, toc levels 1-3
+  - content: h1-h4, body, code, math
+  - site: nav bar, menu items, footer
+  - other: captions, asides, references/footnotes
+
+  Text properties:
+  - font face, size, weight, colour
+  - text spacing, padding below, padding above
+  - text alignment
+
+  List (bulleted, numbered) properties:
+  - vertical spacing
+  - bullet/number colour
+
+  Header properties:
+  - number padding, number colour
+
+  Nav bar properties:
+  - background colour, height
+
+  Page properties:
+  - page width
+  */
+
+  /* ---------------------------------- */
   /* --- DEFAULT RMD CUSTOMIZATIONS --- */
   /* ---------------------------------- */
 
@@ -2237,12 +2271,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-bottom: 2px; /* Adjust the spacing between list items as needed */
   }
 
-  /* --- OTHER --- */
-  /* --- Supress page title from  displaying in knit but keep metadata --- */
-  #header {
-    display: none;
-  }
-
   /* --- FLOATING TOC --- */
   /* Change background colour */
   .tocify-item {
@@ -2258,6 +2286,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   .tocify-subheader > .tocify-item {
       text-indent: initial;
       padding-left: 2em;
+  }
+
+  /* --- OTHER --- */
+  /* --- Supress page title from  displaying in knit but keep metadata --- */
+  #header {
+    display: none;
   }
 
   /*
@@ -2598,7 +2632,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Math gallery","authors":[]}
+{"title":"Math things |\nProofs, derivations, and discussion. \n","description":"A home for proofs, derivations, and discussion about important my favourite results\nand algorithms.","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2614,27 +2648,13 @@ data guides
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<span class="nav-dropdown-header">--- tours ---</span>
-<span class="nav-dropdown-header">Classification in R</span>
-<span class="nav-dropdown-header">Classification in Python</span>
-<span class="nav-dropdown-header">Frequentist hypothesis testing in R</span>
-<span class="nav-dropdown-header">--- templates ---</span>
-<a href="writing_temp_typora2rmd.html">Writing template</a>
-<a href="stylesheet_tests.html">Plotting roadmap</a>
-<span class="nav-dropdown-header">--- worked ---</span>
+<a href="mlr_gallery.html">map of machine learning</a>
+<a href="roadmap_gallery.html">references for working with data</a>
+<a href="demo_gallery.html">demos</a>
+<a href="worked_gallery.html">worked examples</a>
 </div>
 </div>
-<div class="nav-dropdown">
-<button class="nav-dropbtn">
-data projects
- 
-<span class="down-arrow">&#x25BE;</span>
-</button>
-<div class="nav-dropdown-content">
-<span class="nav-dropdown-header">[placeholder]</span>
-</div>
-</div>
-<a href="music_page.html">original music</a>
+<a href="data_stories.html">data stories</a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
 blog
@@ -2642,11 +2662,12 @@ blog
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="math_gallery.html">Math</a>
-<span class="nav-dropdown-header">Machines</span>
-<span class="nav-dropdown-header">Art</span>
+<a href="math_articles.html">math</a>
+<a href="ml_articles.html">machines</a>
+<a href="commentary_artices.html">art</a>
 </div>
 </div>
+<a href="music_page.html">original music</a>
 <input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
 </div>
 <div class="nav-right">
@@ -2658,9 +2679,6 @@ blog
 </a>
 <a href="https://www.youtube.com/@fujinai9/featured">
 <i class="fa fa-youtube fa-lg" aria-hidden="true"></i>
-</a>
-<a href="https://soundcloud.com/user-752823440">
-<i class="fa fa-brands fa-soundcloud" aria-hidden="true"></i>
 </a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
@@ -2804,8 +2822,10 @@ function init_posts_list() {
 
 <div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
 <div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Math gallery">Math gallery</h1>
-<a href="math_gallery/2024-03-15-the-sharpe-ratio/" class="post-preview">
+<h1 class="posts-list-caption" data-caption="Math things |&#10;Proofs, derivations, and discussion. &#10;">Math things |
+Proofs, derivations, and discussion. 
+</h1>
+<a href="math_articles/2024-03-15-the-sharpe-ratio/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":["linear algebra"]}</script>
 <div class="metadata">
 <div class="publishedDate">March 15, 2024</div>
@@ -2824,7 +2844,7 @@ function init_posts_list() {
 <p>A short description of the post.</p>
 </div>
 </a>
-<a href="math_gallery/2024-03-15-asset-volatility/" class="post-preview">
+<a href="math_articles/2024-03-15-asset-volatility/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":["linear algebra","clustering"]}</script>
 <div class="metadata">
 <div class="publishedDate">March 15, 2024</div>
@@ -2844,7 +2864,7 @@ function init_posts_list() {
 <p>A short description of the post.</p>
 </div>
 </a>
-<a href="math_gallery/2024-03-15-visualizing-asset-returns/" class="post-preview">
+<a href="math_articles/2024-03-15-visualizing-asset-returns/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":["calculus","linear algebra","neural networks"]}</script>
 <div class="metadata">
 <div class="publishedDate">March 15, 2024</div>
@@ -2900,11 +2920,12 @@ function init_posts_list() {
 <!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Math gallery</h1>
+<h1>Math things | Proofs, derivations, and discussion.</h1>
 
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p><p>A home for proofs, derivations, and discussion about important my favourite results
+and algorithms.</p></p>
 </div>
 
 

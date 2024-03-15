@@ -88,11 +88,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-<title>data-driven-brain: The Sharpe Ratio</title>
+<title>data-driven-brain: Visualizing Asset Returns</title>
 
 <meta property="description" itemprop="description" content="A short description of the post."/>
 
-<link rel="canonical" href="https://mattlabcode.github.io/math_gallery/2024-03-15-the-sharpe-ratio/"/>
+<link rel="canonical" href="https://mattlabcode.github.io/math_articles/2024-03-15-visualizing-asset-returns/"/>
 
 <!--  https://schema.org/Article -->
 <meta property="article:published" itemprop="datePublished" content="2024-03-15"/>
@@ -100,29 +100,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta name="article:author" content="Matthew Bain"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="data-driven-brain: The Sharpe Ratio"/>
+<meta property="og:title" content="data-driven-brain: Visualizing Asset Returns"/>
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="A short description of the post."/>
-<meta property="og:url" content="https://mattlabcode.github.io/math_gallery/2024-03-15-the-sharpe-ratio/"/>
+<meta property="og:url" content="https://mattlabcode.github.io/math_articles/2024-03-15-visualizing-asset-returns/"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="data-driven-brain"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="data-driven-brain: The Sharpe Ratio"/>
+<meta property="twitter:title" content="data-driven-brain: Visualizing Asset Returns"/>
 <meta property="twitter:description" content="A short description of the post."/>
-<meta property="twitter:url" content="https://mattlabcode.github.io/math_gallery/2024-03-15-the-sharpe-ratio/"/>
+<meta property="twitter:url" content="https://mattlabcode.github.io/math_articles/2024-03-15-visualizing-asset-returns/"/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","output","draft","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["The Sharpe Ratio"]},{"type":"character","attributes":{},"value":["A short description of the post."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Matthew Bain"]}]}]},{"type":"character","attributes":{},"value":["2024-03-15"]},{"type":"character","attributes":{},"value":["linear algebra"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["https://mattlabcode.github.io/math_gallery/2024-03-15-the-sharpe-ratio/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","output","draft","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Visualizing Asset Returns"]},{"type":"character","attributes":{},"value":["A short description of the post."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Matthew Bain"]}]}]},{"type":"character","attributes":{},"value":["2024-03-15"]},{"type":"character","attributes":{},"value":["calculus","linear algebra","neural networks"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["https://mattlabcode.github.io/math_articles/2024-03-15-visualizing-asset-returns/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["the-sharpe-ratio_files/anchor-4.2.2/anchor.min.js","the-sharpe-ratio_files/bowser-1.9.3/bowser.min.js","the-sharpe-ratio_files/distill-2.2.21/template.v2.js","the-sharpe-ratio_files/header-attrs-2.26/header-attrs.js","the-sharpe-ratio_files/jquery-3.6.0/jquery-3.6.0.js","the-sharpe-ratio_files/jquery-3.6.0/jquery-3.6.0.min.js","the-sharpe-ratio_files/jquery-3.6.0/jquery-3.6.0.min.map","the-sharpe-ratio_files/popper-2.6.0/popper.min.js","the-sharpe-ratio_files/tippy-6.2.7/tippy-bundle.umd.min.js","the-sharpe-ratio_files/tippy-6.2.7/tippy-light-border.css","the-sharpe-ratio_files/tippy-6.2.7/tippy.css","the-sharpe-ratio_files/tippy-6.2.7/tippy.umd.min.js","the-sharpe-ratio_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["visualizing-asset-returns_files/anchor-4.2.2/anchor.min.js","visualizing-asset-returns_files/bowser-1.9.3/bowser.min.js","visualizing-asset-returns_files/distill-2.2.21/template.v2.js","visualizing-asset-returns_files/header-attrs-2.26/header-attrs.js","visualizing-asset-returns_files/jquery-3.6.0/jquery-3.6.0.js","visualizing-asset-returns_files/jquery-3.6.0/jquery-3.6.0.min.js","visualizing-asset-returns_files/jquery-3.6.0/jquery-3.6.0.min.map","visualizing-asset-returns_files/popper-2.6.0/popper.min.js","visualizing-asset-returns_files/tippy-6.2.7/tippy-bundle.umd.min.js","visualizing-asset-returns_files/tippy-6.2.7/tippy-light-border.css","visualizing-asset-returns_files/tippy-6.2.7/tippy.css","visualizing-asset-returns_files/tippy-6.2.7/tippy.umd.min.js","visualizing-asset-returns_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2187,7 +2187,36 @@ d-appendix {
 /*-- Additional custom styles --*/
 /* Add any additional CSS rules below                      */
 </style>
-<style type="text/css">/* ---------------------------------- */
+<style type="text/css">/* ---------------------- */
+/* --- STYLE ELEMENTS --- */
+/* ---------------------- */
+/* 
+Text elements:
+- page: title, subtitle, metadata, toc levels 1-3
+- content: h1-h4, body, code, math
+- site: nav bar, menu items, footer
+- other: captions, asides, references/footnotes
+
+Text properties:
+- font face, size, weight, colour
+- text spacing, padding below, padding above
+- text alignment
+
+List (bulleted, numbered) properties:
+- vertical spacing
+- bullet/number colour
+
+Header properties:
+- number padding, number colour
+
+Nav bar properties:
+- background colour, height
+
+Page properties:
+- page width
+*/
+
+/* ---------------------------------- */
 /* --- DEFAULT RMD CUSTOMIZATIONS --- */
 /* ---------------------------------- */
 
@@ -2251,12 +2280,6 @@ ol > li {
   margin-bottom: 2px; /* Adjust the spacing between list items as needed */
 }
 
-/* --- OTHER --- */
-/* --- Supress page title from  displaying in knit but keep metadata --- */
-#header {
-  display: none;
-}
-
 /* --- FLOATING TOC --- */
 /* Change background colour */
 .tocify-item {
@@ -2272,6 +2295,12 @@ ol > li {
 .tocify-subheader > .tocify-item {
     text-indent: initial;
     padding-left: 2em;
+}
+
+/* --- OTHER --- */
+/* --- Supress page title from  displaying in knit but keep metadata --- */
+#header {
+  display: none;
 }
 
 /*
@@ -2613,7 +2642,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"The Sharpe Ratio","description":"A short description of the post.","authors":[{"author":"Matthew Bain","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-03-15T00:00:00.000-04:00","citationText":"Bain, 2024"}
+{"title":"Visualizing Asset Returns","description":"A short description of the post.","authors":[{"author":"Matthew Bain","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-03-15T00:00:00.000-04:00","citationText":"Bain, 2024"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2629,27 +2658,13 @@ data guides
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<span class="nav-dropdown-header">--- tours ---</span>
-<span class="nav-dropdown-header">Classification in R</span>
-<span class="nav-dropdown-header">Classification in Python</span>
-<span class="nav-dropdown-header">Frequentist hypothesis testing in R</span>
-<span class="nav-dropdown-header">--- templates ---</span>
-<a href="../../writing_temp_typora2rmd.html">Writing template</a>
-<a href="../../stylesheet_tests.html">Plotting roadmap</a>
-<span class="nav-dropdown-header">--- worked ---</span>
+<a href="../../mlr_gallery.html">map of machine learning</a>
+<a href="../../roadmap_gallery.html">references for working with data</a>
+<a href="../../demo_gallery.html">demos</a>
+<a href="../../worked_gallery.html">worked examples</a>
 </div>
 </div>
-<div class="nav-dropdown">
-<button class="nav-dropbtn">
-data projects
- 
-<span class="down-arrow">&#x25BE;</span>
-</button>
-<div class="nav-dropdown-content">
-<span class="nav-dropdown-header">[placeholder]</span>
-</div>
-</div>
-<a href="../../music_page.html">original music</a>
+<a href="../../data_stories.html">data stories</a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
 blog
@@ -2657,11 +2672,12 @@ blog
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="../../math_gallery.html">Math</a>
-<span class="nav-dropdown-header">Machines</span>
-<span class="nav-dropdown-header">Art</span>
+<a href="../../math_articles.html">math</a>
+<a href="../../ml_articles.html">machines</a>
+<a href="../../commentary_artices.html">art</a>
 </div>
 </div>
+<a href="../../music_page.html">original music</a>
 <input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
 </div>
 <div class="nav-right">
@@ -2674,9 +2690,6 @@ blog
 <a href="https://www.youtube.com/@fujinai9/featured">
 <i class="fa fa-youtube fa-lg" aria-hidden="true"></i>
 </a>
-<a href="https://soundcloud.com/user-752823440">
-<i class="fa fa-brands fa-soundcloud" aria-hidden="true"></i>
-</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2686,7 +2699,7 @@ blog
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>The Sharpe Ratio</h1>
+<h1>Visualizing Asset Returns</h1>
 
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
@@ -2708,10 +2721,10 @@ blog
   <p class="social_footer">
     <span class="article-sharing">
       Share: &nbsp;
-      <a href="https://twitter.com/share?text=The%20Sharpe%20Ratio&amp;url=https%3A%2F%2Fmattlabcode.github.io%2Fmath_gallery%2F2024-03-15-the-sharpe-ratio%2F" aria-label="share on twitter">
+      <a href="https://twitter.com/share?text=Visualizing%20Asset%20Returns&amp;url=https%3A%2F%2Fmattlabcode.github.io%2Fmath_articles%2F2024-03-15-visualizing-asset-returns%2F" aria-label="share on twitter">
         <i class="fab fa-twitter" aria-hidden="true"></i>
       </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fmattlabcode.github.io%2Fmath_gallery%2F2024-03-15-the-sharpe-ratio%2F&amp;title=The%20Sharpe%20Ratio" aria-label="share on linkedin">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fmattlabcode.github.io%2Fmath_articles%2F2024-03-15-visualizing-asset-returns%2F&amp;title=Visualizing%20Asset%20Returns" aria-label="share on linkedin">
         <i class="fab fa-linkedin" aria-hidden="true"></i>
       </a>
     </span>
