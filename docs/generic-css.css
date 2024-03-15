@@ -1,4 +1,8 @@
-/* --- Whole document settings --- */
+/* ---------------------------------- */
+/* --- DEFAULT RMD CUSTOMIZATIONS --- */
+/* ---------------------------------- */
+
+/* --- GLOBAL DOCUMENT SETTINGS --- */
 body {
     /* font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
     /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
@@ -7,36 +11,64 @@ body {
     /* font-weight: 100; */
 }
 
-/* --- Headers --- */
+/* --- HEADERS --- */
 h1, h2, h3 {
-    /* padding-top: 10em; */
-    padding-bottom: .3em;
-    /* margin-top: 10em; */
-    margin-bottom: .75em;
-    /* font-size: 14pt, 13pt, 12pt, 11pt; */
-    /* font-weight: 320; */
-    /* border-top: 10px; */
-    border-bottom: 1px solid #eee; /* add horizontal rule under each header */
+  /* padding-top: 10em; */
+  padding-bottom: .3em;
+  /* margin-top: 10em; */
+  margin-bottom: .75em;
+  /* border-top: 10px; */
+  border-bottom: 1px solid #eee; /* add horizontal rule under each header */
+  /* font-size: 14pt, 13pt, 12pt, 11pt; */
+  /* font-weight: 320; */
 }
 
 h1 {
-    font-size: 19pt;
+  font-size: 19pt;                                    /* alt: 19pt */
 }
 
 h2 {
-    font-size: 16pt;
+  font-size: 16pt;                                    /* alt: 16pt */
 }
 
 h3 {
-    font-size: 13pt;
+  font-size: 13pt;                                    /* alt: 13pt */
 }
 
+/* --- CODE --- */
+code {
+  /* font-size: 12px; */
+  /* font-weight: 550; */
+}
+
+/* --- ORDERED LISTS --- */
+/* Bulletted list items padding */
+ul {
+  margin-top: 0; 
+  margin-bottom: 0;
+}
+
+ul > li {
+  margin-bottom: 2px;
+}
+
+/* Numbered list items padding */
+ol {
+  margin-top: 0; /* Remove default top margin for the list */
+  margin-bottom: 0; /* Remove default bottom margin for the list */
+}
+
+ol > li {
+  margin-bottom: 2px; /* Adjust the spacing between list items as needed */
+}
+
+/* --- OTHER --- */
 /* --- Supress page title from  displaying in knit but keep metadata --- */
 #header {
-    display: none;
+  display: none;
 }
 
-/* --- TOC --- */
+/* --- FLOATING TOC --- */
 /* Change background colour */
 .tocify-item {
     /* background-color: rgb(251, 250, 247); */
@@ -53,8 +85,166 @@ h3 {
     padding-left: 2em;
 }
 
-/* --- Code --- */
-code {
-  /* font-size: 12px; */
-  font-weight: 450;
+/*
+scope {
+  --a-property:       50px;
+  --another-property: #fff;
+}
+*/
+
+/* -------------------------------------- */
+/* --- FURTHER DISTILL CUSTOMIZATIONS --- */
+/* -------------------------------------- */
+
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP:300, 300i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      44px;                        /* default: 50px */
+  --body-size:       1.06rem;                      /* default: 1.06rem */                  
+  --code-size:       13.25px;                     /* default: 14px */                  
+  --aside-size:      12px;                        /* default: 12px */                  
+  --fig-cap-size:    13.5px;                        /* default: 13px */
+  
+  /* [MB] Left justify figure captions */
+
+
+  /* [MB] Bold the "Figure" or "Table" tag */
+
+  
+  /*
+  --title-size:      30x;                         
+  --body-size:       0.9rem;                    
+  --code-size:       13.25px;                     
+  --aside-size:      11px;                        
+  --fig-cap-size:    12px;                        
+  */
+  
+  /*-- Main font colors --*/
+  --title-color:     #ca225e;                     /* default: #ca225e */
+  --header-color:    #ca225e;                     /* theme: #ca225e */
+  --body-color:      #404040;                     /* theme: #404040 */
+  --aside-color:     rgba(0, 0, 0, 0.6);
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    "Noto Serif JP", sans-serif; /* theme */
+  --mono-font:       "IBM Plex Mono", monospace;  /* theme */
+  --body-font:       "Lato", sans-serif;          /* theme */
+  --navbar-font:     "Lato", sans-serif;          /* theme */
+  
+  /*
+  --heading-font:    "Amiri", serif;
+  --mono-font:       "DM Mono", monospace;
+  --body-font:       "Bitter", sans-serif;
+  --navbar-font:     "Amiri", serif;
+  */
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    0.9rem;                      /* theme: 0.9rem */
+  --heading-color:   rgba(0, 0, 0, 0.5);          /* default: rgba(0, 0, 0, 0.5) */
+  --body-size:       0.95rem;                     /* theme: 0.95rem */
+  --body-color:      rgba(0, 0, 0, 0.8);          /* default: rgba(0, 0, 0, 0.8) */
+  
+  /* [MB] Hide the Author field */
+  .author,
+  {
+    display: none;                              
+  }
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;                        /* default: 18px */
+  --contents-size:   13px;                        /* default: 13px */
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;                        /* default: 15px */
+  --heading-color:   rgba(0, 0, 0, 0.65);         /* default: rgba(0, 0, 0, 0.65) */
+  --text-size:       0.9rem;                      /* theme: 0.9rem */
+  --text-color:      #1a162d;                     /* theme: 0.9rem */
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+.distill-site-header {
+  --title-size:       18px;                       /* default: 18px */
+  --text-color:       #1f1f1f;                    /* theme: #1f1f1f */
+  --text-size:        15px;                       /* default: 15px */
+  --hover-color:      #787878;                    /* default: #787878 */
+  --bkgd-color:       #fff;                       /* theme: #fff */
+  
+  /*
+  --title-size:       18px;    
+  --text-color:       #ff414b;
+  --text-size:        15px;
+  --hover-color:      #dd424c;
+  --bkgd-color:       #ffd8db;
+  */
+}
+
+.distill-site-footer {
+  --text-color:       #7e7b88;                    /* theme: #7e7b88 */
+  --text-size:        15px;                       /* default: 15px */
+  --hover-color:      white;                      /* defaultl: white */
+  --bkgd-color:       #ca225e3d;                  /* theme: #ca225e3d */
+}
+
+/*-- ADDITIONAL CUSTOM STYLES --*/
+/* Ordered list index colour */
+ul > li::marker {                 
+  color: #ca225e;                                 /* default: #ca225e */
+}
+
+ol > li::marker {                 
+  color: #ca225e;                                 /* default: #ca225e */
+}
+
+/* Navigation bar letter case */
+.distill-site-header { 
+  letter-spacing: 2px;                            /* default: 2px */
+  /*text-transform: uppercase;*/                      /* default: uppercase */
+}
+
+/* Font weights and letter spacing */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 2px;                            /* default: 2px */
+  font-weight: 300;                               /* default: 300 */
+}
+
+/* Makes logo bigger */
+.distill-site-header .logo img{
+  max-height: 40px;                               /* theme: 20px */
+}
+
+.distill-site-header {
+  padding-top: 1rem;                              /* default: 1rem */
+}
+
+d-title h1,
+d-article h2,
+.posts-list .description h2,
+.posts-list > h1 {
+    font-weight: 300;                             /* default: 300 */
+}
+
+d-appendix {
+  background-color: #fdf7f9;                      /* default: #fdf7f9 */
+  border-top: none;                               /* default: none */
 }
