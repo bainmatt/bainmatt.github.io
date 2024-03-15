@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
+    <loc>https://mattlabcode.github.io/data_stories.html</loc>
+    <lastmod>2024-03-15T18:09:10-04:00</lastmod>
+  </url>
+  <url>
     <loc>https://mattlabcode.github.io/DS_classification-basics.html</loc>
     <lastmod>2024-03-10T20:54:11-04:00</lastmod>
   </url>
@@ -9,8 +13,8 @@
     <lastmod>2024-03-15T13:16:57-04:00</lastmod>
   </url>
   <url>
-    <loc>https://mattlabcode.github.io/math_gallery.html</loc>
-    <lastmod>2024-03-15T11:34:50-04:00</lastmod>
+    <loc>https://mattlabcode.github.io/math_articles.html</loc>
+    <lastmod>2024-03-15T18:22:22-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/ML_classification-basics.html</loc>
@@ -18,7 +22,7 @@
   </url>
   <url>
     <loc>https://mattlabcode.github.io/music_page.html</loc>
-    <lastmod>2024-03-15T13:09:41-04:00</lastmod>
+    <lastmod>2024-03-15T18:12:31-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/organization-of-ideas.html</loc>
@@ -49,15 +53,19 @@
     <lastmod>2024-03-15T13:17:18-04:00</lastmod>
   </url>
   <url>
-    <loc>https://mattlabcode.github.io/math_gallery/2024-03-15-asset-volatility/</loc>
+    <loc>https://mattlabcode.github.io/data_stories/2024-03-15-my-first-data-story/</loc>
+    <lastmod>2024-03-15T18:07:58-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mattlabcode.github.io/math_articles/2024-03-15-asset-volatility/</loc>
     <lastmod>2024-03-15T11:24:29-04:00</lastmod>
   </url>
   <url>
-    <loc>https://mattlabcode.github.io/math_gallery/2024-03-15-the-sharpe-ratio/</loc>
+    <loc>https://mattlabcode.github.io/math_articles/2024-03-15-the-sharpe-ratio/</loc>
     <lastmod>2024-03-15T12:06:23-04:00</lastmod>
   </url>
   <url>
-    <loc>https://mattlabcode.github.io/math_gallery/2024-03-15-visualizing-asset-returns/</loc>
+    <loc>https://mattlabcode.github.io/math_articles/2024-03-15-visualizing-asset-returns/</loc>
     <lastmod>2024-03-15T02:26:31-04:00</lastmod>
   </url>
 </urlset>
