@@ -88,31 +88,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>data-driven-brain: Math things |
-  Proofs, derivations, and discussion. 
+  <title>matthewbain: Mathematical musings |
+  Proofs and derivations. 
   </title>
 
-  <meta property="description" itemprop="description" content="A home for proofs, derivations, and discussion about important my favourite results&#10;and algorithms."/>
+  <meta property="description" itemprop="description" content="A home for proofs, derivations, and discussion about &#10;my favourite results and algorithms."/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="data-driven-brain: Math things |&#10;Proofs, derivations, and discussion. &#10;"/>
+  <meta property="og:title" content="matthewbain: Mathematical musings |&#10;Proofs and derivations. &#10;"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="A home for proofs, derivations, and discussion about important my favourite results&#10;and algorithms."/>
+  <meta property="og:description" content="A home for proofs, derivations, and discussion about &#10;my favourite results and algorithms."/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="data-driven-brain"/>
+  <meta property="og:site_name" content="matthewbain"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="data-driven-brain: Math things |&#10;Proofs, derivations, and discussion. &#10;"/>
-  <meta property="twitter:description" content="A home for proofs, derivations, and discussion about important my favourite results&#10;and algorithms."/>
+  <meta property="twitter:title" content="matthewbain: Mathematical musings |&#10;Proofs and derivations. &#10;"/>
+  <meta property="twitter:description" content="A home for proofs, derivations, and discussion about &#10;my favourite results and algorithms."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site","includes","listing"]}},"value":[{"type":"character","attributes":{},"value":["Math things |\nProofs, derivations, and discussion. \n"]},{"type":"character","attributes":{},"value":["A home for proofs, derivations, and discussion about important my favourite results\nand algorithms.\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["in_header"]}},"value":[{"type":"character","attributes":{},"value":["favicon.html"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["math_articles"]}},"value":[{"type":"character","attributes":{},"value":["2024-03-15-the-sharpe-ratio","2024-03-15-asset-volatility","2024-03-15-visualizing-asset-returns"]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site","includes","listing","self_contained"]}},"value":[{"type":"character","attributes":{},"value":["Mathematical musings |\nProofs and derivations. \n"]},{"type":"character","attributes":{},"value":["A home for proofs, derivations, and discussion about \nmy favourite results and algorithms.\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["in_header"]}},"value":[{"type":"character","attributes":{},"value":["favicon.html"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["math_articles"]}},"value":[{"type":"character","attributes":{},"value":["2024-03-15-my-first-math-article"]}]},{"type":"logical","attributes":{},"value":[false]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2456,7 +2456,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-appendix {
     background-color: #fdf7f9;                      /* default: #fdf7f9 */
     border-top: none;                               /* default: none */
-  }</style>
+  }
+
+  /* ----------------------------------------------- */
+  /* --- MATCH CUSTOM DISTILL HEADER IN RMD POSTS--- */
+  /* ----------------------------------------------- */
+  /*
+  .navbar {
+    font-family: 'Lato', sans-serif;
+    height: 90px;
+    display: flex;
+    align-items: center;
+  }
+  */</style>
   <style type="text/css">
   /* base style */
 
@@ -2632,7 +2644,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Math things |\nProofs, derivations, and discussion. \n","description":"A home for proofs, derivations, and discussion about important my favourite results\nand algorithms.","authors":[]}
+{"title":"Mathematical musings |\nProofs and derivations. \n","description":"A home for proofs, derivations, and discussion about \nmy favourite results and algorithms.","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2640,7 +2652,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <header class="header header--fixed" role="banner">
 <nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
-<a href="index.html" class="title">data-driven-brain</a>
+<a href="index.html" class="title">matthew bain</a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
 data guides
@@ -2648,9 +2660,9 @@ data guides
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="mlr_gallery.html">map of machine learning</a>
-<a href="roadmap_gallery.html">references for working with data</a>
-<a href="demo_gallery.html">demos</a>
+<a href="mlr_gallery.html"> Python machine learning tour</a>
+<a href="roadmap_gallery.html">tools and references</a>
+<a href="demo_gallery.html">data science demos</a>
 <a href="worked_gallery.html">worked examples</a>
 </div>
 </div>
@@ -2664,7 +2676,7 @@ blog
 <div class="nav-dropdown-content">
 <a href="math_articles.html">math</a>
 <a href="ml_articles.html">machines</a>
-<a href="commentary_artices.html">art</a>
+<a href="commentary_articles.html">commentary</a>
 </div>
 </div>
 <a href="music_page.html">original music</a>
@@ -2822,11 +2834,11 @@ function init_posts_list() {
 
 <div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
 <div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Math things |&#10;Proofs, derivations, and discussion. &#10;">Math things |
-Proofs, derivations, and discussion. 
+<h1 class="posts-list-caption" data-caption="Mathematical musings |&#10;Proofs and derivations. &#10;">Mathematical musings |
+Proofs and derivations. 
 </h1>
-<a href="math_articles/2024-03-15-the-sharpe-ratio/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["linear algebra"]}</script>
+<a href="math_articles/2024-03-15-my-first-math-article/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":["probability","statistics","Bayesian analysis"]}</script>
 <div class="metadata">
 <div class="publishedDate">March 15, 2024</div>
 <div class="dt-authors">
@@ -2837,50 +2849,11 @@ Proofs, derivations, and discussion.
 <img/>
 </div>
 <div class="description">
-<h2>The Sharpe Ratio</h2>
+<h2>My first math article</h2>
 <div class="dt-tags">
-<div class="dt-tag">linear algebra</div>
-</div>
-<p>A short description of the post.</p>
-</div>
-</a>
-<a href="math_articles/2024-03-15-asset-volatility/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["linear algebra","clustering"]}</script>
-<div class="metadata">
-<div class="publishedDate">March 15, 2024</div>
-<div class="dt-authors">
-<div class="dt-author">Matthew Bain</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Asset Volatility</h2>
-<div class="dt-tags">
-<div class="dt-tag">linear algebra</div>
-<div class="dt-tag">clustering</div>
-</div>
-<p>A short description of the post.</p>
-</div>
-</a>
-<a href="math_articles/2024-03-15-visualizing-asset-returns/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["calculus","linear algebra","neural networks"]}</script>
-<div class="metadata">
-<div class="publishedDate">March 15, 2024</div>
-<div class="dt-authors">
-<div class="dt-author">Matthew Bain</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Visualizing Asset Returns</h2>
-<div class="dt-tags">
-<div class="dt-tag">calculus</div>
-<div class="dt-tag">linear algebra</div>
-<div class="dt-tag">neural networks</div>
+<div class="dt-tag">probability</div>
+<div class="dt-tag">statistics</div>
+<div class="dt-tag">Bayesian analysis</div>
 </div>
 <p>A short description of the post.</p>
 </div>
@@ -2891,23 +2864,19 @@ Proofs, derivations, and discussion.
 <h3>Categories</h3>
 <ul>
 <li>
-<a href="#category:articles">articles</a>
-<span class="category-count">(3)</span>
-</li>
-<li>
-<a href="#category:calculus">calculus</a>
+<a href="#category:Articles">Articles</a>
 <span class="category-count">(1)</span>
 </li>
 <li>
-<a href="#category:clustering">clustering</a>
+<a href="#category:Bayesian_analysis">Bayesian analysis</a>
 <span class="category-count">(1)</span>
 </li>
 <li>
-<a href="#category:linear_algebra">linear algebra</a>
-<span class="category-count">(3)</span>
+<a href="#category:probability">probability</a>
+<span class="category-count">(1)</span>
 </li>
 <li>
-<a href="#category:neural_networks">neural networks</a>
+<a href="#category:statistics">statistics</a>
 <span class="category-count">(1)</span>
 </li>
 </ul>
@@ -2920,12 +2889,12 @@ Proofs, derivations, and discussion.
 <!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Math things | Proofs, derivations, and discussion.</h1>
+<h1>Mathematical musings | Proofs and derivations.</h1>
 
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>A home for proofs, derivations, and discussion about important my favourite results
-and algorithms.</p></p>
+<p><p>A home for proofs, derivations, and discussion about
+my favourite results and algorithms.</p></p>
 </div>
 
 

@@ -985,7 +985,19 @@ d-article h2,
 d-appendix {
   background-color: #fdf7f9;                      /* default: #fdf7f9 */
   border-top: none;                               /* default: none */
-}</style>
+}
+
+/* ----------------------------------------------- */
+/* --- MATCH CUSTOM DISTILL HEADER IN RMD POSTS--- */
+/* ----------------------------------------------- */
+/*
+.navbar {
+  font-family: 'Lato', sans-serif;
+  height: 90px;
+  display: flex;
+  align-items: center;
+}
+*/</style>
 <style type="text/css">
 /* base style */
 
@@ -1440,7 +1452,7 @@ div.tocify {
 <header class="header header--fixed" role="banner">
 <nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
-<a href="index.html" class="title">data-driven-brain</a>
+<a href="index.html" class="title">matthew bain</a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
 data guides
@@ -1448,9 +1460,9 @@ data guides
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="mlr_gallery.html">map of machine learning</a>
-<a href="roadmap_gallery.html">references for working with data</a>
-<a href="demo_gallery.html">demos</a>
+<a href="mlr_gallery.html"> Python machine learning tour</a>
+<a href="roadmap_gallery.html">tools and references</a>
+<a href="demo_gallery.html">data science demos</a>
 <a href="worked_gallery.html">worked examples</a>
 </div>
 </div>
@@ -1464,7 +1476,7 @@ blog
 <div class="nav-dropdown-content">
 <a href="math_articles.html">math</a>
 <a href="ml_articles.html">machines</a>
-<a href="commentary_artices.html">art</a>
+<a href="commentary_articles.html">commentary</a>
 </div>
 </div>
 <a href="music_page.html">original music</a>
@@ -1496,7 +1508,7 @@ blog
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">data-driven-brain</a>
+      <a class="navbar-brand" href="index.html">matthew bain</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -1508,13 +1520,13 @@ blog
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="mlr_gallery.html">map of machine learning</a>
+      <a href="mlr_gallery.html"> Python machine learning tour</a>
     </li>
     <li>
-      <a href="roadmap_gallery.html">references for working with data</a>
+      <a href="roadmap_gallery.html">tools and references</a>
     </li>
     <li>
-      <a href="demo_gallery.html">demos</a>
+      <a href="demo_gallery.html">data science demos</a>
     </li>
     <li>
       <a href="worked_gallery.html">worked examples</a>
@@ -1538,7 +1550,7 @@ blog
       <a href="ml_articles.html">machines</a>
     </li>
     <li>
-      <a href="commentary_artices.html">art</a>
+      <a href="commentary_articles.html">commentary</a>
     </li>
   </ul>
 </li>
@@ -1597,11 +1609,17 @@ blog
 <h1>Just the music</h1>
 <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/914419177&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true">
 </iframe>
-<div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-<p><a href="https://soundcloud.com/user-752823440" title="fujinai" target="_blank" style="color: #cccccc; text-decoration: none;">fujinai</a> · <a href="https://soundcloud.com/user-752823440/sets/daydreams" title="Daydreams" target="_blank" style="color: #cccccc; text-decoration: none;">Daydreams</a></p>
+<div
+style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+<p><a href="https://soundcloud.com/user-752823440" title="fujinai" target="_blank" style="color: #cccccc; text-decoration: none;">fujinai</a>
+·
+<a href="https://soundcloud.com/user-752823440/sets/daydreams" title="Daydreams" target="_blank" style="color: #cccccc; text-decoration: none;">Daydreams</a></p>
 </div>
-<div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-<p><a href="https://soundcloud.com/user-752823440" title="Fujinai" target="_blank" style="color: #cccccc; text-decoration: none;">Fujinai</a> · <a href="https://soundcloud.com/user-752823440/sets/loops" title="Corridors" target="_blank" style="color: #cccccc; text-decoration: none;">Corridors</a></p>
+<div
+style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+<p><a href="https://soundcloud.com/user-752823440" title="Fujinai" target="_blank" style="color: #cccccc; text-decoration: none;">Fujinai</a>
+·
+<a href="https://soundcloud.com/user-752823440/sets/loops" title="Corridors" target="_blank" style="color: #cccccc; text-decoration: none;">Corridors</a></p>
 </div>
 <!--
 ## playlists
