@@ -1,0 +1,21 @@
+[
+  {
+    "path": "demo_gallery/2024-03-16-my-first-demo-post/",
+    "title": "My first demo post",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Matthew Bain",
+        "url": {}
+      }
+    ],
+    "date": "2024-03-15",
+    "categories": [
+      "support vector machines"
+    ],
+    "contents": "\n\n\n\n",
+    "preview": {},
+    "last_modified": "2024-03-16T01:23:32-04:00",
+    "input_file": {}
+  }
+]

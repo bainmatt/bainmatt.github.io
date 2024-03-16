@@ -277,3 +277,15 @@ d-appendix {
   background-color: #fdf7f9;                      /* default: #fdf7f9 */
   border-top: none;                               /* default: none */
 }
+
+/* ----------------------------------------------- */
+/* --- MATCH CUSTOM DISTILL HEADER IN RMD POSTS--- */
+/* ----------------------------------------------- */
+/*
+.navbar {
+  font-family: 'Lato', sans-serif;
+  height: 90px;
+  display: flex;
+  align-items: center;
+}
+*/

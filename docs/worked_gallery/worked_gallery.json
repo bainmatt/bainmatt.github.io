@@ -1,0 +1,22 @@
+[
+  {
+    "path": "worked_gallery/2024-03-16-end-to-end-ml-project/",
+    "title": "Heavily annotated end-to-end machine learning project",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Matthew Bain",
+        "url": {}
+      }
+    ],
+    "date": "2024-03-15",
+    "categories": [
+      "exploratory data analysis",
+      "feature engineering"
+    ],
+    "contents": "\n\n\n\n",
+    "preview": {},
+    "last_modified": "2024-03-16T01:37:07-04:00",
+    "input_file": {}
+  }
+]
