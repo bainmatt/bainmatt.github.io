@@ -88,8 +88,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>matthewbain: Data stories |
-  Revealing patterns in interesting datasets. 
+  <title>Matthew Bain: Neat data analyses
   </title>
 
   <meta property="description" itemprop="description" content="A place to share my process and findings &#10;for analyses and algorithms that have yielded interesting insights."/>
@@ -97,22 +96,22 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="matthewbain: Data stories |&#10;Revealing patterns in interesting datasets. &#10;"/>
+  <meta property="og:title" content="Matthew Bain: Neat data analyses&#10;"/>
   <meta property="og:type" content="article"/>
   <meta property="og:description" content="A place to share my process and findings &#10;for analyses and algorithms that have yielded interesting insights."/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="matthewbain"/>
+  <meta property="og:site_name" content="Matthew Bain"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="matthewbain: Data stories |&#10;Revealing patterns in interesting datasets. &#10;"/>
+  <meta property="twitter:title" content="Matthew Bain: Neat data analyses&#10;"/>
   <meta property="twitter:description" content="A place to share my process and findings &#10;for analyses and algorithms that have yielded interesting insights."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site","includes","listing","output","self_contained"]}},"value":[{"type":"character","attributes":{},"value":["Data stories |\nRevealing patterns in interesting datasets. \n"]},{"type":"character","attributes":{},"value":["A place to share my process and findings \nfor analyses and algorithms that have yielded interesting insights.\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["in_header"]}},"value":[{"type":"character","attributes":{},"value":["favicon.html"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["data_stories"]}},"value":[{"type":"character","attributes":{},"value":["2024-03-15-my-first-data-story"]}]},{"type":"character","attributes":{},"value":["distill::distill_article"]},{"type":"logical","attributes":{},"value":[false]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site","listing","output"]}},"value":[{"type":"character","attributes":{},"value":["Neat data analyses\n"]},{"type":"character","attributes":{},"value":["A place to share my process and findings \nfor analyses and algorithms that have yielded interesting insights.\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["data_stories"]}},"value":[{"type":"character","attributes":{},"value":["2024-03-15-my-first-data-story"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["includes","self_contained"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["in_header"]}},"value":[{"type":"character","attributes":{},"value":["favicon.html"]}]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2222,27 +2221,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   /* --- HEADERS --- */
   h1, h2, h3 {
-    /* padding-top: 10em; */
+    /*
+    padding-top: 10em;
+    margin-top: 10em; 
+    border-top: 10px; 
+    */
+    
+    /* add horizontal rule under each header */
+    /* 
     padding-bottom: .3em;
-    /* margin-top: 10em; */
     margin-bottom: .75em;
-    /* border-top: 10px; */
-    border-bottom: 1px solid #eee; /* add horizontal rule under each header */
-    /* font-size: 14pt, 13pt, 12pt, 11pt; */
-    /* font-weight: 320; */
+    border-bottom: 1px solid #eee;
+    */
+    
+    /*
+    font-size: 14pt, 13pt, 12pt, 11pt; 
+    font-weight: 320; 
+    */
   }
 
+  /* alt: 19pt, 16pt, 13pt */
+  /*
   h1 {
-    font-size: 19pt;                                    /* alt: 19pt */
+    font-size: 19pt;                                    
   }
 
   h2 {
-    font-size: 16pt;                                    /* alt: 16pt */
+    font-size: 16pt;                                    
   }
 
   h3 {
-    font-size: 13pt;                                    /* alt: 13pt */
+    font-size: 13pt;                                    
   }
+  */
 
   /* --- CODE --- */
   code {
@@ -2316,35 +2327,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   /* Optional: embed custom fonts here with `@import`          */
   /* This must remain at the top of this file.                 */
-  @import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP:300, 300i&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP:300,300i&display=swap');
   @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap');
   @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
 
   html {
     /*-- Main font sizes --*/
-    --title-size:      44px;                        /* default: 50px */
-    --body-size:       1.06rem;                      /* default: 1.06rem */                  
+    --title-size:      35px;                        /* default: 50px */
+    --body-size:       1.06rem;                     /* default: 1.06rem */                  
     --code-size:       13.25px;                     /* default: 14px */                  
     --aside-size:      12px;                        /* default: 12px */                  
-    --fig-cap-size:    13.5px;                        /* default: 13px */
+    --fig-cap-size:    13.5px;                      /* default: 13px */
     
     /* [MB] Left justify figure captions */
 
 
     /* [MB] Bold the "Figure" or "Table" tag */
-
     
-    /*
-    --title-size:      30x;                         
-    --body-size:       0.9rem;                    
-    --code-size:       13.25px;                     
-    --aside-size:      11px;                        
-    --fig-cap-size:    12px;                        
-    */
     
     /*-- Main font colors --*/
-    --title-color:     #ca225e;                     /* default: #ca225e */
-    --header-color:    #ca225e;                     /* theme: #ca225e */
+    /*--title-color:     #ca225e;*/                     /* default: #ca225e */
+    /*--header-color:    #ca225e;*/                     /* theme: #ca225e */
     --body-color:      #404040;                     /* theme: #404040 */
     --aside-color:     rgba(0, 0, 0, 0.6);
     --fig-cap-color:   rgba(0, 0, 0, 0.6);
@@ -2366,14 +2369,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-byline {
     --heading-size:    0.9rem;                      /* theme: 0.9rem */
     --heading-color:   rgba(0, 0, 0, 0.5);          /* default: rgba(0, 0, 0, 0.5) */
-    --body-size:       0.95rem;                     /* theme: 0.95rem */
-    --body-color:      rgba(0, 0, 0, 0.8);          /* default: rgba(0, 0, 0, 0.8) */
+    --body-size:       0.95rem;*/                     /* theme: 0.95rem */
     
     /* [MB] Hide the Author field */
+    
     .author,
     {
       display: none;                              
     }
+    
   }
 
   /*-- ARTICLE TABLE OF CONTENTS --*/
@@ -2412,17 +2416,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --text-color:       #7e7b88;                    /* theme: #7e7b88 */
     --text-size:        15px;                       /* default: 15px */
     --hover-color:      white;                      /* defaultl: white */
-    --bkgd-color:       #ca225e3d;                  /* theme: #ca225e3d */
+    /*--bkgd-color:       #ca225e3d;*/                  /* theme: #ca225e3d */
   }
 
   /*-- ADDITIONAL CUSTOM STYLES --*/
   /* Ordered list index colour */
   ul > li::marker {                 
-    color: #ca225e;                                 /* default: #ca225e */
+    /*color: #ca225e;*/                                 /* default: #ca225e */
   }
 
   ol > li::marker {                 
-    color: #ca225e;                                 /* default: #ca225e */
+    /*color: #ca225e;*/                                 /* default: #ca225e */
   }
 
   /* Navigation bar letter case */
@@ -2439,7 +2443,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   /* Makes logo bigger */
   .distill-site-header .logo img{
-    max-height: 40px;                               /* theme: 20px */
+    max-height: 20px;                               /* theme: 20px */
   }
 
   .distill-site-header {
@@ -2454,7 +2458,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }
 
   d-appendix {
-    background-color: #fdf7f9;                      /* default: #fdf7f9 */
+    /*background-color: #fdf7f9;*/                      /* default: #fdf7f9 */
     border-top: none;                               /* default: none */
   }
 
@@ -2635,6 +2639,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
+  <link rel="shortcut icon" href="favicon.jpg">
 
 
 </head>
@@ -2644,7 +2649,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Data stories |\nRevealing patterns in interesting datasets. \n","description":"A place to share my process and findings \nfor analyses and algorithms that have yielded interesting insights.","authors":[]}
+{"title":"Neat data analyses\n","description":"A place to share my process and findings \nfor analyses and algorithms that have yielded interesting insights.","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2652,34 +2657,22 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <header class="header header--fixed" role="banner">
 <nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
-<a href="index.html" class="title">matthew bain</a>
+<a href="index.html" class="title">Matthew Bain</a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
-data guides
+Resources
  
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="mlr_gallery.html"> Python machine learning tour</a>
-<a href="roadmap_gallery.html">tools and references</a>
-<a href="demo_gallery.html">data science demos</a>
-<a href="worked_gallery.html">worked examples</a>
+<a href="mlr_gallery.html">Machine learning tour</a>
+<a href="roadmap_gallery.html">References &amp; docs</a>
+<a href="demo_gallery.html">Demos</a>
 </div>
 </div>
-<a href="data_stories.html">data stories</a>
-<div class="nav-dropdown">
-<button class="nav-dropbtn">
-blog
- 
-<span class="down-arrow">&#x25BE;</span>
-</button>
-<div class="nav-dropdown-content">
-<a href="math_articles.html">math</a>
-<a href="ml_articles.html">machines</a>
-<a href="commentary_articles.html">commentary</a>
-</div>
-</div>
-<a href="music_page.html">original music</a>
+<a href="data_stories.html">Analysis</a>
+<a href="blog.html">Blog</a>
+<a href="music_page.html">Music</a>
 <input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
 </div>
 <div class="nav-right">
@@ -2832,70 +2825,10 @@ function init_posts_list() {
 
 
 
-<div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
+<div class="posts-container posts-apply-limit l-page">
 <div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Data stories |&#10;Revealing patterns in interesting datasets. &#10;">Data stories |
-Revealing patterns in interesting datasets. 
+<h1 class="posts-list-caption" data-caption="Neat data analyses&#10;">Neat data analyses
 </h1>
-<a href="data_stories/2024-03-15-my-first-data-story/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["classification","clustering","exploratory data analysis","feature selection","policy analysis","product analysis"]}</script>
-<div class="metadata">
-<div class="publishedDate">March 15, 2024</div>
-<div class="dt-authors">
-<div class="dt-author">Matthew Bain</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>My first data story</h2>
-<div class="dt-tags">
-<div class="dt-tag">classification</div>
-<div class="dt-tag">clustering</div>
-<div class="dt-tag">exploratory data analysis</div>
-<div class="dt-tag">feature selection</div>
-<div class="dt-tag">policy analysis</div>
-<div class="dt-tag">product analysis</div>
-</div>
-<p>A short description of the post.</p>
-</div>
-</a>
-</div>
-<div class="posts-sidebar">
-<div class="sidebar-section categories">
-<h3>Categories</h3>
-<ul>
-<li>
-<a href="#category:articles">articles</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:classification">classification</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:clustering">clustering</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:exploratory_data_analysis">exploratory data analysis</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:feature_selection">feature selection</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:policy_analysis">policy analysis</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:product_analysis">product analysis</a>
-<span class="category-count">(1)</span>
-</li>
-</ul>
-</div>
 </div>
 <div class="posts-more">
 <a href="#">More articles &raquo;</a>
@@ -2904,7 +2837,7 @@ Revealing patterns in interesting datasets.
 <!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Data stories | Revealing patterns in interesting datasets.</h1>
+<h1>Neat data analyses</h1>
 
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->

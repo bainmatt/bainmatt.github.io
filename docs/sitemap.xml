@@ -1,72 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
+    <loc>https://mattlabcode.github.io/blog.html</loc>
+    <lastmod>2024-03-18T17:38:39-04:00</lastmod>
+  </url>
+  <url>
     <loc>https://mattlabcode.github.io/commentary_articles.html</loc>
-    <lastmod>2024-03-16T01:00:11-04:00</lastmod>
+    <lastmod>2024-03-18T15:16:54-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/data_stories.html</loc>
-    <lastmod>2024-03-16T02:00:32-04:00</lastmod>
+    <lastmod>2024-03-18T15:14:39-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/demo_gallery.html</loc>
-    <lastmod>2024-03-16T01:25:37-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/DS_classification-basics.html</loc>
-    <lastmod>2024-03-10T20:54:11-04:00</lastmod>
+    <lastmod>2024-03-18T15:16:43-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/</loc>
-    <lastmod>2024-03-16T02:04:56-04:00</lastmod>
+    <lastmod>2024-03-18T17:45:07-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/math_articles.html</loc>
-    <lastmod>2024-03-16T02:01:04-04:00</lastmod>
+    <lastmod>2024-03-18T15:15:47-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/ml_articles.html</loc>
-    <lastmod>2024-03-16T02:00:50-04:00</lastmod>
+    <lastmod>2024-03-18T15:16:28-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/mlr_gallery.html</loc>
-    <lastmod>2024-03-16T01:25:21-04:00</lastmod>
+    <lastmod>2024-03-18T15:14:57-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/music_page.html</loc>
-    <lastmod>2024-03-15T18:12:31-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/organization-of-ideas.html</loc>
-    <lastmod>2023-01-22T02:32:00-05:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/plotting_temp.html</loc>
-    <lastmod>2024-01-31T14:52:42-05:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/R_hypothesis-testing.html</loc>
-    <lastmod>2024-01-31T14:36:38-05:00</lastmod>
+    <lastmod>2024-03-18T17:42:21-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/roadmap_gallery.html</loc>
-    <lastmod>2024-03-16T01:25:08-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/roadmap.html</loc>
-    <lastmod>2023-01-22T21:57:48-05:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/shelf_page.html</loc>
-    <lastmod>2023-01-22T14:39:08-05:00</lastmod>
+    <lastmod>2024-03-18T17:27:59-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/worked_gallery.html</loc>
-    <lastmod>2024-03-16T01:44:18-04:00</lastmod>
+    <lastmod>2024-03-18T15:17:08-04:00</lastmod>
   </url>
   <url>
-    <loc>https://mattlabcode.github.io/data_stories/2024-03-15-my-first-data-story/</loc>
-    <lastmod>2024-03-15T21:21:44-04:00</lastmod>
+    <loc>https://mattlabcode.github.io/blog/2024-03-18-bias-variance-decomposition/</loc>
+    <lastmod>2024-03-18T16:44:24-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mattlabcode.github.io/mlr_gallery/mlr-01-draft/</loc>
+    <lastmod>2024-03-18T14:48:10-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mattlabcode.github.io/mlr_gallery/2024-03-15-mlr-01-supervised-learning-in-python/</loc>
+    <lastmod>2024-03-18T14:16:39-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mattlabcode.github.io/roadmap_gallery/2024-03-15-plotting-temp/</loc>
+    <lastmod>2024-03-18T16:01:37-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://mattlabcode.github.io/roadmap_gallery/2024-03-15-writing-temp/</loc>
+    <lastmod>2024-03-18T14:49:38-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/math_articles/2024-03-15-asset-volatility/</loc>
@@ -87,30 +83,6 @@
   <url>
     <loc>https://mattlabcode.github.io/ml_articles/2024-03-15-my-first-ml-article/</loc>
     <lastmod>2024-03-15T22:02:55-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/commentary_articles/2024-03-15-my-first-commentary-article/</loc>
-    <lastmod>2024-03-15T22:56:23-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/mlr_gallery/mlr-01-draft/</loc>
-    <lastmod>2024-03-16T01:05:46-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/mlr_gallery/2024-03-15-mlr-01-supervised-learning-in-python/</loc>
-    <lastmod>2024-03-16T00:52:06-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/roadmap_gallery/2024-03-15-plotting-temp/</loc>
-    <lastmod>2024-03-16T00:30:13-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/roadmap_gallery/2024-03-15-writing-temp/</loc>
-    <lastmod>2024-03-16T00:30:06-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/demo_gallery/2024-03-16-my-first-demo-post/</loc>
-    <lastmod>2024-03-16T01:23:32-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/worked_gallery/2024-03-16-end-to-end-ml-project/</loc>

@@ -42,27 +42,39 @@ body {
 
 /* --- HEADERS --- */
 h1, h2, h3 {
-  /* padding-top: 10em; */
+  /*
+  padding-top: 10em;
+  margin-top: 10em; 
+  border-top: 10px; 
+  */
+  
+  /* add horizontal rule under each header */
+  /* 
   padding-bottom: .3em;
-  /* margin-top: 10em; */
   margin-bottom: .75em;
-  /* border-top: 10px; */
-  border-bottom: 1px solid #eee; /* add horizontal rule under each header */
-  /* font-size: 14pt, 13pt, 12pt, 11pt; */
-  /* font-weight: 320; */
+  border-bottom: 1px solid #eee;
+  */
+  
+  /*
+  font-size: 14pt, 13pt, 12pt, 11pt; 
+  font-weight: 320; 
+  */
 }
 
+/* alt: 19pt, 16pt, 13pt */
+/*
 h1 {
-  font-size: 19pt;                                    /* alt: 19pt */
+  font-size: 19pt;                                    
 }
 
 h2 {
-  font-size: 16pt;                                    /* alt: 16pt */
+  font-size: 16pt;                                    
 }
 
 h3 {
-  font-size: 13pt;                                    /* alt: 13pt */
+  font-size: 13pt;                                    
 }
+*/
 
 /* --- CODE --- */
 code {
@@ -136,35 +148,27 @@ scope {
 
 /* Optional: embed custom fonts here with `@import`          */
 /* This must remain at the top of this file.                 */
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP:300, 300i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP:300,300i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
 
 html {
   /*-- Main font sizes --*/
-  --title-size:      44px;                        /* default: 50px */
-  --body-size:       1.06rem;                      /* default: 1.06rem */                  
+  --title-size:      35px;                        /* default: 50px */
+  --body-size:       1.06rem;                     /* default: 1.06rem */                  
   --code-size:       13.25px;                     /* default: 14px */                  
   --aside-size:      12px;                        /* default: 12px */                  
-  --fig-cap-size:    13.5px;                        /* default: 13px */
+  --fig-cap-size:    13.5px;                      /* default: 13px */
   
   /* [MB] Left justify figure captions */
 
 
   /* [MB] Bold the "Figure" or "Table" tag */
-
   
-  /*
-  --title-size:      30x;                         
-  --body-size:       0.9rem;                    
-  --code-size:       13.25px;                     
-  --aside-size:      11px;                        
-  --fig-cap-size:    12px;                        
-  */
   
   /*-- Main font colors --*/
-  --title-color:     #ca225e;                     /* default: #ca225e */
-  --header-color:    #ca225e;                     /* theme: #ca225e */
+  /*--title-color:     #ca225e;*/                     /* default: #ca225e */
+  /*--header-color:    #ca225e;*/                     /* theme: #ca225e */
   --body-color:      #404040;                     /* theme: #404040 */
   --aside-color:     rgba(0, 0, 0, 0.6);
   --fig-cap-color:   rgba(0, 0, 0, 0.6);
@@ -186,14 +190,15 @@ html {
 d-byline {
   --heading-size:    0.9rem;                      /* theme: 0.9rem */
   --heading-color:   rgba(0, 0, 0, 0.5);          /* default: rgba(0, 0, 0, 0.5) */
-  --body-size:       0.95rem;                     /* theme: 0.95rem */
-  --body-color:      rgba(0, 0, 0, 0.8);          /* default: rgba(0, 0, 0, 0.8) */
+  --body-size:       0.95rem;*/                     /* theme: 0.95rem */
   
   /* [MB] Hide the Author field */
+  
   .author,
   {
     display: none;                              
   }
+  
 }
 
 /*-- ARTICLE TABLE OF CONTENTS --*/
@@ -232,17 +237,17 @@ d-appendix {
   --text-color:       #7e7b88;                    /* theme: #7e7b88 */
   --text-size:        15px;                       /* default: 15px */
   --hover-color:      white;                      /* defaultl: white */
-  --bkgd-color:       #ca225e3d;                  /* theme: #ca225e3d */
+  /*--bkgd-color:       #ca225e3d;*/                  /* theme: #ca225e3d */
 }
 
 /*-- ADDITIONAL CUSTOM STYLES --*/
 /* Ordered list index colour */
 ul > li::marker {                 
-  color: #ca225e;                                 /* default: #ca225e */
+  /*color: #ca225e;*/                                 /* default: #ca225e */
 }
 
 ol > li::marker {                 
-  color: #ca225e;                                 /* default: #ca225e */
+  /*color: #ca225e;*/                                 /* default: #ca225e */
 }
 
 /* Navigation bar letter case */
@@ -259,7 +264,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Makes logo bigger */
 .distill-site-header .logo img{
-  max-height: 40px;                               /* theme: 20px */
+  max-height: 20px;                               /* theme: 20px */
 }
 
 .distill-site-header {
@@ -274,7 +279,7 @@ d-article h2,
 }
 
 d-appendix {
-  background-color: #fdf7f9;                      /* default: #fdf7f9 */
+  /*background-color: #fdf7f9;*/                      /* default: #fdf7f9 */
   border-top: none;                               /* default: none */
 }
 
