@@ -17,24 +17,5 @@
     "preview": {},
     "last_modified": "2024-03-18T18:04:03-04:00",
     "input_file": {}
-  },
-  {
-    "path": "mlr_gallery/2024-03-15-mlr-01-supervised-learning-in-python/",
-    "title": "Python ML tour (1/5): Supervised learning",
-    "description": "This is part 1 of a 5-part tour of machine learning in Python. \nIn this part I provide a high-level overview of optimization\nmethods for machine learning, and in particular, for training models. \nMost importantly, we see the motivation for gradient descent and provide \nsome justification for this hugely popular approach, which is the \nfoundation of many many other model training methods.\nAs much as possible, I rely on a \"from scratch\" approach, avoiding high-level\nlibraries like scikit-learn.",
-    "author": [
-      {
-        "name": "Matthew Bain",
-        "url": {}
-      }
-    ],
-    "date": "2024-03-15",
-    "categories": [
-      "classification"
-    ],
-    "contents": "\n\n\n\n",
-    "preview": {},
-    "last_modified": "2024-03-18T14:16:39-04:00",
-    "input_file": {}
   }
 ]

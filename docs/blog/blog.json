@@ -2,7 +2,7 @@
   {
     "path": "blog/2024-03-18-bias-variance-decomposition/",
     "title": "Bias-variance decomposition",
-    "description": "I motivate, derive, and discuss the bias-variance decomposition which forms\nthe theoretical basis of model validation in machine learning.",
+    "description": "I motivate, derive, and discuss the bias-variance decomposition, which forms\nthe theoretical basis of model validation in machine learning.",
     "author": [
       {
         "name": "Matthew Bain",
@@ -16,7 +16,7 @@
     ],
     "contents": "\nx\n\n\n\n",
     "preview": {},
-    "last_modified": "2024-03-18T16:44:24-04:00",
+    "last_modified": "2024-03-20T09:44:22-04:00",
     "input_file": {}
   }
 ]

@@ -88,27 +88,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Matthew Bain: Musings on math, machines, and the rest
+  <title>Matthew Bain: Math and data-related musings
   </title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Matthew Bain: Musings on math, machines, and the rest&#10;"/>
+  <meta property="og:title" content="Matthew Bain: Math and data-related musings&#10;"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Matthew Bain"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Matthew Bain: Musings on math, machines, and the rest&#10;"/>
+  <meta property="twitter:title" content="Matthew Bain: Math and data-related musings&#10;"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","listing","output"]}},"value":[{"type":"character","attributes":{},"value":["Musings on math, machines, and the rest\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["blog"]}},"value":[{"type":"character","attributes":{},"value":["2024-03-18-bias-variance-decomposition"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["includes","self_contained"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["in_header"]}},"value":[{"type":"character","attributes":{},"value":["favicon.html"]}]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","listing","output"]}},"value":[{"type":"character","attributes":{},"value":["Math and data-related musings\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["blog"]}},"value":[{"type":"character","attributes":{},"value":["2024-03-18-bias-variance-decomposition"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["includes","self_contained"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["in_header"]}},"value":[{"type":"character","attributes":{},"value":["favicon.html"]}]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2646,7 +2646,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Musings on math, machines, and the rest\n","authors":[]}
+{"title":"Math and data-related musings\n","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2824,7 +2824,7 @@ function init_posts_list() {
 
 <div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
 <div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Musings on math, machines, and the rest&#10;">Musings on math, machines, and the rest
+<h1 class="posts-list-caption" data-caption="Math and data-related musings&#10;">Math and data-related musings
 </h1>
 <a href="blog/2024-03-18-bias-variance-decomposition/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":["Bayesian inference","Learning theory"]}</script>
@@ -2843,7 +2843,7 @@ function init_posts_list() {
 <div class="dt-tag">Bayesian inference</div>
 <div class="dt-tag">Learning theory</div>
 </div>
-<p>I motivate, derive, and discuss the bias-variance decomposition which forms
+<p>I motivate, derive, and discuss the bias-variance decomposition, which forms
 the theoretical basis of model validation in machine learning.</p>
 </div>
 </a>
@@ -2874,7 +2874,7 @@ the theoretical basis of model validation in machine learning.</p>
 <!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Musings on math, machines, and the rest</h1>
+<h1>Math and data-related musings</h1>
 
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
@@ -2883,6 +2883,174 @@ the theoretical basis of model validation in machine learning.</p>
 
 
 <div class="d-article">
+<!--
+# MATH/ML TOPIC MAP
+--------------------------------------------------------------------------------
+*Categories
+--------------------------------------------------------------------------------
+Math
+- Machine learning
+- Neural networks
+- Deep learning
+- Natural language processing
+
+- Linear models
+- Multivariate analysis
+- Dimensionality reduction
+- Optimization
+ 
+- Probability theory
+- Statistics
+- Bayesian inference
+- Linear algebra
+- Multivariable calculus
+- Learning theory
+----------
+ML
+- Regression
+- Classification
+- Clustering
+- Dimensionality reduction
+- Manifold learning
+- Neural networks
+- Deep learning
+- Natural language processing
+- Semantic analysis
+- Language modelling
+
+- Generative learning
+- Model training
+- Model validation
+- Model selection
+- Statistical analysis
+- Simulation
+----------
+Data stories
+- Semantic analysis
+- Predictive analysis
+- Time series analysis
+- Hypothesis testing
+- Causal modelling
+- Recommender systems
+
+- Policy analysis
+- Business analysis
+--------------------------------------------------------------------------------
+Subtopics in relation to universal mathematical constructions 
+([bas] = fundamental; [int] = interactions; [mod] = model; [alg] = algorithm)
+--------------------------------------------------------------------------------
+A Fundamental objects, together with their algebra:
+----------
+A1 Calculus: Scalars/vectors, Sequences/series, Functions
+- [bas] Algebra, Algebra of sequences/series, Algebra of functions
+
+A2 LA: Scalars/vecs, Matrices, Q forms, (Inner/metric, Sub/basis/spanning) spaces
+- [bas] M/v multiplication, Inner/outer product, Q-form/Spaces definitions
+
+A3 Stats: Random variables, Samples, Distributions
+- [bas] Axioms, Sample types, PDF/CDF definitions
+----------
+B Operations, together with their algebraic interactions & each other:
+----------
+B1 Calculus: Inverse, Limit, Derivative/integral
+- [bas] Algebra of inverse, Algebra of limit/derivative/integral
+- [int] Function spaces and their limits, Wrt (sub/basis/spanning) spaces
+- [key] *Chain rule
+
+B2 LA: Transpose, Inverse, Determinant, Trace
+- [bas] Algebraic properties
+- [int] *Derivatives wrt A/x of maps from R^m,n -> R
+- [key] *Fundamental theorem of LA
+
+B3 Stats: Moments, Margin/conditioning, Transformation/convolution, Limit
+- [bas] Correlation, Algebra of mean/(co)variance, Algebra of RV/dist sequences
+- [int] Transformation and Jacobian, CDF from integral 
+- [key] *Prob inequalities (Ber/Jensen/Cheby), *Bayes, *LH, *Conditional exp/var
+----------
+C Properties, together with their implications, constructions, & key thms: 
+----------
+C1 Calculus: Function behaviour (e.g., convexity), Convergence, Diff/continuity
+- [bas] Algebra of convex/convergent/continuous/diff functions, Uniform/Cauchy
+- [key] (+E1) *IVT/MVT; *Uniform convergence theorem
+- [+key] *Connect/compactness of metric spaces under product/subspaces/cont maps
+
+C2 LA: Independence, Definiteness, Completeness
+- [bas] Definitions/evaluation, Algebra of composed definite matrices
+- [key] (+E2) *Basis extension theorem; *Complete polynomial/trig/radial spaces
+
+C3 Stats: Independence, Convergence, Optimality, Asymptotics
+- [bas] (Mutual/conditional) iid and corr., Convergence of RV/dist sequences
+- [+bas] (Asymptotic) bias, Consistency, Robustness
+- [key] (+E3) *Bias/variance decomposition (validation), *LLN/CLT (HT)
+----------
+D Special (class of) objects, together with their unique interactions/props:
+----------
+D1 Calculus: Functions (e.g., exponential)
+- [bas] Function transformation properties, Inverses/derivatives
+
+D2 LA: Matrices (e.g., identity, symmetric, covariance)
+- [bas] *Symmetric/covariance matrix definiteness and eigenproperties
+
+D3 Stats: (Families/conjugates of) PDFs
+- [bas] Bin/*Gauss, *Gam/Beta/Exp/Pois moments/margins, Summation, Relations
+----------
+E Derived objects, together with their unique props & techniques for deriving:
+----------
+E1 Calculus: Approximation, Zeros, Optimal points
+- [key] *Taylor's theorem, *Convexity theorems, *Backprop theorem, Completeness
+- [mod] /
+- [alg] Taylor approx, Newton's method, *Gradient descent, *Backprop
+
+E2 LA: Orthogonalization, Kernelization, (Eigen)decomposition, PCA/SVD
+- [key] *Representer/Mercer, *Independence/definiteness + trace/det from eig
+- [mod] *OLS, *SVM/Kernelized models, *PCA/CCA/SVD, *LSA/Embedding
+- [alg] *Graham-Schmidt, *Kernelization
+
+E3 Stats: Estimators, Intervals, Tests
+- [key] *MVUE/*Minimaxity, *NP/*MLRT, *Learnability/*VC-dimension
+- [mod] *OLS, MLEs, Bayes est, Mixtures, *Language model, *RNN/*LSTM/*Transformer
+- [+mod] CI, *Credible interval; *Posterior predictive dist
+- [+mod] z-test, Chi-squared, t-test, ANOVA, MANOVA, MANCOVA; *BF
+- [alg] *MLE/MoM, *Bayes procedure/Limit of Bayes, *MAP/*EM/*Empir/Hierarch Bayes
+- [+alg] Sampling procedures (MCMC), Processes/Graphs (Poisson); Num analysis/LA
+--------------------------------------------------------------------------------
+Property constructions
+--------------------------------------------------------------------------------
+1. Construction from fundamental objects, their algebra and select operations
+2. Inheritance wrt subspaces/bases
+3. Generalization to n/infinite dimensions, general spaces (product spaces)
+4. Preservation under continuous mappings
+5. Conditions under which the above hold
+6. Implication by strength of claims
+--------------------------------------------------------------------------------
+API construction
+--------------------------------------------------------------------------------
+Math fundamentals API (equipped w/ the API of DSs on which they are built):
+- Fundamental objects = classes
+- Operations on them = public methods
+- Special instances = @classmethods
+- Utility functions = @staticmethod decorators or _<private> methods
+- Attributes = @property decorators
+----------
+Derived math (ML) API:
+- Derived objects = classes (models/layers & methods for fitting & inference)
+- Applications to data = methods (fit/transform & predict)
+- Derivation techniques (algorithms) = algorithm libraries
+- (Training/validation/tuning/feature selection)
+- Functions they are built on = function libraries (cost/activation/metrics)
+- Other functions = math/hypothesis tests/tools for inspection/plotters
+----------
+Arguments to the class constructors:
+- Particular realized instances (hyperparameters) / data
+--------------------------------------------------------------------------------
+*Model implementation
+--------------------------------------------------------------------------------
+A model derivation/class implementation includes:
+- (Probabilistic) motivation for model, prediction function (/implementation)
+- (Probabilistic) motivation for cost (/implementation; pass to `fit`)
+- Derivation of gradient of cost + update rule (/implementation; pass to `fit`)
+--------------------------------------------------------------------------------
+!-->
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://mattlabcode.github.io/blog.html</loc>
-    <lastmod>2024-03-18T17:38:39-04:00</lastmod>
+    <lastmod>2024-03-20T09:25:41-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/commentary_articles.html</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://mattlabcode.github.io/ml_articles.html</loc>
-    <lastmod>2024-03-18T15:16:28-04:00</lastmod>
+    <lastmod>2024-03-20T09:38:15-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/mlr_gallery.html</loc>
@@ -46,43 +46,19 @@
   </url>
   <url>
     <loc>https://mattlabcode.github.io/blog/2024-03-18-bias-variance-decomposition/</loc>
-    <lastmod>2024-03-18T16:44:24-04:00</lastmod>
+    <lastmod>2024-03-20T09:44:22-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/mlr_gallery/mlr-01-draft/</loc>
     <lastmod>2024-03-18T18:04:03-04:00</lastmod>
   </url>
   <url>
-    <loc>https://mattlabcode.github.io/mlr_gallery/2024-03-15-mlr-01-supervised-learning-in-python/</loc>
-    <lastmod>2024-03-18T14:16:39-04:00</lastmod>
+    <loc>https://mattlabcode.github.io/roadmap_gallery/2024-03-15-writing-temp/</loc>
+    <lastmod>2024-03-20T18:23:19-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/roadmap_gallery/2024-03-15-plotting-temp/</loc>
     <lastmod>2024-03-18T18:05:22-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/roadmap_gallery/2024-03-15-writing-temp/</loc>
-    <lastmod>2024-03-18T18:04:39-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/math_articles/2024-03-15-asset-volatility/</loc>
-    <lastmod>2024-03-15T21:20:49-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/math_articles/2024-03-15-my-first-math-article/</loc>
-    <lastmod>2024-03-15T21:47:07-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/math_articles/2024-03-15-the-sharpe-ratio/</loc>
-    <lastmod>2024-03-15T21:21:18-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/math_articles/2024-03-15-visualizing-asset-returns/</loc>
-    <lastmod>2024-03-15T21:21:30-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://mattlabcode.github.io/ml_articles/2024-03-15-my-first-ml-article/</loc>
-    <lastmod>2024-03-15T22:02:55-04:00</lastmod>
   </url>
   <url>
     <loc>https://mattlabcode.github.io/worked_gallery/2024-03-16-end-to-end-ml-project/</loc>

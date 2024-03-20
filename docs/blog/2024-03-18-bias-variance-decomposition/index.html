@@ -90,7 +90,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
 <title>Matthew Bain: Bias-variance decomposition</title>
 
-<meta property="description" itemprop="description" content="I motivate, derive, and discuss the bias-variance decomposition which forms&#10;the theoretical basis of model validation in machine learning."/>
+<meta property="description" itemprop="description" content="I motivate, derive, and discuss the bias-variance decomposition, which forms&#10;the theoretical basis of model validation in machine learning."/>
 
 <link rel="canonical" href="https://mattlabcode.github.io/blog/2024-03-18-bias-variance-decomposition/"/>
 
@@ -102,7 +102,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
 <meta property="og:title" content="Matthew Bain: Bias-variance decomposition"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="I motivate, derive, and discuss the bias-variance decomposition which forms&#10;the theoretical basis of model validation in machine learning."/>
+<meta property="og:description" content="I motivate, derive, and discuss the bias-variance decomposition, which forms&#10;the theoretical basis of model validation in machine learning."/>
 <meta property="og:url" content="https://mattlabcode.github.io/blog/2024-03-18-bias-variance-decomposition/"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Matthew Bain"/>
@@ -110,7 +110,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
 <meta property="twitter:title" content="Matthew Bain: Bias-variance decomposition"/>
-<meta property="twitter:description" content="I motivate, derive, and discuss the bias-variance decomposition which forms&#10;the theoretical basis of model validation in machine learning."/>
+<meta property="twitter:description" content="I motivate, derive, and discuss the bias-variance decomposition, which forms&#10;the theoretical basis of model validation in machine learning."/>
 <meta property="twitter:url" content="https://mattlabcode.github.io/blog/2024-03-18-bias-variance-decomposition/"/>
 
 <!--/radix_placeholder_meta_tags-->
@@ -118,12 +118,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","output","header-includes","bibliography","chunk_output_type","draft","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Bias-variance decomposition"]},{"type":"character","attributes":{},"value":["I motivate, derive, and discuss the bias-variance decomposition which forms\nthe theoretical basis of model validation in machine learning."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Matthew Bain"]}]}]},{"type":"character","attributes":{},"value":["2024-03-18"]},{"type":"character","attributes":{},"value":["Bayesian inference","Learning theory"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["bookdown::html_document2"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["base_format","includes","toc","toc_depth","toc_float","number_sections","self_contained","pandoc_args"]}},"value":[{"type":"character","attributes":{},"value":["distill::distill_article"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["in_header"]}},"value":[{"type":"character","attributes":{},"value":["../../favicon.html"]}]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["--number-sections"]}]}]},{"type":"character","attributes":{},"value":["../../generic-header.tex"]},{"type":"character","attributes":{},"value":["../../generic-bib.bib"]},{"type":"character","attributes":{},"value":["inline"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["https://mattlabcode.github.io/blog/2024-03-18-bias-variance-decomposition/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","output","header-includes","bibliography","chunk_output_type","draft","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Bias-variance decomposition"]},{"type":"character","attributes":{},"value":["I motivate, derive, and discuss the bias-variance decomposition, which forms\nthe theoretical basis of model validation in machine learning."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Matthew Bain"]}]}]},{"type":"character","attributes":{},"value":["2024-03-18"]},{"type":"character","attributes":{},"value":["Bayesian inference","Learning theory"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["bookdown::html_document2"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["base_format","includes","toc","toc_depth","toc_float","number_sections","self_contained","pandoc_args"]}},"value":[{"type":"character","attributes":{},"value":["distill::distill_article"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["in_header"]}},"value":[{"type":"character","attributes":{},"value":["../../favicon.html"]}]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["--number-sections"]}]}]},{"type":"character","attributes":{},"value":["../../generic-header.tex"]},{"type":"character","attributes":{},"value":["../../generic-bib.bib"]},{"type":"character","attributes":{},"value":["inline"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["https://mattlabcode.github.io/blog/2024-03-18-bias-variance-decomposition/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"NULL"}
+  {"type":"character","attributes":{},"value":["bias-variance-decomposition_files/anchor-4.2.2/anchor.min.js","bias-variance-decomposition_files/bowser-1.9.3/bowser.min.js","bias-variance-decomposition_files/distill-2.2.21/template.v2.js","bias-variance-decomposition_files/jquery-3.6.0/jquery-3.6.0.js","bias-variance-decomposition_files/jquery-3.6.0/jquery-3.6.0.min.js","bias-variance-decomposition_files/jquery-3.6.0/jquery-3.6.0.min.map","bias-variance-decomposition_files/popper-2.6.0/popper.min.js","bias-variance-decomposition_files/tippy-6.2.7/tippy-bundle.umd.min.js","bias-variance-decomposition_files/tippy-6.2.7/tippy-light-border.css","bias-variance-decomposition_files/tippy-6.2.7/tippy.css","bias-variance-decomposition_files/tippy-6.2.7/tippy.umd.min.js","bias-variance-decomposition_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2659,7 +2659,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Bias-variance decomposition","description":"I motivate, derive, and discuss the bias-variance decomposition which forms\nthe theoretical basis of model validation in machine learning.","authors":[{"author":"Matthew Bain","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-03-18T00:00:00.000-04:00","citationText":"Bain, 2024"}
+{"title":"Bias-variance decomposition","description":"I motivate, derive, and discuss the bias-variance decomposition, which forms\nthe theoretical basis of model validation in machine learning.","authors":[{"author":"Matthew Bain","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-03-18T00:00:00.000-04:00","citationText":"Bain, 2024"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2708,7 +2708,7 @@ Resources
 
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>I motivate, derive, and discuss the bias-variance decomposition which forms
+<p><p>I motivate, derive, and discuss the bias-variance decomposition, which forms
 the theoretical basis of model validation in machine learning.</p></p>
 </div>
 
