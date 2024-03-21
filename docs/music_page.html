@@ -2176,7 +2176,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /*-- Additional custom styles --*/
   /* Add any additional CSS rules below                      */
   </style>
-  <style type="text/css">/* ---------------------- */
+  <style type="text/css">/* -------------------------------------------------------------------------- */
+  /* 
+  STILL TODO:
+  - x <p> sized vertical space above all headers
+  - h2 ~85% size of h1
+  - ?no <hr> above metadata
+  - ?<br> less space below description; <br> less space above footline
+  - favicons in pages
+  */
+  /* -------------------------------------------------------------------------- */
+
+  /* ---------------------- */
   /* --- STYLE ELEMENTS --- */
   /* ---------------------- */
   /* 
@@ -2205,6 +2216,43 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   - page width
   */
 
+  /* ---------------------- */
+  /* --- SIMPLE REPORTS --- */
+  /* ---------------------- */
+  /* 
+  - Simple colours: One accent for ribbon/special (possibly slightly larger) text; one scheme
+  - Simple nav: No fancy TOC or subheader numbers or clickable elements
+  - Simple plots: Standard plots from datavis_utils with no. caps; only import, no fancy local gg
+  + Label data directly if possible; possibly include concise L-aligned message as title
+  + No complicated figure subtitles (just describe unclear elements)
+  - Simple refs: Standard hyperlinked web refs + formal citations + sparse foot/asides
+  - Simple bullets: No fancy icons/bullets/text resizing
+  - Simple layouts: No more than 2 simple columns where the information demands it
+  */
+
+  /* --------------------- */
+  /* --- SIMPLE SLIDES --- */
+  /* --------------------- */
+  /* 
+  - All of the above + simple storytelling:
+  + No nav bar/complicated footer (ribbon, name, company, x/y pages)
+  + No slide subtitles (state message in title)
+  + No (time spent on) outline 
+  + No fancy tables with icons (or just a few and x's; should be linear)
+  + No fancy layering (if at all; should be clean and speak for itself)
+  + No footnote/hyperlink colours
+  */
+
+  /* ----------------------- */
+  /* --- SIMPLE PALETTES --- */
+  /* ----------------------- */
+  /* 
+  - Generate scheme a priori/evenly spaced around colour wheel
+  - From scheme colours generate monochromatic/divergent/sequential maps as needed
+  */
+
+  /* -------------------------------------------------------------------------- */
+
   /* ---------------------------------- */
   /* --- DEFAULT RMD CUSTOMIZATIONS --- */
   /* ---------------------------------- */
@@ -2218,11 +2266,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       /* font-weight: 100; */
   }
 
+  /* --- [MB] CUSTOMIZATIONS -- */
+  /* --- Fix space above headers -- */
+  h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+      margin-top: 40px;
+  }
+
   /* --- HEADERS --- */
-  h1, h2, h3 {
+  h1, h2, h3, h4 {
     /*
-    padding-top: 10em;
-    margin-top: 10em; 
+    margin-top: 1em; 
+    padding-top: 3em;
     border-top: 10px; 
     */
     
@@ -2368,10 +2422,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-byline {
     --heading-size:    0.9rem;                      /* theme: 0.9rem */
     --heading-color:   rgba(0, 0, 0, 0.5);          /* default: rgba(0, 0, 0, 0.5) */
-    --body-size:       0.95rem;*/                     /* theme: 0.95rem */
+    --body-size:       0.95rem;                     /* theme: 0.95rem */
     
     /* [MB] Hide the Author field */
-    
     .author,
     {
       display: none;                              
@@ -2458,7 +2511,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   d-appendix {
     /*background-color: #fdf7f9;*/                      /* default: #fdf7f9 */
-    border-top: none;                               /* default: none */
+    /*border-top: none;*/                               /* default: none */
   }
 
   /* ----------------------------------------------- */

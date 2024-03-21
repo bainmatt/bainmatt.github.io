@@ -2174,7 +2174,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /*-- Additional custom styles --*/
   /* Add any additional CSS rules below                      */
   </style>
-  <style type="text/css">/* ---------------------- */
+  <style type="text/css">/* -------------------------------------------------------------------------- */
+  /* 
+  STILL TODO:
+  - x <p> sized vertical space above all headers
+  - h2 ~85% size of h1
+  - ?no <hr> above metadata
+  - ?<br> less space below description; <br> less space above footline
+  - favicons in pages
+  */
+  /* -------------------------------------------------------------------------- */
+
+  /* ---------------------- */
   /* --- STYLE ELEMENTS --- */
   /* ---------------------- */
   /* 
@@ -2203,6 +2214,43 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   - page width
   */
 
+  /* ---------------------- */
+  /* --- SIMPLE REPORTS --- */
+  /* ---------------------- */
+  /* 
+  - Simple colours: One accent for ribbon/special (possibly slightly larger) text; one scheme
+  - Simple nav: No fancy TOC or subheader numbers or clickable elements
+  - Simple plots: Standard plots from datavis_utils with no. caps; only import, no fancy local gg
+  + Label data directly if possible; possibly include concise L-aligned message as title
+  + No complicated figure subtitles (just describe unclear elements)
+  - Simple refs: Standard hyperlinked web refs + formal citations + sparse foot/asides
+  - Simple bullets: No fancy icons/bullets/text resizing
+  - Simple layouts: No more than 2 simple columns where the information demands it
+  */
+
+  /* --------------------- */
+  /* --- SIMPLE SLIDES --- */
+  /* --------------------- */
+  /* 
+  - All of the above + simple storytelling:
+  + No nav bar/complicated footer (ribbon, name, company, x/y pages)
+  + No slide subtitles (state message in title)
+  + No (time spent on) outline 
+  + No fancy tables with icons (or just a few and x's; should be linear)
+  + No fancy layering (if at all; should be clean and speak for itself)
+  + No footnote/hyperlink colours
+  */
+
+  /* ----------------------- */
+  /* --- SIMPLE PALETTES --- */
+  /* ----------------------- */
+  /* 
+  - Generate scheme a priori/evenly spaced around colour wheel
+  - From scheme colours generate monochromatic/divergent/sequential maps as needed
+  */
+
+  /* -------------------------------------------------------------------------- */
+
   /* ---------------------------------- */
   /* --- DEFAULT RMD CUSTOMIZATIONS --- */
   /* ---------------------------------- */
@@ -2216,11 +2264,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       /* font-weight: 100; */
   }
 
+  /* --- [MB] CUSTOMIZATIONS -- */
+  /* --- Fix space above headers -- */
+  h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+      margin-top: 40px;
+  }
+
   /* --- HEADERS --- */
-  h1, h2, h3 {
+  h1, h2, h3, h4 {
     /*
-    padding-top: 10em;
-    margin-top: 10em; 
+    margin-top: 1em; 
+    padding-top: 3em;
     border-top: 10px; 
     */
     
@@ -2366,10 +2420,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-byline {
     --heading-size:    0.9rem;                      /* theme: 0.9rem */
     --heading-color:   rgba(0, 0, 0, 0.5);          /* default: rgba(0, 0, 0, 0.5) */
-    --body-size:       0.95rem;*/                     /* theme: 0.95rem */
+    --body-size:       0.95rem;                     /* theme: 0.95rem */
     
     /* [MB] Hide the Author field */
-    
     .author,
     {
       display: none;                              
@@ -2456,7 +2509,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   d-appendix {
     /*background-color: #fdf7f9;*/                      /* default: #fdf7f9 */
-    border-top: none;                               /* default: none */
+    /*border-top: none;*/                               /* default: none */
   }
 
   /* ----------------------------------------------- */
@@ -2971,12 +3024,12 @@ C Properties, together with their implications, constructions, & key thms:
 ----------
 C1 Calculus: Function behaviour (e.g., convexity), Convergence, Diff/continuity
 - [bas] Algebra of convex/convergent/continuous/diff functions, Uniform/Cauchy
-- [key] (+E1) *IVT/MVT; *Uniform convergence theorem
+- [key] (+E1) *IVT/MVT, *Uniform convergence theorem, *Convexity theorems
 - [+key] *Connect/compactness of metric spaces under product/subspaces/cont maps
 
 C2 LA: Independence, Definiteness, Completeness
 - [bas] Definitions/evaluation, Algebra of composed definite matrices
-- [key] (+E2) *Basis extension theorem; *Complete polynomial/trig/radial spaces
+- [key] (+E2) *Basis extension theorem, *Complete polynomial/trig/radial spaces
 
 C3 Stats: Independence, Convergence, Optimality, Asymptotics
 - [bas] (Mutual/conditional) iid and corr., Convergence of RV/dist sequences
@@ -2997,7 +3050,7 @@ D3 Stats: (Families/conjugates of) PDFs
 E Derived objects, together with their unique props & techniques for deriving:
 ----------
 E1 Calculus: Approximation, Zeros, Optimal points
-- [key] *Taylor's theorem, *Convexity theorems, *Backprop theorem, Completeness
+- [key] *Taylor's theorem, *Convex guarantees, *Backprop theorem, Completeness
 - [mod] /
 - [alg] Taylor approx, Newton's method, *Gradient descent, *Backprop
 
@@ -3007,10 +3060,10 @@ E2 LA: Orthogonalization, Kernelization, (Eigen)decomposition, PCA/SVD
 - [alg] *Graham-Schmidt, *Kernelization
 
 E3 Stats: Estimators, Intervals, Tests
-- [key] *MVUE/*Minimaxity, *NP/*MLRT, *Learnability/*VC-dimension
-- [mod] *OLS, MLEs, Bayes est, Mixtures, *Language model, *RNN/*LSTM/*Transformer
+- [key] *MVUE/*Minimaxity, *NP/*MLRT, *Learnability/*VC-dimension/Runtime
+- [mod] *OLS, MLEs, *GLM/Exp, Bayes est, Mixtures, *Lang model, *RNN/*LSTM/*Transf
 - [+mod] CI, *Credible interval; *Posterior predictive dist
-- [+mod] z-test, Chi-squared, t-test, ANOVA, MANOVA, MANCOVA; *BF
+- [+mod] z-test, Chi-squared, t-test, ANOVA, MANOVA, MANCOVA, *BF; Nonpara
 - [alg] *MLE/MoM, *Bayes procedure/Limit of Bayes, *MAP/*EM/*Empir/Hierarch Bayes
 - [+alg] Sampling procedures (MCMC), Processes/Graphs (Poisson); Num analysis/LA
 --------------------------------------------------------------------------------
@@ -3050,6 +3103,54 @@ A model derivation/class implementation includes:
 - (Probabilistic) motivation for cost (/implementation; pass to `fit`)
 - Derivation of gradient of cost + update rule (/implementation; pass to `fit`)
 --------------------------------------------------------------------------------
+*Universal modeling considerations
+--------------------------------------------------------------------------------
+Preliminary:
+- Data retrieval, Wrangling
+- Preprocessing (cleaning/text/encoding, scaling/transformation/smoothing)
+Then:
+- Feature engineering > preprocessing_pipeline 
+  (including tokenization/lemmatization/stop-words 
+  > TFIDF/ngram-co-occurrence/embeddings if text)  
+Including:
+- Trying out a couple quick-and-dirty models 
+  (e.g. LinearRegression/NaiveBayes/PCA 
+  > shortlisting a few promising models)
+----------
+When modelling always consider:
+- 0 Summary metric 
+  (R^2, accuracy (incorporating F1 / TPR/FPR, recall), average silhouette score)
+- 1 Complexity dial 
+  (intercept/degree, reg_strength, C, max_depth/n_estimators, n_layers/units; 
+  Other training factors: learning_rate/batch_size, dropout_rate/early_stopping; 
+  Discrete capacity factors: kernel, regularization_type; 
+  Other model factors: n_components, distance_metric, activation_function; 
+  DL factors: architecture)
+----------
+- 2 Tuning > Selecting best model
+  (tuning grid plot) 
+- 3 Model visualization (+ avg metric/time)
+  (feature-striated regressor, projected decision surface, projected clusters, 
+  optimal basis vectors, manifold; + example words if observations are words)
+- 4 Performance visualization
+  (regressor error, classification report/confusion matrix, 
+  silhouette plot/dendrogram, explained variance/biplot/feature loadings; 
+  + term importances if text)
+- *4.5 (consider different model and start again from 2)
+----------
+- 5 Generalization
+  (training-validation curve (vs complexity dial), learning curve (vs proportion training set included)) 
+- 5.5 *
+- 6 (metric) Error visualization
+  (resampled model, d leave-one-feature-out (LO(F)OCV) resampled models)
+- 6.5 *
+- 7 Add capacity
+  (if performance not satisfactory consider kernelizing, ensembling, adding multi-layer networks and optimizing training)
+----------
+- Total time per model: 
+  (fit time)
+  *(grid_size + n_resamplings + n_complexity_values + n_training_set_segments) 
+  + (projected model plot time)
 !-->
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
