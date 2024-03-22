@@ -5,7 +5,7 @@
       "title": "Math and data-related musings\n",
       "author": [],
       "contents": "\n\n\n\n\n",
-      "last_modified": "2024-03-21T20:57:41-04:00"
+      "last_modified": "2024-03-21T21:13:50-04:00"
     },
     {
       "path": "commentary_articles.html",
@@ -13,7 +13,7 @@
       "description": "A home for thoughts and reflections on anything in \nmusic, film, society, or the world that captures my interest.\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2024-03-21T20:57:41-04:00"
+      "last_modified": "2024-03-21T21:13:51-04:00"
     },
     {
       "path": "data_stories.html",
@@ -21,7 +21,7 @@
       "description": "A place to share my process and findings \nfor analyses and algorithms that have yielded interesting insights.\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2024-03-21T20:57:42-04:00"
+      "last_modified": "2024-03-21T21:13:52-04:00"
     },
     {
       "path": "demo_gallery.html",
@@ -29,14 +29,14 @@
       "description": "A short series of demos using a single dataset to illustrate the application\nand versatility of a variety of machine learning algorithms.\nEach instalment in the series illustrates one class of supervised, \nunsupervised, or deep learning methods and takes the reader through a \nbrief but thorough exploration of considerations regarding their selection, \nperformance, and tuning. I draw heavily on the [model_tuning]() (**ipr**)\nmodule of my [mlvis_utils]() (**ipr**) library.\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2024-03-21T20:57:42-04:00"
+      "last_modified": "2024-03-21T21:13:52-04:00"
     },
     {
       "path": "index.html",
       "title": "Matthew Bain",
       "author": [],
       "contents": "\n\nContents\n▼ Resources\n▼ Analysis\n▼ Blog\n▼ Music\n\n\n\nHello there! I’m Matt. Above is a picture of the majestic Mount Fuji.\nI took this picture and am quite fond of it.\nMount Fuji has been the subject of many great works of art\n(e.g., Hokusai’s Thirty-six Views of Mount Fuji).\nI find myself thinking about these scenes and images often enough that it seemed\nfitting to associate this picture with my own creative work.\n\nWhen I’m not admiring nature and art, I am working with data.\nI have a deep fondness for math and machine learning,\nand find it thrilling to implement what I learn through code and neat analyses.\nI like to write about my favourite projects and discoveries.\nI’m sharing some of that here and here.\nI also make music on the side – you can find that here.\n\n\n\nI am in the process of migrating my work to this site. More\nprojects and reports will be here soon!\n\nExpand site overview\n▼ Resources\n► Machine learning tour\nA high-level tour of the theory and implementation of machine learning\nalgorithms in Python.Featured: Supervised learning in Python (draft)\n► References & docs\nAn assortment of tools for working with data, including syntax\nreference sheets, high-level outlines, and\nchecklists.Featured: Technical reports with R Markdown & Bookdown (draft)\n► Demos\nA short series of demos using a single dataset to illustrate the versatility\nand practical application of a variety of machine learning\nalgorithms.Featured: (In development)\n▼ Analysis\nA place to share my process and findings for analyses and algorithms\nthat have yielded interesting insights.Featured: Do extinction rates reflect changing attitudes toward the\nenvironment? (In development)\n▼ Blog\nA home for my musings on math\n(proofs and derivations of my favourite results and algorithms),\nmachine learning (implementations and simulations), and\neverything else (thoughts and reflections on music, film, society, etc.).Featured: Bias-variance decomposition (In development)\n▼ Music\nAn ongoing catalogue of some music I’ve\nmade.\n\n\n\n",
-      "last_modified": "2024-03-21T20:57:43-04:00"
+      "last_modified": "2024-03-21T21:13:53-04:00"
     },
     {
       "path": "math_articles.html",
@@ -44,7 +44,7 @@
       "description": "A home for proofs, derivations, and discussion about \nmy favourite results and algorithms.\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2024-03-21T20:57:43-04:00"
+      "last_modified": "2024-03-21T21:13:54-04:00"
     },
     {
       "path": "ml_articles.html",
@@ -52,7 +52,7 @@
       "description": "A home for implementations, simulations, and discussion about \nmy favourite results and algorithms.\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2024-03-21T20:57:44-04:00"
+      "last_modified": "2024-03-21T21:13:54-04:00"
     },
     {
       "path": "mlr_gallery.html",
@@ -60,7 +60,7 @@
       "description": "A high-level tour of the theory and implementation of \nmachine learning algorithms in Python.\n",
       "author": [],
       "contents": "\n\n\n\n\n",
-      "last_modified": "2024-03-21T20:57:45-04:00"
+      "last_modified": "2024-03-21T21:13:55-04:00"
     },
     {
       "path": "music_page.html",
@@ -68,7 +68,7 @@
       "description": "An ongoing catalogue of some music I've made.",
       "author": [],
       "contents": "\n\nContents\nOriginal music\nUnder Moonlight\n\nJust the music\n\n\nOriginal music\n\nUnder Moonlight\n\n\n\n\nJust the music\n\n\n\n\nfujinai\n·\nDaydreams\n\n\nFujinai\n·\nCorridors\n\n\n\n\n\n",
-      "last_modified": "2024-03-21T20:57:45-04:00"
+      "last_modified": "2024-03-21T21:13:56-04:00"
     },
     {
       "path": "roadmap_gallery.html",
@@ -76,7 +76,7 @@
       "description": "An assortment of tools for working with data, including \nsyntax reference sheets, cookbooks, conceptual guides, and checklists.\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2024-03-21T20:57:46-04:00"
+      "last_modified": "2024-03-21T21:13:56-04:00"
     },
     {
       "path": "worked_gallery.html",
@@ -84,7 +84,7 @@
       "description": "Worked examples of machine learning-related problems, including proofs \nand derivations of important results, implementations and real-world \nexamples of important methods in practice.\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2024-03-21T20:57:46-04:00"
+      "last_modified": "2024-03-21T21:13:57-04:00"
     }
   ],
   "collections": ["posts/posts.json", "data_stories/data_stories.json", "blog/blog.json", "mlr_gallery/mlr_gallery.json", "roadmap_gallery/roadmap_gallery.json", "demo_gallery/demo_gallery.json", "commentary_articles/commentary_articles.json", "math_articles/math_articles.json", "ml_articles/ml_articles.json", "worked_gallery/worked_gallery.json"]
