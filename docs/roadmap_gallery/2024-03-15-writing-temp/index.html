@@ -2219,11 +2219,11 @@ d-appendix {
 <style type="text/css">/* -------------------------------------------------------------------------- */
 /* 
 STILL TODO:
-- x <p> sized vertical space above all headers
 - h2 ~85% size of h1
-- ?no <hr> above metadata
-- ?<br> less space below description; <br> less space above footline
+- overflow scroll for whole page (kable, math blocks) ignoring TOC/aside width
+- auto-enclose proofs, images inside special gray text-width <hr>
 - favicons in pages
+- ?<br> less space below description; <br> less space above footline
 */
 /* -------------------------------------------------------------------------- */
 
@@ -2311,6 +2311,25 @@ body {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     margin-top: 40px;
 }
+
+/* --- [MB] CUSTOM DIVS -- */
+/* Apply horizontal scroll to a specific container */
+/*  by wrapping large kable tables/math blocks in <div class="scroll-container"> ... </div>*/
+.scroll-container {
+  max-width: max-content;
+  overflow-x: auto;
+}
+
+/* Apply horizontal scrolling to the entire page */
+body {
+  overflow-x: auto;
+}
+
+/*
+.math {
+  
+}
+*/
 
 /* --- HEADERS --- */
 h1, h2, h3, h4 {
@@ -2820,6 +2839,7 @@ the elements that I find most useful for writing math.</p></p>
 <li><a href="#asides" id="toc-asides"><span class="toc-section-number">9</span> Asides</a></li>
 <li><a href="#columns" id="toc-columns"><span class="toc-section-number">10</span> Columns</a></li>
 <li><a href="#text-formatting" id="toc-text-formatting"><span class="toc-section-number">11</span> Text formatting</a></li>
+<li><a href="#conclusion" id="toc-conclusion">Conclusion</a></li>
 </ul>
 </nav>
 </div>
@@ -2878,7 +2898,7 @@ available theorem environments and their respective keywords.</p>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="sc">\tag*</span><span class="ss">{</span><span class="er">$</span><span class="sc">\square</span><span class="er">$</span><span class="ss">}</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div>
-<p><span style="display: block; margin: 0 auto; border-bottom: 1px solid lightgray;"></span></p>
+<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
 <div class="proof">
 <p><span id="unlabeled-div-1" class="proof"><em>Proof</em> (Pythagorean theorem). </span>Let <span class="math inline">\(x, y\)</span> be …</p>
 <p>… Thus, <span class="math display">\[a^2 + b^2 = c^2,\]</span></p>
@@ -2887,27 +2907,24 @@ available theorem environments and their respective keywords.</p>
 \tag*{$\square$}
 \]</span></p>
 </div>
-<p><span style="display: block; margin: 0 auto; border-bottom: 1px solid lightgray;"></span></p>
+<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
 <h4 class="unnumbered" id="automatic-numbering">Automatic numbering</h4>
 <p>The nice thing about bookdown is that it will automatically number
 definitions and theorems so that you can easily cross-reference them
-later on (see the <a href="#cross-references">Cross-references</a> section below). Just replace the
-name following the <code>#</code> (<code>pyth-thm</code> in the example below) with a unique
-tag (containing no spaces) that will be convenient to reference.</p>
-<p>&lt;new definition&gt;</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>::: {#pyth-thm2 .definition name=&quot;Pythagorean theorem&quot;}</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Given a right triangle, if <span class="ss">$c$</span> denotes the length of the hypotenuse and</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ss">$a$</span> and <span class="ss">$b$</span> the lengths of the other two sides, then</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ss">$$a^2 + b^2 = c^2$$</span>.</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div>
+later on (see the <a href="#cross-references">Cross-references</a> section below).
+Just replace the name following the <code>#</code> (<code>pyth-thm</code> in the example
+below) with a unique tag (containing no spaces) that will be convenient
+to reference.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>::: {#cont-map-def .definition name=&quot;Continuous map&quot;}</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>A continuous map is a continuous function between two topological spaces. </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div>
 <div class="definition">
-<p><span id="def:pyth-thm2" class="definition"><strong>Definition 2  (Pythagorean theorem) </strong></span>Given a right triangle, if <span class="math inline">\(c\)</span> denotes the length of the hypotenuse and
-<span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> the lengths of the other two sides, then
-<span class="math display">\[a^2 + b^2 = c^2.\]</span></p>
+<p><span id="def:cont-map-def" class="definition"><strong>Definition 2  (Continuous map) </strong></span>A continuous map is a continuous function between two topological
+spaces.</p>
 </div>
 <aside>
-<p>Notice that the number given to this definition was incremented
-automatically from the previous definition environment.</p>
+<p>Notice that definition’s number was automatically incremented
+from the previous definition.</p>
 </aside>
 <h1 data-number="2" id="math-elements"><span class="header-section-number">2</span> Assorted math examples</h1>
 <p>Here is an assortment of LaTeX examples along with their output.</p>
@@ -2964,6 +2981,9 @@ automatically from the previous definition environment.</p>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="sc">\left</span><span class="ss">( y_1y_2y_3y_4 </span><span class="sc">\right</span><span class="ss">) </span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ss">}</span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span></code></pre></div>
+<aside>
+<p>The <code>\left(</code> / <code>\right)</code> command encloses its contents in big brackets.</p>
+</aside>
 <p><span class="math display">\[
 \frac{
 \begin{array}[b]{r}
@@ -2974,9 +2994,6 @@ automatically from the previous definition environment.</p>
 \left( y_1y_2y_3y_4 \right)
 }
 \]</span></p>
-<aside>
-<p>The <code>\left(</code> / <code>\right)</code> tags enclose their contents in big brackets.</p>
-</aside>
 <h4 class="unnumbered" id="calculus-expressions">Calculus expressions</h4>
 <div class="sourceCode" id="cb10"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="sc">\int</span><span class="ss">_0^</span><span class="sc">\infty</span><span class="ss"> </span><span class="sc">\mathrm</span><span class="ss">{e}^{-x} ~ </span><span class="sc">\mathrm</span><span class="ss">{d}x</span></span>
@@ -3076,6 +3093,9 @@ X =
 <span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">matrix</span>}<span class="sc">\right</span><span class="ss">]</span></span>
 <span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="sc">\in</span><span class="ss"> </span><span class="sc">\mathbb</span><span class="ss">{R^3}</span></span>
 <span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span></code></pre></div>
+<aside>
+<p>The <code>~</code> symbol adds a whitespace character.</p>
+</aside>
 <p><span class="math display">\[
 X
 =
@@ -3097,9 +3117,6 @@ X
 \end{matrix}\right]
 \in \mathbb{R^3}
 \]</span></p>
-<aside>
-<p>The <code>~</code> symbol adds a whitespace character.</p>
-</aside>
 <!--
 & =
 \left[\begin{matrix}
@@ -3165,6 +3182,13 @@ X
 <p>Unlike in pure LaTeX, in <code>bookdown</code> we must manually assign labels to
 every line that should have a number. I do so for significant passages,
 steps, and equations. Here is an example of a numbered equation:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ss">    </span><span class="sc">\mathbb</span><span class="ss">{P} </span><span class="sc">\left</span><span class="ss">(k</span><span class="sc">\right</span><span class="ss">) </span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    = </span><span class="sc">\binom</span><span class="ss">{n}{k}</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    p^k</span><span class="sc">\left</span><span class="ss">(1-p</span><span class="sc">\right</span><span class="ss">)^{n-k}</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">equation</span>}<span class="ss"> (</span><span class="sc">\#</span><span class="ss">eq:binom-eq)</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span></code></pre></div>
 <p><span class="math display" id="eq:binom-eq">\[
 \begin{equation}
     \mathbb{P} \left(k\right)
@@ -3193,22 +3217,23 @@ Wrapping in `$$` rather than an `equation` environment comes at the cost
 of in-editor syntax highlighting, but in exchange R Markdown will
 display a preview of the rendered LaTeX.
 !-->
-<div class="sourceCode" id="cb19"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">split</span>}</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="sc">\mathrm</span><span class="ss">{Var}(</span><span class="sc">\hat</span><span class="ss">{</span><span class="sc">\beta</span><span class="ss">}) &amp; =</span><span class="sc">\mathrm</span><span class="ss">{Var}((X&#39;X)^{-1}X&#39;y) </span><span class="sc">\\</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="ss"> &amp; = (X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)((X&#39;X)^{-1}X&#39;)&#39; </span><span class="sc">\\</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="ss"> &amp; = (X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)X(X&#39;X)^{-1}</span><span class="sc">\\</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="ss"> &amp; = (X&#39;X)^{-1}X&#39;</span><span class="sc">\sigma</span><span class="ss">^{2}IX(X&#39;X)^{-1} </span><span class="sc">\\</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="ss"> &amp; = (X&#39;X)^{-1}</span><span class="sc">\sigma</span><span class="ss">^{2}</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">split</span>}</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="ss">(</span><span class="sc">\#</span><span class="ss">eq:var-beta)</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">split</span>}</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="sc">\mathrm</span><span class="ss">{Var}(</span><span class="sc">\hat</span><span class="ss">{</span><span class="sc">\beta</span><span class="ss">}) &amp; =</span><span class="sc">\mathrm</span><span class="ss">{Var}((X&#39;X)^{-1}X&#39;y) </span><span class="sc">\\</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ss"> &amp; = (X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)((X&#39;X)^{-1}X&#39;)&#39; </span><span class="sc">\\</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ss"> &amp; = (X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)X(X&#39;X)^{-1}</span><span class="sc">\\</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="ss"> &amp; = (X&#39;X)^{-1}X&#39;</span><span class="sc">\sigma</span><span class="ss">^{2}IX(X&#39;X)^{-1} </span><span class="sc">\\</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ss"> &amp; = (X&#39;X)^{-1}</span><span class="sc">\sigma</span><span class="ss">^{2}</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">split</span>}</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="ss">(</span><span class="sc">\#</span><span class="ss">eq:var-beta)</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span></code></pre></div>
 <!--
 Notice that each aligned line begins with a single space. Some editors
 automatically align the cursor to the start of the previous line -- R
 Markdown doesn't always do this, so I like to add a single space to make
 the LaTeX readable but still easy to type.
 !-->
+<div class="scroll-container">
 <p><span class="math display" id="eq:var-beta">\[
 \begin{split}
 \mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y) \\
@@ -3219,6 +3244,7 @@ the LaTeX readable but still easy to type.
 \end{split}
 \tag{2}
 \]</span></p>
+</div>
 <h4 class="unnumbered" id="numbered-lines-and-inline-notes">Numbered lines and inline notes</h4>
 <p>We can number lines individually by using the LaTeX <code>align</code> environment
 and adding a unique <code>(\#eq:&lt;equation-tag&gt;)</code> at the end of every line
@@ -3228,6 +3254,29 @@ before the number tag. As with our use of the <code>&amp;</code> operator to ali
 successive lines of math, the additional <code>&amp;&amp;</code> operator tells the LaTeX
 compiler to also align comments, but to do so to the right of the
 aligned math.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">align</span>}</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="sc">\sum</span><span class="ss">_{i=1}^{n} </span><span class="sc">\left</span><span class="ss">( X_i - </span><span class="sc">\overline</span><span class="ss">{X} </span><span class="sc">\right</span><span class="ss"> )</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp; = </span><span class="sc">\sum</span><span class="ss">_{i=1}^{n}X_i - </span><span class="sc">\sum</span><span class="ss">_{i=1}^{n} </span><span class="sc">\overline</span><span class="ss">{X} </span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp;&amp; </span><span class="sc">\scriptstyle</span><span class="ss">{ </span><span class="sc">\text</span>{(comment 1)}<span class="ss"> }</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="ss">    (</span><span class="sc">\#</span><span class="ss">eq:sum-dev1) </span><span class="sc">\\</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp; = </span><span class="sc">\sum</span><span class="ss">_{i=1}^{n} X_i - n </span><span class="sc">\overline</span><span class="ss">{X}</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp;&amp; </span><span class="sc">\scriptstyle</span><span class="ss">{ (</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="ss">    </span><span class="sc">\text</span>{comment 2 has symbols: }<span class="ss"> </span><span class="sc">\int</span><span class="ss">_{a}^{b} 4 </span><span class="sc">\pi</span><span class="ss"> r^2 </span><span class="sc">\\</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="ss">    </span><span class="sc">\text</span>{... and carries over to a second line.}<span class="ss">) }</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="ss">    (</span><span class="sc">\#</span><span class="ss">eq:sum-dev2) </span><span class="sc">\\</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp; = </span><span class="sc">\sum</span><span class="ss">_{i=1}^{n}X_i - </span><span class="sc">\sum</span><span class="ss">_{i=1}^{n}X_i </span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="ss">    (</span><span class="sc">\#</span><span class="ss">eq:sum-dev3) </span><span class="sc">\\</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp; = 0</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">align</span>}</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span></code></pre></div>
+<aside>
+<p>We use <code>scriptstyle</code> to make the inline text smaller. Other custom
+display options are detailed
+<a href="https://www.overleaf.com/learn/latex/Display_style_in_math_mode">here</a>
+(by <em>Overleaf</em>).</p>
+</aside>
+<div class="scroll-container">
 <p><span class="math display" id="eq:sum-dev3" id="eq:sum-dev2" id="eq:sum-dev1">\[
 \begin{align}
 \sum_{i=1}^{n} \left( X_i - \overline{X} \right )
@@ -3244,42 +3293,37 @@ aligned math.</p>
     &amp; = 0
 \end{align}
 \]</span></p>
-<aside>
-<p>We use <code>scriptstyle</code> to make the inline text smaller. Other custom
-display options are detailed
-<a href="https://www.overleaf.com/learn/latex/Display_style_in_math_mode">here</a>
-(by <em>Overleaf</em>).</p>
-</aside>
+</div>
 <h1 data-number="5" id="code-blocks"><span class="header-section-number">5</span> Code blocks</h1>
 <p>We can include some nicely formatted Python code:</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Display the Fibonacci sequence up to n-th term</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>nterms <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;How many terms? &quot;</span>))</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># First two terms</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>n1, n2 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">1</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the number of terms is valid</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> nterms <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="st">&quot;Please enter a positive integer&quot;</span>)</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># If there is only one term, return n1</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> nterms <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="st">&quot;Fibonacci sequence upto&quot;</span>,nterms,<span class="st">&quot;:&quot;</span>)</span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(n1)</span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate fibonacci sequence</span></span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="st">&quot;Fibonacci sequence:&quot;</span>)</span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>   <span class="cf">while</span> count <span class="op">&lt;</span> nterms:</span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>       <span class="bu">print</span>(n1)</span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>       nth <span class="op">=</span> n1 <span class="op">+</span> n2</span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>       </span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>       <span class="co"># update values</span></span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>       n1 <span class="op">=</span> n2</span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>       n2 <span class="op">=</span> nth</span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>       count <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Display the Fibonacci sequence up to n-th term</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>nterms <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;How many terms? &quot;</span>))</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># First two terms</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>n1, n2 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">1</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the number of terms is valid</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> nterms <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="st">&quot;Please enter a positive integer&quot;</span>)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="co"># If there is only one term, return n1</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> nterms <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="st">&quot;Fibonacci sequence upto&quot;</span>,nterms,<span class="st">&quot;:&quot;</span>)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(n1)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate fibonacci sequence</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="st">&quot;Fibonacci sequence:&quot;</span>)</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>   <span class="cf">while</span> count <span class="op">&lt;</span> nterms:</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>       <span class="bu">print</span>(n1)</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>       nth <span class="op">=</span> n1 <span class="op">+</span> n2</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>       <span class="co"># update values</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>       n1 <span class="op">=</span> n2</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>       n2 <span class="op">=</span> nth</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>       count <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
 </div>
 <h1 data-number="6" id="figures-tables-images"><span class="header-section-number">6</span> Figures, tables, images</h1>
 <h4 class="unnumbered" id="figures">Figures</h4>
@@ -3330,7 +3374,17 @@ Figure 1: This is a figure caption.
 <a href="https://ggplot2.tidyverse.org/reference/theme.html">here</a> (<em>ggplot
 documentation</em>).</p>
 </aside>
-<p>And here’s a more involved example that uses some more fine-tuning to
+<p>A couple notes:</p>
+<ul>
+<li>To cross-reference a figure, image, or table rendered with R code,
+give the chunk a unique label in its
+<a href="https://yihui.org/knitr/options/">knitr</a> header following the
+```<code>{r,</code> prefix.</li>
+<li>To give your figure a caption with a numbered prefix as shown in
+this example, add fig.cap=“&lt;Your figure caption.&gt;” to the knitr
+header, replacing the string in “&lt;&gt;”.</li>
+</ul>
+<p>Here’s a more involved example that uses some more fine-tuning to
 achieve desired aesthetics. In the first cell we define the data. I
 include this example because 1) I like this plot, and 2) I think it is a
 good example of how to manually enter data points into a structure that
@@ -3421,13 +3475,11 @@ Figure 2: Figure caption.
 <!--
 # save_plot(filename = "../../images/test_plot.png", fig = p1, width = 10.75, height = 7, dpi = 300)
 !-->
-<p>A couple notes:</p>
-<ul>
-<li><fig tag></li>
-<li><custom caption></li>
-</ul>
 <h4 class="unnumbered" id="tables">Tables</h4>
-<p>&lt;same thing for tables; use knitr&gt;</p>
+<p>We can also display data frames as nicely formatted tables. This example
+uses <a href="https://bookdown.org/yihui/rmarkdown-cookbook/kable.html"><code>kable</code></a>
+to render the built-in <code>mtcars</code> dataset as a static table:</p>
+<div class="scroll-container">
 <div class="layout-chunk" data-layout="default">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://yihui.org/knitr/'>knitr</a></span><span class='op'>)</span></span>
@@ -3552,9 +3604,12 @@ Figure 2: Figure caption.
 </tbody>
 </table>
 </div>
+</div>
 <h4 class="unnumbered" id="paged-tables">Paged tables</h4>
-<p><same thing but use rmarkdown paged_table function for paged table></p>
-<p>&lt;example loading csv in&gt;</p>
+<p>And this example uses the
+<a href="https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html"><code>paged_table</code></a>
+function to generate a table with its columns spread out over several
+clickable pages:</p>
 <div class="layout-chunk" data-layout="default">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/rstudio/rmarkdown'>rmarkdown</a></span><span class='op'>)</span></span>
@@ -3567,12 +3622,16 @@ Figure 2: Figure caption.
 </div>
 </div>
 <aside>
-<p>Use the layout <code>"l-body-outset"</code> to make the figure or table span the
-width of the page. More information
+<p>Use the knitr option <code>layout="l-body-outset"</code> to make the figure or
+table span the width of the page. More information
 <a href="https://rstudio.github.io/distill/figures.html">here</a> and
 <a href="https://rstudio.github.io/distill/figures.html">here</a> (from the
 <em>Distill for R Markdown documentation</em>).</p>
 </aside>
+<!--
+snakes <- read.csv(file = "../../data/snakedata.csv")
+paged_table(snakes)
+!-->
 <h4 class="unnumbered" id="images">Images</h4>
 <div class="layout-chunk" data-layout="default">
 <div class="sourceCode">
@@ -3586,7 +3645,7 @@ Figure 3: This is an image caption.
 </div>
 </div>
 <aside>
-<p>The <code>"class=external"</code> option creates a frame around the image.</p>
+<p>The <code>"class=external"</code> knitr option creates a frame around the image.</p>
 </aside>
 <h1 data-number="7" id="cross-references"><span class="header-section-number">7</span> Cross-references</h1>
 <p>Now that we have some tagged equations and images, we can create
@@ -3639,29 +3698,31 @@ available theorem environments (we use the <code>thm</code> tag here).</p>
 bibtex document, you can cite them in-text as follows and they will
 automatically appear, with proper formatting, in the ‘References’
 section at the bottom of your document:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>[@james2013introduction]</span></code></pre></div>
 <p><span class="citation" data-cites="james2013introduction">(<a href="#ref-james2013introduction" role="doc-biblioref">James et al. 2013</a>)</span></p>
-<p>This is the bibtex entry in my <code>.bib</code> document to which this example
-refers:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>@book{james2013introduction,</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  title={An introduction to statistical learning},</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  author={James, Gareth and Witten, Daniela and Hastie, Trevor and Tibshirani, Robert},</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  volume={112},</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  year={2013},</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  publisher={Springer}</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>This is the bibtex entry in my <code>.bib</code> file to which this example refers:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>@book{james2013introduction,</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  title={An introduction to statistical learning},</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  author={James, Gareth and Witten, Daniela and Hastie, Trevor and Tibshirani, Robert},</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  volume={112},</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  year={2013},</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  publisher={Springer}</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h4 class="unnumbered" id="footnotes">Footnotes</h4>
-<p>This is a manual citation with a footnote: (Axler, 2019)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>This is a manual citation with a footnote:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>(Axler, 2019)[^1].</span></code></pre></div>
+<p>(Axler, 2019)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>At the bottom of my document I have a corresponding footnote entry that
 looks like:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>[^1]: Axler, S. (1997). *Linear algebra done right*. </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>Springer Science <span class="er">&amp;</span> Business Media.</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>[^1]: Axler, S. (1997). *Linear algebra done right*. </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>Springer Science <span class="er">&amp;</span> Business Media.</span></code></pre></div>
 <h1 data-number="9" id="asides"><span class="header-section-number">9</span> Asides</h1>
 <p>I have been using these throughout. Here’s how to create them:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;aside&gt;</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>This content will appear in the gutter of the article.</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/aside&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;aside&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>This content will appear in the gutter of the article.</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/aside&gt;</span></span></code></pre></div>
 <aside>
 <p>This content will appear in the gutter of the article.</p>
 </aside>
@@ -3669,7 +3730,19 @@ looks like:</p>
 <p>Using some <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a>
 magic, we can create a two-column layout with both columns occupying 50%
 of the width of the screen like so:</p>
-<p><span style="display: block; margin: 0 auto; border-bottom: 1px solid lightgray;"></span></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="in">::: {style</span>=&quot;display<span class="in">: flex</span>; width<span class="in">: 100%;&quot;}</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="in">::: {style</span>=&quot;flex<span class="in">: 2; padding: 10px;&quot;}</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>!<span class="ex">[]</span>(<span class="fu">..</span>/<span class="fu">..</span>/images/banner_fuji-01<span class="fu">.jpg</span> &quot;fujinai&quot;){style=&quot;border: <span class="dv">0</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">black</span><span class="op">;</span> <span class="kw">box-shadow</span>: <span class="dv">4</span><span class="dt">px</span> <span class="dv">4</span><span class="dt">px</span> <span class="dv">8</span><span class="dt">px</span> <span class="fu">rgba(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0.4</span><span class="fu">)</span><span class="st">&quot;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="st">width=&quot;</span><span class="dv">100</span><span class="dt">%</span><span class="st">&quot;}</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="st">::: {style=&quot;</span>flex: <span class="dv">2</span><span class="op">;</span> <span class="kw">padding</span>: <span class="dv">10</span><span class="dt">px</span><span class="op">;</span>&quot;}</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>-   This text will appear in the right column<span class="fu">.</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>-   It will wrap around the edge of the column to accommodate the length</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    of the sentence<span class="fu">.</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span></code></pre></div>
+<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
 <div style="display: flex; width: 100%;">
 <div style="flex: 2; padding: 10px;">
 <p><img src="../../images/banner_fuji-01.jpg" title="fujinai" style="border: 0px solid black; box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);width:100.0%" /></p>
@@ -3682,7 +3755,7 @@ of the sentence.</li>
 </ul>
 </div>
 </div>
-<p><span style="display: block; margin: 0 auto; border-bottom: 1px solid lightgray;"></span></p>
+<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
 <p>The settings for both columns are placed in the first pair of curly
 braces, and the content and settings of the individual columns are
 enclosed in the outer pair of <code>:::</code> operators.</p>
@@ -3710,6 +3783,7 @@ the column to accommodate the length of the whole sentence.
 !-->
 <h1 data-number="11" id="text-formatting"><span class="header-section-number">11</span> Text formatting</h1>
 <p>Here are some additional text formatting tricks:</p>
+<h4 class="unnumbered" id="scripts-strikethrough">Scripts, strikethrough</h4>
 <table>
 <tbody>
 <tr class="odd">
@@ -3722,13 +3796,18 @@ the column to accommodate the length of the whole sentence.
 </tr>
 </tbody>
 </table>
+<h4 class="unnumbered" id="centering-colour">Centering, colour</h4>
 <p>And to finish it off, let’s use some
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference">HTML</a>
 magic to center, enlarge, and change the colour of some text:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p</span> <span class="er">style</span><span class="ot">=</span><span class="st">&quot;text-align:center; font-size:160%; color:darkblue;&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    This is a big, blue, <span class="kw">&lt;b&gt;</span>bold<span class="kw">&lt;/b&gt;</span> sentence.</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/p&gt;</span></span></code></pre></div>
 <p style="text-align:center; font-size:160%; color:darkblue;">
     This is a big, blue, <b>bold</b> sentence.
 </p>
 <p><br></p>
+<h1 class="unnumbered" id="conclusion">Conclusion</h1>
 <p>And that’s it! As we’ve seen, R Markdown is a powerful integrated tool
 for text editing, coding, and mathematical typesetting. Combined with
 the math environments from Bookdown and the handy annotation tools from
@@ -3745,7 +3824,7 @@ James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013. <em>A
 <ol>
 <li id="fn1"><p>Axler, S. (1997). <em>Linear algebra done right</em>. Springer Science &amp;
 Business Media.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></li>
 </ol>
 </section>

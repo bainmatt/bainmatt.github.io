@@ -2175,11 +2175,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <style type="text/css">/* -------------------------------------------------------------------------- */
   /* 
   STILL TODO:
-  - x <p> sized vertical space above all headers
   - h2 ~85% size of h1
-  - ?no <hr> above metadata
-  - ?<br> less space below description; <br> less space above footline
+  - overflow scroll for whole page (kable, math blocks) ignoring TOC/aside width
+  - auto-enclose proofs, images inside special gray text-width <hr>
   - favicons in pages
+  - ?<br> less space below description; <br> less space above footline
   */
   /* -------------------------------------------------------------------------- */
 
@@ -2267,6 +2267,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
       margin-top: 40px;
   }
+
+  /* --- [MB] CUSTOM DIVS -- */
+  /* Apply horizontal scroll to a specific container */
+  /*  by wrapping large kable tables/math blocks in <div class="scroll-container"> ... </div>*/
+  .scroll-container {
+    max-width: max-content;
+    overflow-x: auto;
+  }
+
+  /* Apply horizontal scrolling to the entire page */
+  body {
+    overflow-x: auto;
+  }
+
+  /*
+  .math {
+    
+  }
+  */
 
   /* --- HEADERS --- */
   h1, h2, h3, h4 {
