@@ -146,7 +146,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","output","header-includes","bibliography","draft","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Technical reports with R Markdown & Bookdown"]},{"type":"character","attributes":{},"value":["I provide markdown snippets for a variety of text environments and formats that can \nbe created with R Markdown and the Bookdown package. I focus on\nthe elements that I find most useful for writing math."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Matthew Bain"]}]}]},{"type":"character","attributes":{},"value":["2024-03-22"]},{"type":"character","attributes":{},"value":["Reference"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["bookdown::html_document2"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["base_format","includes","toc","toc_depth","toc_float","number_sections","self_contained","pandoc_args","css"]}},"value":[{"type":"character","attributes":{},"value":["distill::distill_article"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["in_header"]}},"value":[{"type":"character","attributes":{},"value":["../../favicon.html"]}]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["--number-sections"]},{"type":"character","attributes":{},"value":["../../generic-css.css"]}]}]},{"type":"character","attributes":{},"value":["../../generic-header.tex"]},{"type":"character","attributes":{},"value":["../../generic-bib.bib"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["https://mattlabcode.github.io/roadmap_gallery/2024-03-15-writing-temp/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","output","header-includes","bibliography","draft","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Technical reports with R Markdown & Bookdown"]},{"type":"character","attributes":{},"value":["I provide markdown snippets for a variety of text environments and formats that can \nbe created with R Markdown and the Bookdown package. I focus on\nthe elements that I find most useful for writing math."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Matthew Bain"]}]}]},{"type":"character","attributes":{},"value":["March 22, 2024"]},{"type":"character","attributes":{},"value":["Reference"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["bookdown::html_document2"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["base_format","includes","toc","toc_depth","toc_float","number_sections","self_contained","pandoc_args","css"]}},"value":[{"type":"character","attributes":{},"value":["distill::distill_article"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["in_header"]}},"value":[{"type":"character","attributes":{},"value":["../../favicon.html"]}]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["--number-sections"]},{"type":"character","attributes":{},"value":["../../generic-css.css"]}]}]},{"type":"character","attributes":{},"value":["../../generic-header.tex"]},{"type":"character","attributes":{},"value":["../../generic-bib.bib"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["https://mattlabcode.github.io/roadmap_gallery/2024-03-15-writing-temp/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2820,7 +2820,7 @@ the elements that I find most useful for writing math.</p></p>
   
   Matthew Bain
   
-<br/>2024-03-22
+<br/>March 22, 2024
 </div>
 
 <div class="d-article">
@@ -2854,7 +2854,7 @@ The examples are arbitrary, only meant to illustrate the syntax. The
 <a href="https://www.markdownguide.org/">markdown</a> syntax are not explained. For
 each example I provide the raw text followed by the rendered output.</p>
 <h1 data-number="1" id="definition-theorem-proof"><span class="header-section-number">1</span> Definition, theorem, proof</h1>
-<p>Ah, the familiar math textbook refrain. Below is the bookdown syntax for
+<p>Ah, the familiar math textbook refrain. Below is the Bookdown syntax for
 definition, theorem, and proof environments, respectively.</p>
 <h4 class="unnumbered" id="definition">Definition</h4>
 <div class="sourceCode" id="cb1"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>::: {#disjoint-sets-def .definition name=&quot;Disjoint sets&quot;}</span>
@@ -2909,7 +2909,7 @@ available theorem environments and their respective keywords.</p>
 </div>
 <span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
 <h4 class="unnumbered" id="automatic-numbering">Automatic numbering</h4>
-<p>The nice thing about bookdown is that it will automatically number
+<p>The nice thing about Bookdown is that it will automatically number
 definitions and theorems so that you can easily cross-reference them
 later on (see the <a href="#cross-references">Cross-references</a> section below).
 Just replace the name following the <code>#</code> (<code>pyth-thm</code> in the example
@@ -3097,8 +3097,9 @@ X =
 <p>The <code>~</code> symbol adds a whitespace character.</p>
 </aside>
 <p><span class="math display">\[
+\begin{align}
 X
-=
+&amp; =
 \left[\begin{matrix}
     a &amp; b &amp; c \\
     d &amp; e &amp; f \\
@@ -3108,14 +3109,15 @@ X
     y^{(1)} \\
     y^{(2)} \\
     y^{(3)}
-\end{matrix}\right]
-=
+\end{matrix}\right] \\
+&amp; =
 \left[\begin{matrix}
     |                     &amp; |                     &amp; | \\
     y^{(1)} ~ \vec{x}_1   &amp; y^{(2)} ~ \vec{x}_2   &amp; y^{(3)} ~ \vec{x}_3 \\
     |                     &amp; |                     &amp; |
 \end{matrix}\right]
 \in \mathbb{R^3}
+\end{align}
 \]</span></p>
 <!--
 & =
@@ -3207,11 +3209,6 @@ tell R to treat it as math rather than raw text. To give the block a
 number we add an <code>(\#eq:&lt;equation-tag&gt;)</code> after closing the split
 environment with <code>\end{split}</code>. Just replace the text after the <code>\#eq:</code>
 prefix with a memorable tag of your choice.</p>
-<p>Some additional notes:</p>
-<ul>
-<li>Each new line is preceded by a <code>\\</code> operator.</li>
-<li>Each aligned expression begins with the <code>&amp;</code> symbol.</li>
-</ul>
 <!--
 Wrapping in `$$` rather than an `equation` environment comes at the cost
 of in-editor syntax highlighting, but in exchange R Markdown will
@@ -3245,6 +3242,11 @@ the LaTeX readable but still easy to type.
 \tag{2}
 \]</span></p>
 </div>
+<p>Some additional notes:</p>
+<ul>
+<li>Each new line is preceded by a <code>\\</code> operator.</li>
+<li>Each aligned expression begins with the <code>&amp;</code> symbol.</li>
+</ul>
 <h4 class="unnumbered" id="numbered-lines-and-inline-notes">Numbered lines and inline notes</h4>
 <p>We can number lines individually by using the LaTeX <code>align</code> environment
 and adding a unique <code>(\#eq:&lt;equation-tag&gt;)</code> at the end of every line
@@ -3330,6 +3332,7 @@ display options are detailed
 <p>We can also execute the code within R Markdown and display the output.
 Here’s an example using ggplot2 that also illustrates how to display a
 numbered figure with a caption:</p>
+<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
 <div class="layout-chunk" data-layout="default">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
@@ -3374,15 +3377,16 @@ Figure 1: This is a figure caption.
 <a href="https://ggplot2.tidyverse.org/reference/theme.html">here</a> (<em>ggplot
 documentation</em>).</p>
 </aside>
+<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
 <p>A couple notes:</p>
 <ul>
 <li>To cross-reference a figure, image, or table rendered with R code,
 give the chunk a unique label in its
 <a href="https://yihui.org/knitr/options/">knitr</a> header following the
-```<code>{r,</code> prefix.</li>
+<code>r</code> prefix.</li>
 <li>To give your figure a caption with a numbered prefix as shown in
 this example, add fig.cap=“&lt;Your figure caption.&gt;” to the knitr
-header, replacing the string in “&lt;&gt;”.</li>
+header, replacing the string inside the quotation marks.</li>
 </ul>
 <p>Here’s a more involved example that uses some more fine-tuning to
 achieve desired aesthetics. In the first cell we define the data. I
@@ -3390,6 +3394,7 @@ include this example because 1) I like this plot, and 2) I think it is a
 good example of how to manually enter data points into a structure that
 ggplot can work with and then to use that structure to produce a
 meaningful plot.</p>
+<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Create df</span></span>
@@ -3444,8 +3449,8 @@ meaningful plot.</p>
 <span>    caption <span class='op'>=</span> <span class='st'>"Source."</span></span>
 <span>  <span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span></span>
-<span>    labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'Group 1\n(sub 1)'</span>, <span class='st'>'Group 2\n(sub 2)'</span>, </span>
-<span>               <span class='st'>'Group 3\n(sub 3)'</span>, <span class='st'>'Group 4\n(sub 4)\n'</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>    labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'Group 1'</span>, <span class='st'>'Group 2'</span>, </span>
+<span>               <span class='st'>'Group 3'</span>, <span class='st'>'Group 4'</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='co'># Text/Legend adjustments</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
 <span>    plot.title <span class='op'>=</span> <span class='fu'><a href='https://wilkelab.org/ggtext/reference/element_markdown.html'>element_markdown</a></span><span class='op'>(</span>lineheight <span class='op'>=</span> <span class='fl'>1.1</span><span class='op'>)</span>,</span>
@@ -3472,6 +3477,7 @@ Figure 2: Figure caption.
 </p>
 </div>
 </div>
+<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
 <!--
 # save_plot(filename = "../../images/test_plot.png", fig = p1, width = 10.75, height = 7, dpi = 300)
 !-->
@@ -3633,6 +3639,7 @@ snakes <- read.csv(file = "../../data/snakedata.csv")
 paged_table(snakes)
 !-->
 <h4 class="unnumbered" id="images">Images</h4>
+<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
 <div class="layout-chunk" data-layout="default">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/include_graphics.html'>include_graphics</a></span><span class='op'>(</span><span class='st'>"../../images/banner_fuji-01.jpg"</span><span class='op'>)</span></span></code></pre>
@@ -3647,6 +3654,7 @@ Figure 3: This is an image caption.
 <aside>
 <p>The <code>"class=external"</code> knitr option creates a frame around the image.</p>
 </aside>
+<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
 <h1 data-number="7" id="cross-references"><span class="header-section-number">7</span> Cross-references</h1>
 <p>Now that we have some tagged equations and images, we can create
 hyperlinked references to them. Here are some examples:</p>
@@ -3800,13 +3808,14 @@ the column to accommodate the length of the whole sentence.
 <p>And to finish it off, let’s use some
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference">HTML</a>
 magic to center, enlarge, and change the colour of some text:</p>
+<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p</span> <span class="er">style</span><span class="ot">=</span><span class="st">&quot;text-align:center; font-size:160%; color:darkblue;&quot;</span><span class="kw">&gt;</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    This is a big, blue, <span class="kw">&lt;b&gt;</span>bold<span class="kw">&lt;/b&gt;</span> sentence.</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/p&gt;</span></span></code></pre></div>
 <p style="text-align:center; font-size:160%; color:darkblue;">
     This is a big, blue, <b>bold</b> sentence.
 </p>
-<p><br></p>
+<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
 <h1 class="unnumbered" id="conclusion">Conclusion</h1>
 <p>And that’s it! As we’ve seen, R Markdown is a powerful integrated tool
 for text editing, coding, and mathematical typesetting. Combined with
