@@ -2222,8 +2222,6 @@ STILL TODO:
 - figure caption label bold
 - favicons in pages
 
-- WRITING: replace 'tag' with 'label'; tab math block lines & xtra for comments
-
 - ?<br> less space below description; <br> less space above footline
 */
 /* -------------------------------------------------------------------------- */
@@ -2315,9 +2313,12 @@ Page properties:
 
 /* --- GLOBAL DOCUMENT SETTINGS --- */
 body {
-    /* font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
-    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unixcode', Geneva, Verdana, sans-serif; */
+  /* font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+  /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unixcode', Geneva, Verdana, sans-serif; */
+  
+  /* [MB] Body text line height */
+  line-height: 1.7em;
 }
 
 /* --- [MB] CUSTOM DIVS -- */
@@ -2359,10 +2360,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 }
 
 /* --- Further Distill specifications --- */
-d-title h1 {
-  font-weight: 500;
-}
-
 .posts-list .posts-list-caption {
   font-weight: 500;
   line-height: normal;
@@ -2378,6 +2375,11 @@ d-title h1 {
   padding-bottom: 0;
 }
 
+/* --- Article title weight --- */
+d-title h1 {
+  font-weight: 500;
+}
+
 /* --- Header 1 horizontal rule and weight --- */
 d-article h1 {
   margin-bottom: .75em;
@@ -2390,6 +2392,11 @@ d-article h1 {
 d-article h2 {
   font-size: 26px; 
   font-weight: 500;
+}
+
+/* --- Set header 4 size to match body (see HTML selector below) --- */
+d-article h4 {
+  /* font-size: max(1.06rem, 15px); */
 }
 
 /* --- OTHER --- */
@@ -2457,11 +2464,12 @@ ol > li {
 html {
   /* --- Main font sizes --- */
   --title-size:      35px;                        /* default: 50px */
-  --body-size:       1.06rem;                     /* default: 1.06rem; alt: 15px */             
+  /* --body-size:       1.06rem; */                    /* default: 1.06rem; alt: 15px */          
+  /* [MB] Include min body (para, inline/block math other than Bookdown) size */
+  --body-size:       max(1.06rem, 15px);
   --code-size:       13.25px;                     /* default: 14px */                  
   --aside-size:      12px;                        /* default: 12px */                  
   --fig-cap-size:    13.5px;                      /* default: 13px */
-
 
   /* [MB] Bold the "Figure" or "Table" tag */
   
@@ -2829,6 +2837,17 @@ the elements that I find most useful for writing math.</p></p>
 </ul>
 </nav>
 </div>
+<!--
+# This is h1
+
+## This is h2
+
+### This is h3
+
+#### This is h4
+
+##### This is h5
+!-->
 <p>The combination of R Markdown with functionality from the
 <a href="https://bookdown.org/">Bookdown</a> package and
 <a href="https://rstudio.github.io/distill/">Distill</a> web publishing format
@@ -2903,7 +2922,7 @@ available theorem environments and their respective keywords.</p>
 definitions and theorems so that you can easily cross-reference them
 later on (see the <a href="#cross-references">Cross-references</a> section below).
 Just replace the name following the <code>#</code> (<code>pyth-thm</code> in the example
-below) with a unique tag (containing no spaces) that will be convenient
+below) with a unique label (containing no spaces) that will be convenient
 to reference.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>::: {#cont-map-def .definition name=&quot;Continuous map&quot;}</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>A continuous map is a continuous function between two topological spaces. </span>
@@ -3084,7 +3103,7 @@ X =
 <span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="sc">\in</span><span class="ss"> </span><span class="sc">\mathbb</span><span class="ss">{R^3}</span></span>
 <span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span></code></pre></div>
 <aside>
-<p>The <code>~</code> symbol adds a whitespace character.</p>
+<p>The <code>~</code> symbol represents a whitespace character.</p>
 </aside>
 <p><span class="math display">\[
 \begin{align}
@@ -3193,12 +3212,12 @@ steps, and equations. Here is an example of a numbered equation:</p>
 <p>Here is an example from the <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">Bookdown
 documentation</a>.
 It illustrates how to display a block of math with multiple lines that
-share a single number and tag. We use the LaTeX <code>split</code> environment to
+share a single number and label. We use the LaTeX <code>split</code> environment to
 split the number across lines and wrap it all in double dollar signs to
 tell R to treat it as math rather than raw text. To give the block a
-number we add an <code>(\#eq:&lt;equation-tag&gt;)</code> after closing the split
+number we add an <code>(\#eq:&lt;equation-label&gt;)</code> after closing the split
 environment with <code>\end{split}</code>. Just replace the text after the <code>\#eq:</code>
-prefix with a memorable tag of your choice.</p>
+prefix with a memorable label of your choice.</p>
 <!--
 Wrapping in `$$` rather than an `equation` environment comes at the cost
 of in-editor syntax highlighting, but in exchange R Markdown will
@@ -3207,10 +3226,10 @@ display a preview of the rendered LaTeX.
 <div class="sourceCode" id="cb20"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">split</span>}</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="sc">\mathrm</span><span class="ss">{Var}(</span><span class="sc">\hat</span><span class="ss">{</span><span class="sc">\beta</span><span class="ss">}) &amp; =</span><span class="sc">\mathrm</span><span class="ss">{Var}((X&#39;X)^{-1}X&#39;y) </span><span class="sc">\\</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ss"> &amp; = (X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)((X&#39;X)^{-1}X&#39;)&#39; </span><span class="sc">\\</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ss"> &amp; = (X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)X(X&#39;X)^{-1}</span><span class="sc">\\</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="ss"> &amp; = (X&#39;X)^{-1}X&#39;</span><span class="sc">\sigma</span><span class="ss">^{2}IX(X&#39;X)^{-1} </span><span class="sc">\\</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ss"> &amp; = (X&#39;X)^{-1}</span><span class="sc">\sigma</span><span class="ss">^{2}</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp; = (X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)((X&#39;X)^{-1}X&#39;)&#39; </span><span class="sc">\\</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp; = (X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)X(X&#39;X)^{-1}</span><span class="sc">\\</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp; = (X&#39;X)^{-1}X&#39;</span><span class="sc">\sigma</span><span class="ss">^{2}IX(X&#39;X)^{-1} </span><span class="sc">\\</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp; = (X&#39;X)^{-1}</span><span class="sc">\sigma</span><span class="ss">^{2}</span></span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">split</span>}</span>
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="ss">(</span><span class="sc">\#</span><span class="ss">eq:var-beta)</span></span>
 <span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span></code></pre></div>
@@ -3223,43 +3242,46 @@ the LaTeX readable but still easy to type.
 <p><span class="math display" id="eq:var-beta">\[
 \begin{split}
 \mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y) \\
-&amp; = (X&#39;X)^{-1}X&#39;\mathrm{Var}(y)((X&#39;X)^{-1}X&#39;)&#39; \\
-&amp; = (X&#39;X)^{-1}X&#39;\mathrm{Var}(y)X(X&#39;X)^{-1} \\
-&amp; = (X&#39;X)^{-1}X&#39;\sigma^{2}IX(X&#39;X)^{-1} \\
-&amp; = (X&#39;X)^{-1}\sigma^{2}
+    &amp; = (X&#39;X)^{-1}X&#39;\mathrm{Var}(y)((X&#39;X)^{-1}X&#39;)&#39; \\
+    &amp; = (X&#39;X)^{-1}X&#39;\mathrm{Var}(y)X(X&#39;X)^{-1} \\
+    &amp; = (X&#39;X)^{-1}X&#39;\sigma^{2}IX(X&#39;X)^{-1} \\
+    &amp; = (X&#39;X)^{-1}\sigma^{2}
 \end{split}
 \tag{2}
 \]</span></p>
 <p>Some additional notes:</p>
 <ul>
 <li>Each new line is preceded by a <code>\\</code> operator.</li>
-<li>Each aligned expression begins with the <code>&amp;</code> symbol.</li>
+<li>Each aligned expression begins with the <code>&amp;</code> operator.</li>
 </ul>
 <h4 class="unnumbered" id="numbered-lines-and-inline-notes">Numbered lines and inline notes</h4>
 <p>We can number lines individually by using the LaTeX <code>align</code> environment
-and adding a unique <code>(\#eq:&lt;equation-tag&gt;)</code> at the end of every line
+and adding a unique <code>(\#eq:&lt;equation-label&gt;)</code> at the end of every line
 that should have a number. Additionally, we can add in-line comments by
-placing <code>&amp; (&lt;my LaTeX-formatted comment&gt;)</code> at the end of the line but
-before the number tag. As with our use of the <code>&amp;</code> operator to align
-successive lines of math, the additional <code>&amp;&amp;</code> operator tells the LaTeX
-compiler to also align comments, but to do so to the right of the
+placing <code>&amp;&amp;</code> followed by <code>(&lt;my LaTeX-formatted comment&gt;)</code> at the end of the line,
+before the number label. As with our use of the <code>&amp;</code> operator to align
+successive lines of math, the <code>&amp;&amp;</code> operator tells the LaTeX
+compiler to align comments, but to do so to the right of the
 aligned math.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">align</span>}</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="sc">\sum</span><span class="ss">_{i=1}^{n} </span><span class="sc">\left</span><span class="ss">( X_i - </span><span class="sc">\overline</span><span class="ss">{X} </span><span class="sc">\right</span><span class="ss"> )</span></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp; = </span><span class="sc">\sum</span><span class="ss">_{i=1}^{n}X_i - </span><span class="sc">\sum</span><span class="ss">_{i=1}^{n} </span><span class="sc">\overline</span><span class="ss">{X} </span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp;&amp; </span><span class="sc">\scriptstyle</span><span class="ss">{ </span><span class="sc">\text</span>{(comment 1)}<span class="ss"> }</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="ss">        &amp;&amp; </span><span class="sc">\scriptstyle</span><span class="ss">{ </span><span class="sc">\left</span><span class="ss">( </span><span class="sc">\text</span>{comment 1}<span class="ss"> </span><span class="sc">\right</span><span class="ss">)}</span></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="ss">    (</span><span class="sc">\#</span><span class="ss">eq:sum-dev1) </span><span class="sc">\\</span></span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp; = </span><span class="sc">\sum</span><span class="ss">_{i=1}^{n} X_i - n </span><span class="sc">\overline</span><span class="ss">{X}</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp;&amp; </span><span class="sc">\scriptstyle</span><span class="ss">{ (</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="ss">    </span><span class="sc">\text</span>{comment 2 has symbols: }<span class="ss"> </span><span class="sc">\int</span><span class="ss">_{a}^{b} 4 </span><span class="sc">\pi</span><span class="ss"> r^2 </span><span class="sc">\\</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="ss">    </span><span class="sc">\text</span>{... and carries over to a second line.}<span class="ss">) }</span></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="ss">    (</span><span class="sc">\#</span><span class="ss">eq:sum-dev2) </span><span class="sc">\\</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp; = </span><span class="sc">\sum</span><span class="ss">_{i=1}^{n}X_i - </span><span class="sc">\sum</span><span class="ss">_{i=1}^{n}X_i </span></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="ss">    (</span><span class="sc">\#</span><span class="ss">eq:sum-dev3) </span><span class="sc">\\</span></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp; = 0</span></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">align</span>}</span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span></code></pre></div>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="ss">        &amp;&amp; </span><span class="sc">\scriptstyle</span><span class="ss">{ </span><span class="sc">\left</span><span class="ss">( </span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="ss">        </span><span class="kw">\begin</span>{<span class="ex">array</span>}<span class="ss">{c}</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="ss">            </span><span class="sc">\text</span>{comment 2 has symbols: }<span class="ss"> </span><span class="sc">\int</span><span class="ss">_{a}^{b} 4 </span><span class="sc">\pi</span><span class="ss"> r^2 </span><span class="sc">\\</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="ss">            </span><span class="sc">\text</span>{... and carries over to a second line.}</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="ss">        </span><span class="kw">\end</span>{<span class="ex">array</span>}</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="ss">        </span><span class="sc">\right</span><span class="ss">) }</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="ss">    (</span><span class="sc">\#</span><span class="ss">eq:sum-dev2) </span><span class="sc">\\</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp; = </span><span class="sc">\sum</span><span class="ss">_{i=1}^{n}X_i - </span><span class="sc">\sum</span><span class="ss">_{i=1}^{n}X_i </span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="ss">    (</span><span class="sc">\#</span><span class="ss">eq:sum-dev3) </span><span class="sc">\\</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp; = 0</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">align</span>}</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span></code></pre></div>
 <aside>
 <p>We use <code>scriptstyle</code> to make the inline text smaller. Other custom
 display options are detailed
@@ -3270,12 +3292,15 @@ display options are detailed
 \begin{align}
 \sum_{i=1}^{n} \left( X_i - \overline{X} \right )
     &amp; = \sum_{i=1}^{n}X_i - \sum_{i=1}^{n} \overline{X}
-    &amp;&amp; \scriptstyle{ \text{(comment 1)} }
+        &amp;&amp; \scriptstyle{ \left( \text{comment 1} \right)}
     \tag{3} \\
     &amp; = \sum_{i=1}^{n} X_i - n \overline{X}
-    &amp;&amp; \scriptstyle{ (
-    \text{comment 2 has symbols: } \int_{a}^{b} 4 \pi r^2 \\
-    \text{... and carries over to a second line.}) }
+        &amp;&amp; \scriptstyle{ \left(
+        \begin{array}{c}
+            \text{comment 2 has symbols: } \int_{a}^{b} 4 \pi r^2 \\
+            \text{... and carries over to a second line.}
+        \end{array}
+        \right) }
     \tag{4} \\
     &amp; = \sum_{i=1}^{n}X_i - \sum_{i=1}^{n}X_i
     \tag{5} \\
@@ -3650,7 +3675,7 @@ Figure 3: This is an image caption.
 </aside>
 <span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
 <h1 data-number="7" id="cross-references"><span class="header-section-number">7</span> Cross-references</h1>
-<p>Now that we have some tagged equations and images, we can create
+<p>Now that we have some labelled equations and images, we can create
 hyperlinked references to them. Here are some examples:</p>
 <table style="width:99%;">
 <colgroup>
@@ -3689,10 +3714,10 @@ Theorem <a href="#thm:pyth-thm">1</a>.</td>
 <aside>
 <p>Table 2.1 on
 <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">this</a>
-page from <em>Authoring Books with R Markdown</em> lists the tags for all other
-available theorem environments (we use the <code>thm</code> tag here).</p>
+page from <em>Authoring Books with R Markdown</em> lists the label prefixes for all other
+available theorem environments (we use the <code>thm</code> prefix here).</p>
 </aside>
-<p><strong>*Note</strong>: The section 1 header is followed by the tag
+<p><strong>*Note</strong>: The section 1 header is followed by the label
 {#math-elements}.</p>
 <h1 data-number="8" id="references"><span class="header-section-number">8</span> References</h1>
 <h4 class="unnumbered" id="in-text-citations">In-text citations</h4>
