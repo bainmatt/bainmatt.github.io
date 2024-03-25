@@ -2219,10 +2219,11 @@ d-appendix {
 <style type="text/css">/* -------------------------------------------------------------------------- */
 /* 
 STILL TODO:
-- h2 ~85% size of h1
-- overflow scroll for whole page (kable, math blocks) ignoring TOC/aside width
-- auto-enclose proofs, images inside special gray text-width <hr>
+- figure caption label bold
 - favicons in pages
+
+- WRITING: replace 'tag' with 'label'; tab math block lines & xtra for comments
+
 - ?<br> less space below description; <br> less space above footline
 */
 /* -------------------------------------------------------------------------- */
@@ -2293,6 +2294,21 @@ Page properties:
 
 /* -------------------------------------------------------------------------- */
 
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+/* @import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP:300,300i&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap'); */
+
 /* ---------------------------------- */
 /* --- DEFAULT RMD CUSTOMIZATIONS --- */
 /* ---------------------------------- */
@@ -2302,17 +2318,19 @@ body {
     /* font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
     /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
     /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unixcode', Geneva, Verdana, sans-serif; */
-    /* font-size: 12pt; */  
-    /* font-weight: 100; */
-}
-
-/* --- [MB] CUSTOMIZATIONS -- */
-/* --- Fix space above headers -- */
-h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
-    margin-top: 40px;
 }
 
 /* --- [MB] CUSTOM DIVS -- */
+/* Figure/image/proof hr container
+/*  Use: Wrap in <div class="fig-border"> * 2 */
+.fig-border {
+  margin-top: -15px;
+  padding-top: 0px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray; /* or #eee */
+}
+
 /* Apply horizontal scroll to a specific container */
 /*  by wrapping large kable tables/math blocks in <div class="scroll-container"> ... </div>*/
 .scroll-container {
@@ -2320,57 +2338,73 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   overflow-x: auto;
 }
 
-/* Apply horizontal scrolling to the entire page */
-body {
+/* --- [MB] GENERAL CUSTOMIZATIONS -- */
+/* [TODO] Enable horizontal scroll for entire page to prevent clipping */
+d-article {
   overflow-x: auto;
+  scrollbar-width: none;
 }
 
-/*
-.math {
-  
+/* --- [MB] [TODO] HEADER CUSTOMIZATIONS -- */
+/* --- Letter spacing + line heights --- */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 2px;                            /* default: 2px */
+  line-height: normal;
+  font-weight: 300;                               /* default: 300 */
 }
-*/
 
-/* --- HEADERS --- */
-h1, h2, h3, h4 {
-  /*
-  margin-top: 1em; 
-  padding-top: 3em;
-  border-top: 10px; 
-  */
-  
-  /* add horizontal rule under each header */
-  /* 
-  padding-bottom: .3em;
+/* --- Fixed padding -- */
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  margin-top: 40px;
+}
+
+/* --- Further Distill specifications --- */
+d-title h1 {
+  font-weight: 500;
+}
+
+.posts-list .posts-list-caption {
+  font-weight: 500;
+  line-height: normal;
   margin-bottom: .75em;
-  border-bottom: 1px solid #eee;
-  */
-  
-  /*
-  font-size: 14pt, 13pt, 12pt, 11pt; 
-  font-weight: 320; 
-  */
+  padding-bottom: .3em;
+  border-bottom: 1px solid lightgray; /* or #eee */
 }
 
-/* alt: 19pt, 16pt, 13pt */
-/*
-h1 {
-  font-size: 19pt;                                    
+.posts-list
+.description h2 {
+  font-weight: 500;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-h2 {
-  font-size: 16pt;                                    
+/* --- Header 1 horizontal rule and weight --- */
+d-article h1 {
+  margin-bottom: .75em;
+  padding-bottom: .3em;
+  border-bottom: 1px solid lightgray;
+  font-weight: 500;
 }
 
-h3 {
-  font-size: 13pt;                                    
+/* --- Header 2 size and weight --- */
+d-article h2 {
+  font-size: 26px; 
+  font-weight: 500;
 }
-*/
 
-/* --- CODE --- */
-code {
-  /* font-size: 12px; */
-  /* font-weight: 550; */
+/* --- OTHER --- */
+/* --- Nav bar padding */
+.distill-site-header {
+  padding-top: 1rem;                              /* default: 1rem */
+}
+
+/* Dropdown menu text spacing */
+.nav-dropdown .nav-dropbtn {
+  letter-spacing: 2px;
+}
+
+.distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+  letter-spacing: 2px;
 }
 
 /* --- ORDERED LISTS --- */
@@ -2391,24 +2425,24 @@ ol {
 }
 
 ol > li {
-  margin-bottom: 2px; /* Adjust the spacing between list items as needed */
+  margin-bottom: 2px; /* Adjust the spacing between list items */
 }
 
 /* --- FLOATING TOC --- */
 /* Change background colour */
 .tocify-item {
-    /* background-color: rgb(251, 250, 247); */
-    font-size: 10pt;
+  /* background-color: rgb(251, 250, 247); */
+  font-size: 10pt;
 }
 
 .tocify-subheader {
-    font-size: 9.75pt;
+  font-size: 9.75pt;
 }
 
 /* Ensure floating TOC idents successive lines */
 .tocify-subheader > .tocify-item {
-    text-indent: initial;
-    padding-left: 2em;
+  text-indent: initial;
+  padding-left: 2em;
 }
 
 /* --- OTHER --- */
@@ -2417,53 +2451,29 @@ ol > li {
   display: none;
 }
 
-/*
-scope {
-  --a-property:       50px;
-  --another-property: #fff;
-}
-*/
-
 /* -------------------------------------- */
 /* --- FURTHER DISTILL CUSTOMIZATIONS --- */
 /* -------------------------------------- */
-
-/* base variables */
-
-/* Edit the CSS properties in this file to create a custom
-   Distill theme. Only edit values in the right column
-   for each row; values shown are the CSS defaults.
-   To return any property to the default,
-   you may set its value to: unset
-   All rows must end with a semi-colon.                      */
-
-/* Optional: embed custom fonts here with `@import`          */
-/* This must remain at the top of this file.                 */
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP:300,300i&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
-
 html {
-  /*-- Main font sizes --*/
+  /* --- Main font sizes --- */
   --title-size:      35px;                        /* default: 50px */
-  --body-size:       1.06rem;                     /* default: 1.06rem */                  
+  --body-size:       1.06rem;                     /* default: 1.06rem; alt: 15px */             
   --code-size:       13.25px;                     /* default: 14px */                  
   --aside-size:      12px;                        /* default: 12px */                  
   --fig-cap-size:    13.5px;                      /* default: 13px */
-  
-  /* [MB] Left justify figure captions */
 
 
   /* [MB] Bold the "Figure" or "Table" tag */
   
   
-  /*-- Main font colors --*/
+  /* --- Main font colors --- */
   /*--title-color:     #ca225e;*/                     /* default: #ca225e */
   /*--header-color:    #ca225e;*/                     /* theme: #ca225e */
   --body-color:      #404040;                     /* theme: #404040 */
   --aside-color:     rgba(0, 0, 0, 0.6);
   --fig-cap-color:   rgba(0, 0, 0, 0.6);
-  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  
+  /* --- Specify custom fonts ~~~ must be imported above --- */
   --heading-font:    "Noto Serif JP", sans-serif; /* theme */
   --mono-font:       "IBM Plex Mono", monospace;  /* theme */
   --body-font:       "Lato", sans-serif;          /* theme */
@@ -2477,7 +2487,7 @@ html {
   */
 }
 
-/*-- ARTICLE METADATA --*/
+/* --- ARTICLE METADATA --- */
 d-byline {
   --heading-size:    0.9rem;                      /* theme: 0.9rem */
   --heading-color:   rgba(0, 0, 0, 0.5);          /* default: rgba(0, 0, 0, 0.5) */
@@ -2488,16 +2498,15 @@ d-byline {
   {
     display: none;                              
   }
-  
 }
 
-/*-- ARTICLE TABLE OF CONTENTS --*/
+/* --- ARTICLE TABLE OF CONTENTS --- */
 .d-contents {
   --heading-size:    18px;                        /* default: 18px */
   --contents-size:   13px;                        /* default: 13px */
 }
 
-/*-- ARTICLE APPENDIX --*/
+/* --- ARTICLE APPENDIX --- */
 d-appendix {
   --heading-size:    15px;                        /* default: 15px */
   --heading-color:   rgba(0, 0, 0, 0.65);         /* default: rgba(0, 0, 0, 0.65) */
@@ -2505,7 +2514,7 @@ d-appendix {
   --text-color:      #1a162d;                     /* theme: 0.9rem */
 }
 
-/*-- WEBSITE HEADER + FOOTER --*/
+/* --- WEBSITE HEADER + FOOTER --- */
 /* These properties only apply to Distill sites and blogs  */
 .distill-site-header {
   --title-size:       18px;                       /* default: 18px */
@@ -2513,14 +2522,6 @@ d-appendix {
   --text-size:        15px;                       /* default: 15px */
   --hover-color:      #787878;                    /* default: #787878 */
   --bkgd-color:       #fff;                       /* theme: #fff */
-  
-  /*
-  --title-size:       18px;    
-  --text-color:       #ff414b;
-  --text-size:        15px;
-  --hover-color:      #dd424c;
-  --bkgd-color:       #ffd8db;
-  */
 }
 
 .distill-site-footer {
@@ -2530,27 +2531,11 @@ d-appendix {
   /*--bkgd-color:       #ca225e3d;*/                  /* theme: #ca225e3d */
 }
 
-/*-- ADDITIONAL CUSTOM STYLES --*/
-/* Ordered list index colour */
-ul > li::marker {                 
-  /*color: #ca225e;*/                                 /* default: #ca225e */
-}
-
-ol > li::marker {                 
-  /*color: #ca225e;*/                                 /* default: #ca225e */
-}
-
+/* --- OTHER --- */
 /* Navigation bar letter case */
 .distill-site-header { 
   letter-spacing: 2px;                            /* default: 2px */
   /*text-transform: uppercase;*/                      /* default: uppercase */
-}
-
-/* Font weights and letter spacing */
-h1, h2, h3, h4, h5, h6 {
-  letter-spacing: 2px;                            /* default: 2px */
-  font-weight: 300;                               /* default: 300 */
-}
 
 /* Makes logo bigger */
 .distill-site-header .logo img{
@@ -2573,17 +2558,18 @@ d-appendix {
   /*border-top: none;*/                               /* default: none */
 }
 
-/* ----------------------------------------------- */
-/* --- MATCH CUSTOM DISTILL HEADER IN RMD POSTS--- */
-/* ----------------------------------------------- */
-/*
-.navbar {
-  font-family: 'Lato', sans-serif;
-  height: 90px;
-  display: flex;
-  align-items: center;
+/* -------------------------------- */
+/* --- ADDITIONAL CUSTOM STYLES --- */
+/* -------------------------------- */
+/* --- ORDERED LISTS --- */
+/* Ordered list index colour */
+ul > li::marker {                 
+  /*color: #ca225e;*/                                 /* default: #ca225e */
 }
-*/</style>
+
+ol > li::marker {                 
+  /*color: #ca225e;*/                                 /* default: #ca225e */
+}</style>
 <style type="text/css">
 /* base style */
 
@@ -2875,17 +2861,17 @@ that <span class="math inline">\(n\)</span> sets <span class="math inline">\(A_1
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ss">$a$</span> and <span class="ss">$b$</span> the lengths of the other two sides, then</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ss">$$a^2 + b^2 = c^2$$</span>.</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div>
+<div class="theorem">
+<p><span id="thm:pyth-thm" class="theorem"><strong>Theorem 1  (Pythagorean theorem) </strong></span>Given a right triangle, if <span class="math inline">\(c\)</span> denotes the length of the hypotenuse and
+<span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> the lengths of the other two sides, then
+<span class="math display">\[a^2 + b^2 = c^2.\]</span></p>
+</div>
 <aside>
 <p>Table 2.1 on
 <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">this</a>
 page from <em>Authoring Books with R Markdown</em> lists all the other
 available theorem environments and their respective keywords.</p>
 </aside>
-<div class="theorem">
-<p><span id="thm:pyth-thm" class="theorem"><strong>Theorem 1  (Pythagorean theorem) </strong></span>Given a right triangle, if <span class="math inline">\(c\)</span> denotes the length of the hypotenuse and
-<span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> the lengths of the other two sides, then
-<span class="math display">\[a^2 + b^2 = c^2.\]</span></p>
-</div>
 <h4 class="unnumbered" id="proof">Proof</h4>
 <div class="sourceCode" id="cb3"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>::: {.proof name=&quot;Pythagorean theorem&quot;}</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Let <span class="ss">$x, y$</span> be ...</span>
@@ -2898,7 +2884,9 @@ available theorem environments and their respective keywords.</p>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="sc">\tag*</span><span class="ss">{</span><span class="er">$</span><span class="sc">\square</span><span class="er">$</span><span class="ss">}</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div>
-<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
+<div class="fig-border">
+
+</div>
 <div class="proof">
 <p><span id="unlabeled-div-1" class="proof"><em>Proof</em> (Pythagorean theorem). </span>Let <span class="math inline">\(x, y\)</span> be …</p>
 <p>… Thus, <span class="math display">\[a^2 + b^2 = c^2,\]</span></p>
@@ -2907,7 +2895,9 @@ available theorem environments and their respective keywords.</p>
 \tag*{$\square$}
 \]</span></p>
 </div>
-<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
+<div class="fig-border">
+
+</div>
 <h4 class="unnumbered" id="automatic-numbering">Automatic numbering</h4>
 <p>The nice thing about Bookdown is that it will automatically number
 definitions and theorems so that you can easily cross-reference them
@@ -2923,8 +2913,8 @@ to reference.</p>
 spaces.</p>
 </div>
 <aside>
-<p>Notice that definition’s number was automatically incremented
-from the previous definition.</p>
+<p>Notice that definition’s number was automatically incremented from the
+previous definition.</p>
 </aside>
 <h1 data-number="2" id="math-elements"><span class="header-section-number">2</span> Assorted math examples</h1>
 <p>Here is an assortment of LaTeX examples along with their output.</p>
@@ -3230,7 +3220,6 @@ automatically align the cursor to the start of the previous line -- R
 Markdown doesn't always do this, so I like to add a single space to make
 the LaTeX readable but still easy to type.
 !-->
-<div class="scroll-container">
 <p><span class="math display" id="eq:var-beta">\[
 \begin{split}
 \mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y) \\
@@ -3241,7 +3230,6 @@ the LaTeX readable but still easy to type.
 \end{split}
 \tag{2}
 \]</span></p>
-</div>
 <p>Some additional notes:</p>
 <ul>
 <li>Each new line is preceded by a <code>\\</code> operator.</li>
@@ -3278,7 +3266,6 @@ display options are detailed
 <a href="https://www.overleaf.com/learn/latex/Display_style_in_math_mode">here</a>
 (by <em>Overleaf</em>).</p>
 </aside>
-<div class="scroll-container">
 <p><span class="math display" id="eq:sum-dev3" id="eq:sum-dev2" id="eq:sum-dev1">\[
 \begin{align}
 \sum_{i=1}^{n} \left( X_i - \overline{X} \right )
@@ -3295,7 +3282,6 @@ display options are detailed
     &amp; = 0
 \end{align}
 \]</span></p>
-</div>
 <h1 data-number="5" id="code-blocks"><span class="header-section-number">5</span> Code blocks</h1>
 <p>We can include some nicely formatted Python code:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -3332,7 +3318,9 @@ display options are detailed
 <p>We can also execute the code within R Markdown and display the output.
 Here’s an example using ggplot2 that also illustrates how to display a
 numbered figure with a caption:</p>
-<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
+<div class="fig-border">
+
+</div>
 <div class="layout-chunk" data-layout="default">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
@@ -3377,13 +3365,15 @@ Figure 1: This is a figure caption.
 <a href="https://ggplot2.tidyverse.org/reference/theme.html">here</a> (<em>ggplot
 documentation</em>).</p>
 </aside>
-<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
+<div class="fig-border">
+
+</div>
 <p>A couple notes:</p>
 <ul>
 <li>To cross-reference a figure, image, or table rendered with R code,
 give the chunk a unique label in its
-<a href="https://yihui.org/knitr/options/">knitr</a> header following the
-<code>r</code> prefix.</li>
+<a href="https://yihui.org/knitr/options/">knitr</a> header following the <code>r</code>
+prefix.</li>
 <li>To give your figure a caption with a numbered prefix as shown in
 this example, add fig.cap=“&lt;Your figure caption.&gt;” to the knitr
 header, replacing the string inside the quotation marks.</li>
@@ -3394,7 +3384,9 @@ include this example because 1) I like this plot, and 2) I think it is a
 good example of how to manually enter data points into a structure that
 ggplot can work with and then to use that structure to produce a
 meaningful plot.</p>
-<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
+<div class="fig-border">
+
+</div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Create df</span></span>
@@ -3477,7 +3469,9 @@ Figure 2: Figure caption.
 </p>
 </div>
 </div>
-<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
+<div class="fig-border">
+
+</div>
 <!--
 # save_plot(filename = "../../images/test_plot.png", fig = p1, width = 10.75, height = 7, dpi = 300)
 !-->
@@ -3740,17 +3734,20 @@ magic, we can create a two-column layout with both columns occupying 50%
 of the width of the screen like so:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="in">::: {style</span>=&quot;display<span class="in">: flex</span>; width<span class="in">: 100%;&quot;}</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="in">::: {style</span>=&quot;flex<span class="in">: 2; padding: 10px;&quot;}</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>!<span class="ex">[]</span>(<span class="fu">..</span>/<span class="fu">..</span>/images/banner_fuji-01<span class="fu">.jpg</span> &quot;fujinai&quot;){style=&quot;border: <span class="dv">0</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">black</span><span class="op">;</span> <span class="kw">box-shadow</span>: <span class="dv">4</span><span class="dt">px</span> <span class="dv">4</span><span class="dt">px</span> <span class="dv">8</span><span class="dt">px</span> <span class="fu">rgba(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0.4</span><span class="fu">)</span><span class="st">&quot;</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="st">width=&quot;</span><span class="dv">100</span><span class="dt">%</span><span class="st">&quot;}</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="st">::: {style=&quot;</span>flex: <span class="dv">2</span><span class="op">;</span> <span class="kw">padding</span>: <span class="dv">10</span><span class="dt">px</span><span class="op">;</span>&quot;}</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>-   This text will appear in the right column<span class="fu">.</span></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>-   It will wrap around the edge of the column to accommodate the length</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    of the sentence<span class="fu">.</span></span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span></code></pre></div>
-<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>!<span class="ex">[]</span>(<span class="fu">..</span>/<span class="fu">..</span>/images/banner_fuji-01<span class="fu">.jpg</span> &quot;fujinai&quot;)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>{style=&quot;border: <span class="dv">0</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">black</span><span class="op">;</span> <span class="kw">box-shadow</span>: <span class="dv">4</span><span class="dt">px</span> <span class="dv">4</span><span class="dt">px</span> <span class="dv">8</span><span class="dt">px</span> <span class="fu">rgba(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0.4</span><span class="fu">)</span><span class="st">&quot;</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="st">width=&quot;</span><span class="dv">100</span><span class="dt">%</span><span class="st">&quot;}</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="st">::: {style=&quot;</span>flex: <span class="dv">2</span><span class="op">;</span> <span class="kw">padding</span>: <span class="dv">10</span><span class="dt">px</span><span class="op">;</span>&quot;}</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>-   This text will appear in the right column<span class="fu">.</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>-   It will wrap around the edge of the column to accommodate the length</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    of the sentence<span class="fu">.</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span></code></pre></div>
+<div class="fig-border">
+
+</div>
 <div style="display: flex; width: 100%;">
 <div style="flex: 2; padding: 10px;">
 <p><img src="../../images/banner_fuji-01.jpg" title="fujinai" style="border: 0px solid black; box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);width:100.0%" /></p>
@@ -3763,7 +3760,9 @@ of the sentence.</li>
 </ul>
 </div>
 </div>
-<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
+<div class="fig-border">
+
+</div>
 <p>The settings for both columns are placed in the first pair of curly
 braces, and the content and settings of the individual columns are
 enclosed in the outer pair of <code>:::</code> operators.</p>
@@ -3808,14 +3807,18 @@ the column to accommodate the length of the whole sentence.
 <p>And to finish it off, let’s use some
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference">HTML</a>
 magic to center, enlarge, and change the colour of some text:</p>
-<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
+<div class="fig-border">
+
+</div>
 <div class="sourceCode" id="cb31"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p</span> <span class="er">style</span><span class="ot">=</span><span class="st">&quot;text-align:center; font-size:160%; color:darkblue;&quot;</span><span class="kw">&gt;</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    This is a big, blue, <span class="kw">&lt;b&gt;</span>bold<span class="kw">&lt;/b&gt;</span> sentence.</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/p&gt;</span></span></code></pre></div>
 <p style="text-align:center; font-size:160%; color:darkblue;">
     This is a big, blue, <b>bold</b> sentence.
 </p>
-<span style="display: block; width: 100%; margin: 0 auto; border-bottom: 1px solid lightgray;"></span><p>
+<div class="fig-border">
+
+</div>
 <h1 class="unnumbered" id="conclusion">Conclusion</h1>
 <p>And that’s it! As we’ve seen, R Markdown is a powerful integrated tool
 for text editing, coding, and mathematical typesetting. Combined with

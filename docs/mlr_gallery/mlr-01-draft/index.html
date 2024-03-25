@@ -2191,10 +2191,11 @@ d-appendix {
 <style type="text/css">/* -------------------------------------------------------------------------- */
 /* 
 STILL TODO:
-- h2 ~85% size of h1
-- overflow scroll for whole page (kable, math blocks) ignoring TOC/aside width
-- auto-enclose proofs, images inside special gray text-width <hr>
+- figure caption label bold
 - favicons in pages
+
+- WRITING: replace 'tag' with 'label'; tab math block lines & xtra for comments
+
 - ?<br> less space below description; <br> less space above footline
 */
 /* -------------------------------------------------------------------------- */
@@ -2265,6 +2266,21 @@ Page properties:
 
 /* -------------------------------------------------------------------------- */
 
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+/* @import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP:300,300i&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap'); */
+
 /* ---------------------------------- */
 /* --- DEFAULT RMD CUSTOMIZATIONS --- */
 /* ---------------------------------- */
@@ -2274,17 +2290,19 @@ body {
     /* font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
     /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
     /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unixcode', Geneva, Verdana, sans-serif; */
-    /* font-size: 12pt; */  
-    /* font-weight: 100; */
-}
-
-/* --- [MB] CUSTOMIZATIONS -- */
-/* --- Fix space above headers -- */
-h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
-    margin-top: 40px;
 }
 
 /* --- [MB] CUSTOM DIVS -- */
+/* Figure/image/proof hr container
+/*  Use: Wrap in <div class="fig-border"> * 2 */
+.fig-border {
+  margin-top: -15px;
+  padding-top: 0px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray; /* or #eee */
+}
+
 /* Apply horizontal scroll to a specific container */
 /*  by wrapping large kable tables/math blocks in <div class="scroll-container"> ... </div>*/
 .scroll-container {
@@ -2292,57 +2310,73 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   overflow-x: auto;
 }
 
-/* Apply horizontal scrolling to the entire page */
-body {
+/* --- [MB] GENERAL CUSTOMIZATIONS -- */
+/* [TODO] Enable horizontal scroll for entire page to prevent clipping */
+d-article {
   overflow-x: auto;
+  scrollbar-width: none;
 }
 
-/*
-.math {
-  
+/* --- [MB] [TODO] HEADER CUSTOMIZATIONS -- */
+/* --- Letter spacing + line heights --- */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 2px;                            /* default: 2px */
+  line-height: normal;
+  font-weight: 300;                               /* default: 300 */
 }
-*/
 
-/* --- HEADERS --- */
-h1, h2, h3, h4 {
-  /*
-  margin-top: 1em; 
-  padding-top: 3em;
-  border-top: 10px; 
-  */
-  
-  /* add horizontal rule under each header */
-  /* 
-  padding-bottom: .3em;
+/* --- Fixed padding -- */
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  margin-top: 40px;
+}
+
+/* --- Further Distill specifications --- */
+d-title h1 {
+  font-weight: 500;
+}
+
+.posts-list .posts-list-caption {
+  font-weight: 500;
+  line-height: normal;
   margin-bottom: .75em;
-  border-bottom: 1px solid #eee;
-  */
-  
-  /*
-  font-size: 14pt, 13pt, 12pt, 11pt; 
-  font-weight: 320; 
-  */
+  padding-bottom: .3em;
+  border-bottom: 1px solid lightgray; /* or #eee */
 }
 
-/* alt: 19pt, 16pt, 13pt */
-/*
-h1 {
-  font-size: 19pt;                                    
+.posts-list
+.description h2 {
+  font-weight: 500;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-h2 {
-  font-size: 16pt;                                    
+/* --- Header 1 horizontal rule and weight --- */
+d-article h1 {
+  margin-bottom: .75em;
+  padding-bottom: .3em;
+  border-bottom: 1px solid lightgray;
+  font-weight: 500;
 }
 
-h3 {
-  font-size: 13pt;                                    
+/* --- Header 2 size and weight --- */
+d-article h2 {
+  font-size: 26px; 
+  font-weight: 500;
 }
-*/
 
-/* --- CODE --- */
-code {
-  /* font-size: 12px; */
-  /* font-weight: 550; */
+/* --- OTHER --- */
+/* --- Nav bar padding */
+.distill-site-header {
+  padding-top: 1rem;                              /* default: 1rem */
+}
+
+/* Dropdown menu text spacing */
+.nav-dropdown .nav-dropbtn {
+  letter-spacing: 2px;
+}
+
+.distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+  letter-spacing: 2px;
 }
 
 /* --- ORDERED LISTS --- */
@@ -2363,24 +2397,24 @@ ol {
 }
 
 ol > li {
-  margin-bottom: 2px; /* Adjust the spacing between list items as needed */
+  margin-bottom: 2px; /* Adjust the spacing between list items */
 }
 
 /* --- FLOATING TOC --- */
 /* Change background colour */
 .tocify-item {
-    /* background-color: rgb(251, 250, 247); */
-    font-size: 10pt;
+  /* background-color: rgb(251, 250, 247); */
+  font-size: 10pt;
 }
 
 .tocify-subheader {
-    font-size: 9.75pt;
+  font-size: 9.75pt;
 }
 
 /* Ensure floating TOC idents successive lines */
 .tocify-subheader > .tocify-item {
-    text-indent: initial;
-    padding-left: 2em;
+  text-indent: initial;
+  padding-left: 2em;
 }
 
 /* --- OTHER --- */
@@ -2389,53 +2423,29 @@ ol > li {
   display: none;
 }
 
-/*
-scope {
-  --a-property:       50px;
-  --another-property: #fff;
-}
-*/
-
 /* -------------------------------------- */
 /* --- FURTHER DISTILL CUSTOMIZATIONS --- */
 /* -------------------------------------- */
-
-/* base variables */
-
-/* Edit the CSS properties in this file to create a custom
-   Distill theme. Only edit values in the right column
-   for each row; values shown are the CSS defaults.
-   To return any property to the default,
-   you may set its value to: unset
-   All rows must end with a semi-colon.                      */
-
-/* Optional: embed custom fonts here with `@import`          */
-/* This must remain at the top of this file.                 */
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP:300,300i&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
-
 html {
-  /*-- Main font sizes --*/
+  /* --- Main font sizes --- */
   --title-size:      35px;                        /* default: 50px */
-  --body-size:       1.06rem;                     /* default: 1.06rem */                  
+  --body-size:       1.06rem;                     /* default: 1.06rem; alt: 15px */             
   --code-size:       13.25px;                     /* default: 14px */                  
   --aside-size:      12px;                        /* default: 12px */                  
   --fig-cap-size:    13.5px;                      /* default: 13px */
-  
-  /* [MB] Left justify figure captions */
 
 
   /* [MB] Bold the "Figure" or "Table" tag */
   
   
-  /*-- Main font colors --*/
+  /* --- Main font colors --- */
   /*--title-color:     #ca225e;*/                     /* default: #ca225e */
   /*--header-color:    #ca225e;*/                     /* theme: #ca225e */
   --body-color:      #404040;                     /* theme: #404040 */
   --aside-color:     rgba(0, 0, 0, 0.6);
   --fig-cap-color:   rgba(0, 0, 0, 0.6);
-  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  
+  /* --- Specify custom fonts ~~~ must be imported above --- */
   --heading-font:    "Noto Serif JP", sans-serif; /* theme */
   --mono-font:       "IBM Plex Mono", monospace;  /* theme */
   --body-font:       "Lato", sans-serif;          /* theme */
@@ -2449,7 +2459,7 @@ html {
   */
 }
 
-/*-- ARTICLE METADATA --*/
+/* --- ARTICLE METADATA --- */
 d-byline {
   --heading-size:    0.9rem;                      /* theme: 0.9rem */
   --heading-color:   rgba(0, 0, 0, 0.5);          /* default: rgba(0, 0, 0, 0.5) */
@@ -2460,16 +2470,15 @@ d-byline {
   {
     display: none;                              
   }
-  
 }
 
-/*-- ARTICLE TABLE OF CONTENTS --*/
+/* --- ARTICLE TABLE OF CONTENTS --- */
 .d-contents {
   --heading-size:    18px;                        /* default: 18px */
   --contents-size:   13px;                        /* default: 13px */
 }
 
-/*-- ARTICLE APPENDIX --*/
+/* --- ARTICLE APPENDIX --- */
 d-appendix {
   --heading-size:    15px;                        /* default: 15px */
   --heading-color:   rgba(0, 0, 0, 0.65);         /* default: rgba(0, 0, 0, 0.65) */
@@ -2477,7 +2486,7 @@ d-appendix {
   --text-color:      #1a162d;                     /* theme: 0.9rem */
 }
 
-/*-- WEBSITE HEADER + FOOTER --*/
+/* --- WEBSITE HEADER + FOOTER --- */
 /* These properties only apply to Distill sites and blogs  */
 .distill-site-header {
   --title-size:       18px;                       /* default: 18px */
@@ -2485,14 +2494,6 @@ d-appendix {
   --text-size:        15px;                       /* default: 15px */
   --hover-color:      #787878;                    /* default: #787878 */
   --bkgd-color:       #fff;                       /* theme: #fff */
-  
-  /*
-  --title-size:       18px;    
-  --text-color:       #ff414b;
-  --text-size:        15px;
-  --hover-color:      #dd424c;
-  --bkgd-color:       #ffd8db;
-  */
 }
 
 .distill-site-footer {
@@ -2502,27 +2503,11 @@ d-appendix {
   /*--bkgd-color:       #ca225e3d;*/                  /* theme: #ca225e3d */
 }
 
-/*-- ADDITIONAL CUSTOM STYLES --*/
-/* Ordered list index colour */
-ul > li::marker {                 
-  /*color: #ca225e;*/                                 /* default: #ca225e */
-}
-
-ol > li::marker {                 
-  /*color: #ca225e;*/                                 /* default: #ca225e */
-}
-
+/* --- OTHER --- */
 /* Navigation bar letter case */
 .distill-site-header { 
   letter-spacing: 2px;                            /* default: 2px */
   /*text-transform: uppercase;*/                      /* default: uppercase */
-}
-
-/* Font weights and letter spacing */
-h1, h2, h3, h4, h5, h6 {
-  letter-spacing: 2px;                            /* default: 2px */
-  font-weight: 300;                               /* default: 300 */
-}
 
 /* Makes logo bigger */
 .distill-site-header .logo img{
@@ -2545,17 +2530,18 @@ d-appendix {
   /*border-top: none;*/                               /* default: none */
 }
 
-/* ----------------------------------------------- */
-/* --- MATCH CUSTOM DISTILL HEADER IN RMD POSTS--- */
-/* ----------------------------------------------- */
-/*
-.navbar {
-  font-family: 'Lato', sans-serif;
-  height: 90px;
-  display: flex;
-  align-items: center;
+/* -------------------------------- */
+/* --- ADDITIONAL CUSTOM STYLES --- */
+/* -------------------------------- */
+/* --- ORDERED LISTS --- */
+/* Ordered list index colour */
+ul > li::marker {                 
+  /*color: #ca225e;*/                                 /* default: #ca225e */
 }
-*/</style>
+
+ol > li::marker {                 
+  /*color: #ca225e;*/                                 /* default: #ca225e */
+}</style>
 <style type="text/css">
 /* base style */
 
