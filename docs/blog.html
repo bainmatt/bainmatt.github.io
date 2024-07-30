@@ -21,7 +21,7 @@
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -32,7 +32,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -3109,7 +3109,83 @@ Derived math (ML) API:
 Arguments to the class constructors:
 - Particular realized instances (hyperparameters) / data
 --------------------------------------------------------------------------------
-*Model implementation
+*OOP abstractions overview
+--------------------------------------------------------------------------------
+Machine learning
+- Models/Transformers: Methods (build, fit, transform/predict, inverse_transform), 
+  Attributes (n_features_in, get_features_{in/out})
+- Layers & Architecture (model extension): Methods (forward, backward)
+  (Example subclasses: Lin, Sig; Seq, RNN, LSTM, Attention; Embedding, Dropout)
+- Loss (fit abstraction): Methods (cost, gradient)
+  (Example subclasses: MSE, Softmax/CrossEntropy)
+- Optimizer (training routine (backprop) abstraction): Methods (step)
+  (Example subclasses: FullBatch, MiniBatch, SGD, Momentum, RMSProp)
+----------
+Mathematics
+- Probability & statistics: Distributions, Estimators/Intervals/Tests
+- Linear algebra: Matrices
+- Analysis: Sequences, Functions
+  (Methods/Attributes given by their operations/metrics, checks/techniques)
+  (Subclasses (given by special types)
+----------
+Data
+- Array: Methods (subset, update, concat, reshape, sort), Attributes (shape)
+- DataFrame: Methods ((Array) + DQL/DML/DDL), Attributes ((Array)):
+  SELECT FROM: Bin (window), Combine (join on), Filter (where), ...
+  ... Aggregate (group by), Refine (having), Rearrange (order by)
+  DML: INSERT/UPDATE/DELETE
+  DDL: CREATE/ALTER/DROP
+- Data model: Encapsulated set of types shared by particular class of obj
+- Visualization: Encapsulated set of methods shared by particular class of obj
+----------
+Logical/Algebraic/set theoretic fundamentals
+- Bool: Operations (Logical)
+- Integer/Float: Operations (Algebraic)
+- Set: Operations (Set theoretic)
+- List: Methods (get, update, append, delete, search, sort), Attributes (length)
+- Dict: Methods (insert, update, pop, search), Attributes (keys, values, length)
+- Tree: Methods ((List)), Attributes (shape)
+--------------------------------------------------------------------------------
+*Other OOP considerations
+--------------------------------------------------------------------------------
+Naming conventions in relation to object and type
+- Library: {topiclib}
+- Module: {subtopiclib}
+- Class: {ObjectClass}
+- ^Instance: {object}{_identifier}
+- Function: {do/run/{get/set/add/drop/find/sort/concat/reshape}/check}_{action}
+- Method: {action}
+- Attribute: {attribute}
+- Hyperparameter: self.{supplied_hyperparameter}
+- Trained/computed parameter: self_{trained_parameter}
+- Bool: is_{condition}
+- Integer: n_{items}
+- ^Float: {parentobject}_{quantity}{res/pred/metric/stat}
+- Set: {topic}_{collectiontype e.g., options/definitions}
+- List/Dict: {content/collection}
+- ^Array/DataFrame: {content}_{datatype e.g., data/split/train/test/perm}
+- Index: {item} in {set}
+- Constant: {CONSTANT}_{NAME}
+----------
+Testing
+- Assertions: Check assumptions on the fly
+- Exceptions: Catch & explain stereotyped errors for correctness/interpretability
+- Doctesting/In-text examples: 
+  [primary] Illustrate essential meaning/utility
+  [secondary] Illustrate meaning/importance of each assumption through neg examples 
+- Unittesting/Post-text problems: 
+  Verify implementation behaviour against all (un)foreseeable arg permutations
+----------
+Exceptions
+- Testing: AssertionError (assumptions violated)
+- Modeling: RuntimeError (NotImplementedError, NotFitError)
+- Matrices: ShapeError (incompatible dimensions)
+- Data structures: LookupError (Key/IndexError), ValueError
+- Objects: NameError, TypeError, AttributeError
+- Math: ComputationError (API not respected), ArithmeticError (e.g., /0)
+- Computers: SyntaxError
+--------------------------------------------------------------------------------
+*Model implementation discussion guidelines
 --------------------------------------------------------------------------------
 A model derivation/class implementation includes:
 - (Probabilistic) motivation for model, prediction function (/implementation)

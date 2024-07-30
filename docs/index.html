@@ -21,7 +21,7 @@
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -32,7 +32,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -58,7 +58,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -71,7 +71,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -2769,25 +2769,39 @@ Resources
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#resources"><span style="color: #999;">▼</span> Resources</a></li>
-<li><a href="#analysis"><span style="color: #999;">▼</span> <span>Analysis</span></a></li>
-<li><a href="#blog"><span style="color: #999;">▼</span> <span>Blog</span></a></li>
-<li><a href="#music"><span style="color: #999;">▼</span> <span>Music</span></a></li>
+<li><a href="#resources" id="toc-resources"><span style="color: #999;">▼</span> Resources</a></li>
+<li><a href="#analysis" id="toc-analysis"><span style="color: #999;">▼</span> Analysis</a></li>
+<li><a href="#blog" id="toc-blog"><span style="color: #999;">▼</span> Blog</a></li>
+<li><a href="#music" id="toc-music"><span style="color: #999;">▼</span> Music</a></li>
 </ul>
 </nav>
 </div>
-<p><img src="images/banner_fuji-01.jpg" title="fujinai" style="border: 0px solid black; box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4)" style="width:100.0%" /></p>
+<p><img src="images/banner_fuji-01.jpg" title="fujinai" style="border: 0px solid black; box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);width:100.0%" /></p>
 <div style="text-align: left; padding: 10px">
-<p><span style="font-size: 105%;">Hello there! I’m Matt. Above is a picture of the majestic Mount Fuji.
-I took this picture and am quite fond of it.
+<p><span style="font-size: 105%;">I’m Matt. Above is a picture of Mount Fuji, which I
+captured during my travels through Japan some years ago.
 Mount Fuji has been the subject of many great works of art
-(e.g., Hokusai’s <a href="https://en.wikipedia.org/wiki/Thirty-six_Views_of_Mount_Fuji"><em>Thirty-six Views of Mount Fuji</em></a>).
-I find myself thinking about these scenes and images often enough that it seemed
-fitting to associate this picture with my own creative work.
+(Hokusai’s <a href="https://en.wikipedia.org/wiki/Thirty-six_Views_of_Mount_Fuji"><em>Thirty-six Views of Mount Fuji</em></a>,
+for example).
+In many ways it is the ideal subject, infinitely patient, beautiful,
+static against a constantly fluctuating backdrop of weather and seasons.
 <br><br>
 When I’m not admiring nature and art, I am working with data.
-I have a deep fondness for math and machine learning,
-and find it thrilling to implement what I learn through code and neat analyses.
+In some ways analyzing data is like drawing Mount Fuji. A data analyst
+recognizes a subject (structured collection of data points)
+behind clouds of interference (noise)
+and approaches that subject with a new way of seeing (statistical tools)
+to extract meaning (insights).
+An insight is a nugget of a bigger idea, from which the artist
+delivers value in the form of a beautiful picture,
+and the analyst delivers value through
+visualizations, reports, recommendations, and statistical models.
+<br><br>
+If you can’t tell, I have a deep fondness for data,
+and in particular for statistics and machine learning, which are the tools that
+guide me through the mist toward structure and meaning.
+I find it especially thrilling to implement statistical ideas through
+code and neat data analyses.
 I like to write about my favourite projects and discoveries.
 I’m sharing some of that <a href="data_stories.html">here</a> and <a href="blog.html">here</a>.
 I also make music on the side – you can find that <a href="music_page.html">here</a>.</span></p>
@@ -2811,15 +2825,16 @@ It is a symbol of strength, beauty, and endurance recognized throughout the worl
 !-->
 <hr>
 <center>
-<p><span style="font-size: large;"><em>I am in the process of migrating my work to this site. More
-projects and reports will be here soon!</em></span></p>
+<p><span style="font-size: large;"><em>This site is under renovation.
+Many more articles and reports coming soon.<br>
+In the meantime, view a site overview below:</em></span></p>
 </center>
 <hr>
-<details >
-<summary>
-<i><span style="font-size: Large;">Expand site overview</span></i>
-</summary>
-<hr>
+<!-- <details > -->
+<!-- <summary> -->
+<!-- <i>[Expand site overview]{style="font-size: Large;"}</i> -->
+<!-- </summary> -->
+<!-- <hr> -->
 <h3 id="resources"><span style="color: #999;">▼</span> Resources</h3>
 <h4 id="machine-learning-tour"><span style="color: #999;">►</span> <a href="mlr_gallery.html">Machine learning tour</a></h4>
 <ul>
@@ -2830,14 +2845,13 @@ algorithms in Python.</em><br>
 <h4 id="references-docs"><span style="color: #999;">►</span> <a href="roadmap_gallery.html">References &amp; docs</a></h4>
 <ul>
 <li><span style="font-size: 95%; color: #666;"><em>An assortment of tools for working with data, including syntax
-reference sheets, high-level outlines, and
-checklists.</em><br>
+reference sheets, high-level outlines, and checklists.</em><br>
 <strong>Featured</strong>: <a href="roadmap_gallery/2024-03-15-writing-temp/index.html">Technical reports with R Markdown &amp; Bookdown</a> (<em>draft</em>)</span></li>
 </ul>
 <h4 id="demos"><span style="color: #999;">►</span> <a href="demo_gallery.html">Demos</a></h4>
 <ul>
-<li><span style="font-size: 95%; color: #666;"><em>A short series of demos using a single dataset to illustrate the versatility
-and practical application of a variety of machine learning
+<li><span style="font-size: 95%; color: #666;"><em>A short series of demos using a single dataset to illustrate the
+application, strengths, and weaknesses of a variety of machine learning
 algorithms.</em><br>
 <strong>Featured</strong>: <a href="demo_gallery/2024-03-16-my-first-demo-post/index.html">(<em>In development</em>)</a></span></li>
 </ul>
@@ -2853,10 +2867,9 @@ project](worked_gallery/2024-03-16-end-to-end-ml-project/index.html)
 <hr>
 <h3 id="analysis"><span style="color: #999;">▼</span> <a href="data_stories.html">Analysis</a></h3>
 <ul>
-<li><span style="font-size: 95%; color: #666;"><em>A place to share my process and findings for analyses and algorithms
+<li><span style="font-size: 95%; color: #666;"><em>A place to share my findings and process for analyses and models
 that have yielded interesting insights.</em><br>
-<strong>Featured</strong>: <a href="data_stories/2024-03-15-my-first-data-story/index.html">Do extinction rates reflect changing attitudes toward the
-environment?</a> (<em>In development</em>)</span></li>
+<strong>Featured</strong>: <a href="data_stories/2024-03-15-my-first-data-story/index.html">(<em>Do changing attitudes toward the environment reflect accelerating extinction rates?</em>)</a> (<em>In development</em>)</span></li>
 </ul>
 <hr>
 <h3 id="blog"><span style="color: #999;">▼</span> <a href="blog.html">Blog</a></h3>
@@ -2864,7 +2877,7 @@ environment?</a> (<em>In development</em>)</span></li>
 <li><span style="font-size: 95%; color: #666;"><em>A home for my musings on math
 (proofs and derivations of my favourite results and algorithms),
 machine learning (implementations and simulations), and
-everything else (thoughts and reflections on music, film, society, etc.).</em><br>
+everything else (reflections on music, film, society, etc.).</em><br>
 <strong>Featured</strong>: <a href="blog/2024-03-18-bias-variance-decomposition/index.html">Bias-variance decomposition</a> (<em>In development</em>)</span></li>
 </ul>
 <!--
@@ -2884,11 +2897,10 @@ that captures my interest. <br>
 <hr>
 <h3 id="music"><span style="color: #999;">▼</span> <a href="music_page.html">Music</a></h3>
 <ul>
-<li><span style="font-size: normal; color: #666;"><em>An ongoing catalogue of some music I’ve
-made.</em></span><br></li>
+<li><span style="font-size: normal; color: #666;"><em>An ongoing catalogue of some music I’ve made.</em></span><br></li>
 </ul>
 <hr>
-</details>
+<!-- </details> -->
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
