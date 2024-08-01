@@ -5,35 +5,35 @@
       "title": "Math and data-related musings\n",
       "author": [],
       "contents": "\n\n\n\n\n",
-      "last_modified": "2024-07-29T20:54:13-04:00"
+      "last_modified": "2024-07-31T20:27:03-04:00"
     },
     {
       "path": "data_stories.html",
       "title": "Neat data analyses\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2024-07-29T20:54:14-04:00"
+      "last_modified": "2024-07-31T20:27:03-04:00"
     },
     {
       "path": "demo_gallery.html",
       "title": "Python machine learning demos\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2024-07-29T20:54:14-04:00"
+      "last_modified": "2024-07-31T20:27:04-04:00"
     },
     {
       "path": "index.html",
       "title": "Matthew Bain",
       "author": [],
-      "contents": "\n\nContents\n▼ Resources\n▼ Analysis\n▼ Blog\n▼ Music\n\n\n\nI’m Matt. Above is a picture of Mount Fuji, which I\ncaptured during my travels through Japan some years ago.\nMount Fuji has been the subject of many great works of art\n(Hokusai’s Thirty-six Views of Mount Fuji,\nfor example).\nIn many ways it is the ideal subject, infinitely patient, beautiful,\nstatic against a constantly fluctuating backdrop of weather and seasons.\n\nWhen I’m not admiring nature and art, I am working with data.\nIn some ways analyzing data is like drawing Mount Fuji. A data analyst\nrecognizes a subject (structured collection of data points)\nbehind clouds of interference (noise)\nand approaches that subject with a new way of seeing (statistical tools)\nto extract meaning (insights).\nAn insight is a nugget of a bigger idea, from which the artist\ndelivers value in the form of a beautiful picture,\nand the analyst delivers value through\nvisualizations, reports, recommendations, and statistical models.\n\nIf you can’t tell, I have a deep fondness for data,\nand in particular for statistics and machine learning, which are the tools that\nguide me through the mist toward structure and meaning.\nI find it especially thrilling to implement statistical ideas through\ncode and neat data analyses.\nI like to write about my favourite projects and discoveries.\nI’m sharing some of that here and here.\nI also make music on the side – you can find that here.\n\n\n\nThis site is under renovation.\nMany more articles and reports coming soon.\nIn the meantime, view a site overview below:\n\n▼ Resources\n► Machine learning tour\nA high-level tour of the theory and implementation of machine learning\nalgorithms in Python.Featured: Supervised learning in Python (draft)\n► References & docs\nAn assortment of tools for working with data, including syntax\nreference sheets, high-level outlines, and checklists.Featured: Technical reports with R Markdown & Bookdown (draft)\n► Demos\nA short series of demos using a single dataset to illustrate the\napplication, strengths, and weaknesses of a variety of machine learning\nalgorithms.Featured: (In development)\n▼ Analysis\nA place to share my findings and process for analyses and models\nthat have yielded interesting insights.Featured: (Do changing attitudes toward the environment reflect accelerating extinction rates?) (In development)\n▼ Blog\nA home for my musings on math\n(proofs and derivations of my favourite results and algorithms),\nmachine learning (implementations and simulations), and\neverything else (reflections on music, film, society, etc.).Featured: Bias-variance decomposition (In development)\n▼ Music\nAn ongoing catalogue of some music I’ve made.\n\n\n\n",
-      "last_modified": "2024-07-29T20:54:15-04:00"
+      "contents": "\n\nContents\n▼ Software\n▼ Resources\n▼ Analysis\n▼ Blog\n▼ Music\n\n\n\nI’m Matt. Above is a picture of Mount Fuji, which I\ncaptured during my travels through Japan some years ago.\nMount Fuji has been the subject of many great works of art\n(Hokusai’s Thirty-six Views of Mount Fuji,\nfor example).\nIn many ways it is the ideal subject, infinitely patient, beautiful,\nstatic against a constantly fluctuating backdrop of weather and seasons.\n\nWhen I’m not admiring nature and art, I am working with data.\nIn some ways analyzing data is like drawing Mount Fuji. A data analyst\nrecognizes a subject (structured collection of data points)\nbehind clouds of interference (noise)\nand approaches that subject with a new way of seeing (statistical tools)\nto extract meaning (insights).\nAn insight is a nugget of a bigger idea, from which the artist\ndelivers value in the form of a beautiful picture,\nand the analyst delivers value through\nvisualizations, reports, recommendations, and statistical models.\n\nIf you can’t tell, I have a deep fondness for data,\nand in particular for statistics and machine learning, which are the tools that\nguide me through the mist toward structure and meaning.\nI find it especially thrilling to implement statistical ideas through\ncode and neat data analyses.\nI like to write about my favourite projects and discoveries.\nI’m sharing some of that here and here.\nI also make music on the side – you can find that here.\n\n\n\nThis site is under renovation.\nMany more articles and reports coming soon.\nIn the meantime, view a site overview below.\n\n▼ Software\n► datopy [docs]\nA Python package for working with unstructured data, providing a simple interface\nfor web scraping, data modeling, and building ETL pipelines.Tools used:\nPandas, Pydantic, PyTest, MyPy, Sphinx, GitHub Actions, Seaborn, Beautiful Soup\n► autocv [docs]\nAn R package automating repetitive elements of the job application process,\nincluding managing work history data, building and rendering documents, and\nperforming text analysis to extract and evaluate keywords.Tools used:\ndplyr, stringr, purrr, pkgdown, Excel, LaTeX, CSS\n▼ Resources\n► Machine learning tour\nA high-level tour of the theory and implementation of machine learning\nalgorithms in Python.Featured:\nSupervised learning in Python\n(draft)\n► References & docs\nAn assortment of tools for working with data, including syntax\nreference sheets, high-level outlines, and checklists.Featured:\nTechnical reports with R Markdown & Bookdown\n(draft)\n► Demos\nA short series of demos using a single dataset to illustrate the\napplication, strengths, and weaknesses of a variety of machine learning\nalgorithms.Featured:\n(In development)\n▼ Analysis\nA place to share my findings and process for analyses and models\nthat have yielded interesting insights.Featured:\n(Do changing attitudes toward the environment reflect accelerating extinction rates?)\n(In development)\n▼ Blog\nA home for my musings on math\n(proofs and derivations of my favourite results and algorithms),\nmachine learning (implementations and simulations), and\neverything else (reflections on music, film, society, etc.).Featured:\nBias-variance decomposition\n(In development)\n▼ Music\nAn ongoing catalogue of some music I’ve made.\n\n\n\n",
+      "last_modified": "2024-07-31T20:27:05-04:00"
     },
     {
       "path": "mlr_gallery.html",
       "title": "A brief tour of ML in Python (sans sklearn)\n",
       "author": [],
       "contents": "\n\n\n\n\n",
-      "last_modified": "2024-07-29T20:54:16-04:00"
+      "last_modified": "2024-07-31T20:27:05-04:00"
     },
     {
       "path": "music_page.html",
@@ -41,14 +41,14 @@
       "description": "An ongoing catalogue of some music I've made.",
       "author": [],
       "contents": "\n\nContents\nOriginal music\nUnder Moonlight\n\nJust the music\n\n\nOriginal music\n\nUnder Moonlight\n\n\n\n\nJust the music\n\n\n\n\nfujinai\n·\nDaydreams\n\n\nFujinai\n·\nCorridors\n\n\n\n\n\n",
-      "last_modified": "2024-07-29T20:54:17-04:00"
+      "last_modified": "2024-07-31T20:27:06-04:00"
     },
     {
       "path": "roadmap_gallery.html",
       "title": "Assorted references for working with data\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2024-07-29T20:54:17-04:00"
+      "last_modified": "2024-07-31T20:27:06-04:00"
     }
   ],
   "collections": ["posts/posts.json", "data_stories/data_stories.json", "blog/blog.json", "mlr_gallery/mlr_gallery.json", "roadmap_gallery/roadmap_gallery.json", "demo_gallery/demo_gallery.json"]
