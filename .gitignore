@@ -1,45 +1,51 @@
-### Only track specified contents of website build ###
-# ignore everything by default
+# Ignore everything by default
 *
 
-# allow the build directory (and its contents, subdirectories, their contents & subdirectories)
+
+# -- Allow key project files and build ---------------------------------------
+
+# Key project files
 !.gitignore
-!.nojekyllg
+!.Rbuildignore
+!.nojekyll
+!_site.yml
+!website.Rproj
 !README.md
+
+# Locally build directory/subdirectories
 !docs/
 !docs/**
 
-### Exclude specific contents within the build directory ###
-## Generic user-specific
-# archived (irrespective of subdirectory/basename)
+
+# -- Exclusions within build directory ---------------------------------------
+
+# Archives (irrespective of subdirectory/basename)
 **/archive/
 *_archive
 
-## Particular user-specific
-
-## System-generated
-# settings
+# System cache
 *.DS_Store
 
-## R-generated
-# session data files
+
+# -- R-generated exclusions --------------------------------------------------
+
+# Session data files
 .RData
 .RDataTmp
 
-# history files
+# History files
 .Rhistory
 .Rapp.history
 
-# logs & other files
+# Logs & other files
 *.log
 *.aux
 *.out
 
-# user files
+# User files
 .Ruserdata
 .Rproj.user/
 
-# knitr and R Markdown temporary files 
+# Knitr and R Markdown temporary files 
 /cache/
 *_cache/
-#*_files/
