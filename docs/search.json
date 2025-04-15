@@ -5,22 +5,22 @@
       "title": "Math and data-related musings\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2025-04-14T19:50:37-04:00"
+      "last_modified": "2025-04-14T20:05:26-04:00"
     },
     {
       "path": "index.html",
       "title": "Matthew Bain",
       "author": [],
       "contents": "\n\nContents\n▼ Software\n▼ Resources\n▼ Music\n\n\n\nI’m Matt. Above is a picture of Mount Fuji that I\ncaptured during my travels through Japan years ago.\nMount Fuji has been the subject of many great works of art\n(Hokusai’s Thirty-six Views of Mount Fuji,\nfor example).\nIn many ways it is the ideal subject, infinitely patient, beautiful,\nstatic against a constantly fluctuating backdrop of weather and seasons.\n\nWhen I’m not admiring nature and art, I am working with data.\nIn some ways analyzing data is like drawing Mount Fuji. A data analyst\nrecognizes a subject (structured collection of data points)\nbehind clouds of interference (noise)\nand approaches that subject with a new way of seeing (statistical tools)\nto extract meaning (insights).\nAn insight is a nugget of a bigger idea, from which the artist\ndelivers value in the form of an evocative picture,\nand the analyst delivers value through\nvisualizations, reports, recommendations, and statistical models.\n\nIf you can’t tell, I have a deep fondness for data,\nand in particular for statistics and machine learning, which are the tools that\nguide me through the mist toward structure and meaning.\nI find it especially thrilling to implement statistical ideas through\ncode and neat data analyses.\nI like to write about my favourite projects and discoveries.\nI’m sharing some of that here and here.\nI also make music on the side – you can find that here.\n\n\n\n\n\n\n\n▼ Software\n► datopy [docs]\nA Python package for working with unstructured data, providing a simple interface\nfor web scraping, data modeling, and building ETL pipelines.Tools used:\nPandas, Pydantic, PyTest, MyPy, Sphinx, GitHub Actions, Seaborn, Beautiful Soup\n► autocv [docs]\nAn R package automating repetitive elements of the job application process,\nincluding managing work history data, building and rendering documents, and\nperforming text analysis to extract and evaluate keywords.Tools used:\ndplyr, stringr, purrr, pkgdown, Excel, LaTeX, CSS\n▼ Resources\n► References & docs\nAn assortment of tools for working with data, including syntax\nreference sheets, high-level outlines, and checklists.Featured:\nTechnical reports with R Markdown & Bookdown\n▼ Music\nAn ongoing catalogue of some music I’ve made.\n\n\n\n",
-      "last_modified": "2025-04-14T19:50:37-04:00"
+      "last_modified": "2025-04-14T20:05:27-04:00"
     },
     {
       "path": "music_page.html",
       "title": "Music",
       "description": "An ongoing catalogue of some music I've made.",
       "author": [],
-      "contents": "\n\nContents\nOriginal music\nUnder Moonlight\n\nJust the music\n\nOriginal music\nUnder Moonlight\n\n\n\n\nJust the music\n\n\n\nfujinai\n·\nDaydreams\n\n\nFujinai\n·\nCorridors\n\n\n\n\n\n",
-      "last_modified": "2025-04-14T19:50:38-04:00"
+      "contents": "\n\nContents\nOriginal music\nUnder Moonlight\n\nJust the music\n\nOriginal music\nUnder Moonlight\n\n\n\n\nJust the music\n\n\n\nfujinai\n·\nDaydreams\n\n\nFujinai\n·\nCorridors\n\n\n\n\n",
+      "last_modified": "2025-04-14T20:05:27-04:00"
     }
   ],
   "collections": ["gallery/gallery.json"]

@@ -47,6 +47,8 @@ navbar:
     #   href: blog.html
     - text: "Music"
       href: music_page.html
+    - text: "Résumé"
+      href: https://bainmatt.github.io/cv/cv_matthewbain.html
   right:
       - icon: fab fa-github fa-lg
         href: https://github.com/bainmatt
