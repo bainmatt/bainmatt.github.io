@@ -1,0 +1,51 @@
+---
+title: "About me"
+image: images/icon-comp.jpg
+about:
+  template: trestles
+  links:
+    - icon: code
+      text: LeetCode
+      href: https://leetcode.com/u/mattbain/
+    - icon: trophy
+      text: Kaggle
+      href: https://www.kaggle.com/mattbain
+    - icon: bar-chart
+      text: Tableau
+      href: https://public.tableau.com/app/profile/mattbain/vizzes
+    - icon: play-circle
+      text: Streamlit
+      href: https://share.streamlit.io/user/bainmatt
+    # - icon: robot
+    #   text: Hugging Face
+    #   href: https://huggingface.co/mattbain
+page-layout: full
+---
+
+Hi there! I'm Matt. To the left is a picture of Mount Fuji,
+captured during my travels through Japan.
+Mount Fuji has been the subject of many significant works of art
+(Hokusai's [*Thirty-six Views of Mount Fuji*](https://en.wikipedia.org/wiki/Thirty-six_Views_of_Mount_Fuji), 
+for instance).
+In many ways it is the ideal subject, infinitely patient, beautiful,
+static against a constantly fluctuating backdrop of weather and seasons.
+<br><br>
+When I'm not admiring nature and art, I am working with data. 
+In some ways analyzing data is like drawing Mount Fuji. A data analyst
+recognizes a subject (structured collection of data points)
+behind clouds of interference (noise)
+and approaches that subject with a new way of seeing (statistical tools)
+to extract meaning (insights).
+An insight is a nugget of a bigger idea, from which the artist
+delivers value in the form of an evocative picture,
+and the analyst delivers value through
+visualizations, reports, recommendations, and statistical models.
+<br><br>
+If you can't tell, I have a deep fondness for data,
+and in particular for statistics and machine learning, which are the tools that
+guide me through the mist toward structure and meaning.
+I find it especially thrilling to implement statistical ideas through
+code and neat data analyses.
+I like to write about my favourite projects and discoveries. 
+You can find some of that [here](gallery.html). 
+I also make music on the side -- you can find that [here](music-page.html).
