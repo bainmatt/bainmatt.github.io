@@ -1,0 +1,1070 @@
+---
+title: "Technical reports with R Markdown & Bookdown"
+subtitle: |
+  I provide code snippets for a variety of text environments and formats
+  that can be created with R Markdown and the Bookdown package. I focus on
+  the elements most useful for writing math.
+author: "Matthew Bain"
+date: "March 22, 2024"
+categories: [Reference]
+image: ../../images/childe-hassam-the-concord-meadow.jpg
+bibliography: ../../generic-bib.bib
+title-block-banner: true
+
+citation: true
+execute:
+  echo: true
+  eval: true
+  python: true
+  freeze: auto
+format:
+  html:
+    code-line-numbers: false
+    code-block-border-left: false
+    # highlight-style: tango
+    toc: true
+    toc-depth: 2
+    toc-location: left
+    number-sections: true
+    include-in-header: ../../favicon.html
+
+draft: false
+---
+
+Combining R Markdown with typesetting functionality from the
+[Bookdown](https://bookdown.org/) package and
+[Distill](https://rstudio.github.io/distill/) web publishing format
+provides a comprehensive set of tools for composing web documents. In
+this high-level reference I cover the tools that I find most
+useful for writing organized, easily referenced, math-heavy documents.
+The examples are arbitrary, only meant to illustrate the syntax. The
+[LaTeX](https://en.wikibooks.org/wiki/LaTeX/Mathematics) and
+[markdown](https://www.markdownguide.org/) syntax are not explained. For
+each example I provide the raw text followed by the rendered output.
+
+# Definition, theorem, proof
+
+The familiar math textbook refrain. Here's the Bookdown syntax for
+definition, theorem, and proof environments, respectively.
+
+#### Definition {.unnumbered}
+
+``` {.latex}
+::: {#def-disjoint-sets}
+
+## Disjoint sets
+
+Two sets $A_1$ and $A_2$ are *disjoint* if their intersection
+$A_1 \cap A_2 = \emptyset$, where $\emptyset$ is the empty set. We say
+that $n$ sets $A_1, A_2, ..., A_n$ are disjoint if
+$A_i \cap A_j = \emptyset$ for $i! = j$.
+:::
+```
+
+::: {#def-disjoint-sets}
+
+## Disjoint sets
+
+Two sets $A_1$ and $A_2$ are *disjoint* if their intersection
+$A_1 \cap A_2 = \emptyset$, where $\emptyset$ is the empty set. We say
+that $n$ sets $A_1, A_2, ..., A_n$ are disjoint if
+$A_i \cap A_j = \emptyset$ for $i! = j$.
+:::
+
+#### Theorem {.unnumbered}
+
+``` {.latex}
+::: {#thm-pyth}
+
+## Pythagorean theorem
+
+Given a right triangle, if $c$ denotes the length of the hypotenuse and
+$a$ and $b$ the lengths of the other two sides, then
+$$a^2 + b^2 = c^2.$$
+:::
+```
+
+::: {#thm-pyth}
+
+## Pythagorean theorem
+
+Given a right triangle, if $c$ denotes the length of the hypotenuse and
+$a$ and $b$ the lengths of the other two sides, then
+$$a^2 + b^2 = c^2.$$
+:::
+
+<aside>
+
+Table 2.1 on
+[this](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html)
+page from *Authoring Books with R Markdown* lists all the other
+available theorem environments and their respective keywords.
+
+</aside>
+
+#### Proof {.unnumbered}
+
+``` {.latex}
+::: {.proof}
+
+## Pythagorean theorem
+
+Let $x, y$ be ...
+
+... Thus, $$a^2 + b^2 = c^2,$$
+
+as desired.
+
+$$
+\tag*{$\square$}
+$$
+:::
+```
+
+::: {.fig-border}
+:::
+
+::: {.proof}
+
+## Pythagorean theorem
+
+Let $x, y$ be ...
+
+... Thus, $$a^2 + b^2 = c^2,$$
+
+as desired.
+
+$$
+\tag*{$\square$}
+$$
+:::
+
+::: {.fig-border}
+:::
+
+#### Automatic numbering {.unnumbered}
+
+The nice thing about Bookdown is that it will automatically number
+definitions and theorems so that you can easily cross-reference them
+later on (see the [Cross-references](#cross-references) section below).
+Just replace the name following the `#` (`pyth-thm` in the example
+below) with a unique label (containing no spaces) that will be convenient
+to reference.
+
+``` {.latex}
+::: {#def-cont-map}
+
+## Continuous map
+
+A continuous map is a continuous function between two topological
+spaces.
+:::
+```
+
+::: {#def-cont-map}
+
+## Continuous map
+
+A continuous map is a continuous function between two topological
+spaces.
+:::
+
+<aside>
+
+Notice that definition's number was automatically incremented from the
+previous definition.
+
+</aside>
+
+# Assorted math examples {#sec-math-elements}
+
+Here is an assortment of LaTeX examples along with their output.
+
+#### Brace annotation {.unnumbered}
+
+``` {.latex}
+$$
+\underbrace{\ln \left( \frac{5}{6} \right)}_{\simeq -0.1823} <
+\overbrace{\exp \left(\frac{1}{2} \right)}^{\simeq 1.6487}
+$$
+```
+
+$$
+\underbrace{\ln \left( \frac{5}{6} \right)}_{\simeq -0.1823} <
+\overbrace{\exp \left(\frac{1}{2} \right)}^{\simeq 1.6487}
+$$
+
+#### Brackets and braces {.unnumbered}
+
+``` {.latex}
+$$
+( a ), [ b ], \{ c \}, | d |, \| e \|,
+\langle f \rangle, \lfloor g \rfloor,
+\lceil h \rceil, \ulcorner i \urcorner,
+/ j \backslash
+$$
+```
+
+$$
+( a ), [ b ], \{ c \}, | d |, \| e \|,
+\langle f \rangle, \lfloor g \rfloor,
+\lceil h \rceil, \ulcorner i \urcorner,
+/ j \backslash
+$$
+
+``` {.latex}
+$$
+( \big( \Big( \bigg( \Bigg(
+$$
+```
+
+$$
+( \big( \Big( \bigg( \Bigg(
+$$
+
+#### Fractions {.unnumbered}
+
+``` {.latex}
+$$
+\begin{equation}
+    x = a_0 + \cfrac{1}{a_1 
+            + \cfrac{1}{a_2 
+            + \cfrac{1}{a_3 + \cfrac{1}{a_4} } } }
+\end{equation}
+$$
+```
+
+$$
+\begin{equation}
+    x = a_0 + \cfrac{1}{a_1 
+            + \cfrac{1}{a_2 
+            + \cfrac{1}{a_3 + \cfrac{1}{a_4} } } }
+\end{equation}
+$$
+
+``` {.latex}
+$$
+\frac{
+\begin{array}[b]{r}
+    \left( x_1 x_2 \right) \\
+    \times 
+    \left( x'_1 x'_2 \right)
+\end{array}} {
+\left( y_1y_2y_3y_4 \right) 
+}
+$$
+```
+
+<aside>
+
+The `\left(` / `\right)` command encloses its contents in big brackets.
+
+</aside>
+
+$$
+\frac{
+\begin{array}[b]{r}
+    \left( x_1 x_2 \right) \\
+    \times 
+    \left( x'_1 x'_2 \right)
+\end{array}} {
+\left( y_1y_2y_3y_4 \right) 
+}
+$$
+
+#### Calculus expressions {.unnumbered}
+
+``` {.latex}
+$$
+\int_0^\infty \mathrm{e}^{-x} ~ \mathrm{d}x
+$$
+```
+
+$$
+\int_0^\infty \mathrm{e}^{-x} ~ \mathrm{d}x
+$$
+
+``` {.latex}
+$$
+\int\limits_a^b \sin(x) ~ \mathrm{d}x
+$$
+```
+
+$$
+\int\limits_a^b \sin(x) ~ \mathrm{d}x
+$$
+
+``` {.latex}
+$$
+\sum_{
+\substack{
+    0<i<m \\
+    0<j<n 
+}} 
+P(i,j)
+$$
+```
+
+$$
+\sum_{
+\substack{
+    0<i<m \\
+    0<j<n 
+}} 
+P(i,j)
+$$
+
+#### Linear algebra expressions {.unnumbered}
+
+``` {.latex}
+$$
+\begin{matrix}
+    a & b & c \\
+    d & e & f \\
+    g & h & i
+\end{matrix}
+$$
+```
+
+$$
+\begin{matrix}
+    a & b & c \\
+    d & e & f \\
+    g & h & i
+\end{matrix}
+$$
+
+``` {.latex}
+$$
+A_{m,n} = 
+\begin{pmatrix}
+    a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+    a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+    \vdots  & \vdots  & \ddots & \vdots  \\
+    a_{m,1} & a_{m,2} & \cdots & a_{m,n} 
+\end{pmatrix}
+$$
+```
+
+$$
+A_{m,n} = 
+\begin{pmatrix}
+    a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+    a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+    \vdots  & \vdots  & \ddots & \vdots  \\
+    a_{m,1} & a_{m,2} & \cdots & a_{m,n} 
+\end{pmatrix}
+$$
+
+``` {.latex}
+$$
+X = 
+\begin{bmatrix}
+    x_1 & y_1 \\
+    x_2 & y_2 \\
+    x_3 & y_3
+\end{bmatrix}
+$$
+```
+
+$$
+X = 
+\begin{bmatrix}
+    x_1 & y_1 \\
+    x_2 & y_2 \\
+    x_3 & y_3
+\end{bmatrix}
+$$
+
+``` {.latex}
+$$
+X 
+= 
+\left[\begin{matrix}
+    a & b & c \\
+    d & e & f \\
+    g & h & i
+\end{matrix}\right]
+\left[\begin{matrix}
+    y^{(1)} \\ 
+    y^{(2)} \\
+    y^{(3)}
+\end{matrix}\right]
+= 
+\left[\begin{matrix}
+    |                     & |                     & | \\
+    y^{(1)} ~ \vec{x}_1   & y^{(2)} ~ \vec{x}_2   & y^{(3)} ~ \vec{x}_3 \\
+    |                     & |                     & |
+\end{matrix}\right]
+\in \mathbb{R^3}
+$$
+```
+
+<aside>
+
+The `~` symbol represents a whitespace character.
+
+</aside>
+
+$$
+\begin{align}
+X 
+& = 
+\left[\begin{matrix}
+    a & b & c \\
+    d & e & f \\
+    g & h & i
+\end{matrix}\right]
+\left[\begin{matrix}
+    y^{(1)} \\ 
+    y^{(2)} \\
+    y^{(3)}
+\end{matrix}\right] \\
+& = 
+\left[\begin{matrix}
+    |                     & |                     & | \\
+    y^{(1)} ~ \vec{x}_1   & y^{(2)} ~ \vec{x}_2   & y^{(3)} ~ \vec{x}_3 \\
+    |                     & |                     & |
+\end{matrix}\right]
+\in \mathbb{R^3}
+\end{align}
+$$
+
+#### Probability expressions {.unnumbered}
+
+``` {.latex}
+$$
+\left(\!
+\begin{array}{c}
+    n \\
+    r
+\end{array}
+\!\right) 
+= \frac{n!}{r!(n-r)!}
+$$
+```
+
+$$
+\left(\!
+\begin{array}{c}
+    n \\
+    r
+\end{array}
+\!\right) 
+= \frac{n!}{r!(n-c)!}
+$$
+
+``` {.latex}
+$$
+\begin{equation} 
+    \phi \left(x; \mu, \sigma \right) 
+    = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp 
+    \left( - 
+    \frac{\left(x - \mu\right)^2}{2 \sigma^2} 
+    \right)
+\end{equation}
+$$
+```
+
+$$
+\begin{equation} 
+    \phi \left(x; \mu, \sigma \right) 
+    = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp 
+    \left( - 
+    \frac{\left(x - \mu\right)^2}{2 \sigma^2} 
+    \right)
+\end{equation}
+$$
+
+# Numbered equations
+
+Unlike in pure LaTeX, in `bookdown` we must manually assign labels to
+every line that should have a number. I do so for significant passages,
+steps, and equations. Here is an example of a numbered equation:
+
+``` {.latex}
+$$
+\begin{equation} 
+    \mathbb{P} \left(k\right) 
+    = \binom{n}{k}
+    p^k\left(1-p\right)^{n-k}
+\end{equation}
+$$ {#eq-binom-eq}
+```
+
+$$
+\begin{equation} 
+    \mathbb{P} \left(k\right) 
+    = \binom{n}{k}
+    p^k\left(1-p\right)^{n-k}
+\end{equation}
+$$ {#eq-binom-eq}
+
+# Math blocks
+
+#### Numbered blocks {.unnumbered}
+
+Here is an example from the [Bookdown
+documentation](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html).
+It illustrates how to display a block of math with multiple lines that
+share a single number and label. We use the LaTeX `split` environment to
+split the number across lines and wrap it all in double dollar signs to
+tell R to treat it as math rather than raw text. To give the block a
+number we add an `(\#eq:<equation-label>)` after closing the split
+environment with `\end{split}`. Just replace the text after the `\#eq:`
+prefix with a memorable label of your choice.
+
+``` {.latex}
+$$
+\begin{split}
+\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y) \\
+    & = (X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')' \\
+    & = (X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1} \\
+    & = (X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1} \\
+    & = (X'X)^{-1}\sigma^{2}
+\end{split}
+$$ {#eq-var-beta}
+```
+
+$$
+\begin{split}
+\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y) \\
+    & = (X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')' \\
+    & = (X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1} \\
+    & = (X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1} \\
+    & = (X'X)^{-1}\sigma^{2}
+\end{split}
+$$ {#eq-var-beta}
+
+Some additional notes:
+
+-   Each new line is preceded by a `\\` operator.
+-   Each aligned expression begins with the `&` operator.
+
+#### Numbered lines and inline notes {.unnumbered}
+
+We can number lines individually by using the LaTeX `align` environment
+and adding a unique `(\#eq:<equation-label>)` at the end of every line
+that should have a number. Additionally, we can add in-line comments by
+placing `&&` followed by `(<my LaTeX-formatted comment>)` at the end of the line,
+before the number label. As with our use of the `&` operator to align
+successive lines of math, the `&&` operator tells the LaTeX
+compiler to align comments, but to do so to the right of the 
+aligned math.
+
+``` {.latex}
+$$
+\begin{align}
+\sum_{i=1}^{n} \left( X_i - \overline{X} \right )
+    & = \sum_{i=1}^{n}X_i - \sum_{i=1}^{n} \overline{X}
+        &&& \scriptstyle{\text{
+            (comment 1)
+        }}  \tag{a}
+    \\
+    & = \sum_{i=1}^{n} X_i - n \overline{X}
+        &&& \scriptstyle{\left(\begin{array}{c}
+            \text{comment 2 has symbols: } \int_{a}^{b} 4 \pi r^2 \\
+            \text{... and carries over to a second line.
+        }\end{array}\right)}
+    \\
+    & = \sum_{i=1}^{n}X_i - \sum_{i=1}^{n}X_i 
+    \\
+    & = 0  \tag{b}
+\end{align}
+$$ {#eq-var}
+```
+
+<aside>
+
+We use `scriptstyle` to make the inline text smaller. Other custom
+display options are detailed
+[here](https://www.overleaf.com/learn/latex/Display_style_in_math_mode)
+(by *Overleaf*).
+
+</aside>
+
+$$
+\begin{align}
+\sum_{i=1}^{n} \left( X_i - \overline{X} \right )
+    & = \sum_{i=1}^{n}X_i - \sum_{i=1}^{n} \overline{X}
+        &&& \scriptstyle{\text{
+            (comment 1)
+        }}  \tag{a}
+    \\
+    & = \sum_{i=1}^{n} X_i - n \overline{X}
+        &&& \scriptstyle{\left(\begin{array}{c}
+            \text{comment 2 has symbols: } \int_{a}^{b} 4 \pi r^2 \\
+            \text{... and carries over to a second line.
+        }\end{array}\right)}
+    \\
+    & = \sum_{i=1}^{n}X_i - \sum_{i=1}^{n}X_i
+    \\
+    & = 0  \tag{b}
+\end{align}
+$$ {#eq-var}
+
+# Code blocks
+
+We can include some nicely formatted Python code:
+
+```{python}
+#| echo: true
+#| include: true
+#| eval: true
+
+# Display the Fibonacci sequence
+nterms = 5
+
+n1, n2 = 0, 1
+count = 0
+
+if nterms <= 0:
+  print("Please enter a positive integer")
+
+elif nterms == 1:
+  print("Fibonacci sequence up to", nterms, ":")
+  print(n1)
+
+else:
+  print("Fibonacci sequence:")
+  while count < nterms:
+    print(n1)
+    nth = n1 + n2
+    n1 = n2
+    n2 = nth
+    count += 1
+
+```
+
+# Figures, tables, images
+
+#### Figures {.unnumbered}
+
+We can also execute the code within R Markdown and display the output.
+Here's an example using ggplot2 that also illustrates how to display a
+numbered figure with a caption:
+
+::: {.fig-border}
+:::
+
+```{r}
+#| label: fig-1
+#| fig-cap: This is a figure caption.
+#| fig-width: 6
+#| fig-height: 3.5
+#| warning: false
+#| echo: true
+#| include: true
+#| eval: true
+library(ggplot2)
+
+diamonds$color_group <- factor(ifelse(
+  diamonds$color %in% c("D", "E", "F"),
+  "Group 1", "Group 2"
+))
+
+ggplot(
+  diamonds,
+  aes(x = carat, y = price, color = color_group, fill = color_group)
+) +
+  geom_smooth() +
+  facet_grid(~ cut) +
+  theme_minimal(base_family = "Verdana", base_size = 9.5) +
+
+  # Grid
+  theme(panel.grid.major.y = element_line(size = .1),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.x = element_line(size = .1),
+        panel.grid.minor.x = element_blank()) +
+
+  # Colours
+  scale_color_brewer(type = "qual", palette = "Accent") +
+  scale_fill_brewer(type = "qual", palette = "Accent") +
+
+  # Labels
+  labs(
+    title = "This is a title",
+    subtitle = "(This is a subtitle)",
+    caption = "Data from <source>.",
+    x = expression(italic(x)),
+    y = expression(italic(y)),
+    colour = "Group"
+  ) +
+
+  # Legend
+  guides(fill = "none") +
+  guides(color = guide_legend(override.aes = list(fill = "white")))
+
+```
+<aside>
+
+A good reference for theme options is
+[here](https://ggplot2.tidyverse.org/reference/theme.html) (*ggplot
+documentation*).
+
+</aside>
+
+::: {.fig-border}
+:::
+
+A couple notes:
+
+-   To cross-reference a figure, image, or table rendered with R code,
+    give the chunk a unique label in its
+    [knitr](https://yihui.org/knitr/options/) header following the `r`
+    prefix.
+-   To give your figure a caption with a numbered prefix as shown in
+    this example, add fig.cap="\<Your figure caption.\>" to the knitr
+    header, replacing the string inside the quotation marks.
+
+Here's a more involved example that uses some more fine-tuning to
+achieve desired aesthetics. In the first cell we define the data. I
+include this example because 1) I like this plot, and 2) I think it is a
+good example of how to manually enter data points into a structure that
+ggplot can work with and then to use that structure to produce a
+meaningful plot.
+
+```{r}
+#| include: true
+# Create df
+df <- data.frame(
+  level = rep(c('L1', 'L2', 'L3', 'L4'), each = 3),
+  y = c(9, 3, 2, 20, 5, 5, 41, 14, 10, 96, 74, 47),
+  group = rep(c('G1', 'G2', 'G3'), times = 4)
+  )
+df$level <- factor(df$level, levels = c('L1', 'L2', 'L3', 'L4'))
+df$group <- factor(df$group, levels = c('G1', 'G2', 'G3'))
+df
+```
+
+::: {.fig-border}
+:::
+
+```{r}
+#| label: fig-2
+#| fig-cap: Figure caption.
+#| fig-width: 6
+#| fig-height: 3.5
+#| warning: false
+#| echo: true
+#| include: true
+#| eval: true
+library(ggplot2)
+library(ggplot2)
+library(ggtext)
+
+bar_numbers <- df$y
+
+p <- ggplot(df, aes(x = level, y = y, fill = group)) +
+  geom_col(position = position_dodge(0.6), colour = "black", width = .5) +
+  theme_minimal(base_family = "Verdana", base_size = 9.5) +
+
+  # Grid
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank(),
+    panel.grid.minor.y = element_blank(),
+  ) +
+
+  # Colours/Legend labels
+  scale_fill_brewer(
+    name = "",
+    palette = 1,
+    labels = c("Level 1", "Level 2", "Level 3")
+  ) +
+
+  # Labels
+  labs(
+    title = "Title",
+    subtitle = "Subtitle",
+    x = expression(paste(italic(x), " label")),
+    y = expression(paste(italic(y), " label")),
+    caption = "Source."
+  ) +
+  scale_x_discrete(
+    labels = c('Group 1', 'Group 2', 'Group 3', 'Group 4')
+  ) +
+
+  # Text/Legend adjustments
+  theme(
+    plot.title = element_markdown(lineheight = 1.1),
+    legend.position = "top"
+  ) +
+
+  # Bar numbers
+  geom_text(
+    aes(label = bar_numbers),
+    position = position_dodge(width = 0.6),
+    vjust = -0.5, hjust = 0.5,
+    size = 3.5,
+    fontface = 1.9,
+    color = "black",
+    family = "Verdana",
+    ) +
+
+  # Axis limits
+  ylim(0, 105)
+p
+
+```
+
+::: {.fig-border}
+:::
+
+#### Tables {.unnumbered}
+
+We can also display data frames as nicely formatted tables. This example
+uses [`kable`](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html)
+to render the built-in `mtcars` dataset as a static table:
+
+::: {.scroll-container}
+
+```{r}
+#| label: tbl-1
+#| tbl-cap: This is a table caption
+library(knitr)
+kable(head(mtcars))
+
+```
+
+:::
+
+#### Paged tables {.unnumbered}
+
+And this example uses the
+[`paged_table`](https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html)
+function to generate a table with its columns spread out over several
+clickable pages:
+
+```{r}
+#| label: tbl-2
+#| tbl-cap: This is another table caption
+library(rmarkdown)
+paged_table(mtcars)
+
+```
+
+<aside>
+
+Use the knitr option `layout="l-body-outset"` to make the figure or
+table span the width of the page. More information
+[here](https://rstudio.github.io/distill/figures.html) and
+[here](https://rstudio.github.io/distill/figures.html) (from the
+*Distill for R Markdown documentation*).
+
+</aside>
+
+#### Images {.unnumbered}
+
+```{r}
+#| label: img1
+#| fig-width: 6
+#| fig-height: 1.5
+#| fig-cap: "This is an image caption."
+
+knitr::include_graphics("thumbnail.jpg")
+
+```
+
+<aside>
+
+The `"class=external"` knitr option creates a frame around the image.
+
+</aside>
+
+# Cross-references {#cross-references}
+
+Now that we have some labelled equations and images, we can create
+hyperlinked references to them. Here are some examples:
+
++----------------------------------+-----------------------------------+
+| Example                          | Raw                               |
++==================================+===================================+
+| *Bookdown environment*: See      | `@thm-pyth`                       |
+| Theorem @thm-pyth.               |                                   |
++----------------------------------+-----------------------------------+
+| *Math equation*: See equation    | `@eq-var-beta`                    |
+| @eq-var-beta.                    |                                   |
++----------------------------------+-----------------------------------+
+| *Figure or image*: See Fig.      | `@fig-1`                          |
+| @fig-1.                          |                                   |
++----------------------------------+-----------------------------------+
+| *Header*: See @sec-math-elements.| `@sec-math-elements`              |
+|                                  |                                   |
++----------------------------------+-----------------------------------+
+
+<aside>
+
+Table 2.1 on
+[this](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html)
+page from *Authoring Books with R Markdown* lists the label prefixes for all other
+available theorem environments (we use the `thm` prefix here).
+
+</aside>
+
+**Note**: The section 1 header is followed by the label
+{\#math-elements}.
+
+# References
+
+#### In-text citations {.unnumbered}
+
+Provided you have stored the sources you wish to formally cite in a
+bibtex document, you can cite them in-text as follows and they will
+automatically appear, with proper formatting, in the 'References'
+section at the bottom of your document:
+
+``` {.html}
+[@james2013introduction]
+```
+
+[@james2013introduction]
+
+This is the bibtex entry in my `.bib` file to which this example refers:
+
+``` {.latex}
+@book{james2013introduction,
+  title={An introduction to statistical learning},
+  author={James, Gareth and Witten, Daniela and Hastie, Trevor and Tibshirani, Robert},
+  volume={112},
+  year={2013},
+  publisher={Springer}
+}
+```
+
+#### Footnotes {.unnumbered}
+
+This is a manual citation with a footnote:
+
+``` {.html}
+(Axler, 2019)[^1].
+```
+
+(Axler, 2019)[^1].
+
+At the bottom of my document I have a corresponding footnote entry that
+looks like:
+
+``` {.html}
+[^1]: Axler, S. (1997). *Linear algebra done right*.
+Springer Science & Business Media.
+```
+
+# Asides
+
+I have been using these throughout. Here's how to create them:
+
+``` {.html}
+<aside>
+
+This content will appear in the gutter of the article.
+
+</aside>
+```
+
+<aside>
+
+This content will appear in the gutter of the article.
+
+</aside>
+
+# Columns
+
+Using some [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+magic, we can create a two-column layout with both columns occupying 50%
+of the width of the screen like so:
+
+``` {.css}
+::: {style="display: flex; width: 100%;"}
+::: {style="flex: 2; padding: 10px;"}
+![](../../images/banner-fuji-01.jpg "fujinai")
+{style="border: 0px solid black; box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4)"
+width="100%"}
+:::
+
+::: {style="flex: 2; padding: 10px;"}
+-   This text will appear in the right column.
+-   It will wrap around the edge of the column to accommodate the length
+    of the sentence.
+:::
+:::
+```
+
+::: {.fig-border}
+:::
+
+::: {style="display: flex; width: 100%;"}
+::: {style="flex: 2; padding: 10px;"}
+![](../../images/banner-fuji-01.jpg "fujinai"){style="border: 0px solid black; box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4)"
+width="100%"}
+:::
+
+::: {style="flex: 2; padding: 10px;"}
+-   This text will appear in the right column.
+-   It will wrap around the edge of the column to accommodate the length
+    of the sentence.
+:::
+:::
+
+::: {.fig-border}
+:::
+
+The settings for both columns are placed in the first pair of curly
+braces, and the content and settings of the individual columns are
+enclosed in the outer pair of `:::` operators.
+
+A few other notes:
+
+-   The `flex` settings ensure that the columns have equal width.
+-   The `padding` settings offset the contents of the columns from one
+    another.
+-   The overall width is set to 100% so that the columns span the width
+    of the screen.
+-   The image width is set to 100% so that it spans the width of the
+    column.
+
+# Text formatting
+
+Here are some additional text formatting tricks:
+
+#### Scripts, strikethrough {.unnumbered}
+
+|                                   |                                  |
+|-----------------------------------|----------------------------------|
+| A ~subscript~ and a ^superscript^ | `A~subscript~and a^superscript^` |
+| This is a ~~strikethrough~~       | `This is a ~~strikethrough~~`    |
+
+#### Centering, colour {.unnumbered}
+
+And to finish it off, let's use some
+[HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference)
+magic to center, enlarge, and change the colour of some text:
+
+::: {.fig-border}
+:::
+
+``` {.html}
+<p style="text-align:center; font-size:160%; color:darkblue;">
+    This is a big, blue, <b>bold</b> sentence.
+</p>
+```
+
+```{=html}
+<p style="text-align:center; font-size:160%; color:darkblue;">
+    This is a big, blue, <b>bold</b> sentence.
+</p>
+```
+::: {.fig-border}
+:::
+
+# Conclusion {.unnumbered}
+
+And that's it! As we've seen, R Markdown is a powerful integrated tool
+for text editing, coding, and mathematical typesetting. Combined with
+the math environments from Bookdown and the handy annotation tools from
+Distill, we have a fully capable suite of tools at our fingertips for
+producing beautiful, well-referenced, web-friendly mathematical
+documents.
+
+[^1]: Axler, S. (1997). *Linear algebra done right*. Springer Science &
+    Business Media.

@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    # - "!posts/2024-12-28_blog-post/folder"
+
+# -- Optional additions ------------------------------------------------------
+
+website:
+  title: "Matthew Bain"
+  site-url: https://bainmatt.github.io
+  repo-url: https://github.com/bainmatt/bainmatt.github.io
+  open-graph: true
+  search: true
+  navbar:
+    title: false
+    background: "white"
+    left:
+      - href: index.qmd
+        text: "Home"
+      - href: about.qmd
+        text: "About"
+      - href: gallery.qmd
+        text: "Resources"
+      - href: music-page.qmd
+        text: "Music"
+      - href: https://bainmatt.github.io/cv/cv_matthewbain.html
+        text: "Résumé"
+    right:
+      - icon: github
+        href: https://github.com/bainmatt
+      - icon: linkedin
+        href: https://linkedin.com/in/bainmatt/
+      - icon: youtube
+        href: https://www.youtube.com/@fujinai9/featured
+  page-footer:
+    center:
+      - href: https://bainmatt.github.io/
+        text: bainmatt.github.io
+include-in-header: favicon.html
+format:
+  html:
+    theme: ember
+    css:
+      - styles.css
+      - generic-css.css

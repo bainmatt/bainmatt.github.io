@@ -1,0 +1,325 @@
+---
+page-layout: full
+
+format:
+  html:
+    toc: true
+    toc_depth: 1
+    toc-location: right
+    toc-expand: false
+    number_sections: false
+---
+
+::: {.banner}
+::: {.centered}
+<!-- ![](images/banner-fuji-04.jpg "fujinai"){style="border: 0px solid black; box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4)" width="100%" fig-align="center"} -->
+<!-- ![](images/icon-comp.jpg "fujinai"){style="border: 0px solid black; box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4)" width="250px" fig-align="center" class="circular"} -->
+
+# Matthew Bain
+
+---
+
+Data scientist, machine learning expert, lover of statistics, and
+part-time musician building interpretable, robust, responsible machine
+learning applications.
+:::
+:::
+
+```{r f-add-card}
+#| echo: false
+#| output: false
+
+library(reticulate)
+
+#' Create a portfolio project card.
+#' 
+#' Adapted from: https://github.com/djnavarro/djnavarro.github.io
+#' 
+add_card <- function(
+  img,
+  name,
+  text,
+  link,
+  link_text,
+  img_alt,
+  type = NA_character_,
+  tools = NA_character_
+) {
+  img_tag <- paste0(
+    '<div style="position: relative; ',
+    'width: 100%; padding-top: 100%; overflow: hidden;">',
+    '<img src="images/', img, '" ',
+    'alt="', img_alt, '" ',
+    'style="position: absolute; top: 0; left: 0; ',
+    'width: 100%; height: 100%; object-fit: cover;" ',
+    'class="card-img-top">',
+    '</div>'
+  )
+  image_block <- if (!is.na(link) && !is.na(link_text)) {
+    paste0('<a href="', link, '">', img_tag, '</a>')
+  } else {
+    img_tag
+  }
+  type_tag <- if (!is.na(type)) {
+    paste0('<span class="badge bg-secondary me-1">', type, '</span>')
+  } else {
+    ""
+  }
+  tools_tag <- if (!is.na(tools)) {
+    paste0(
+      '<small class="text-muted"><strong>Tools:</strong> ',
+      tools,
+      '</small>',
+      '\n'
+    )
+  } else {
+    ""
+  }
+  link_button <- if (!is.na(link) & !is.na(link_text)) {
+    paste0('<a href="', link, '" class="btn btn-primary">', link_text, '</a>')
+  } else {
+    ""
+  }
+
+  lines <- c(
+    '<div class="g-col-12 g-col-md-6 g-col-xl-4">',
+    '<div class="card h-100">',
+    image_block,
+    '<div class="card-body">',
+    paste0('<h2 class="card-title">', name, '</h2>'),
+    paste0('<div class="mb-1">', type_tag, '</div>'),
+    paste0('<p class="card-text">', text, '</p>'),
+    '</div>',
+    '<div class="card-footer">',
+    paste0('<div class="mt-1">', tools_tag, '</div>'),
+    link_button,
+    '</div>',
+    '</div>',
+    '</div>'
+  )
+
+  cat(lines, sep="\n")
+}
+  
+```
+
+```{r f-print-cards}
+#| echo: false
+
+#' Run row-wise `add_card` on a subset of records.
+#'
+print_cards <- function(df, keywords) {
+  pattern <- paste(keywords, collapse = "|")
+  
+  matches <- grepl(pattern, df$type, ignore.case = TRUE)
+  filtered_df <- df[matches, , drop = FALSE]
+
+  for (i in seq_len(nrow(filtered_df))) {
+    row_list <- as.list(filtered_df[i, ])
+    do.call(add_card, row_list)
+  }
+  # purrr::pwalk(filtered_df, add_card)
+}
+
+```
+
+```{python f-sync-projects}
+#| echo: false
+
+import yaml
+import pandas as pd
+
+def sync_projects(
+  src_path: str,
+  targ_path: str,
+  src_cols: list,
+  targ_cols: list,
+  join_key: str = "title",
+  how: str = "outer"
+) -> None:
+  """
+  Retrieve records from a spreadsheet and use to update portfolio card data.
+  """
+  df_src = pd.read_csv(src_path)
+  with open(targ_path) as f:
+    df_targ = pd.DataFrame(yaml.safe_load(f))
+  
+  df_merged = pd.merge(
+    df_src,
+    df_targ[targ_cols],
+    on=join_key,
+    how=how
+  )[[*targ_cols, *src_cols]]
+  
+  df_merged["in_portfolio"] = df_merged["in_portfolio"].fillna(True)
+  df_merged["tools"] = df_merged["tools"].astype(str)
+  df_merged["link"] = df_merged["link"].astype(str)
+  df_merged["link_text"] = df_merged["link_text"].astype(str)
+
+  with open(targ_path, "w") as f:
+    yaml.dump(
+      df_merged.to_dict(orient="records"),
+      f,
+      sort_keys=False,
+      allow_unicode=True,
+      default_flow_style=False
+    )
+
+```
+
+```{python f-format-projects}
+#| echo: false
+
+def format_projects(
+  df: pd.DataFrame,
+  default_img: str,
+  default_img_alt: str
+) -> pd.DataFrame: 
+  """
+  Prepare project data for printing in portfolio cards.
+  """
+  # Replace missing values
+  df["text"] = df["text"].fillna(df["short_summary"])
+  df["img"] = df["img"].fillna(default_img)
+  df["img_alt"] = df["img_alt"].fillna(default_img_alt)
+  
+  # Filter and drop unneeded fields
+  df = (
+    df[df['in_portfolio']]
+    .drop(['title', 'in_portfolio', 'short_summary'], axis=1)
+  )
+  return df
+
+```
+
+```{r f-pd2r}
+#| echo: false
+
+#' Process Pandas df for R, respecting R null character format.
+#'
+pd2r <- function(df) {
+  df[] <- lapply(df, function(col) {
+    if (is.character(col)) {
+      col[col == "nan"] <- NA_character_
+    }
+    col
+  })
+  df
+}
+
+```
+
+```{python}
+#| echo: false
+#| eval: false
+
+# 1. Synchronize records (run as needed)
+sync_projects(
+  src_path="~/Documents/career/resume/R/input/projects.csv",
+  targ_path="data/projects.yaml",
+  src_cols = [
+    "link_text", "link", "tools", "short_summary"
+  ],
+  targ_cols=[
+    "title", "name", "in_portfolio", "type",
+    "img", "img_alt", "text"
+  ]
+)
+
+```
+
+```{python}
+#| echo: false
+
+# 2. Load latest project records
+with open("data/projects.yaml") as f:
+  df_cards = pd.DataFrame(yaml.safe_load(f))
+
+# 3. Format projects for cards
+df_cards = format_projects(
+  df=df_cards,
+  default_img="icon-comp.jpg",
+  default_img_alt="Photo of Mt. Fuji taken from the bullet train."
+)
+
+```
+
+```{r}
+#| echo: false
+
+# 4. Load cards into R
+df_cards_r = pd2r(py$df_cards)
+
+```
+
+<!--
+## Main sites
+
+::: {.grid}
+
+```{r}
+#| echo: false
+#| include: true
+#| results: asis
+
+print_cards(df_cards_r, keywords = c("blog"))
+
+# add_card(
+#   img = "childe-hassam-the-concord-meadow.jpg",
+#   name = "Data science blog", 
+#   text = "I write a data science blog, \"Notes and numbers\",
+#   link = "https://blog.matthewbain.net",
+#   img_alt = "The Concord Meadow by Childe Hassam, public domain.",
+#   link_text = "blog.matthewbain.net"
+# )
+  
+```
+
+:::
+-->
+
+## Packages
+
+::: {.grid}
+
+```{r}
+#| echo: false
+#| include: true
+#| results: asis
+
+print_cards(df_cards_r, keywords = c("r package"))
+print_cards(df_cards_r, keywords = c("python package"))
+
+```
+
+:::
+
+<!--
+## Analyses
+
+::: {.grid}
+
+```{r}
+#| echo: false
+#| results: asis
+
+print_cards(df_cards_r, keywords = c("analysis"))
+
+```
+
+:::
+-->
+
+## Misc.
+
+::: {.grid}
+
+```{r}
+#| echo: false
+#| results: asis
+
+print_cards(df_cards_r, keywords = c("website", "dashboard", "app", "model"))
+
+```
+
+:::

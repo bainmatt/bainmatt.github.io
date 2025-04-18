@@ -1,51 +1,65 @@
-# Ignore everything by default
-*
+# Development files and folders ------------------------------------------------
 
+# Development I/O folders (arbitrarily nested)
+images/
+!docs/images/
+**/data/
+**/input/
+**/output/
 
-# -- Allow key project files and build ---------------------------------------
-
-# Key project files
-!.gitignore
-!.Rbuildignore
-!.nojekyll
-!_site.yml
-!website.Rproj
-!README.md
-
-# Locally build directory/subdirectories
-!docs/
-!docs/**
-
-
-# -- Exclusions within build directory ---------------------------------------
-
-# Archives (irrespective of subdirectory/basename)
+# Archives (with arbitrary nesting and basename)
 **/archive/
 *_archive
 
-# System cache
+# Specific ignorable files and folders
+resources/
+.gitignore_
+*.Rmd
+*.rmd
+*.ipynb
+favicon.jpg
+_gallery/
+
+# Environment
+renv/
+renv.lock
+_freeze/
+
+# Build files/folders
+*_files/
+/posts/*.html
+
+
+# System-generated -------------------------------------------------------------
+
+~$*
 *.DS_Store
 
 
-# -- R-generated exclusions --------------------------------------------------
+# Project files and folders ----------------------------------------------------
 
 # Session data files
 .RData
+.Rdata
 .RDataTmp
 
 # History files
 .Rhistory
 .Rapp.history
 
-# Logs & other files
+# User files/folders
+.Ruserdata
+.Rproj.user
+
+# Log files
 *.log
 *.aux
 *.out
 
-# User files
-.Ruserdata
-.Rproj.user/
-
-# Knitr and R Markdown temporary files 
+# Knitr and R Markdown temporary folders
 /cache/
 *_cache/
+
+# Other
+.quarto
+.httr-oauth
