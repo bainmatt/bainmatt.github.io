@@ -1,8 +1,7 @@
 ---
-title: "Bias-variance decomposition"
+title: "Writing template"
 subtitle: |
-  I motivate, derive, and discuss the bias-variance decomposition, which forms
-  the theoretical basis of model validation in machine learning.
+  A concise reference for tehnical writing with Quarto.
 date: "2024-03-18"
 categories: [Bayesian inference, Learning theory]
 image: ../../images/childe-hassam-the-concord-meadow.jpg
@@ -26,6 +25,7 @@ format:
     include-in-header: ../../favicon.html
 
 draft: true
+draft-mode: unlinked
 ---
 
 ```{python}

@@ -14,10 +14,15 @@ execute:
 
 website:
   title: "Matthew Bain"
+  favicon: favicon.html
+  image: favicon.jpg
   site-url: https://bainmatt.github.io
   repo-url: https://github.com/bainmatt/bainmatt.github.io
   open-graph: true
   search: true
+  # drafts:
+  #   - stuff/item2.qmd
+  # draft-mode: unlinked
   navbar:
     title: false
     background: "white"
@@ -26,7 +31,7 @@ website:
         text: "Home"
       - href: about.qmd
         text: "About"
-      - href: gallery.qmd
+      - href: posts.qmd
         text: "Resources"
       - href: music-page.qmd
         text: "Music"
