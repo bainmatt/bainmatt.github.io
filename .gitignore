@@ -1,7 +1,7 @@
 # -- Development files and folders ------------------------------------------
 
 # Development i/o (arbitrarily nested)
-images/
+# images/
 **/data/
 **/input/
 **/output/
