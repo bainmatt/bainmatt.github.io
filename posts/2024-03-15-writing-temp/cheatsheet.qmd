@@ -25,7 +25,7 @@ format:
     number-sections: true
     include-in-header: ../../favicon.html
 
-draft: false
+draft: true
 ---
 
 ```{python}
