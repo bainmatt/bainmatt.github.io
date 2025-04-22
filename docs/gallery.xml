@@ -98,7 +98,7 @@ font-style: inherit;">$$a^2 + b^2 = c^2.$$</span></span>
 <p><span class="theorem-title"><strong>Theorem 1 (Pythagorean theorem)</strong></span> Given a right triangle, if <img src="https://latex.codecogs.com/png.latex?c"> denotes the length of the hypotenuse and <img src="https://latex.codecogs.com/png.latex?a"> and <img src="https://latex.codecogs.com/png.latex?b"> the lengths of the other two sides, then <img src="https://latex.codecogs.com/png.latex?a%5E2%20+%20b%5E2%20=%20c%5E2."></p>
 </div>
 <aside>
-<p>Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">this</a> page from <em>Authoring Books with R Markdown</em> lists all the other available theorem environments and their respective keywords.</p>
+Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">this</a> page from <em>Authoring Books with R Markdown</em> lists all the other available theorem environments and their respective keywords.
 </aside>
 </section>
 <section id="proof" class="level4 unnumbered">
@@ -164,7 +164,7 @@ font-style: inherit;">$$</span></span>
 <p><span class="theorem-title"><strong>Definition 2 (Continuous map)</strong></span> A continuous map is a continuous function between two topological spaces.</p>
 </div>
 <aside>
-<p>Notice that definition’s number was automatically incremented from the previous definition.</p>
+Notice that the definition’s number was automatically incremented from the previous definition.
 </aside>
 </section>
 </section>
@@ -438,7 +438,7 @@ font-style: inherit;">}</span></span>
 background-color: null;
 font-style: inherit;">$$</span></span></code></pre></div>
 <aside>
-<p>The <code>\left(</code> / <code>\right)</code> command encloses its contents in big brackets.</p>
+The <code>\left(</code> / <code>\right)</code> command encloses its contents in big brackets.
 </aside>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%0A%5Cbegin%7Barray%7D%5Bb%5D%7Br%7D%0A%20%20%20%20%5Cleft(%20x_1%20x_2%20%5Cright)%20%5C%5C%0A%20%20%20%20%5Ctimes%0A%20%20%20%20%5Cleft(%20x'_1%20x'_2%20%5Cright)%0A%5Cend%7Barray%7D%7D%20%7B%0A%5Cleft(%20y_1y_2y_3y_4%20%5Cright)%0A%7D%0A"></p>
 </section>
@@ -783,7 +783,7 @@ font-style: inherit;">{R^3}</span></span>
 background-color: null;
 font-style: inherit;">$$</span></span></code></pre></div>
 <aside>
-<p>The <code>~</code> symbol represents a whitespace character.</p>
+The <code>~</code> symbol represents a whitespace character.
 </aside>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0AX%0A&amp;%20=%0A%5Cleft%5B%5Cbegin%7Bmatrix%7D%0A%20%20%20%20a%20&amp;%20b%20&amp;%20c%20%5C%5C%0A%20%20%20%20d%20&amp;%20e%20&amp;%20f%20%5C%5C%0A%20%20%20%20g%20&amp;%20h%20&amp;%20i%0A%5Cend%7Bmatrix%7D%5Cright%5D%0A%5Cleft%5B%5Cbegin%7Bmatrix%7D%0A%20%20%20%20y%5E%7B(1)%7D%20%5C%5C%0A%20%20%20%20y%5E%7B(2)%7D%20%5C%5C%0A%20%20%20%20y%5E%7B(3)%7D%0A%5Cend%7Bmatrix%7D%5Cright%5D%20%5C%5C%0A&amp;%20=%0A%5Cleft%5B%5Cbegin%7Bmatrix%7D%0A%20%20%20%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%20%5C%5C%0A%20%20%20%20y%5E%7B(1)%7D%20~%20%5Cvec%7Bx%7D_1%20%20%20&amp;%20y%5E%7B(2)%7D%20~%20%5Cvec%7Bx%7D_2%20%20%20&amp;%20y%5E%7B(3)%7D%20~%20%5Cvec%7Bx%7D_3%20%5C%5C%0A%20%20%20%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%0A%5Cend%7Bmatrix%7D%5Cright%5D%0A%5Cin%20%5Cmathbb%7BR%5E3%7D%0A%5Cend%7Balign%7D%0A"></p>
 </section>
@@ -1233,7 +1233,7 @@ font-style: inherit;">align</span>}</span>
 background-color: null;
 font-style: inherit;">$$</span> {#eq-var}</span></code></pre></div>
 <aside>
-<p>We use <code>scriptstyle</code> to make the inline text smaller. Other custom display options are detailed <a href="https://www.overleaf.com/learn/latex/Display_style_in_math_mode">here</a> (by <em>Overleaf</em>).</p>
+We use <code>scriptstyle</code> to make the inline text smaller. Other custom display options are detailed <a href="https://www.overleaf.com/learn/latex/Display_style_in_math_mode">here</a> (by <em>Overleaf</em>).
 </aside>
 <p><span id="eq-var"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Csum_%7Bi=1%7D%5E%7Bn%7D%20%5Cleft(%20X_i%20-%20%5Coverline%7BX%7D%20%5Cright%20)%0A%20%20%20%20&amp;%20=%20%5Csum_%7Bi=1%7D%5E%7Bn%7DX_i%20-%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20%5Coverline%7BX%7D%0A%20%20%20%20%20%20%20%20&amp;&amp;&amp;%20%5Cscriptstyle%7B%5Ctext%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20(comment%201)%0A%20%20%20%20%20%20%20%20%7D%7D%20%20%5Ctag%7Ba%7D%0A%20%20%20%20%5C%5C%0A%20%20%20%20&amp;%20=%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20X_i%20-%20n%20%5Coverline%7BX%7D%0A%20%20%20%20%20%20%20%20&amp;&amp;&amp;%20%5Cscriptstyle%7B%5Cleft(%5Cbegin%7Barray%7D%7Bc%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%5Ctext%7Bcomment%202%20has%20symbols:%20%7D%20%5Cint_%7Ba%7D%5E%7Bb%7D%204%20%5Cpi%20r%5E2%20%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%5Ctext%7B...%20and%20carries%20over%20to%20a%20second%20line.%0A%20%20%20%20%20%20%20%20%7D%5Cend%7Barray%7D%5Cright)%7D%0A%20%20%20%20%5C%5C%0A%20%20%20%20&amp;%20=%20%5Csum_%7Bi=1%7D%5E%7Bn%7DX_i%20-%20%5Csum_%7Bi=1%7D%5E%7Bn%7DX_i%0A%20%20%20%20%5C%5C%0A%20%20%20%20&amp;%20=%200%20%20%5Ctag%7Bb%7D%0A%5Cend%7Balign%7D%0A%5Ctag%7B3%7D"></span></p>
 </section>
@@ -1574,7 +1574,7 @@ Figure&nbsp;1: This is a figure caption.
 </div>
 </div>
 <aside>
-<p>A good reference for theme options is <a href="https://ggplot2.tidyverse.org/reference/theme.html">here</a> (<em>ggplot documentation</em>).</p>
+A good reference for theme options is <a href="https://ggplot2.tidyverse.org/reference/theme.html">here</a> (<em>ggplot documentation</em>).
 </aside>
 <div class="fig-border">
 
@@ -2187,7 +2187,7 @@ Table&nbsp;2: This is another table caption
 </div>
 </div>
 <aside>
-<p>Use the knitr option <code>layout="l-body-outset"</code> to make the figure or table span the width of the page. More information <a href="https://rstudio.github.io/distill/figures.html">here</a> and <a href="https://rstudio.github.io/distill/figures.html">here</a> (from the <em>Distill for R Markdown documentation</em>).</p>
+Use the knitr option <code>layout="l-body-outset"</code> to make the figure or table span the width of the page. More information <a href="https://rstudio.github.io/distill/figures.html">here</a> and <a href="https://rstudio.github.io/distill/figures.html">here</a> (from the <em>Distill for R Markdown documentation</em>).
 </aside>
 </section>
 <section id="images" class="level4 unnumbered page-columns page-full">
@@ -2210,7 +2210,7 @@ font-style: inherit;">"thumbnail.jpg"</span>)</span></code></pre></div>
 </div>
 </div>
 <aside>
-<p>The <code>"class=external"</code> knitr option creates a frame around the image.</p>
+The <code>"class=external"</code> knitr option creates a frame around the image.
 </aside>
 </section>
 </section>
@@ -2219,8 +2219,8 @@ font-style: inherit;">"thumbnail.jpg"</span>)</span></code></pre></div>
 <p>Now that we have some labelled equations and images, we can create hyperlinked references to them. Here are some examples:</p>
 <table class="table">
 <colgroup>
-<col style="width: 48%">
-<col style="width: 50%">
+<col style="width: 68%">
+<col style="width: 31%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2248,7 +2248,7 @@ font-style: inherit;">"thumbnail.jpg"</span>)</span></code></pre></div>
 </tbody>
 </table>
 <aside>
-<p>Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">this</a> page from <em>Authoring Books with R Markdown</em> lists the label prefixes for all other available theorem environments (we use the <code>thm</code> prefix here).</p>
+Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">this</a> page from <em>Authoring Books with R Markdown</em> lists the label prefixes for all other available theorem environments (we use the <code>thm</code> prefix here).
 </aside>
 <p><strong>Note</strong>: The section 1 header is followed by the label {#math-elements}.</p>
 </section>
@@ -2301,7 +2301,7 @@ font-style: inherit;">aside</span><span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">&gt;</span></span></code></pre></div>
 <aside>
-<p>This content will appear in the gutter of the article.</p>
+This content will appear in the gutter of the article.
 </aside>
 </section>
 <section id="columns" class="level1" data-number="10">
@@ -2531,8 +2531,8 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
 </div>
 </section>
 </section>
-<section id="conclusion" class="level1 unnumbered">
-<h1 class="unnumbered">Conclusion</h1>
+<section id="concluding-remarks" class="level1 unnumbered">
+<h1 class="unnumbered">Concluding remarks</h1>
 <p>And that’s it! As we’ve seen, R Markdown is a powerful integrated tool for text editing, coding, and mathematical typesetting. Combined with the math environments from Bookdown and the handy annotation tools from Distill, we have a fully capable suite of tools at our fingertips for producing beautiful, well-referenced, web-friendly mathematical documents.</p>
 
 
