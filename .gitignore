@@ -2,7 +2,6 @@
 
 # Development i/o (arbitrarily nested)
 images/
-!docs/images/
 **/data/
 **/input/
 **/output/
@@ -12,8 +11,8 @@ images/
 *_archive
 
 # Rendering artifacts
-*_files/
-/posts/*.html
+posts/**/*_files/
+posts/**/*.html
 
 # Specific ignorable files and folders
 *.Rmd
@@ -21,6 +20,10 @@ resources/
 _gallery/
 .gitignore_
 favicon.jpg
+
+# Docs
+docs/
+#!docs/images/
 
 # Environment
 renv/

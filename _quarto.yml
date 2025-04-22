@@ -7,6 +7,11 @@ project:
 
 # -- Optional additions ------------------------------------------------------
 
+include-in-header: favicon.html
+
+execute:
+  freeze: auto
+
 website:
   title: "Matthew Bain"
   site-url: https://bainmatt.github.io
@@ -38,7 +43,6 @@ website:
     center:
       - href: https://bainmatt.github.io/
         text: bainmatt.github.io
-include-in-header: favicon.html
 format:
   html:
     theme: ember

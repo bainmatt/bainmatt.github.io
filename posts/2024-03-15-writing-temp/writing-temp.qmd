@@ -19,7 +19,6 @@ citation: true
 execute:
   echo: true
   eval: true
-  freeze: auto
 format:
   html:
     code-line-numbers: false

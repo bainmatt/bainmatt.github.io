@@ -14,7 +14,6 @@ citation: true
 execute:
   echo: true
   eval: true
-  freeze: auto
 format:
   html:
     code-line-numbers: false
@@ -26,11 +25,12 @@ format:
     number-sections: true
     include-in-header: ../../favicon.html
 
-draft: true
+draft: false
 ---
 
 ```{python}
-#| echo: false
+#| code-summary: Python setup
+#| code-fold: true
 import sys
 import pandas as pd
 import matplotlib as mpl
