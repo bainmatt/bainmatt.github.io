@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About me",
+    "section": "",
+    "text": "Hi there! I’m Matt. To the left is a picture of Mount Fuji, captured during my travels through Japan. Mount Fuji has been the subject of many significant works of art (Hokusai’s Thirty-six Views of Mount Fuji, for instance). In many ways it is the ideal subject, infinitely patient, beautiful, static against a constantly fluctuating backdrop of weather and seasons.  When I’m not admiring nature and art, I am working with data. In some ways analyzing data is like drawing Mount Fuji. A data analyst recognizes a subject (structured collection of data points) behind clouds of interference (noise) and approaches that subject with a new way of seeing (statistical tools) to extract meaning (insights). An insight is a nugget of a bigger idea, from which the artist delivers value in the form of an evocative picture, and the analyst delivers value through visualizations, reports, recommendations, and statistical models.  If you can’t tell, I have a deep fondness for data, and in particular for statistics and machine learning, which are the tools that guide me through the mist toward structure and meaning. I find it especially thrilling to implement statistical ideas through code and neat data analyses. I like to write about my favourite projects and discoveries. You can find some of that here. I also make music on the side – you can find that here."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Matthew Bain",
@@ -21,29 +28,22 @@
     "text": "Misc.\n\n\n\n\n\n\n\n\n\n\nSuperstore Dashboard\n\n\nTableau Dashboard\n\n\nDesigned a comprehensive, interactive business dashboard displaying sales for a superstore in a convenient, unified view, including key KPIs and transactions as a function of both space and time\n\n\n\n\nTools: SQL, Excel\n\npublic.tableau.com/app\n\n\n\n\n\n\n\n\n\n\n\n\nGeospatial Data Explorer\n\n\nStreamlit App\n\n\nImplemented a data application with a dashboard interface and interactive plots displaying geospatial data such as KPIs in space and time, both at the state and county level\n\n\n\n\nTools: Streamlit, Pandas, Plotly, Altair, GeoPandas\n\nzipexplorer.streamlit.app"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About me",
-    "section": "",
-    "text": "Hi there! I’m Matt. To the left is a picture of Mount Fuji, captured during my travels through Japan. Mount Fuji has been the subject of many significant works of art (Hokusai’s Thirty-six Views of Mount Fuji, for instance). In many ways it is the ideal subject, infinitely patient, beautiful, static against a constantly fluctuating backdrop of weather and seasons.  When I’m not admiring nature and art, I am working with data. In some ways analyzing data is like drawing Mount Fuji. A data analyst recognizes a subject (structured collection of data points) behind clouds of interference (noise) and approaches that subject with a new way of seeing (statistical tools) to extract meaning (insights). An insight is a nugget of a bigger idea, from which the artist delivers value in the form of an evocative picture, and the analyst delivers value through visualizations, reports, recommendations, and statistical models.  If you can’t tell, I have a deep fondness for data, and in particular for statistics and machine learning, which are the tools that guide me through the mist toward structure and meaning. I find it especially thrilling to implement statistical ideas through code and neat data analyses. I like to write about my favourite projects and discoveries. You can find some of that here. I also make music on the side – you can find that here."
-  },
-  {
-    "objectID": "gallery.html",
-    "href": "gallery.html",
+    "objectID": "posts.html",
+    "href": "posts.html",
     "title": "Resources",
     "section": "",
     "text": "Technical reports with R Markdown & Bookdown\n\n\nI provide code snippets for a variety of text environments and formats that can be created with R Markdown and the Bookdown package. I focus on the elements most useful for writing math. \n\n\n\nReference\n\n\n\n\n\n\nMar 22, 2024\n\n\nMatthew Bain\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/2024-03-15-writing-temp/writing-temp.html",
-    "href": "posts/2024-03-15-writing-temp/writing-temp.html",
+    "objectID": "posts/2024-03-15-writing-temp/index.html",
+    "href": "posts/2024-03-15-writing-temp/index.html",
     "title": "Technical reports with R Markdown & Bookdown",
     "section": "",
     "text": "Combining R Markdown with typesetting functionality from the Bookdown package and Distill web publishing format provides a comprehensive set of tools for composing web documents. In this high-level reference I cover the tools that I find most useful for writing organized, easily referenced, math-heavy documents. The examples are arbitrary, only meant to illustrate the syntax. The LaTeX and markdown syntax are not explained. For each example I provide the raw text followed by the rendered output."
   },
   {
-    "objectID": "posts/2024-03-15-writing-temp/writing-temp.html#footnotes",
-    "href": "posts/2024-03-15-writing-temp/writing-temp.html#footnotes",
+    "objectID": "posts/2024-03-15-writing-temp/index.html#footnotes",
+    "href": "posts/2024-03-15-writing-temp/index.html#footnotes",
     "title": "Technical reports with R Markdown & Bookdown",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nAxler, S. (1997). Linear algebra done right. Springer Science & Business Media.↩︎"

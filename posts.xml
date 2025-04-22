@@ -6,15 +6,20 @@
       version="2.0">
 <channel>
 <title>Matthew Bain</title>
-<link>https://bainmatt.github.io/gallery.html</link>
-<atom:link href="https://bainmatt.github.io/gallery.xml" rel="self" type="application/rss+xml"/>
+<link>https://bainmatt.github.io/posts.html</link>
+<atom:link href="https://bainmatt.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
+<image>
+<url>https://bainmatt.github.io/favicon.jpg</url>
+<title>Matthew Bain</title>
+<link>https://bainmatt.github.io/posts.html</link>
+</image>
 <generator>quarto-1.6.43</generator>
 <lastBuildDate>Fri, 22 Mar 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Technical reports with R Markdown &amp; Bookdown</title>
   <dc:creator>Matthew Bain</dc:creator>
-  <link>https://bainmatt.github.io/posts/2024-03-15-writing-temp/writing-temp.html</link>
+  <link>https://bainmatt.github.io/posts/2024-03-15-writing-temp/</link>
   <description><![CDATA[ 
 
 
@@ -1596,7 +1601,7 @@ font-style: inherit;">"white"</span>)))</span></code></pre></div>
 <div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://bainmatt.github.io/posts/2024-03-15-writing-temp/writing-temp_files/figure-html/fig-1-1.png" class="img-fluid figure-img" width="576">
+<img src="https://bainmatt.github.io/posts/2024-03-15-writing-temp/index_files/figure-html/fig-1-1.png" class="img-fluid figure-img" width="576">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: This is a figure caption.
@@ -2033,7 +2038,7 @@ font-style: inherit;">105</span>)</span>
 <div id="fig-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://bainmatt.github.io/posts/2024-03-15-writing-temp/writing-temp_files/figure-html/fig-2-1.png" class="img-fluid figure-img" width="576">
+<img src="https://bainmatt.github.io/posts/2024-03-15-writing-temp/index_files/figure-html/fig-2-1.png" class="img-fluid figure-img" width="576">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Figure caption.
@@ -2595,15 +2600,15 @@ James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013. <em>A
   author = {Bain, Matthew},
   title = {Technical Reports with {R} {Markdown} \&amp; {Bookdown}},
   date = {2024-03-22},
-  url = {https://bainmatt.github.io/posts/2024-03-15-writing-temp/writing-temp.html},
+  url = {https://bainmatt.github.io/posts/2024-03-15-writing-temp/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-bain2024" class="csl-entry quarto-appendix-citeas">
 Bain, Matthew. 2024. <span>“Technical Reports with R Markdown &amp;
-Bookdown.”</span> March 22, 2024. <a href="https://bainmatt.github.io/posts/2024-03-15-writing-temp/writing-temp.html">https://bainmatt.github.io/posts/2024-03-15-writing-temp/writing-temp.html</a>.
+Bookdown.”</span> March 22, 2024. <a href="https://bainmatt.github.io/posts/2024-03-15-writing-temp/">https://bainmatt.github.io/posts/2024-03-15-writing-temp/</a>.
 </div></div></section></div> ]]></description>
   <category>Reference</category>
-  <guid>https://bainmatt.github.io/posts/2024-03-15-writing-temp/writing-temp.html</guid>
+  <guid>https://bainmatt.github.io/posts/2024-03-15-writing-temp/</guid>
   <pubDate>Fri, 22 Mar 2024 00:00:00 GMT</pubDate>
   <media:content url="https://bainmatt.github.io/images/childe-hassam-the-concord-meadow.jpg" medium="image" type="image/jpeg"/>
 </item>
