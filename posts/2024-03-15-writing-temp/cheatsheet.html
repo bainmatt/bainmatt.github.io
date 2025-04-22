@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.554">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Matthew Bain">
+<meta name="dcterms.date" content="2024-03-18">
+
+<title>Matthew Bain - Bias-variance decomposition</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="shortcut icon" href="favicon.jpg">
+<link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../generic-css.css">
+<meta property="og:title" content="Matthew Bain - Bias-variance decomposition">
+<meta property="og:description" content="I motivate, derive, and discuss the bias-variance decomposition, which forms the theoretical basis of model validation in machine learning.">
+<meta property="og:image" content="https://bainmatt.github.io/images/childe-hassam-the-concord-meadow.jpg">
+<meta property="og:site_name" content="Matthew Bain">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../gallery.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../music-page.html"> 
+<span class="menu-text">Music</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://bainmatt.github.io/cv/cv_matthewbain.html"> 
+<span class="menu-text">Résumé</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/bainmatt"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/bainmatt/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@fujinai9/featured"> <i class="bi bi-youtube" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Bias-variance decomposition</h1>
+            <p class="subtitle lead"></p><p>I motivate, derive, and discuss the bias-variance decomposition, which forms the theoretical basis of model validation in machine learning.</p><p></p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Bayesian inference</div>
+                <div class="quarto-category">Learning theory</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Matthew Bain </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 18, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#definition-theorem-proof" id="toc-definition-theorem-proof" class="nav-link active" data-scroll-target="#definition-theorem-proof"><span class="header-section-number">1</span> Definition, theorem, proof</a>
+  <ul class="collapse">
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition"><span class="header-section-number">1.1</span> Definition</a></li>
+  <li><a href="#theorem" id="toc-theorem" class="nav-link" data-scroll-target="#theorem"><span class="header-section-number">1.2</span> Theorem</a></li>
+  <li><a href="#proof" id="toc-proof" class="nav-link" data-scroll-target="#proof"><span class="header-section-number">1.3</span> Proof</a></li>
+  <li><a href="#automatic-numbering" id="toc-automatic-numbering" class="nav-link" data-scroll-target="#automatic-numbering"><span class="header-section-number">1.4</span> Automatic numbering</a></li>
+  </ul></li>
+  <li><a href="#sec-math-elements" id="toc-sec-math-elements" class="nav-link" data-scroll-target="#sec-math-elements"><span class="header-section-number">2</span> Assorted math examples</a>
+  <ul class="collapse">
+  <li><a href="#brackets-and-braces" id="toc-brackets-and-braces" class="nav-link" data-scroll-target="#brackets-and-braces"><span class="header-section-number">2.1</span> Brackets and braces</a></li>
+  <li><a href="#fractions" id="toc-fractions" class="nav-link" data-scroll-target="#fractions"><span class="header-section-number">2.2</span> Fractions</a></li>
+  <li><a href="#calculus" id="toc-calculus" class="nav-link" data-scroll-target="#calculus"><span class="header-section-number">2.3</span> Calculus</a></li>
+  <li><a href="#linear-algebra" id="toc-linear-algebra" class="nav-link" data-scroll-target="#linear-algebra"><span class="header-section-number">2.4</span> Linear algebra</a></li>
+  <li><a href="#probability" id="toc-probability" class="nav-link" data-scroll-target="#probability"><span class="header-section-number">2.5</span> Probability</a></li>
+  </ul></li>
+  <li><a href="#math-blocks" id="toc-math-blocks" class="nav-link" data-scroll-target="#math-blocks"><span class="header-section-number">3</span> Math blocks</a>
+  <ul class="collapse">
+  <li><a href="#annotations" id="toc-annotations" class="nav-link" data-scroll-target="#annotations"><span class="header-section-number">3.1</span> Annotations</a></li>
+  <li><a href="#numbered-equations" id="toc-numbered-equations" class="nav-link" data-scroll-target="#numbered-equations"><span class="header-section-number">3.2</span> Numbered equations</a></li>
+  <li><a href="#numbered-blocks" id="toc-numbered-blocks" class="nav-link" data-scroll-target="#numbered-blocks"><span class="header-section-number">3.3</span> Numbered blocks</a></li>
+  <li><a href="#inline-notes" id="toc-inline-notes" class="nav-link" data-scroll-target="#inline-notes"><span class="header-section-number">3.4</span> Inline notes</a></li>
+  </ul></li>
+  <li><a href="#code-blocks" id="toc-code-blocks" class="nav-link" data-scroll-target="#code-blocks"><span class="header-section-number">4</span> Code blocks</a>
+  <ul class="collapse">
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables"><span class="header-section-number">4.1</span> Tables</a></li>
+  <li><a href="#paged-tables" id="toc-paged-tables" class="nav-link" data-scroll-target="#paged-tables"><span class="header-section-number">4.2</span> Paged tables</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5</span> References</a>
+  <ul class="collapse">
+  <li><a href="#cross-references" id="toc-cross-references" class="nav-link" data-scroll-target="#cross-references"><span class="header-section-number">5.1</span> Cross-references</a></li>
+  <li><a href="#in-text-citations" id="toc-in-text-citations" class="nav-link" data-scroll-target="#in-text-citations"><span class="header-section-number">5.2</span> In-text citations</a></li>
+  <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes"><span class="header-section-number">5.3</span> Footnotes</a></li>
+  </ul></li>
+  <li><a href="#text-formatting" id="toc-text-formatting" class="nav-link" data-scroll-target="#text-formatting"><span class="header-section-number">6</span> Text formatting</a>
+  <ul class="collapse">
+  <li><a href="#asides" id="toc-asides" class="nav-link" data-scroll-target="#asides"><span class="header-section-number">6.1</span> Asides</a></li>
+  <li><a href="#scripts-strikethrough" id="toc-scripts-strikethrough" class="nav-link" data-scroll-target="#scripts-strikethrough"><span class="header-section-number">6.2</span> Scripts, strikethrough</a></li>
+  </ul></li>
+  <li><a href="#concluding-remarks" id="toc-concluding-remarks" class="nav-link" data-scroll-target="#concluding-remarks"><span class="header-section-number">7</span> Concluding remarks</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+
+
+
+
+
+<div class="cell">
+<details class="code-fold">
+<summary>Python setup</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib <span class="im">as</span> mpl</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">"../../src/python"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mpl.rc_file(<span class="st">"../../vizz.mplstyle"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># from cards import sync_projects</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># pd.read_csv("../../data/3class_data.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Combining R Markdown with typesetting functionality from the <a href="https://bookdown.org/">Bookdown</a> package and <a href="https://rstudio.github.io/distill/">Distill</a> web publishing format provides a comprehensive set of tools for composing web documents. In this high-level reference I cover the tools that I find most useful for writing organized, easily referenced, math-heavy documents. The examples are arbitrary, only meant to illustrate the syntax. The <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTeX</a> and <a href="https://www.markdownguide.org/">markdown</a> syntax are not explained. For each example I provide the raw text followed by the rendered output.</p>
+<section id="definition-theorem-proof" class="level1 page-columns page-full" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Definition, theorem, proof</h1>
+<p>The familiar math textbook refrain. Here’s the Bookdown syntax for definition, theorem, and proof environments, respectively.</p>
+<section id="definition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">1.1</span> Definition</h2>
+<div id="def-disjoint-sets" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Disjoint sets)</strong></span> Two sets <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> are <em>disjoint</em> if their intersection <span class="math inline">\(A_1 \cap A_2 = \emptyset\)</span>, where <span class="math inline">\(\emptyset\)</span> is the empty set. We say that <span class="math inline">\(n\)</span> sets <span class="math inline">\(A_1, A_2, ..., A_n\)</span> are disjoint if <span class="math inline">\(A_i \cap A_j = \emptyset\)</span> for <span class="math inline">\(i! = j\)</span>.</p>
+</div>
+</section>
+<section id="theorem" class="level2 page-columns page-full" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="theorem"><span class="header-section-number">1.2</span> Theorem</h2>
+<div id="thm-pyth" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Pythagorean theorem)</strong></span> Given a right triangle, if <span class="math inline">\(c\)</span> denotes the length of the hypotenuse and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> the lengths of the other two sides, then <span class="math display">\[a^2 + b^2 = c^2.\]</span></p>
+</div>
+<aside>
+Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">this</a> page from <em>Authoring Books with R Markdown</em> lists all the other available theorem environments and their respective keywords.
+</aside>
+</section>
+<section id="proof" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="proof"><span class="header-section-number">1.3</span> Proof</h2>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (Pythagorean theorem). </span>Let <span class="math inline">\(x, y\)</span> be …</p>
+<p>… Thus, <span class="math display">\[a^2 + b^2 = c^2,\]</span></p>
+<p>as desired.</p>
+<p><span class="math display">\[
+\tag*{$\square$}
+\]</span></p>
+</div>
+</section>
+<section id="automatic-numbering" class="level2 page-columns page-full" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="automatic-numbering"><span class="header-section-number">1.4</span> Automatic numbering</h2>
+<p>The nice thing about Bookdown is that it will automatically number definitions and theorems so that you can easily cross-reference them later on (see the <a href="#cross-references">Cross-references</a> section below). Just replace the name following the <code>#</code> (<code>pyth-thm</code> in the example below) with a unique label (containing no spaces) that will be convenient to reference.</p>
+<div id="def-cont-map" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Continuous map)</strong></span> A continuous map is a continuous function between two topological spaces.</p>
+</div>
+<aside>
+Notice that the definition’s number was automatically incremented from the previous definition.
+</aside>
+</section>
+</section>
+<section id="sec-math-elements" class="level1 page-columns page-full" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Assorted math examples</h1>
+<p>Here is an assortment of LaTeX examples along with their output.</p>
+<section id="brackets-and-braces" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="brackets-and-braces"><span class="header-section-number">2.1</span> Brackets and braces</h2>
+<p><span class="math display">\[
+( a ), [ b ], \{ c \}, | d |, \| e \|,
+\langle f \rangle, \lfloor g \rfloor,
+\lceil h \rceil, \ulcorner i \urcorner,
+/ j \backslash
+\]</span></p>
+<p><span class="math display">\[
+( \big( \Big( \bigg( \Bigg(
+\]</span></p>
+</section>
+<section id="fractions" class="level2 page-columns page-full" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="fractions"><span class="header-section-number">2.2</span> Fractions</h2>
+<p><span class="math display">\[
+\begin{equation}
+    x = a_0 + \cfrac{1}{a_1
+            + \cfrac{1}{a_2
+            + \cfrac{1}{a_3 + \cfrac{1}{a_4} } } }
+\end{equation}
+\]</span></p>
+<aside>
+The <code>\left(</code> / <code>\right)</code> command encloses its contents in big brackets.
+</aside>
+<p><span class="math display">\[
+\frac{
+    \begin{array}[b]{r}
+        \left( x_1 x_2 \right) \\
+        \times
+        \left( x'_1 x'_2 \right)
+    \end{array}
+}{
+    \left( y_1y_2y_3y_4 \right)
+}
+\]</span></p>
+</section>
+<section id="calculus" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="calculus"><span class="header-section-number">2.3</span> Calculus</h2>
+<p><span class="math display">\[
+\int_0^\infty \mathrm{e}^{-x} ~ \mathrm{d}x
+\]</span></p>
+<p><span class="math display">\[
+\int\limits_a^b \sin(x) ~ \mathrm{d}x
+\]</span></p>
+<p><span class="math display">\[
+\sum_{\substack{0&lt;i&lt;m \\ 0&lt;j&lt;n}} P(i,j)
+\]</span></p>
+</section>
+<section id="linear-algebra" class="level2 page-columns page-full" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="linear-algebra"><span class="header-section-number">2.4</span> Linear algebra</h2>
+<p><span class="math display">\[
+\begin{matrix}
+    a &amp; b &amp; c \\
+    d &amp; e &amp; f \\
+    g &amp; h &amp; i
+\end{matrix}
+\]</span></p>
+<p><span class="math display">\[
+A_{m,n} =
+\begin{pmatrix}
+    a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\
+    a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\
+    \vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \\
+    a_{m,1} &amp; a_{m,2} &amp; \cdots &amp; a_{m,n}
+\end{pmatrix}
+\]</span></p>
+<p><span class="math display">\[
+X =
+\begin{bmatrix}
+    x_1 &amp; y_1 \\
+    x_2 &amp; y_2 \\
+    x_3 &amp; y_3
+\end{bmatrix}
+\]</span></p>
+<aside>
+The <code>~</code> symbol represents a whitespace character.
+</aside>
+<p><span class="math display">\[
+\begin{align}
+X
+&amp; = \left[\begin{matrix}
+        a &amp; b &amp; c \\
+        d &amp; e &amp; f \\
+        g &amp; h &amp; i
+    \end{matrix}\right]
+    \left[\begin{matrix}
+        y^{(1)} \\
+        y^{(2)} \\
+        y^{(3)}
+    \end{matrix}\right] \\
+&amp; = \left[\begin{matrix}
+        |                    &amp; |                    &amp; | \\
+        y^{(1)} ~ \vec{x}_1  &amp; y^{(2)} ~ \vec{x}_2  &amp; y^{(3)} ~ \vec{x}_3 \\
+        |                    &amp; |                    &amp; |
+    \end{matrix}\right]
+    \in \mathbb{R^3}
+\end{align}
+\]</span></p>
+</section>
+<section id="probability" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="probability"><span class="header-section-number">2.5</span> Probability</h2>
+<p><span class="math display">\[
+\left(\!
+\begin{array}{c}
+    n \\
+    r
+\end{array}
+\!\right)
+= \frac{n!}{r!(n-c)!}
+\]</span></p>
+<p><span class="math display">\[
+\begin{equation}
+    \phi \left(x; \mu, \sigma \right)
+    = \frac{1}{\sqrt{2 \pi \sigma^2}}
+    \exp \left( - \frac{\left(x - \mu\right)^2}{2 \sigma^2} \right)
+\end{equation}
+\]</span></p>
+</section>
+</section>
+<section id="math-blocks" class="level1 page-columns page-full" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Math blocks</h1>
+<section id="annotations" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="annotations"><span class="header-section-number">3.1</span> Annotations</h2>
+<p><span class="math display">\[
+\underbrace{
+    \ln \left( \frac{5}{6} \right)
+}_{\simeq -0.1823} &lt;
+\overbrace{
+    \exp \left( \frac{1}{2} \right)
+}^{\simeq 1.6487}
+\]</span></p>
+</section>
+<section id="numbered-equations" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="numbered-equations"><span class="header-section-number">3.2</span> Numbered equations</h2>
+<p>Unlike in pure LaTeX, in <code>bookdown</code> we must manually assign labels to every line that should have a number. I do so for significant passages, steps, and equations. Here is an example of a numbered equation:</p>
+<p><span id="eq-binom"><span class="math display">\[
+\begin{equation}
+    \mathbb{P} \left(k\right)
+    = \binom{n}{k}
+    p^k\left(1-p\right)^{n-k}
+\end{equation}
+\tag{1}\]</span></span></p>
+</section>
+<section id="numbered-blocks" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="numbered-blocks"><span class="header-section-number">3.3</span> Numbered blocks</h2>
+<p>Here is an example from the <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">Bookdown documentation</a>. It illustrates how to display a block of math with multiple lines that share a single number and label. We use the LaTeX <code>split</code> environment to split the number across lines and wrap it all in double dollar signs to tell R to treat it as math rather than raw text. To give the block a number we add an <code>(\#eq:&lt;equation-label&gt;)</code> after closing the split environment with <code>\end{split}</code>. Just replace the text after the <code>\#eq:</code> prefix with a memorable label of your choice.</p>
+<p><span id="eq-var-beta"><span class="math display">\[
+\begin{split}
+\mathrm{Var}(\hat{\beta})
+    &amp; = \mathrm{Var}((X'X)^{-1}X'y) \\
+    &amp; = (X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')' \\
+    &amp; = (X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1} \\
+    &amp; = (X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1} \\
+    &amp; = (X'X)^{-1}\sigma^{2}
+\end{split}
+\tag{2}\]</span></span></p>
+<p>Some additional notes:</p>
+<ul>
+<li>Each new line is preceded by a <code>\\</code> operator.</li>
+<li>Each aligned expression begins with the <code>&amp;</code> operator.</li>
+</ul>
+</section>
+<section id="inline-notes" class="level2 page-columns page-full" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="inline-notes"><span class="header-section-number">3.4</span> Inline notes</h2>
+<p>We can number lines individually by using the LaTeX <code>align</code> environment and adding a unique <code>(\#eq:&lt;equation-label&gt;)</code> at the end of every line that should have a number. Additionally, we can add in-line comments by placing <code>&amp;&amp;</code> followed by <code>(&lt;my LaTeX-formatted comment&gt;)</code> at the end of the line, before the number label. As with our use of the <code>&amp;</code> operator to align successive lines of math, the <code>&amp;&amp;</code> operator tells the LaTeX compiler to align comments, but to do so to the right of the aligned math.</p>
+<aside>
+We use <code>scriptstyle</code> to make the inline text smaller. Other custom display options are detailed <a href="https://www.overleaf.com/learn/latex/Display_style_in_math_mode">here</a> (by <em>Overleaf</em>).
+</aside>
+<p><span id="eq-var"><span class="math display">\[
+\begin{align}
+\sum_{i=1}^{n} \left( X_i - \overline{X} \right)
+    &amp; = \sum_{i=1}^{n}X_i - \sum_{i=1}^{n} \overline{X}
+        &amp;&amp;&amp; \scriptstyle{\text{(comment 1)}} \tag{a} \\
+    &amp; = \sum_{i=1}^{n} X_i - n \overline{X}
+        &amp;&amp;&amp; \scriptstyle{\left(\begin{array}{c}
+            \text{comment 2 has symbols: } \int_{a}^{b} 4 \pi r^2 \\
+            \text{... and carries over to a second line.
+        }\end{array}\right)} \\
+    &amp; = \sum_{i=1}^{n}X_i - \sum_{i=1}^{n}X_i \\
+    &amp; = 0 \tag{b}
+\end{align}
+\tag{3}\]</span></span></p>
+</section>
+</section>
+<section id="code-blocks" class="level1 page-columns page-full" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Code blocks</h1>
+<p>We can include some nicely formatted Python code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the Fibonacci sequence</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>nterms <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>n1, n2 <span class="op">=</span> <span class="dv">0</span>, <span class="dv">1</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> nterms <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Please enter a positive integer"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> nterms <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Fibonacci sequence up to"</span>, nterms, <span class="st">":"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(n1)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Fibonacci sequence:"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> count <span class="op">&lt;</span> nterms:</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(n1)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    nth <span class="op">=</span> n1 <span class="op">+</span> n2</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    n1 <span class="op">=</span> n2</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    n2 <span class="op">=</span> nth</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Fibonacci sequence:
+0
+1
+1
+2
+3</code></pre>
+</div>
+</div>
+<section id="tables" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="tables"><span class="header-section-number">4.1</span> Tables</h2>
+<p>We can also display data frames as nicely formatted tables. This example uses <a href="https://bookdown.org/yihui/rmarkdown-cookbook/kable.html"><code>kable</code></a> to render the built-in <code>mtcars</code> dataset as a static table:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(mtcars))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-1" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: This is a table caption
+</figcaption>
+<div aria-describedby="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">mpg</th>
+<th style="text-align: right;">cyl</th>
+<th style="text-align: right;">disp</th>
+<th style="text-align: right;">hp</th>
+<th style="text-align: right;">drat</th>
+<th style="text-align: right;">wt</th>
+<th style="text-align: right;">qsec</th>
+<th style="text-align: right;">vs</th>
+<th style="text-align: right;">am</th>
+<th style="text-align: right;">gear</th>
+<th style="text-align: right;">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mazda RX4</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.620</td>
+<td style="text-align: right;">16.46</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mazda RX4 Wag</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.875</td>
+<td style="text-align: right;">17.02</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Datsun 710</td>
+<td style="text-align: right;">22.8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">3.85</td>
+<td style="text-align: right;">2.320</td>
+<td style="text-align: right;">18.61</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hornet 4 Drive</td>
+<td style="text-align: right;">21.4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">258</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.08</td>
+<td style="text-align: right;">3.215</td>
+<td style="text-align: right;">19.44</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hornet Sportabout</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">3.15</td>
+<td style="text-align: right;">3.440</td>
+<td style="text-align: right;">17.02</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Valiant</td>
+<td style="text-align: right;">18.1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">225</td>
+<td style="text-align: right;">105</td>
+<td style="text-align: right;">2.76</td>
+<td style="text-align: right;">3.460</td>
+<td style="text-align: right;">20.22</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="paged-tables" class="level2 page-columns page-full" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="paged-tables"><span class="header-section-number">4.2</span> Paged tables</h2>
+<p>And this example uses the <a href="https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html"><code>paged_table</code></a> function to generate a table with its columns spread out over several clickable pages:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rmarkdown)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paged_table</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-2" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: This is another table caption
+</figcaption>
+<div aria-describedby="tbl-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mpg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.620","7":"16.46","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4"},{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.875","7":"17.02","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4 Wag"},{"1":"22.8","2":"4","3":"108.0","4":"93","5":"3.85","6":"2.320","7":"18.61","8":"1","9":"1","10":"4","11":"1","_rn_":"Datsun 710"},{"1":"21.4","2":"6","3":"258.0","4":"110","5":"3.08","6":"3.215","7":"19.44","8":"1","9":"0","10":"3","11":"1","_rn_":"Hornet 4 Drive"},{"1":"18.7","2":"8","3":"360.0","4":"175","5":"3.15","6":"3.440","7":"17.02","8":"0","9":"0","10":"3","11":"2","_rn_":"Hornet Sportabout"},{"1":"18.1","2":"6","3":"225.0","4":"105","5":"2.76","6":"3.460","7":"20.22","8":"1","9":"0","10":"3","11":"1","_rn_":"Valiant"},{"1":"14.3","2":"8","3":"360.0","4":"245","5":"3.21","6":"3.570","7":"15.84","8":"0","9":"0","10":"3","11":"4","_rn_":"Duster 360"},{"1":"24.4","2":"4","3":"146.7","4":"62","5":"3.69","6":"3.190","7":"20.00","8":"1","9":"0","10":"4","11":"2","_rn_":"Merc 240D"},{"1":"22.8","2":"4","3":"140.8","4":"95","5":"3.92","6":"3.150","7":"22.90","8":"1","9":"0","10":"4","11":"2","_rn_":"Merc 230"},{"1":"19.2","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.30","8":"1","9":"0","10":"4","11":"4","_rn_":"Merc 280"},{"1":"17.8","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.90","8":"1","9":"0","10":"4","11":"4","_rn_":"Merc 280C"},{"1":"16.4","2":"8","3":"275.8","4":"180","5":"3.07","6":"4.070","7":"17.40","8":"0","9":"0","10":"3","11":"3","_rn_":"Merc 450SE"},{"1":"17.3","2":"8","3":"275.8","4":"180","5":"3.07","6":"3.730","7":"17.60","8":"0","9":"0","10":"3","11":"3","_rn_":"Merc 450SL"},{"1":"15.2","2":"8","3":"275.8","4":"180","5":"3.07","6":"3.780","7":"18.00","8":"0","9":"0","10":"3","11":"3","_rn_":"Merc 450SLC"},{"1":"10.4","2":"8","3":"472.0","4":"205","5":"2.93","6":"5.250","7":"17.98","8":"0","9":"0","10":"3","11":"4","_rn_":"Cadillac Fleetwood"},{"1":"10.4","2":"8","3":"460.0","4":"215","5":"3.00","6":"5.424","7":"17.82","8":"0","9":"0","10":"3","11":"4","_rn_":"Lincoln Continental"},{"1":"14.7","2":"8","3":"440.0","4":"230","5":"3.23","6":"5.345","7":"17.42","8":"0","9":"0","10":"3","11":"4","_rn_":"Chrysler Imperial"},{"1":"32.4","2":"4","3":"78.7","4":"66","5":"4.08","6":"2.200","7":"19.47","8":"1","9":"1","10":"4","11":"1","_rn_":"Fiat 128"},{"1":"30.4","2":"4","3":"75.7","4":"52","5":"4.93","6":"1.615","7":"18.52","8":"1","9":"1","10":"4","11":"2","_rn_":"Honda Civic"},{"1":"33.9","2":"4","3":"71.1","4":"65","5":"4.22","6":"1.835","7":"19.90","8":"1","9":"1","10":"4","11":"1","_rn_":"Toyota Corolla"},{"1":"21.5","2":"4","3":"120.1","4":"97","5":"3.70","6":"2.465","7":"20.01","8":"1","9":"0","10":"3","11":"1","_rn_":"Toyota Corona"},{"1":"15.5","2":"8","3":"318.0","4":"150","5":"2.76","6":"3.520","7":"16.87","8":"0","9":"0","10":"3","11":"2","_rn_":"Dodge Challenger"},{"1":"15.2","2":"8","3":"304.0","4":"150","5":"3.15","6":"3.435","7":"17.30","8":"0","9":"0","10":"3","11":"2","_rn_":"AMC Javelin"},{"1":"13.3","2":"8","3":"350.0","4":"245","5":"3.73","6":"3.840","7":"15.41","8":"0","9":"0","10":"3","11":"4","_rn_":"Camaro Z28"},{"1":"19.2","2":"8","3":"400.0","4":"175","5":"3.08","6":"3.845","7":"17.05","8":"0","9":"0","10":"3","11":"2","_rn_":"Pontiac Firebird"},{"1":"27.3","2":"4","3":"79.0","4":"66","5":"4.08","6":"1.935","7":"18.90","8":"1","9":"1","10":"4","11":"1","_rn_":"Fiat X1-9"},{"1":"26.0","2":"4","3":"120.3","4":"91","5":"4.43","6":"2.140","7":"16.70","8":"0","9":"1","10":"5","11":"2","_rn_":"Porsche 914-2"},{"1":"30.4","2":"4","3":"95.1","4":"113","5":"3.77","6":"1.513","7":"16.90","8":"1","9":"1","10":"5","11":"2","_rn_":"Lotus Europa"},{"1":"15.8","2":"8","3":"351.0","4":"264","5":"4.22","6":"3.170","7":"14.50","8":"0","9":"1","10":"5","11":"4","_rn_":"Ford Pantera L"},{"1":"19.7","2":"6","3":"145.0","4":"175","5":"3.62","6":"2.770","7":"15.50","8":"0","9":"1","10":"5","11":"6","_rn_":"Ferrari Dino"},{"1":"15.0","2":"8","3":"301.0","4":"335","5":"3.54","6":"3.570","7":"14.60","8":"0","9":"1","10":"5","11":"8","_rn_":"Maserati Bora"},{"1":"21.4","2":"4","3":"121.0","4":"109","5":"4.11","6":"2.780","7":"18.60","8":"1","9":"1","10":"4","11":"2","_rn_":"Volvo 142E"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<aside>
+Use the knitr option <code>layout="l-body-outset"</code> to make the figure or table span the width of the page. More information <a href="https://rstudio.github.io/distill/figures.html">here</a> and <a href="https://rstudio.github.io/distill/figures.html">here</a> (from the <em>Distill for R Markdown documentation</em>).
+</aside>
+</section>
+</section>
+<section id="references" class="level1 page-columns page-full" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
+<section id="cross-references" class="level2 page-columns page-full" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="cross-references"><span class="header-section-number">5.1</span> Cross-references</h2>
+<p>Now that we have some labelled equations and images, we can create hyperlinked references to them. Here are some examples:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Target</th>
+<th>Example</th>
+<th>Raw</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bookdown environment</td>
+<td><a href="#thm-pyth" class="quarto-xref">Theorem&nbsp;1</a>.</td>
+<td><code>@thm-pyth</code></td>
+</tr>
+<tr class="even">
+<td>Math block</td>
+<td><a href="#eq-var-beta" class="quarto-xref">Equation&nbsp;2</a>.</td>
+<td><code>@eq-var-beta</code></td>
+</tr>
+<tr class="odd">
+<td>Figure or image</td>
+<td><a href="#tbl-1" class="quarto-xref">Table&nbsp;1</a>.</td>
+<td><code>@tbl-1</code></td>
+</tr>
+<tr class="even">
+<td>Section</td>
+<td><a href="#sec-math-elements" class="quarto-xref">Section&nbsp;2</a>.</td>
+<td><code>@sec-math-elements</code></td>
+</tr>
+</tbody>
+</table>
+<aside>
+Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">this</a> page from <em>Authoring Books with R Markdown</em> lists the label prefixes for all other available theorem environments (we use the <code>thm</code> prefix here).
+</aside>
+<p><strong>Note</strong>: The section 1 header is followed by the label {#math-elements}.</p>
+</section>
+<section id="in-text-citations" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="in-text-citations"><span class="header-section-number">5.2</span> In-text citations</h2>
+<p>Provided you have stored the sources you wish to formally cite in a bibtex document, you can cite them in-text as follows and they will automatically appear, with proper formatting, in the ‘References’ section at the bottom of your document:</p>
+<p><span class="citation" data-cites="james2013introduction">(<a href="#ref-james2013introduction" role="doc-biblioref">James et al. 2013</a>)</span></p>
+<p>This is the bibtex entry in my <code>.bib</code> file to which this example refers:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>@book{james2013introduction,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  title={An introduction to statistical learning},</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  author={James, Gareth and Witten, Daniela and Hastie, Trevor and Tibshirani, Robert},</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  volume={112},</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  year={2013},</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  publisher={Springer}</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="footnotes" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="footnotes"><span class="header-section-number">5.3</span> Footnotes</h2>
+<p>This is a manual citation with a footnote:</p>
+<p>(Axler, 2019)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>At the bottom of my document I have a corresponding footnote entry that looks like:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>[^1]: Axler, S. (1997). *Linear algebra done right*.</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Springer Science <span class="er">&amp;</span> Business Media.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="text-formatting" class="level1 page-columns page-full" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Text formatting</h1>
+<p>Here are some additional text formatting tricks:</p>
+<section id="asides" class="level2 page-columns page-full" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="asides"><span class="header-section-number">6.1</span> Asides</h2>
+<p>I have been using these throughout. Here’s how to create them:</p>
+<aside>
+This content will appear in the gutter of the article.
+</aside>
+</section>
+<section id="scripts-strikethrough" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="scripts-strikethrough"><span class="header-section-number">6.2</span> Scripts, strikethrough</h2>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td>A <sub>subscript</sub> and a <sup>superscript</sup></td>
+<td><code>A~subscript~and a^superscript^</code></td>
+</tr>
+<tr class="even">
+<td>This is a <del>strikethrough</del></td>
+<td><code>This is a ~~strikethrough~~</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="concluding-remarks" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Concluding remarks</h1>
+<p>And that’s it! As we’ve seen, R Markdown is a powerful integrated tool for text editing, coding, and mathematical typesetting. Combined with the math environments from Bookdown and the handy annotation tools from Distill, we have a fully capable suite of tools at our fingertips for producing beautiful, well-referenced, web-friendly mathematical documents.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>R session info</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sI <span class="ot">&lt;-</span> <span class="fu">sessionInfo</span>()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sI, <span class="at">RNG =</span> <span class="cn">FALSE</span>, <span class="at">locale =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="do">## R version 4.3.3 (2024-02-29)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Platform: aarch64-apple-darwin20 (64-bit)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Running under: macOS Ventura 13.5.1</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Matrix products: default</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="do">## BLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib </span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="do">## LAPACK: /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="do">## attached base packages:</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="do">## other attached packages:</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] rmarkdown_2.26 knitr_1.45    </span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="do">## loaded via a namespace (and not attached):</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] digest_0.6.34     fastmap_1.1.1     xfun_0.42         Matrix_1.6-5     </span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="do">##  [5] lattice_0.22-5    reticulate_1.35.0 htmltools_0.5.7   png_0.1-8        </span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="do">##  [9] cli_3.6.2         vctrs_0.6.5       grid_4.3.3        withr_3.0.0      </span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="do">## [13] compiler_4.3.3    rstudioapi_0.15.0 tools_4.3.3       evaluate_0.23    </span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="do">## [17] Rcpp_1.0.12       yaml_2.3.8        rlang_1.1.3       jsonlite_1.8.8   </span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="do">## [21] htmlwidgets_1.6.4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Python session info</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import watermark</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># %load_ext watermark</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># %watermark -u -n -v -iv -w -p pandas,numpy,matplotlib,seaborn,tensorflow</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-james2013introduction" class="csl-entry" role="listitem">
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013. <em>An Introduction to Statistical Learning</em>. Vol. 112. Springer.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Axler, S. (1997). <em>Linear algebra done right</em>. Springer Science &amp; Business Media.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{bain2024,
+  author = {Bain, Matthew},
+  title = {Bias-Variance Decomposition},
+  date = {2024-03-18},
+  url = {https://bainmatt.github.io/posts/2024-03-15-writing-temp/cheatsheet.html},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-bain2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Bain, Matthew. 2024. <span>“Bias-Variance Decomposition.”</span> March
+18, 2024. <a href="https://bainmatt.github.io/posts/2024-03-15-writing-temp/cheatsheet.html">https://bainmatt.github.io/posts/2024-03-15-writing-temp/cheatsheet.html</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/bainmatt\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://bainmatt.github.io/">
+<p>bainmatt.github.io</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
