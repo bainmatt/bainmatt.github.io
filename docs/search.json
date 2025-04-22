@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "posts/2024-03-15-writing-temp/writing-temp.html",
-    "href": "posts/2024-03-15-writing-temp/writing-temp.html",
-    "title": "Technical reports with R Markdown & Bookdown",
-    "section": "",
-    "text": "Combining R Markdown with typesetting functionality from the Bookdown package and Distill web publishing format provides a comprehensive set of tools for composing web documents. In this high-level reference I cover the tools that I find most useful for writing organized, easily referenced, math-heavy documents. The examples are arbitrary, only meant to illustrate the syntax. The LaTeX and markdown syntax are not explained. For each example I provide the raw text followed by the rendered output."
-  },
-  {
-    "objectID": "posts/2024-03-15-writing-temp/writing-temp.html#footnotes",
-    "href": "posts/2024-03-15-writing-temp/writing-temp.html#footnotes",
-    "title": "Technical reports with R Markdown & Bookdown",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nAxler, S. (1997). Linear algebra done right. Springer Science & Business Media.↩︎"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Matthew Bain",
@@ -47,5 +33,19 @@
     "title": "Resources",
     "section": "",
     "text": "Technical reports with R Markdown & Bookdown\n\n\nI provide code snippets for a variety of text environments and formats that can be created with R Markdown and the Bookdown package. I focus on the elements most useful for writing math. \n\n\n\nReference\n\n\n\n\n\n\nMar 22, 2024\n\n\nMatthew Bain\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/2024-03-15-writing-temp/writing-temp.html",
+    "href": "posts/2024-03-15-writing-temp/writing-temp.html",
+    "title": "Technical reports with R Markdown & Bookdown",
+    "section": "",
+    "text": "Combining R Markdown with typesetting functionality from the Bookdown package and Distill web publishing format provides a comprehensive set of tools for composing web documents. In this high-level reference I cover the tools that I find most useful for writing organized, easily referenced, math-heavy documents. The examples are arbitrary, only meant to illustrate the syntax. The LaTeX and markdown syntax are not explained. For each example I provide the raw text followed by the rendered output."
+  },
+  {
+    "objectID": "posts/2024-03-15-writing-temp/writing-temp.html#footnotes",
+    "href": "posts/2024-03-15-writing-temp/writing-temp.html#footnotes",
+    "title": "Technical reports with R Markdown & Bookdown",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAxler, S. (1997). Linear algebra done right. Springer Science & Business Media.↩︎"
   }
 ]

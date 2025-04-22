@@ -1,5 +1,5 @@
 ---
-title: "About me"
+title: About me
 image: images/icon-comp.jpg
 about:
   template: trestles

@@ -4,18 +4,21 @@ subtitle: |
   I provide code snippets for a variety of text environments and formats
   that can be created with R Markdown and the Bookdown package. I focus on
   the elements most useful for writing math.
-author: "Matthew Bain"
-date: "March 22, 2024"
+date: "2024-03-22"
 categories: [Reference]
 image: ../../images/childe-hassam-the-concord-meadow.jpg
 bibliography: ../../generic-bib.bib
-title-block-banner: true
+code-links:
+  - text: cheatsheet
+    icon: file-code
+    href: https://bainmatt.github.io/posts/2024-03-15-writing-temp/cheatsheet.html
 
+author: "Matthew Bain"
+title-block-banner: true
 citation: true
 execute:
   echo: true
   eval: true
-  python: true
   freeze: auto
 format:
   html:
@@ -35,9 +38,9 @@ Combining R Markdown with typesetting functionality from the
 [Bookdown](https://bookdown.org/) package and
 [Distill](https://rstudio.github.io/distill/) web publishing format
 provides a comprehensive set of tools for composing web documents. In
-this high-level reference I cover the tools that I find most
-useful for writing organized, easily referenced, math-heavy documents.
-The examples are arbitrary, only meant to illustrate the syntax. The
+this high-level reference I cover the tools that I find most useful for
+writing organized, easily referenced, math-heavy documents. The examples
+are arbitrary, only meant to illustrate the syntax. The
 [LaTeX](https://en.wikibooks.org/wiki/LaTeX/Mathematics) and
 [markdown](https://www.markdownguide.org/) syntax are not explained. For
 each example I provide the raw text followed by the rendered output.
@@ -49,7 +52,7 @@ definition, theorem, and proof environments, respectively.
 
 #### Definition {.unnumbered}
 
-``` {.latex}
+``` latex
 ::: {#def-disjoint-sets}
 
 ## Disjoint sets
@@ -62,7 +65,6 @@ $A_i \cap A_j = \emptyset$ for $i! = j$.
 ```
 
 ::: {#def-disjoint-sets}
-
 ## Disjoint sets
 
 Two sets $A_1$ and $A_2$ are *disjoint* if their intersection
@@ -73,7 +75,7 @@ $A_i \cap A_j = \emptyset$ for $i! = j$.
 
 #### Theorem {.unnumbered}
 
-``` {.latex}
+``` latex
 ::: {#thm-pyth}
 
 ## Pythagorean theorem
@@ -85,7 +87,6 @@ $$a^2 + b^2 = c^2.$$
 ```
 
 ::: {#thm-pyth}
-
 ## Pythagorean theorem
 
 Given a right triangle, if $c$ denotes the length of the hypotenuse and
@@ -93,18 +94,14 @@ $a$ and $b$ the lengths of the other two sides, then
 $$a^2 + b^2 = c^2.$$
 :::
 
-<aside>
-
-Table 2.1 on
+<aside>Table 2.1 on
 [this](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html)
 page from *Authoring Books with R Markdown* lists all the other
-available theorem environments and their respective keywords.
-
-</aside>
+available theorem environments and their respective keywords.</aside>
 
 #### Proof {.unnumbered}
 
-``` {.latex}
+``` latex
 ::: {.proof}
 
 ## Pythagorean theorem
@@ -121,11 +118,10 @@ $$
 :::
 ```
 
-::: {.fig-border}
+::: fig-border
 :::
 
-::: {.proof}
-
+::: proof
 ## Pythagorean theorem
 
 Let $x, y$ be ...
@@ -139,7 +135,7 @@ $$
 $$
 :::
 
-::: {.fig-border}
+::: fig-border
 :::
 
 #### Automatic numbering {.unnumbered}
@@ -148,10 +144,10 @@ The nice thing about Bookdown is that it will automatically number
 definitions and theorems so that you can easily cross-reference them
 later on (see the [Cross-references](#cross-references) section below).
 Just replace the name following the `#` (`pyth-thm` in the example
-below) with a unique label (containing no spaces) that will be convenient
-to reference.
+below) with a unique label (containing no spaces) that will be
+convenient to reference.
 
-``` {.latex}
+``` latex
 ::: {#def-cont-map}
 
 ## Continuous map
@@ -162,19 +158,14 @@ spaces.
 ```
 
 ::: {#def-cont-map}
-
 ## Continuous map
 
 A continuous map is a continuous function between two topological
 spaces.
 :::
 
-<aside>
-
-Notice that definition's number was automatically incremented from the
-previous definition.
-
-</aside>
+<aside>Notice that the definition's number was automatically incremented
+from the previous definition.</aside>
 
 # Assorted math examples {#sec-math-elements}
 
@@ -182,7 +173,7 @@ Here is an assortment of LaTeX examples along with their output.
 
 #### Brace annotation {.unnumbered}
 
-``` {.latex}
+``` latex
 $$
 \underbrace{\ln \left( \frac{5}{6} \right)}_{\simeq -0.1823} <
 \overbrace{\exp \left(\frac{1}{2} \right)}^{\simeq 1.6487}
@@ -196,7 +187,7 @@ $$
 
 #### Brackets and braces {.unnumbered}
 
-``` {.latex}
+``` latex
 $$
 ( a ), [ b ], \{ c \}, | d |, \| e \|,
 \langle f \rangle, \lfloor g \rfloor,
@@ -212,7 +203,7 @@ $$
 / j \backslash
 $$
 
-``` {.latex}
+``` latex
 $$
 ( \big( \Big( \bigg( \Bigg(
 $$
@@ -224,7 +215,7 @@ $$
 
 #### Fractions {.unnumbered}
 
-``` {.latex}
+``` latex
 $$
 \begin{equation}
     x = a_0 + \cfrac{1}{a_1 
@@ -242,7 +233,7 @@ $$
 \end{equation}
 $$
 
-``` {.latex}
+``` latex
 $$
 \frac{
 \begin{array}[b]{r}
@@ -255,11 +246,8 @@ $$
 $$
 ```
 
-<aside>
-
-The `\left(` / `\right)` command encloses its contents in big brackets.
-
-</aside>
+<aside>The `\left(` / `\right)` command encloses its contents in big
+brackets.</aside>
 
 $$
 \frac{
@@ -274,7 +262,7 @@ $$
 
 #### Calculus expressions {.unnumbered}
 
-``` {.latex}
+``` latex
 $$
 \int_0^\infty \mathrm{e}^{-x} ~ \mathrm{d}x
 $$
@@ -284,7 +272,7 @@ $$
 \int_0^\infty \mathrm{e}^{-x} ~ \mathrm{d}x
 $$
 
-``` {.latex}
+``` latex
 $$
 \int\limits_a^b \sin(x) ~ \mathrm{d}x
 $$
@@ -294,7 +282,7 @@ $$
 \int\limits_a^b \sin(x) ~ \mathrm{d}x
 $$
 
-``` {.latex}
+``` latex
 $$
 \sum_{
 \substack{
@@ -316,7 +304,7 @@ $$
 
 #### Linear algebra expressions {.unnumbered}
 
-``` {.latex}
+``` latex
 $$
 \begin{matrix}
     a & b & c \\
@@ -334,7 +322,7 @@ $$
 \end{matrix}
 $$
 
-``` {.latex}
+``` latex
 $$
 A_{m,n} = 
 \begin{pmatrix}
@@ -356,7 +344,7 @@ A_{m,n} =
 \end{pmatrix}
 $$
 
-``` {.latex}
+``` latex
 $$
 X = 
 \begin{bmatrix}
@@ -376,7 +364,7 @@ X =
 \end{bmatrix}
 $$
 
-``` {.latex}
+``` latex
 $$
 X 
 = 
@@ -400,11 +388,7 @@ X
 $$
 ```
 
-<aside>
-
-The `~` symbol represents a whitespace character.
-
-</aside>
+<aside>The `~` symbol represents a whitespace character.</aside>
 
 $$
 \begin{align}
@@ -432,7 +416,7 @@ $$
 
 #### Probability expressions {.unnumbered}
 
-``` {.latex}
+``` latex
 $$
 \left(\!
 \begin{array}{c}
@@ -454,7 +438,7 @@ $$
 = \frac{n!}{r!(n-c)!}
 $$
 
-``` {.latex}
+``` latex
 $$
 \begin{equation} 
     \phi \left(x; \mu, \sigma \right) 
@@ -482,7 +466,7 @@ Unlike in pure LaTeX, in `bookdown` we must manually assign labels to
 every line that should have a number. I do so for significant passages,
 steps, and equations. Here is an example of a numbered equation:
 
-``` {.latex}
+``` latex
 $$
 \begin{equation} 
     \mathbb{P} \left(k\right) 
@@ -514,7 +498,7 @@ number we add an `(\#eq:<equation-label>)` after closing the split
 environment with `\end{split}`. Just replace the text after the `\#eq:`
 prefix with a memorable label of your choice.
 
-``` {.latex}
+``` latex
 $$
 \begin{split}
 \mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y) \\
@@ -546,13 +530,13 @@ Some additional notes:
 We can number lines individually by using the LaTeX `align` environment
 and adding a unique `(\#eq:<equation-label>)` at the end of every line
 that should have a number. Additionally, we can add in-line comments by
-placing `&&` followed by `(<my LaTeX-formatted comment>)` at the end of the line,
-before the number label. As with our use of the `&` operator to align
-successive lines of math, the `&&` operator tells the LaTeX
-compiler to align comments, but to do so to the right of the 
-aligned math.
+placing `&&` followed by `(<my LaTeX-formatted comment>)` at the end of
+the line, before the number label. As with our use of the `&` operator
+to align successive lines of math, the `&&` operator tells the LaTeX
+compiler to align comments, but to do so to the right of the aligned
+math.
 
-``` {.latex}
+``` latex
 $$
 \begin{align}
 \sum_{i=1}^{n} \left( X_i - \overline{X} \right )
@@ -574,14 +558,10 @@ $$
 $$ {#eq-var}
 ```
 
-<aside>
-
-We use `scriptstyle` to make the inline text smaller. Other custom
-display options are detailed
+<aside>We use `scriptstyle` to make the inline text smaller. Other
+custom display options are detailed
 [here](https://www.overleaf.com/learn/latex/Display_style_in_math_mode)
-(by *Overleaf*).
-
-</aside>
+(by *Overleaf*).</aside>
 
 $$
 \begin{align}
@@ -644,7 +624,7 @@ We can also execute the code within R Markdown and display the output.
 Here's an example using ggplot2 that also illustrates how to display a
 numbered figure with a caption:
 
-::: {.fig-border}
+::: fig-border
 :::
 
 ```{r}
@@ -696,15 +676,12 @@ ggplot(
   guides(color = guide_legend(override.aes = list(fill = "white")))
 
 ```
-<aside>
 
-A good reference for theme options is
+<aside>A good reference for theme options is
 [here](https://ggplot2.tidyverse.org/reference/theme.html) (*ggplot
-documentation*).
+documentation*).</aside>
 
-</aside>
-
-::: {.fig-border}
+::: fig-border
 :::
 
 A couple notes:
@@ -737,7 +714,7 @@ df$group <- factor(df$group, levels = c('G1', 'G2', 'G3'))
 df
 ```
 
-::: {.fig-border}
+::: fig-border
 :::
 
 ```{r}
@@ -808,7 +785,7 @@ p
 
 ```
 
-::: {.fig-border}
+::: fig-border
 :::
 
 #### Tables {.unnumbered}
@@ -817,8 +794,7 @@ We can also display data frames as nicely formatted tables. This example
 uses [`kable`](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html)
 to render the built-in `mtcars` dataset as a static table:
 
-::: {.scroll-container}
-
+::: scroll-container
 ```{r}
 #| label: tbl-1
 #| tbl-cap: This is a table caption
@@ -826,7 +802,6 @@ library(knitr)
 kable(head(mtcars))
 
 ```
-
 :::
 
 #### Paged tables {.unnumbered}
@@ -844,15 +819,11 @@ paged_table(mtcars)
 
 ```
 
-<aside>
-
-Use the knitr option `layout="l-body-outset"` to make the figure or
-table span the width of the page. More information
+<aside>Use the knitr option `layout="l-body-outset"` to make the figure
+or table span the width of the page. More information
 [here](https://rstudio.github.io/distill/figures.html) and
 [here](https://rstudio.github.io/distill/figures.html) (from the
-*Distill for R Markdown documentation*).
-
-</aside>
+*Distill for R Markdown documentation*).</aside>
 
 #### Images {.unnumbered}
 
@@ -866,44 +837,29 @@ knitr::include_graphics("thumbnail.jpg")
 
 ```
 
-<aside>
-
-The `"class=external"` knitr option creates a frame around the image.
-
-</aside>
+<aside>The `"class=external"` knitr option creates a frame around the
+image.</aside>
 
 # Cross-references {#cross-references}
 
 Now that we have some labelled equations and images, we can create
 hyperlinked references to them. Here are some examples:
 
-+----------------------------------+-----------------------------------+
-| Example                          | Raw                               |
-+==================================+===================================+
-| *Bookdown environment*: See      | `@thm-pyth`                       |
-| Theorem @thm-pyth.               |                                   |
-+----------------------------------+-----------------------------------+
-| *Math equation*: See equation    | `@eq-var-beta`                    |
-| @eq-var-beta.                    |                                   |
-+----------------------------------+-----------------------------------+
-| *Figure or image*: See Fig.      | `@fig-1`                          |
-| @fig-1.                          |                                   |
-+----------------------------------+-----------------------------------+
-| *Header*: See @sec-math-elements.| `@sec-math-elements`              |
-|                                  |                                   |
-+----------------------------------+-----------------------------------+
+| Example                                        | Raw                  |
+|------------------------------------------------|----------------------|
+| *Bookdown environment*: See Theorem @thm-pyth. | `@thm-pyth`          |
+| *Math equation*: See equation @eq-var-beta.    | `@eq-var-beta`       |
+| *Figure or image*: See Fig. @fig-1.            | `@fig-1`             |
+| *Header*: See @sec-math-elements.              | `@sec-math-elements` |
 
-<aside>
-
-Table 2.1 on
+<aside>Table 2.1 on
 [this](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html)
-page from *Authoring Books with R Markdown* lists the label prefixes for all other
-available theorem environments (we use the `thm` prefix here).
-
-</aside>
+page from *Authoring Books with R Markdown* lists the label prefixes for
+all other available theorem environments (we use the `thm` prefix
+here).</aside>
 
 **Note**: The section 1 header is followed by the label
-{\#math-elements}.
+{#math-elements}.
 
 # References
 
@@ -914,7 +870,7 @@ bibtex document, you can cite them in-text as follows and they will
 automatically appear, with proper formatting, in the 'References'
 section at the bottom of your document:
 
-``` {.html}
+``` html
 [@james2013introduction]
 ```
 
@@ -922,7 +878,7 @@ section at the bottom of your document:
 
 This is the bibtex entry in my `.bib` file to which this example refers:
 
-``` {.latex}
+``` latex
 @book{james2013introduction,
   title={An introduction to statistical learning},
   author={James, Gareth and Witten, Daniela and Hastie, Trevor and Tibshirani, Robert},
@@ -936,7 +892,7 @@ This is the bibtex entry in my `.bib` file to which this example refers:
 
 This is a manual citation with a footnote:
 
-``` {.html}
+``` html
 (Axler, 2019)[^1].
 ```
 
@@ -945,7 +901,7 @@ This is a manual citation with a footnote:
 At the bottom of my document I have a corresponding footnote entry that
 looks like:
 
-``` {.html}
+``` html
 [^1]: Axler, S. (1997). *Linear algebra done right*.
 Springer Science & Business Media.
 ```
@@ -954,7 +910,7 @@ Springer Science & Business Media.
 
 I have been using these throughout. Here's how to create them:
 
-``` {.html}
+``` html
 <aside>
 
 This content will appear in the gutter of the article.
@@ -962,11 +918,7 @@ This content will appear in the gutter of the article.
 </aside>
 ```
 
-<aside>
-
-This content will appear in the gutter of the article.
-
-</aside>
+<aside>This content will appear in the gutter of the article.</aside>
 
 # Columns
 
@@ -974,7 +926,7 @@ Using some [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 magic, we can create a two-column layout with both columns occupying 50%
 of the width of the screen like so:
 
-``` {.css}
+``` css
 ::: {style="display: flex; width: 100%;"}
 ::: {style="flex: 2; padding: 10px;"}
 ![](../../images/banner-fuji-01.jpg "fujinai")
@@ -990,7 +942,7 @@ width="100%"}
 :::
 ```
 
-::: {.fig-border}
+::: fig-border
 :::
 
 ::: {style="display: flex; width: 100%;"}
@@ -1006,7 +958,7 @@ width="100%"}
 :::
 :::
 
-::: {.fig-border}
+::: fig-border
 :::
 
 The settings for both columns are placed in the first pair of curly
@@ -1040,10 +992,10 @@ And to finish it off, let's use some
 [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference)
 magic to center, enlarge, and change the colour of some text:
 
-::: {.fig-border}
+::: fig-border
 :::
 
-``` {.html}
+``` html
 <p style="text-align:center; font-size:160%; color:darkblue;">
     This is a big, blue, <b>bold</b> sentence.
 </p>
@@ -1054,10 +1006,10 @@ magic to center, enlarge, and change the colour of some text:
     This is a big, blue, <b>bold</b> sentence.
 </p>
 ```
-::: {.fig-border}
+::: fig-border
 :::
 
-# Conclusion {.unnumbered}
+# Concluding remarks {.unnumbered}
 
 And that's it! As we've seen, R Markdown is a powerful integrated tool
 for text editing, coding, and mathematical typesetting. Combined with

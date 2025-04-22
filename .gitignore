@@ -1,42 +1,79 @@
-# Development files and folders ------------------------------------------------
+# -- Development files and folders ------------------------------------------
 
-# Development I/O folders (arbitrarily nested)
+# Development i/o (arbitrarily nested)
 images/
 !docs/images/
 **/data/
 **/input/
 **/output/
 
-# Archives (with arbitrary nesting and basename)
+# Archives (arbitrary nesting and basename)
 **/archive/
 *_archive
 
+# Rendering artifacts
+*_files/
+/posts/*.html
+
 # Specific ignorable files and folders
-resources/
-.gitignore_
 *.Rmd
-*.rmd
-*.ipynb
-favicon.jpg
+resources/
 _gallery/
+.gitignore_
+favicon.jpg
 
 # Environment
 renv/
 renv.lock
-_freeze/
 
-# Build files/folders
-*_files/
-/posts/*.html
+# Keys/settings
+.env
 
 
-# System-generated -------------------------------------------------------------
+# -- System config/cache -----------------------------------------------------
 
+# IDE
+.vscode/
+.ipynb_checkpoints
+
+# OS
 ~$*
 *.DS_Store
 
 
-# Project files and folders ----------------------------------------------------
+# -- Python config/cache -----------------------------------------------------
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# pyenv
+.python-version
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+coverage.xml
+*.cover
+.hypothesis/
+.benchmarks/
+
+# Typing
+.mypy_cache/
+
+
+# -- R config/cache ----------------------------------------------------------
 
 # Session data files
 .RData
@@ -63,3 +100,4 @@ _freeze/
 # Other
 .quarto
 .httr-oauth
+/.quarto/
