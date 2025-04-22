@@ -1,8 +1,6 @@
 ---
 page-layout: full
 
-execute:
-  freeze: auto
 format:
   html:
     toc: true
@@ -36,14 +34,12 @@ source("src/r/cards.R")
 
 ```{python setup-py}
 #| echo: false
-# #| file: src/python/cards.py
 import sys
 import yaml
 import pandas as pd
 
 sys.path.append("src/python")
 from cards import format_projects, sync_projects
-# from src.python.cards import format_projects, sync_projects
 ```
 
 
