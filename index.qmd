@@ -1,4 +1,5 @@
 ---
+title: ""
 page-layout: full
 
 format:
@@ -11,8 +12,8 @@ format:
 ---
 
 ::: {.banner}
-<center>
-<h1 style="letter-spacing: 2.5px;">Matthew Bain</h1>
+::: {.centered}
+<h1 style="text-align: center; letter-spacing: 2.5px;">Matthew Bain</h1>
 
 ---
 
@@ -20,6 +21,7 @@ Data scientist, machine learning expert, lover of statistics, and
 part-time musician. Building interpretable, robust, responsible machine
 learning applications.
 </center>
+:::
 :::
 
 ```{r setup-r}
