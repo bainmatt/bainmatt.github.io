@@ -1,0 +1,72 @@
+# Options specified here will apply to all posts in this folder.
+
+# Freeze computed outputs
+# freeze: true
+
+# Enable banner style title blocks
+title-block-banner: "#f5f5f5"
+title-block-style: default
+
+# Default fields for title block
+abstract-title: abstract
+# date-modified: today
+
+# Disable section numbering
+number-sections: false
+
+# Default fields for table of contents
+toc: true
+toc-depth: 2
+toc-location: left
+toc-title: Table of contents
+toc-expand: true
+
+# Default knitr options
+execute:
+  echo: true
+  eval: true
+  message: false
+  warning: false
+
+# Default fields for citation
+citation: true
+author:
+  - name: Matthew Bain
+    url: https://bainmatt.github.io/
+
+# Enable CC licence appendix
+license: "CC BY"
+
+# Default fields for cross-referencing
+crossrefs-hover: true
+footnotes-hover: true
+citations-hover: true
+notebook-links: true
+
+# Default fields for figures
+# fig-format: svg
+fig-align: center
+# cap-location: bottom
+
+# Default fields for tables
+df-print: default
+
+# Default fields for code blocks
+code-link: true
+code-fold: false
+code-copy: hover
+code-line-numbers: false
+code-block-border-left: false
+code-tools:
+  source: repo
+  toggle: true
+  caption: none
+  
+# Default fields for HTML text output
+strip-comments: false
+
+# Link to shared environment lock file by default
+# code-links:
+#   - text: Lockfile
+#     icon: file-lock
+#     href: https://github.com/bainmatt/bainmatt.github.io/tree/main/environment.yml

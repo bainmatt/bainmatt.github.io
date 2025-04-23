@@ -1,28 +1,17 @@
 ---
 title: "Writing template"
 subtitle: |
-  A concise reference for tehnical writing with Quarto.
-date: "2024-03-18"
-categories: [Bayesian inference, Learning theory]
-image: ../../images/childe-hassam-the-concord-meadow.jpg
-bibliography: ../../generic-bib.bib
+  A concise reference for technical writing with Quarto.
+date: 2024-03-18
+categories: [Reference, Orphan]
+image: thumbnail.jpg
+image-alt: "The Concord Meadow by Childe Hassam, public domain."
+bibliography:
+  - ../../assets/references.bib
 
-author: "Matthew Bain"
-title-block-banner: true
-citation: true
-execute:
-  echo: true
-  eval: true
 format:
   html:
-    code-line-numbers: false
-    code-block-border-left: false
-    toc: true
-    toc-expand: true
-    toc-depth: 2
-    toc-location: left
     number-sections: true
-    include-in-header: ../../favicon.html
 
 draft: true
 draft-mode: unlinked
@@ -36,7 +25,7 @@ import pandas as pd
 import matplotlib as mpl
 
 sys.path.append("../../src/python")
-mpl.rc_file("../../vizz.mplstyle")
+mpl.rc_file("../../assets/vizz.mplstyle")
 
 # from cards import sync_projects
 # pd.read_csv("../../data/3class_data.csv")

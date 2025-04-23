@@ -7,22 +7,17 @@ project:
 
 # -- Optional additions ------------------------------------------------------
 
-include-in-header: favicon.html
-
 execute:
   freeze: auto
 
 website:
   title: "Matthew Bain"
-  favicon: favicon.html
-  image: favicon.jpg
+  favicon: assets/favicon.jpg
+  image: assets/favicon.jpg
   site-url: https://bainmatt.github.io
   repo-url: https://github.com/bainmatt/bainmatt.github.io
   open-graph: true
   search: true
-  # drafts:
-  #   - stuff/item2.qmd
-  # draft-mode: unlinked
   navbar:
     title: false
     background: "white"
@@ -33,7 +28,7 @@ website:
         text: "About"
       - href: posts.qmd
         text: "Resources"
-      - href: music-page.qmd
+      - href: music.qmd
         text: "Music"
       - href: https://bainmatt.github.io/cv/cv_matthewbain.html
         text: "Résumé"
@@ -52,5 +47,5 @@ format:
   html:
     theme: ember
     css:
-      - styles.css
-      - generic-css.css
+      - assets/styles.css
+      - assets/styles-extra.css

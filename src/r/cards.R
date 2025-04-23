@@ -37,7 +37,7 @@ add_card <- function(
   }
   tools_tag <- if (!is.na(tools)) {
     paste0(
-      '<small class="text-muted"><strong>Tools:</strong> ',
+      '<small class="text-muted"><strong>Tools used:</strong> ',
       tools,
       '</small>',
       '\n'
@@ -58,6 +58,7 @@ add_card <- function(
     '<div class="card-body">',
     paste0('<h2 class="card-title">', name, '</h2>'),
     paste0('<div class="mb-1">', type_tag, '</div>'),
+    # "&nbsp;",
     paste0('<p class="card-text">', text, '</p>'),
     '</div>',
     '<div class="card-footer">',
