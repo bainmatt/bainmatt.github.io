@@ -1,0 +1,146 @@
+/* -------------------------------------------------------------------------- */
+/* Custom CSS styles. */
+/* -------------------------------------------------------------------------- */
+
+/* Import custom Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Bitter&family=DM+Mono&display=swap');
+
+
+/* --- CUSTOM DIVS -- */
+
+/* Figure/image/proof hr container
+/* Use: Wrap in <div class="fig-border"> * 2 */
+.fig-border {
+  margin-top: -15px;
+  padding-top: 0px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+/* Apply horizontal scroll to a specific container */
+/* Use: Wrap large kable tables/math blocks in */
+/* <div class="scroll-container"> ... </div> */
+.scroll-container {
+  max-width: max-content;
+  overflow-x: auto;
+}
+
+
+/* --- FONTS --- */
+
+:root {
+  /* Font sizes */
+  --title-size:      2rem;
+  --body-size:       .975rem;
+  --code-size:       .85rem;
+  --aside-size:      .875rem;
+  --fig-cap-size:    .875rem;
+
+  /* Font families ~~~ must be imported above */
+  --heading-font:    "Noto Serif JP", sans-serif;
+  --mono-font:       "IBM Plex Mono", monospace;
+  --body-font:       "Lato", sans-serif;
+  --navbar-font:     "Lato", sans-serif;
+}
+
+/* Apply fonts */
+title {
+  font-family: default;
+  font-size: default;
+}
+
+h1 {
+  font-family: default;
+  font-size: default;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: default;
+  font-size: default;
+}
+
+code, pre {
+  font-family: default;
+  font-size: var(--code-size);
+}
+
+body {
+  font-family: default;
+  font-size: var(--body-size);
+}
+
+.navbar, .nav-link {
+  font-family: default;
+  font-size: default;
+}
+
+figcaption, .figure-caption {
+  font-size: var(--fig-cap-size);
+  color: default;
+  font-style: normal;
+  text-align: left;
+}
+
+/* TODO: Bold the "Figure" or "Table" tag */
+
+
+/* --- FONT SPACING -- */
+
+/* Body text line height */
+body {
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: default;
+}
+
+
+/* --- HEADER SPACING -- */
+
+/* --- Fixed letter spacing, weights, line heights  --- */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  /* letter-spacing: normal; */
+  letter-spacing: 2px;
+  line-height: normal;
+}
+
+/* --- Fixed padding -- */
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  margin-top: default;
+  /* margin-top: 40px; */
+}
+
+
+/* --- ORDERED LISTS --- */
+
+/* Bulletted list items padding */
+/* ul {
+  margin-top: 0;
+  margin-bottom: 0;
+} */
+
+/* ul > li {
+  margin-bottom: 2px;
+} */
+
+/* Numbered list items padding */
+/* ol {
+  margin-top: 0;
+  margin-bottom: 0;
+} */
+
+/* ol > li {
+  margin-bottom: 2px;
+} */
+
+
+/* --- ORDERED LIST INDICES --- */
+
+/* ul > li::marker {
+  color: #ca225e;
+} */
+
+/* ol > li::marker {
+  color: #ca225e;
+} */

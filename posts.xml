@@ -10,7 +10,7 @@
 <atom:link href="https://bainmatt.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <image>
-<url>https://bainmatt.github.io/favicon.jpg</url>
+<url>https://bainmatt.github.io/assets/favicon.jpg</url>
 <title>Matthew Bain</title>
 <link>https://bainmatt.github.io/posts.html</link>
 </image>
@@ -2596,7 +2596,7 @@ James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013. <em>A
 <ol>
 <li id="fn1"><p>Axler, S. (1997). <em>Linear algebra done right</em>. Springer Science &amp; Business Media.↩︎</p></li>
 </ol>
-</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{bain2024,
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{bain2024,
   author = {Bain, Matthew},
   title = {Technical Reports with {R} {Markdown} \&amp; {Bookdown}},
   date = {2024-03-22},
@@ -2610,7 +2610,7 @@ Bookdown.”</span> March 22, 2024. <a href="https://bainmatt.github.io/posts/20
   <category>Reference</category>
   <guid>https://bainmatt.github.io/posts/2024-03-15-writing-temp/</guid>
   <pubDate>Fri, 22 Mar 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://bainmatt.github.io/images/childe-hassam-the-concord-meadow.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://bainmatt.github.io/posts/2024-03-15-writing-temp/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
