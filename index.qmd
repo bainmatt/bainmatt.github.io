@@ -15,12 +15,14 @@ format:
 <!-- ![](images/icon-comp.jpg "fujinai"){style="border: 0px solid black; box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4)" width="250px" fig-align="center" class="circular"} --> 
 
 ::: {.centered}
-# Matthew Bain
+<h1 class="title text-center" style="font-weight: 600; color: rgb(100, 100, 100); letter-spacing: 2.5px;">Matthew Bain</h1>
+
+<!-- # Matthew Bain -->
 
 ---
 
 Data scientist, machine learning expert, lover of statistics, and
-part-time musician building interpretable, robust, responsible machine
+part-time musician. Building interpretable, robust, responsible machine
 learning applications.
 :::
 
