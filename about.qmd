@@ -47,5 +47,5 @@ guide me through the mist toward structure and meaning.
 I find it especially thrilling to implement statistical ideas through
 code and neat data analyses.
 I like to write about my favourite projects and discoveries. 
-You can find some of that [here](gallery.html). 
-I also make music on the side -- you can find that [here](music-page.html).
+You can find some of that [here](posts.html). 
+I also make music on the side -- you can find that [here](music.html).

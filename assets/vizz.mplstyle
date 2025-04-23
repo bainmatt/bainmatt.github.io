@@ -1,0 +1,120 @@
+# Usage guidelines:
+#
+# In a script/notebook:
+#
+# 	$ import matplotlib.pyplot as plt
+#	$ plt.style.use(‘path/to/vizz.mplstyle’)
+#
+# Set as default for a session:
+#
+#	$ import matplotlib as mpl
+# 	$ mpl.rc_file(‘path/to/vizz.mplstyle’)
+#
+
+
+# -- General properties --------------------------------------------------
+
+# Font face and sizes
+font.family: sans-serif
+# font.sans-serif: Verdana
+font.size: 9               # default font sizes
+axes.titlesize: 14         # large
+axes.labelsize: 12         # medium
+xtick.labelsize: 10        # medium
+ytick.labelsize: 10        # medium
+legend.fontsize: 10        # medium
+legend.title_fontsize: 11  # None (same as default axes)
+figure.titlesize: 15       # large (suptitle size)
+figure.labelsize: 13       # large (sup[x|y]label size)
+
+# Spines and ticks
+axes.spines.top: True
+axes.spines.right: True
+axes.linewidth: 0.7
+axes.edgecolor: black
+xtick.direction: out
+ytick.direction: out
+xtick.major.size: 0        # default: 3.5
+ytick.major.size: 0        # default: 3.5
+# xtick.major.width:  0.8
+# ytick.major.width:  0.8
+
+# Grid
+axes.grid.which: major
+grid.linestyle: -
+grid.color: "#CCCCCC"
+grid.linewidth: 0.8
+grid.alpha: 0.2
+
+# Label placement
+axes.titlelocation: center  # {left, right, center}
+axes.titlepad: 7.5  	    # 6
+axes.labelpad: 7.5  	    # 4
+# xtick.major.pad: 3.5      # dist to major tick label in pts
+# ytick.major.pad: 3.5
+
+# Discrete color cycle
+axes.prop_cycle: cycler('color', ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728"])
+# axes.prop_cycle: cycler('color', sns.color_palette("PiYG", n_colors=6))
+# axes.prop_cycle: cycler('color', mpl.cm.PiYG(np.linspace(0.15, .85, 6)))
+
+# Legend properties
+legend.loc: best
+legend.frameon: False
+
+# Legend padding
+# legend.borderpad: 0.4      # border whitespace
+# legend.labelspacing: 0.5   # vert space between entries
+legend.handlelength: 1.35    # length of the legend lines
+# legend.handleheight: 0.7   # height of the legend handle
+legend.handletextpad: 0.8    # space btwn leg lines/text
+legend.borderaxespad: 0.5    # border btwn axes/leg edge
+legend.columnspacing: 1.0    # column separation
+
+# Space-filling object properties (e.g., polygons/circles, bars/scatter)
+patch.edgecolor: black       # if forced, else not filled
+patch.force_edgecolor: True
+patch.linewidth: 0.4         # edgewidth (default: .5)
+
+
+# -- Object-specific properties ------------------------------------------
+
+# Line properties
+lines.markersize: 6
+lines.linewidth: 2
+
+# Error properties
+errorbar.capsize: 3
+
+# Contour properties
+contour.linewidth: 1
+
+# Box properties
+boxplot.boxprops.linewidth: 0      	# box outline (0.5)
+# boxplot.boxprops.color: none     	# alt: 'black'
+boxplot.whiskerprops.linewidth: 0.65
+boxplot.whiskerprops.linestyle: --
+boxplot.capprops.linewidth: 0.75
+boxplot.medianprops.linewidth: 1
+boxplot.medianprops.linestyle: -
+boxplot.meanprops.linewidth: 1
+boxplot.meanprops.linestyle: -
+boxplot.flierprops.markerfacecolor: none
+boxplot.flierprops.markeredgewidth: 0.65
+boxplot.flierprops.marker: o
+
+
+# -- Figure padding ------------------------------------------------------
+
+# Figure layout
+figure.autolayout: True
+figure.constrained_layout.use: True
+
+# Figure size and quality
+figure.dpi: 100         # Note: Alters figure size
+figure.figsize: 5, 5    # (6, 4), (6.4, 4.8)
+
+# Figure saving settings
+savefig.transparent: False
+savefig.format: svg     # {png, ps, pdf, svg}
+savefig.dpi: 330

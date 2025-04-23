@@ -4,31 +4,20 @@ subtitle: |
   I provide code snippets for a variety of text environments and formats
   that can be created with R Markdown and the Bookdown package. I focus on
   the elements most useful for writing math.
-date: "2024-03-22"
+date: 2024-03-22
 categories: [Reference]
-image: ../../images/childe-hassam-the-concord-meadow.jpg
-bibliography: ../../generic-bib.bib
+image: thumbnail.jpg
+image-alt: "The Concord Meadow by Childe Hassam, public domain."
+bibliography:
+  - ../../assets/references.bib
 code-links:
-  - text: cheatsheet
+  - text: Cheat sheet
     icon: file-code
     href: https://bainmatt.github.io/posts/2024-03-15-writing-temp/cheatsheet.html
 
-author: "Matthew Bain"
-title-block-banner: true
-citation: true
-execute:
-  echo: true
-  eval: true
 format:
   html:
-    code-line-numbers: false
-    code-block-border-left: false
-    # highlight-style: tango
-    toc: true
-    toc-depth: 2
-    toc-location: left
     number-sections: true
-    include-in-header: ../../favicon.html
 
 draft: false
 ---
@@ -629,12 +618,12 @@ numbered figure with a caption:
 ```{r}
 #| label: fig-1
 #| fig-cap: This is a figure caption.
-#| fig-width: 6
-#| fig-height: 3.5
 #| warning: false
 #| echo: true
 #| include: true
 #| eval: true
+#| fig-width: 6
+#| fig-height: 3.5
 library(ggplot2)
 
 diamonds$color_group <- factor(ifelse(
@@ -719,12 +708,12 @@ df
 ```{r}
 #| label: fig-2
 #| fig-cap: Figure caption.
-#| fig-width: 6
-#| fig-height: 3.5
 #| warning: false
 #| echo: true
 #| include: true
 #| eval: true
+#| fig-width: 6
+#| fig-height: 3.5
 library(ggplot2)
 library(ggplot2)
 library(ggtext)
