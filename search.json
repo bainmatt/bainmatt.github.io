@@ -9,21 +9,21 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Matthew Bain",
+    "title": "\nMatthew Bain\n",
     "section": "",
-    "text": "Data scientist, machine learning expert, lover of statistics, and part-time musician building interpretable, robust, responsible machine learning applications."
+    "text": "Data scientist, machine learning expert, lover of statistics, and part-time musician. Building interpretable, robust, responsible machine learning applications."
   },
   {
     "objectID": "index.html#packages",
     "href": "index.html#packages",
-    "title": "Matthew Bain",
+    "title": "\nMatthew Bain\n",
     "section": "Packages",
     "text": "Packages\n\n\n\n\n\n\n\n\n\n\nautocv\n\n\nR Package\n\n\nBuilt an R package automating repetitive elements of the job application process, including managing work history data, building and rendering documents, and performing text analysis to extract and evaluate keywords\n\n\n\n\n\n\nbainmatt.github.io/autocv\n\n\n\n\n\n\n\n\n\n\n\n\ndatopy\n\n\nPython Package\n\n\nImplemented and maintain a Python package for working with unstructured data, providing a simple interface for web scraping, data modeling, and building ETL pipelines\n\n\n\n\nTools used: Pandas, PyTest, Pydantic, GitHub Actions\n\ndatopy.readthedocs.io/latest\n\n\n\n\n\n\n\n\n\n\nmlvizz\n\n\nPython Package\n\n\nBuild Python interfaces facilitating efficient, intuitive model selection, hyperparameter tuning, model inspection, and ML pipeline development through modular, object-oriented designs with built-in data validation\n\n\n\n\nTools used: Scikit-learn, TensorFlow, ArviZ, PyMC, SciPy\n\n\n\n\n\n\n\n\n\n\n\nstatvizz\n\n\nPython Package\n\n\nBuild Python extensions unifying Pandas data summarization with Seaborn statistical plotting functionality for a unified, intuitive, fully transparent statistical plotting interface\n\n\n\n\nTools used: Pandas, Seaborn, SciPy, Matplotlib\n\n\n\n\n\n\n\n\n\n\n\nmathvizz\n\n\nPython Package\n\n\nBuild Python interfaces for exploring the geometry of machine learning mathematics, including linear maps, functions and derivatives, statistical distributions, series approximations, motion along parametric curves and within vector fields\n\n\n\n\nTools used: SymPy, SciPy, Seaborn, Matplotlib"
   },
   {
     "objectID": "index.html#misc.",
     "href": "index.html#misc.",
-    "title": "Matthew Bain",
+    "title": "\nMatthew Bain\n",
     "section": "Misc.",
     "text": "Misc.\n\n\n\n\n\n\n\n\n\n\nSuperstore Dashboard\n\n\nTableau Dashboard\n\n\nDesigned a comprehensive, interactive business dashboard displaying sales for a superstore in a convenient, unified view, including key KPIs and transactions as a function of both space and time\n\n\n\n\nTools used: SQL, Excel\n\npublic.tableau.com/app\n\n\n\n\n\n\n\n\n\n\n\n\nGeospatial Data Explorer\n\n\nStreamlit App\n\n\nImplemented a data application with a dashboard interface and interactive plots displaying geospatial data such as KPIs in space and time, both at the state and county level\n\n\n\n\nTools used: Streamlit, Pandas, Plotly, Altair, GeoPandas\n\nzipexplorer.streamlit.app"
   },
