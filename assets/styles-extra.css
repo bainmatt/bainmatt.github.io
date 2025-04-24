@@ -9,7 +9,7 @@
 :root {
   /* Font sizes */
   --title-size:      2rem;
-  --body-size:       .95rem;
+  --body-size:       .965rem;
   --code-size:       .85rem;
   --aside-size:      .875rem;
   --fig-cap-size:    .875rem;
@@ -81,7 +81,7 @@ body {
 h1 {
   font-weight: 375;
   letter-spacing: normal;
-  line-height: default;
+  line-height: unset;
 }
 
 h2, h3 {

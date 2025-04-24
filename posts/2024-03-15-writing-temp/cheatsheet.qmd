@@ -7,9 +7,7 @@ categories: [Reference, Orphan]
 image: thumbnail.jpg
 image-alt: "The Concord Meadow by Childe Hassam, public domain."
 
-format:
-  html:
-    number-sections: true
+number-sections: true
 
 draft: true
 draft-mode: unlinked
