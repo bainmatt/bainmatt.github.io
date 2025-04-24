@@ -17,6 +17,7 @@ crossref:
 ---
 
 ::: {.banner}
+#
 <h1 style="letter-spacing: 2.5px;">Matthew Bain</h1>
 
 ---
