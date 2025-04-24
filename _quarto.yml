@@ -35,7 +35,8 @@ website:
   search: true
   navbar:
     title: false
-    background: "white"
+    background: "rgb(250, 250, 250)"
+    # background: "white"
     left:
       - href: index.qmd
         text: "Home"
@@ -62,7 +63,7 @@ website:
         text: bainmatt.github.io
 format:
   html:
-    theme: ember
+    theme: whale.scss  # default, cosmo, flatly
     css:
       - assets/styles.css
       - assets/styles-extra.css

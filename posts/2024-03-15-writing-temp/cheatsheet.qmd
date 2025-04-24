@@ -1,18 +1,17 @@
 ---
 title: "Writing template"
-subtitle: |
+description: |
   A concise reference for technical writing with Quarto.
 date: 2024-03-18
 categories: [Reference, Orphan]
 image: thumbnail.jpg
 image-alt: "The Concord Meadow by Childe Hassam, public domain."
-# bibliography: references.bib
 
 format:
   html:
     number-sections: true
 
-draft: true
+draft: false
 draft-mode: unlinked
 ---
 

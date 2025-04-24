@@ -1,6 +1,6 @@
 ---
 title: "Technical reports with R Markdown & Bookdown"
-subtitle: |
+description: |
   I provide code snippets for a variety of text environments and formats
   that can be created with R Markdown and the Bookdown package. I focus on
   the elements most useful for writing math.
@@ -8,7 +8,6 @@ date: 2024-03-22
 categories: [Reference]
 image: thumbnail.jpg
 image-alt: "The Concord Meadow by Childe Hassam, public domain."
-# bibliography: references.bib
 code-links:
   - text: Cheat sheet
     icon: file-code

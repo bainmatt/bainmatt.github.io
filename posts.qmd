@@ -8,7 +8,7 @@ listing:
   type: default
   categories: true
   image-height: 150px
-  fields: [title, date, author, image, categories, summary]
+  fields: [title, date, author, image, categories, description]
 page-layout: full
 title-block-banner: true
 ---

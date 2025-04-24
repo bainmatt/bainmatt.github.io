@@ -1,14 +1,15 @@
 ---
 title: "Bias-variance decomposition"
-subtitle: |
+description: |
   I motivate, derive, and discuss the bias-variance decomposition, which forms
   the theoretical basis of model validation in machine learning.
 date: 2024-03-18
 categories: [Bayesian inference, Learning theory]
 image: ../../images/childe-hassam-the-concord-meadow-comp.jpg
 image-alt: "The Concord Meadow by Childe Hassam, public domain."
+# bibliography: references.bib
 
-draft: true
+draft: false
 ---
 
 # Header 1
