@@ -1,4 +1,4 @@
-/* css styles */
+/* Custom css containers. */
 
 .circular {
   border-radius: 50%;
@@ -24,6 +24,30 @@
 
 .card-footer > p {
   margin-bottom: 10px;
+}
+
+.info-icon {
+  font-size: 0.8rem;
+  font-weight: 350;
+  letter-spacing: 0.5px;
+  vertical-align: top;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Ruled container (wrap figures/images/proofs) */
+.fig-border {
+  margin-top: -15px;
+  padding-top: 0px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+/* Horizontal scroll container (wrap large kable tables/math blocks) */
+.scroll-container {
+  max-width: max-content;
+  overflow-x: auto;
 }
 
 h2 {

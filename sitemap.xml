@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://bainmatt.github.io/posts/2024-03-18-bias-variance-decomposition/index.html</loc>
+    <lastmod>2025-04-24T20:20:17.166Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bainmatt.github.io/posts/2024-03-15-writing-temp/cheatsheet.html</loc>
+    <lastmod>2025-04-24T20:20:17.161Z</lastmod>
+  </url>
+  <url>
     <loc>https://bainmatt.github.io/music.html</loc>
-    <lastmod>2025-04-24T17:25:25.002Z</lastmod>
+    <lastmod>2025-04-24T20:20:17.161Z</lastmod>
   </url>
   <url>
     <loc>https://bainmatt.github.io/contact.html</loc>
-    <lastmod>2025-04-24T17:25:24.987Z</lastmod>
+    <lastmod>2025-04-24T20:20:17.146Z</lastmod>
   </url>
   <url>
     <loc>https://bainmatt.github.io/about.html</loc>
-    <lastmod>2025-04-24T17:25:24.987Z</lastmod>
+    <lastmod>2025-04-24T20:20:17.146Z</lastmod>
   </url>
   <url>
     <loc>https://bainmatt.github.io/index.html</loc>
-    <lastmod>2025-04-24T17:25:25.001Z</lastmod>
+    <lastmod>2025-04-24T20:20:17.161Z</lastmod>
   </url>
   <url>
     <loc>https://bainmatt.github.io/posts.html</loc>
-    <lastmod>2025-04-24T17:25:25.002Z</lastmod>
+    <lastmod>2025-04-24T20:20:17.161Z</lastmod>
   </url>
   <url>
     <loc>https://bainmatt.github.io/posts/2024-03-15-writing-temp/index.html</loc>
-    <lastmod>2025-04-24T17:25:25.002Z</lastmod>
+    <lastmod>2025-04-24T20:20:17.161Z</lastmod>
   </url>
 </urlset>

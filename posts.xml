@@ -2612,5 +2612,693 @@ Bookdown.”</span> March 22, 2024. <a href="https://bainmatt.github.io/posts/20
   <pubDate>Fri, 22 Mar 2024 00:00:00 GMT</pubDate>
   <media:content url="https://bainmatt.github.io/posts/2024-03-15-writing-temp/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
+<item>
+  <title>Writing template</title>
+  <dc:creator>Matthew Bain</dc:creator>
+  <link>https://bainmatt.github.io/posts/2024-03-15-writing-temp/cheatsheet.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="cell">
+<details class="code-fold">
+<summary>Python setup</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> sys</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb1-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> matplotlib <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> mpl</span>
+<span id="cb1-4"></span>
+<span id="cb1-5">sys.path.append(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"../../src/python"</span>)</span>
+<span id="cb1-6">mpl.rc_file(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"../../assets/vizz.mplstyle"</span>)</span>
+<span id="cb1-7"></span>
+<span id="cb1-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># from cards import sync_projects</span></span>
+<span id="cb1-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># pd.read_csv("../../data/3class_data.csv")</span></span></code></pre></div>
+</details>
+</div>
+<p>Combining R Markdown with typesetting functionality from the <a href="https://bookdown.org/">Bookdown</a> package and <a href="https://rstudio.github.io/distill/">Distill</a> web publishing format provides a comprehensive set of tools for composing web documents. In this high-level reference I cover the tools that I find most useful for writing organized, easily referenced, math-heavy documents. The examples are arbitrary, only meant to illustrate the syntax. The <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTeX</a> and <a href="https://www.markdownguide.org/">markdown</a> syntax are not explained. For each example I provide the raw text followed by the rendered output.</p>
+<section id="definition-theorem-proof" class="level1 page-columns page-full" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Definition, theorem, proof</h1>
+<p>The familiar math textbook refrain. Here’s the Bookdown syntax for definition, theorem, and proof environments, respectively.</p>
+<section id="definition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">1.1</span> Definition</h2>
+<div id="def-disjoint-sets" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Disjoint sets)</strong></span> Two sets <img src="https://latex.codecogs.com/png.latex?A_1"> and <img src="https://latex.codecogs.com/png.latex?A_2"> are <em>disjoint</em> if their intersection <img src="https://latex.codecogs.com/png.latex?A_1%20%5Ccap%20A_2%20=%20%5Cemptyset">, where <img src="https://latex.codecogs.com/png.latex?%5Cemptyset"> is the empty set. We say that <img src="https://latex.codecogs.com/png.latex?n"> sets <img src="https://latex.codecogs.com/png.latex?A_1,%20A_2,%20...,%20A_n"> are disjoint if <img src="https://latex.codecogs.com/png.latex?A_i%20%5Ccap%20A_j%20=%20%5Cemptyset"> for <img src="https://latex.codecogs.com/png.latex?i!%20=%20j">.</p>
+</div>
+</section>
+<section id="theorem" class="level2 page-columns page-full" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="theorem"><span class="header-section-number">1.2</span> Theorem</h2>
+<div id="thm-pyth" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Pythagorean theorem)</strong></span> Given a right triangle, if <img src="https://latex.codecogs.com/png.latex?c"> denotes the length of the hypotenuse and <img src="https://latex.codecogs.com/png.latex?a"> and <img src="https://latex.codecogs.com/png.latex?b"> the lengths of the other two sides, then <img src="https://latex.codecogs.com/png.latex?a%5E2%20+%20b%5E2%20=%20c%5E2."></p>
+</div>
+<aside>
+Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">this</a> page from <em>Authoring Books with R Markdown</em> lists all the other available theorem environments and their respective keywords.
+</aside>
+</section>
+<section id="proof" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="proof"><span class="header-section-number">1.3</span> Proof</h2>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (Pythagorean theorem). </span>Let <img src="https://latex.codecogs.com/png.latex?x,%20y"> be …</p>
+<p>… Thus, <img src="https://latex.codecogs.com/png.latex?a%5E2%20+%20b%5E2%20=%20c%5E2,"> as desired.</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctag*%7B$%5Csquare$%7D%0A"></p>
+</div>
+</section>
+<section id="automatic-numbering" class="level2 page-columns page-full" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="automatic-numbering"><span class="header-section-number">1.4</span> Automatic numbering</h2>
+<p>The nice thing about Bookdown is that it will automatically number definitions and theorems so that you can easily cross-reference them later on (see the Cross-references section below). Just replace the name following the <code>#</code> (<code>pyth-thm</code> in the example below) with a unique label (containing no spaces) that will be convenient to reference.</p>
+<div id="def-cont-map" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Continuous map)</strong></span> A continuous map is a continuous function between two topological spaces.</p>
+</div>
+<aside>
+Notice that the definition’s number was automatically incremented from the previous definition.
+</aside>
+</section>
+</section>
+<section id="sec-math-elements" class="level1 page-columns page-full" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Assorted math examples</h1>
+<p>Here is an assortment of LaTeX examples along with their output.</p>
+<section id="brackets-and-braces" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="brackets-and-braces"><span class="header-section-number">2.1</span> Brackets and braces</h2>
+<p><img src="https://latex.codecogs.com/png.latex?%0A(%20a%20),%20%5B%20b%20%5D,%20%5C%7B%20c%20%5C%7D,%20%7C%20d%20%7C,%20%5C%7C%20e%20%5C%7C,%0A%5Clangle%20f%20%5Crangle,%20%5Clfloor%20g%20%5Crfloor,%0A%5Clceil%20h%20%5Crceil,%20%5Culcorner%20i%20%5Curcorner,%0A/%20j%20%5Cbackslash%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A(%20%5Cbig(%20%5CBig(%20%5Cbigg(%20%5CBigg(%0A"></p>
+</section>
+<section id="fractions" class="level2 page-columns page-full" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="fractions"><span class="header-section-number">2.2</span> Fractions</h2>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bequation%7D%0A%20%20%20%20x%20=%20a_0%20+%20%5Ccfrac%7B1%7D%7Ba_1%0A%20%20%20%20%20%20%20%20%20%20%20%20+%20%5Ccfrac%7B1%7D%7Ba_2%0A%20%20%20%20%20%20%20%20%20%20%20%20+%20%5Ccfrac%7B1%7D%7Ba_3%20+%20%5Ccfrac%7B1%7D%7Ba_4%7D%20%7D%20%7D%20%7D%0A%5Cend%7Bequation%7D%0A"></p>
+<aside>
+The <code>\left(</code> / <code>\right)</code> command encloses its contents in big brackets.
+</aside>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%0A%20%20%20%20%5Cbegin%7Barray%7D%5Bb%5D%7Br%7D%0A%20%20%20%20%20%20%20%20%5Cleft(%20x_1%20x_2%20%5Cright)%20%5C%5C%0A%20%20%20%20%20%20%20%20%5Ctimes%0A%20%20%20%20%20%20%20%20%5Cleft(%20x'_1%20x'_2%20%5Cright)%0A%20%20%20%20%5Cend%7Barray%7D%0A%7D%7B%0A%20%20%20%20%5Cleft(%20y_1y_2y_3y_4%20%5Cright)%0A%7D%0A"></p>
+</section>
+<section id="calculus" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="calculus"><span class="header-section-number">2.3</span> Calculus</h2>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cint_0%5E%5Cinfty%20%5Cmathrm%7Be%7D%5E%7B-x%7D%20~%20%5Cmathrm%7Bd%7Dx%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cint%5Climits_a%5Eb%20%5Csin(x)%20~%20%5Cmathrm%7Bd%7Dx%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Csum_%7B%5Csubstack%7B0%3Ci%3Cm%20%5C%5C%200%3Cj%3Cn%7D%7D%20P(i,j)%0A"></p>
+</section>
+<section id="linear-algebra" class="level2 page-columns page-full" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="linear-algebra"><span class="header-section-number">2.4</span> Linear algebra</h2>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bmatrix%7D%0A%20%20%20%20a%20&amp;%20b%20&amp;%20c%20%5C%5C%0A%20%20%20%20d%20&amp;%20e%20&amp;%20f%20%5C%5C%0A%20%20%20%20g%20&amp;%20h%20&amp;%20i%0A%5Cend%7Bmatrix%7D%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AA_%7Bm,n%7D%20=%0A%5Cbegin%7Bpmatrix%7D%0A%20%20%20%20a_%7B1,1%7D%20&amp;%20a_%7B1,2%7D%20&amp;%20%5Ccdots%20&amp;%20a_%7B1,n%7D%20%5C%5C%0A%20%20%20%20a_%7B2,1%7D%20&amp;%20a_%7B2,2%7D%20&amp;%20%5Ccdots%20&amp;%20a_%7B2,n%7D%20%5C%5C%0A%20%20%20%20%5Cvdots%20%20&amp;%20%5Cvdots%20%20&amp;%20%5Cddots%20&amp;%20%5Cvdots%20%20%5C%5C%0A%20%20%20%20a_%7Bm,1%7D%20&amp;%20a_%7Bm,2%7D%20&amp;%20%5Ccdots%20&amp;%20a_%7Bm,n%7D%0A%5Cend%7Bpmatrix%7D%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AX%20=%0A%5Cbegin%7Bbmatrix%7D%0A%20%20%20%20x_1%20&amp;%20y_1%20%5C%5C%0A%20%20%20%20x_2%20&amp;%20y_2%20%5C%5C%0A%20%20%20%20x_3%20&amp;%20y_3%0A%5Cend%7Bbmatrix%7D%0A"></p>
+<aside>
+The <code>~</code> symbol represents a whitespace character.
+</aside>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0AX%0A&amp;%20=%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%0A%20%20%20%20%20%20%20%20a%20&amp;%20b%20&amp;%20c%20%5C%5C%0A%20%20%20%20%20%20%20%20d%20&amp;%20e%20&amp;%20f%20%5C%5C%0A%20%20%20%20%20%20%20%20g%20&amp;%20h%20&amp;%20i%0A%20%20%20%20%5Cend%7Bmatrix%7D%5Cright%5D%0A%20%20%20%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%0A%20%20%20%20%20%20%20%20y%5E%7B(1)%7D%20%5C%5C%0A%20%20%20%20%20%20%20%20y%5E%7B(2)%7D%20%5C%5C%0A%20%20%20%20%20%20%20%20y%5E%7B(3)%7D%0A%20%20%20%20%5Cend%7Bmatrix%7D%5Cright%5D%20%5C%5C%0A&amp;%20=%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%0A%20%20%20%20%20%20%20%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%20%5C%5C%0A%20%20%20%20%20%20%20%20y%5E%7B(1)%7D%20~%20%5Cvec%7Bx%7D_1%20%20&amp;%20y%5E%7B(2)%7D%20~%20%5Cvec%7Bx%7D_2%20%20&amp;%20y%5E%7B(3)%7D%20~%20%5Cvec%7Bx%7D_3%20%5C%5C%0A%20%20%20%20%20%20%20%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%0A%20%20%20%20%5Cend%7Bmatrix%7D%5Cright%5D%0A%20%20%20%20%5Cin%20%5Cmathbb%7BR%5E3%7D%0A%5Cend%7Balign%7D%0A"></p>
+</section>
+<section id="probability" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="probability"><span class="header-section-number">2.5</span> Probability</h2>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cleft(%5C!%0A%5Cbegin%7Barray%7D%7Bc%7D%0A%20%20%20%20n%20%5C%5C%0A%20%20%20%20r%0A%5Cend%7Barray%7D%0A%5C!%5Cright)%0A=%20%5Cfrac%7Bn!%7D%7Br!(n-c)!%7D%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bequation%7D%0A%20%20%20%20%5Cphi%20%5Cleft(x;%20%5Cmu,%20%5Csigma%20%5Cright)%0A%20%20%20%20=%20%5Cfrac%7B1%7D%7B%5Csqrt%7B2%20%5Cpi%20%5Csigma%5E2%7D%7D%0A%20%20%20%20%5Cexp%20%5Cleft(%20-%20%5Cfrac%7B%5Cleft(x%20-%20%5Cmu%5Cright)%5E2%7D%7B2%20%5Csigma%5E2%7D%20%5Cright)%0A%5Cend%7Bequation%7D%0A"></p>
+</section>
+</section>
+<section id="math-blocks" class="level1 page-columns page-full" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Math blocks</h1>
+<section id="annotations" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="annotations"><span class="header-section-number">3.1</span> Annotations</h2>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cunderbrace%7B%0A%20%20%20%20%5Cln%20%5Cleft(%20%5Cfrac%7B5%7D%7B6%7D%20%5Cright)%0A%7D_%7B%5Csimeq%20-0.1823%7D%20%3C%0A%5Coverbrace%7B%0A%20%20%20%20%5Cexp%20%5Cleft(%20%5Cfrac%7B1%7D%7B2%7D%20%5Cright)%0A%7D%5E%7B%5Csimeq%201.6487%7D%0A"></p>
+</section>
+<section id="numbered-equations" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="numbered-equations"><span class="header-section-number">3.2</span> Numbered equations</h2>
+<p>Unlike in pure LaTeX, in <code>bookdown</code> we must manually assign labels to every line that should have a number. I do so for significant passages, steps, and equations. Here is an example of a numbered equation:</p>
+<p><span id="eq-binom"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bequation%7D%0A%20%20%20%20%5Cmathbb%7BP%7D%20%5Cleft(k%5Cright)%0A%20%20%20%20=%20%5Cbinom%7Bn%7D%7Bk%7D%0A%20%20%20%20p%5Ek%5Cleft(1-p%5Cright)%5E%7Bn-k%7D%0A%5Cend%7Bequation%7D%0A%5Ctag%7B1%7D"></span></p>
+</section>
+<section id="numbered-blocks" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="numbered-blocks"><span class="header-section-number">3.3</span> Numbered blocks</h2>
+<p>Here is an example from the <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">Bookdown documentation</a>. It illustrates how to display a block of math with multiple lines that share a single number and label. We use the LaTeX <code>split</code> environment to split the number across lines and wrap it all in double dollar signs to tell R to treat it as math rather than raw text. To give the block a number we add an <code>(\#eq:&lt;equation-label&gt;)</code> after closing the split environment with <code>\end{split}</code>. Just replace the text after the <code>\#eq:</code> prefix with a memorable label of your choice.</p>
+<p><span id="eq-var-beta"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0A%5Cmathrm%7BVar%7D(%5Chat%7B%5Cbeta%7D)%0A%20%20%20%20&amp;%20=%20%5Cmathrm%7BVar%7D((X'X)%5E%7B-1%7DX'y)%20%5C%5C%0A%20%20%20%20&amp;%20=%20(X'X)%5E%7B-1%7DX'%5Cmathrm%7BVar%7D(y)((X'X)%5E%7B-1%7DX')'%20%5C%5C%0A%20%20%20%20&amp;%20=%20(X'X)%5E%7B-1%7DX'%5Cmathrm%7BVar%7D(y)X(X'X)%5E%7B-1%7D%20%5C%5C%0A%20%20%20%20&amp;%20=%20(X'X)%5E%7B-1%7DX'%5Csigma%5E%7B2%7DIX(X'X)%5E%7B-1%7D%20%5C%5C%0A%20%20%20%20&amp;%20=%20(X'X)%5E%7B-1%7D%5Csigma%5E%7B2%7D%0A%5Cend%7Bsplit%7D%0A%5Ctag%7B2%7D"></span></p>
+<p>Some additional notes:</p>
+<ul>
+<li>Each new line is preceded by a <code>\\</code> operator.</li>
+<li>Each aligned expression begins with the <code>&amp;</code> operator.</li>
+</ul>
+</section>
+<section id="inline-notes" class="level2 page-columns page-full" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="inline-notes"><span class="header-section-number">3.4</span> Inline notes</h2>
+<p>We can number lines individually by using the LaTeX <code>align</code> environment and adding a unique <code>(\#eq:&lt;equation-label&gt;)</code> at the end of every line that should have a number. Additionally, we can add in-line comments by placing <code>&amp;&amp;</code> followed by <code>(&lt;my LaTeX-formatted comment&gt;)</code> at the end of the line, before the number label. As with our use of the <code>&amp;</code> operator to align successive lines of math, the <code>&amp;&amp;</code> operator tells the LaTeX compiler to align comments, but to do so to the right of the aligned math.</p>
+<aside>
+We use <code>scriptstyle</code> to make the inline text smaller. Other custom display options are detailed <a href="https://www.overleaf.com/learn/latex/Display_style_in_math_mode">here</a> (by <em>Overleaf</em>).
+</aside>
+<p><span id="eq-var"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Csum_%7Bi=1%7D%5E%7Bn%7D%20%5Cleft(%20X_i%20-%20%5Coverline%7BX%7D%20%5Cright)%0A%20%20%20%20&amp;%20=%20%5Csum_%7Bi=1%7D%5E%7Bn%7DX_i%20-%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20%5Coverline%7BX%7D%0A%20%20%20%20%20%20%20%20&amp;&amp;&amp;%20%5Cscriptstyle%7B%5Ctext%7B(comment%201)%7D%7D%20%5Ctag%7Ba%7D%20%5C%5C%0A%20%20%20%20&amp;%20=%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20X_i%20-%20n%20%5Coverline%7BX%7D%0A%20%20%20%20%20%20%20%20&amp;&amp;&amp;%20%5Cscriptstyle%7B%5Cleft(%5Cbegin%7Barray%7D%7Bc%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%5Ctext%7Bcomment%202%20has%20symbols:%20%7D%20%5Cint_%7Ba%7D%5E%7Bb%7D%204%20%5Cpi%20r%5E2%20%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%5Ctext%7B...%20and%20carries%20over%20to%20a%20second%20line.%0A%20%20%20%20%20%20%20%20%7D%5Cend%7Barray%7D%5Cright)%7D%20%5C%5C%0A%20%20%20%20&amp;%20=%20%5Csum_%7Bi=1%7D%5E%7Bn%7DX_i%20-%20%5Csum_%7Bi=1%7D%5E%7Bn%7DX_i%20%5C%5C%0A%20%20%20%20&amp;%20=%200%20%5Ctag%7Bb%7D%0A%5Cend%7Balign%7D%0A%5Ctag%7B3%7D"></span></p>
+</section>
+</section>
+<section id="code-blocks" class="level1 page-columns page-full" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Code blocks</h1>
+<p>We can include some nicely formatted Python code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Display the Fibonacci sequence</span></span>
+<span id="cb2-2">nterms <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span></span>
+<span id="cb2-3"></span>
+<span id="cb2-4">n1, n2 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb2-5">count <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb2-6"></span>
+<span id="cb2-7"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> nterms <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>:</span>
+<span id="cb2-8">  <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Please enter a positive integer"</span>)</span>
+<span id="cb2-9"></span>
+<span id="cb2-10"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">elif</span> nterms <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>:</span>
+<span id="cb2-11">  <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Fibonacci sequence up to"</span>, nterms, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">":"</span>)</span>
+<span id="cb2-12">  <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(n1)</span>
+<span id="cb2-13"></span>
+<span id="cb2-14"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span>:</span>
+<span id="cb2-15">  <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Fibonacci sequence:"</span>)</span>
+<span id="cb2-16">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">while</span> count <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> nterms:</span>
+<span id="cb2-17">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(n1)</span>
+<span id="cb2-18">    nth <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> n1 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> n2</span>
+<span id="cb2-19">    n1 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> n2</span>
+<span id="cb2-20">    n2 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> nth</span>
+<span id="cb2-21">    count <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Fibonacci sequence:
+0
+1
+1
+2
+3</code></pre>
+</div>
+</div>
+<section id="tables" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="tables"><span class="header-section-number">4.1</span> Tables</h2>
+<p>We can also display data frames as nicely formatted tables. This example uses <a href="https://bookdown.org/yihui/rmarkdown-cookbook/kable.html"><code>kable</code></a> to render the built-in <code>mtcars</code> dataset as a static table:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(knitr)</span>
+<span id="cb4-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(mtcars))</span></code></pre></div>
+<div id="tbl-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: This is a table caption
+</figcaption>
+<div aria-describedby="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">mpg</th>
+<th style="text-align: right;">cyl</th>
+<th style="text-align: right;">disp</th>
+<th style="text-align: right;">hp</th>
+<th style="text-align: right;">drat</th>
+<th style="text-align: right;">wt</th>
+<th style="text-align: right;">qsec</th>
+<th style="text-align: right;">vs</th>
+<th style="text-align: right;">am</th>
+<th style="text-align: right;">gear</th>
+<th style="text-align: right;">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mazda RX4</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.620</td>
+<td style="text-align: right;">16.46</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mazda RX4 Wag</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.875</td>
+<td style="text-align: right;">17.02</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Datsun 710</td>
+<td style="text-align: right;">22.8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">3.85</td>
+<td style="text-align: right;">2.320</td>
+<td style="text-align: right;">18.61</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hornet 4 Drive</td>
+<td style="text-align: right;">21.4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">258</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.08</td>
+<td style="text-align: right;">3.215</td>
+<td style="text-align: right;">19.44</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hornet Sportabout</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">3.15</td>
+<td style="text-align: right;">3.440</td>
+<td style="text-align: right;">17.02</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Valiant</td>
+<td style="text-align: right;">18.1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">225</td>
+<td style="text-align: right;">105</td>
+<td style="text-align: right;">2.76</td>
+<td style="text-align: right;">3.460</td>
+<td style="text-align: right;">20.22</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="paged-tables" class="level2 page-columns page-full" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="paged-tables"><span class="header-section-number">4.2</span> Paged tables</h2>
+<p>And this example uses the <a href="https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html"><code>paged_table</code></a> function to generate a table with its columns spread out over several clickable pages:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(rmarkdown)</span>
+<span id="cb5-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paged_table</span>(mtcars)</span></code></pre></div>
+<div id="tbl-2" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: This is another table caption
+</figcaption>
+<div aria-describedby="tbl-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mpg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.620","7":"16.46","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4"},{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.875","7":"17.02","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4 Wag"},{"1":"22.8","2":"4","3":"108.0","4":"93","5":"3.85","6":"2.320","7":"18.61","8":"1","9":"1","10":"4","11":"1","_rn_":"Datsun 710"},{"1":"21.4","2":"6","3":"258.0","4":"110","5":"3.08","6":"3.215","7":"19.44","8":"1","9":"0","10":"3","11":"1","_rn_":"Hornet 4 Drive"},{"1":"18.7","2":"8","3":"360.0","4":"175","5":"3.15","6":"3.440","7":"17.02","8":"0","9":"0","10":"3","11":"2","_rn_":"Hornet Sportabout"},{"1":"18.1","2":"6","3":"225.0","4":"105","5":"2.76","6":"3.460","7":"20.22","8":"1","9":"0","10":"3","11":"1","_rn_":"Valiant"},{"1":"14.3","2":"8","3":"360.0","4":"245","5":"3.21","6":"3.570","7":"15.84","8":"0","9":"0","10":"3","11":"4","_rn_":"Duster 360"},{"1":"24.4","2":"4","3":"146.7","4":"62","5":"3.69","6":"3.190","7":"20.00","8":"1","9":"0","10":"4","11":"2","_rn_":"Merc 240D"},{"1":"22.8","2":"4","3":"140.8","4":"95","5":"3.92","6":"3.150","7":"22.90","8":"1","9":"0","10":"4","11":"2","_rn_":"Merc 230"},{"1":"19.2","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.30","8":"1","9":"0","10":"4","11":"4","_rn_":"Merc 280"},{"1":"17.8","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.90","8":"1","9":"0","10":"4","11":"4","_rn_":"Merc 280C"},{"1":"16.4","2":"8","3":"275.8","4":"180","5":"3.07","6":"4.070","7":"17.40","8":"0","9":"0","10":"3","11":"3","_rn_":"Merc 450SE"},{"1":"17.3","2":"8","3":"275.8","4":"180","5":"3.07","6":"3.730","7":"17.60","8":"0","9":"0","10":"3","11":"3","_rn_":"Merc 450SL"},{"1":"15.2","2":"8","3":"275.8","4":"180","5":"3.07","6":"3.780","7":"18.00","8":"0","9":"0","10":"3","11":"3","_rn_":"Merc 450SLC"},{"1":"10.4","2":"8","3":"472.0","4":"205","5":"2.93","6":"5.250","7":"17.98","8":"0","9":"0","10":"3","11":"4","_rn_":"Cadillac Fleetwood"},{"1":"10.4","2":"8","3":"460.0","4":"215","5":"3.00","6":"5.424","7":"17.82","8":"0","9":"0","10":"3","11":"4","_rn_":"Lincoln Continental"},{"1":"14.7","2":"8","3":"440.0","4":"230","5":"3.23","6":"5.345","7":"17.42","8":"0","9":"0","10":"3","11":"4","_rn_":"Chrysler Imperial"},{"1":"32.4","2":"4","3":"78.7","4":"66","5":"4.08","6":"2.200","7":"19.47","8":"1","9":"1","10":"4","11":"1","_rn_":"Fiat 128"},{"1":"30.4","2":"4","3":"75.7","4":"52","5":"4.93","6":"1.615","7":"18.52","8":"1","9":"1","10":"4","11":"2","_rn_":"Honda Civic"},{"1":"33.9","2":"4","3":"71.1","4":"65","5":"4.22","6":"1.835","7":"19.90","8":"1","9":"1","10":"4","11":"1","_rn_":"Toyota Corolla"},{"1":"21.5","2":"4","3":"120.1","4":"97","5":"3.70","6":"2.465","7":"20.01","8":"1","9":"0","10":"3","11":"1","_rn_":"Toyota Corona"},{"1":"15.5","2":"8","3":"318.0","4":"150","5":"2.76","6":"3.520","7":"16.87","8":"0","9":"0","10":"3","11":"2","_rn_":"Dodge Challenger"},{"1":"15.2","2":"8","3":"304.0","4":"150","5":"3.15","6":"3.435","7":"17.30","8":"0","9":"0","10":"3","11":"2","_rn_":"AMC Javelin"},{"1":"13.3","2":"8","3":"350.0","4":"245","5":"3.73","6":"3.840","7":"15.41","8":"0","9":"0","10":"3","11":"4","_rn_":"Camaro Z28"},{"1":"19.2","2":"8","3":"400.0","4":"175","5":"3.08","6":"3.845","7":"17.05","8":"0","9":"0","10":"3","11":"2","_rn_":"Pontiac Firebird"},{"1":"27.3","2":"4","3":"79.0","4":"66","5":"4.08","6":"1.935","7":"18.90","8":"1","9":"1","10":"4","11":"1","_rn_":"Fiat X1-9"},{"1":"26.0","2":"4","3":"120.3","4":"91","5":"4.43","6":"2.140","7":"16.70","8":"0","9":"1","10":"5","11":"2","_rn_":"Porsche 914-2"},{"1":"30.4","2":"4","3":"95.1","4":"113","5":"3.77","6":"1.513","7":"16.90","8":"1","9":"1","10":"5","11":"2","_rn_":"Lotus Europa"},{"1":"15.8","2":"8","3":"351.0","4":"264","5":"4.22","6":"3.170","7":"14.50","8":"0","9":"1","10":"5","11":"4","_rn_":"Ford Pantera L"},{"1":"19.7","2":"6","3":"145.0","4":"175","5":"3.62","6":"2.770","7":"15.50","8":"0","9":"1","10":"5","11":"6","_rn_":"Ferrari Dino"},{"1":"15.0","2":"8","3":"301.0","4":"335","5":"3.54","6":"3.570","7":"14.60","8":"0","9":"1","10":"5","11":"8","_rn_":"Maserati Bora"},{"1":"21.4","2":"4","3":"121.0","4":"109","5":"4.11","6":"2.780","7":"18.60","8":"1","9":"1","10":"4","11":"2","_rn_":"Volvo 142E"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<aside>
+Use the knitr option <code>layout="l-body-outset"</code> to make the figure or table span the width of the page. More information <a href="https://rstudio.github.io/distill/figures.html">here</a> and <a href="https://rstudio.github.io/distill/figures.html">here</a> (from the <em>Distill for R Markdown documentation</em>).
+</aside>
+</section>
+</section>
+<section id="references" class="level1 page-columns page-full" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
+<section id="cross-references" class="level2 page-columns page-full" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="cross-references"><span class="header-section-number">5.1</span> Cross-references</h2>
+<p>Now that we have some labelled equations and images, we can create hyperlinked references to them. Here are some examples:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Target</th>
+<th>Example</th>
+<th>Raw</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bookdown environment</td>
+<td>Theorem&nbsp;1.</td>
+<td><code>@thm-pyth</code></td>
+</tr>
+<tr class="even">
+<td>Math block</td>
+<td>Equation&nbsp;2.</td>
+<td><code>@eq-var-beta</code></td>
+</tr>
+<tr class="odd">
+<td>Figure or image</td>
+<td>Table&nbsp;1.</td>
+<td><code>@tbl-1</code></td>
+</tr>
+<tr class="even">
+<td>Section</td>
+<td>Section&nbsp;2.</td>
+<td><code>@sec-math-elements</code></td>
+</tr>
+</tbody>
+</table>
+<aside>
+Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">this</a> page from <em>Authoring Books with R Markdown</em> lists the label prefixes for all other available theorem environments (we use the <code>thm</code> prefix here).
+</aside>
+<p><strong>Note</strong>: The section 1 header is followed by the label {#math-elements}.</p>
+</section>
+<section id="in-text-citations" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="in-text-citations"><span class="header-section-number">5.2</span> In-text citations</h2>
+<p>Provided you have stored the sources you wish to formally cite in a bibtex document, you can cite them in-text as follows and they will automatically appear, with proper formatting, in the ‘References’ section at the bottom of your document:</p>
+<p><span class="citation" data-cites="james2013introduction">(James et al. 2013)</span></p>
+<p>This is the bibtex entry in my <code>.bib</code> file to which this example refers:</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb6-1">@book{james2013introduction,</span>
+<span id="cb6-2">  title={An introduction to statistical learning},</span>
+<span id="cb6-3">  author={James, Gareth and Witten, Daniela and Hastie, Trevor and Tibshirani, Robert},</span>
+<span id="cb6-4">  volume={112},</span>
+<span id="cb6-5">  year={2013},</span>
+<span id="cb6-6">  publisher={Springer}</span>
+<span id="cb6-7">}</span></code></pre></div>
+</section>
+<section id="footnotes" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="footnotes"><span class="header-section-number">5.3</span> Footnotes</h2>
+<p>This is a manual citation with a footnote:</p>
+<p>(Axler, 2019)<sup>1</sup>.</p>
+<p>At the bottom of my document I have a corresponding footnote entry that looks like:</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb7-1">[^1]: Axler, S. (1997). *Linear algebra done right*.</span>
+<span id="cb7-2">Springer Science <span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">&amp;</span> Business Media.</span></code></pre></div>
+</section>
+</section>
+<section id="text-formatting" class="level1 page-columns page-full" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Text formatting</h1>
+<p>Here are some additional text formatting tricks:</p>
+<section id="asides" class="level2 page-columns page-full" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="asides"><span class="header-section-number">6.1</span> Asides</h2>
+<p>I have been using these throughout. Here’s how to create them:</p>
+<aside>
+This content will appear in the gutter of the article.
+</aside>
+</section>
+<section id="scripts-strikethrough" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="scripts-strikethrough"><span class="header-section-number">6.2</span> Scripts, strikethrough</h2>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>A <sub>subscript</sub> and a <sup>superscript</sup></td>
+<td><code>A~subscript~and a^superscript^</code></td>
+</tr>
+<tr class="even">
+<td>This is a <del>strikethrough</del></td>
+<td><code>This is a ~~strikethrough~~</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="concluding-remarks" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Concluding remarks</h1>
+<p>And that’s it! As we’ve seen, R Markdown is a powerful integrated tool for text editing, coding, and mathematical typesetting. Combined with the math environments from Bookdown and the handy annotation tools from Distill, we have a fully capable suite of tools at our fingertips for producing beautiful, well-referenced, web-friendly mathematical documents.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>R session info</summary>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">sI <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sessionInfo</span>()</span>
+<span id="cb8-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(sI, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">RNG =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">locale =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>)</span>
+<span id="cb8-3"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## R version 4.3.3 (2024-02-29)</span></span>
+<span id="cb8-4"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Platform: aarch64-apple-darwin20 (64-bit)</span></span>
+<span id="cb8-5"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Running under: macOS Ventura 13.5.1</span></span>
+<span id="cb8-6"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## </span></span>
+<span id="cb8-7"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Matrix products: default</span></span>
+<span id="cb8-8"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## BLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib </span></span>
+<span id="cb8-9"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## LAPACK: /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0</span></span>
+<span id="cb8-10"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## </span></span>
+<span id="cb8-11"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## attached base packages:</span></span>
+<span id="cb8-12"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
+<span id="cb8-13"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## </span></span>
+<span id="cb8-14"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## other attached packages:</span></span>
+<span id="cb8-15"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## [1] rmarkdown_2.26 knitr_1.45    </span></span>
+<span id="cb8-16"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## </span></span>
+<span id="cb8-17"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## loaded via a namespace (and not attached):</span></span>
+<span id="cb8-18"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">##  [1] digest_0.6.34     fastmap_1.1.1     xfun_0.42         Matrix_1.6-5     </span></span>
+<span id="cb8-19"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">##  [5] lattice_0.22-5    reticulate_1.35.0 htmltools_0.5.7   png_0.1-8        </span></span>
+<span id="cb8-20"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">##  [9] cli_3.6.2         vctrs_0.6.5       grid_4.3.3        withr_3.0.0      </span></span>
+<span id="cb8-21"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## [13] compiler_4.3.3    rstudioapi_0.15.0 tools_4.3.3       evaluate_0.23    </span></span>
+<span id="cb8-22"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## [17] Rcpp_1.0.12       yaml_2.3.8        rlang_1.1.3       jsonlite_1.8.8   </span></span>
+<span id="cb8-23"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## [21] htmlwidgets_1.6.4</span></span></code></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Python session info</summary>
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># import watermark</span></span>
+<span id="cb9-2"></span>
+<span id="cb9-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># %load_ext watermark</span></span>
+<span id="cb9-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># %watermark -u -n -v -iv -w -p pandas,numpy,matplotlib,seaborn,tensorflow</span></span></code></pre></div>
+</details>
+</div>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-james2013introduction" class="csl-entry">
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013. <em>An Introduction to Statistical Learning</em>. Vol. 112. Springer.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Axler, S. (1997). <em>Linear algebra done right</em>. Springer Science &amp; Business Media.↩︎</p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{bain2024,
+  author = {Bain, Matthew},
+  title = {Writing Template},
+  date = {2024-03-18},
+  url = {https://bainmatt.github.io/posts/2024-03-15-writing-temp/cheatsheet.html},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-bain2024" class="csl-entry quarto-appendix-citeas">
+Bain, Matthew. 2024. <span>“Writing Template.”</span> March 18, 2024. <a href="https://bainmatt.github.io/posts/2024-03-15-writing-temp/cheatsheet.html">https://bainmatt.github.io/posts/2024-03-15-writing-temp/cheatsheet.html</a>.
+</div></div></section></div> ]]></description>
+  <category>Reference</category>
+  <category>Orphan</category>
+  <guid>https://bainmatt.github.io/posts/2024-03-15-writing-temp/cheatsheet.html</guid>
+  <pubDate>Mon, 18 Mar 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://bainmatt.github.io/posts/2024-03-15-writing-temp/thumbnail.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Bias-variance decomposition</title>
+  <dc:creator>Matthew Bain</dc:creator>
+  <link>https://bainmatt.github.io/posts/2024-03-18-bias-variance-decomposition/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="header-1" class="level1">
+
+<section id="header-2" class="level2">
+
+<section id="header-3" class="level3">
+
+
+
+</section>
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{bain2024,
+  author = {Bain, Matthew},
+  title = {Bias-Variance Decomposition},
+  date = {2024-03-18},
+  url = {https://bainmatt.github.io/posts/2024-03-18-bias-variance-decomposition/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-bain2024" class="csl-entry quarto-appendix-citeas">
+Bain, Matthew. 2024. <span>“Bias-Variance Decomposition.”</span> March
+18, 2024. <a href="https://bainmatt.github.io/posts/2024-03-18-bias-variance-decomposition/">https://bainmatt.github.io/posts/2024-03-18-bias-variance-decomposition/</a>.
+</div></div></section></div> ]]></description>
+  <category>Bayesian inference</category>
+  <category>Learning theory</category>
+  <guid>https://bainmatt.github.io/posts/2024-03-18-bias-variance-decomposition/</guid>
+  <pubDate>Mon, 18 Mar 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://bainmatt.github.io/images/childe-hassam-the-concord-meadow-comp.jpg" medium="image" type="image/jpeg"/>
+</item>
 </channel>
 </rss>
