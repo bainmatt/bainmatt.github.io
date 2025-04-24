@@ -25,6 +25,8 @@ website:
 #         - posts/2024-03-15-writing-temp/cheatsheet.qmd
 #         - posts/2024-03-15-writing-temp/index.qmd
 #         - posts/2024-03-18-bias-variance-decomposition/index.qmd
+  google-analytics:
+    tracking-id: "G-MBBG8HDJQG"
   title: "Matthew Bain"
   favicon: assets/favicon.jpg
   image: assets/favicon.jpg
