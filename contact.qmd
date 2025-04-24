@@ -2,7 +2,7 @@
 title: "Ways to connect with me"
 ---
 
-- Email: [bainmatt@protonmail.com](mailto:bainmatt@protonmail.com)
+- Email: [bainmatt@proton.me](mailto:bainmatt@proton.me)
 - GitHub: [github.com/bainmatt](https://github.com/bainmatt)
 - LinkedIn: [linkedin.com/in/bainmatt](https://www.linkedin.com/in/bainmatt/)
 - Credly: [credly.com/users/mattbain](https://www.credly.com/users/mattbain)
@@ -14,8 +14,8 @@ title: "Ways to connect with me"
 - Tableau: [public.tableau.com/app/profile/mattbain/vizzes](https://public.tableau.com/app/profile/mattbain/vizzes)
 - Streamlit: [share.streamlit.io/user/bainmatt](https://share.streamlit.io/user/bainmatt)
 <!-- - Hugging Face: [huggingface.co/mattbain](https://huggingface.co/mattbain) -->
-    
----
 
-<!-- - Orcid: [orcid.org/0000-0001-xxxx-xxxx](https://orcid.org/0000-0001-xxxx-xxxx) -->
-<!-- - Scholar: [scholar.google.com/citations?user=xxx_xxxxxxxx](https://scholar.google.com/citations?user=xxx_xxxxxxxx) -->
+<!-- --- -->
+
+<!-- - Orcid: [orcid.org/0009-0001-0084-6001](https://orcid.org/0009-0001-0084-6001) -->
+<!-- - Scholar: [scholar.google.com/citations?user=rwo4JUIAAAAJ](https://scholar.google.com/citations?user=rwo4JUIAAAAJ) -->
