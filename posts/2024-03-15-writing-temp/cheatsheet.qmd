@@ -80,8 +80,8 @@ available theorem environments and their respective keywords.</aside>
 
 Let $x, y$ be ...
 
-... Thus, $$a^2 + b^2 = c^2,$$
-
+... Thus,
+$$a^2 + b^2 = c^2,$$
 as desired.
 
 $$
