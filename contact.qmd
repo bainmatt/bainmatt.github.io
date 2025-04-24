@@ -1,0 +1,21 @@
+---
+title: "Ways to connect with me"
+---
+
+- Email: [bainmatt@protonmail.com](mailto:bainmatt@protonmail.com)
+- GitHub: [github.com/bainmatt](https://github.com/bainmatt)
+- LinkedIn: [linkedin.com/in/bainmatt](https://www.linkedin.com/in/bainmatt/)
+- Credly: [credly.com/users/mattbain](https://www.credly.com/users/mattbain)
+
+---
+
+- LeetCode: [leetcode.com/u/mattbain](https://leetcode.com/u/mattbain/)
+- Kaggle: [kaggle.com/mattbain](https://www.kaggle.com/mattbain)
+- Tableau: [public.tableau.com/app/profile/mattbain/vizzes](https://public.tableau.com/app/profile/mattbain/vizzes)
+- Streamlit: [share.streamlit.io/user/bainmatt](https://share.streamlit.io/user/bainmatt)
+<!-- - Hugging Face: [huggingface.co/mattbain](https://huggingface.co/mattbain) -->
+    
+---
+
+<!-- - Orcid: [orcid.org/0000-0001-xxxx-xxxx](https://orcid.org/0000-0001-xxxx-xxxx) -->
+<!-- - Scholar: [scholar.google.com/citations?user=xxx_xxxxxxxx](https://scholar.google.com/citations?user=xxx_xxxxxxxx) -->

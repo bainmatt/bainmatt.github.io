@@ -19,6 +19,9 @@ about:
     # - icon: robot
     #   text: Hugging Face
     #   href: https://huggingface.co/mattbain
+    - icon: bi-mortarboard
+      text: Credly
+      href: https://www.credly.com/users/mattbain
 page-layout: full
 ---
 

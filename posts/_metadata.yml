@@ -18,7 +18,7 @@ number-sections: false
 toc: true
 toc-depth: 2
 toc-location: left
-toc-title: Table of contents
+toc-title: Contents
 toc-expand: true
 
 # Default knitr options

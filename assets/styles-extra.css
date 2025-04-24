@@ -8,8 +8,17 @@
 
 /* --- CUSTOM DIVS -- */
 
+.info-icon {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  vertical-align: top;
+  text-decoration: none;
+  color: inherit;
+}
+
 /* Figure/image/proof hr container
-/* Use: Wrap in <div class="fig-border"> * 2 */
+/* Use: Wrap in <div class="fig-border"> ... </div> */
 .fig-border {
   margin-top: -15px;
   padding-top: 0px;

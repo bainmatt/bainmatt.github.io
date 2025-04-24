@@ -3,6 +3,7 @@ project:
   output-dir: docs
   render:
     - "*.qmd"
+    - "!**/archive/"
     # - "!posts/2024-12-28_blog-post/folder"
 
 # -- Optional additions ------------------------------------------------------
@@ -26,6 +27,8 @@ website:
         text: "Home"
       - href: about.qmd
         text: "About"
+      - href: contact.qmd
+        text: "Contact"
       - href: posts.qmd
         text: "Resources"
       - href: music.qmd
