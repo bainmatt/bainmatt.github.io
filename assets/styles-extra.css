@@ -1,39 +1,7 @@
-/* -------------------------------------------------------------------------- */
-/* Custom CSS styles. */
-/* -------------------------------------------------------------------------- */
+/* Custom css styles. */
 
 /* Import custom Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Bitter&family=DM+Mono&display=swap');
-
-
-/* --- CUSTOM DIVS -- */
-
-.info-icon {
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  vertical-align: top;
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Figure/image/proof hr container
-/* Use: Wrap in <div class="fig-border"> ... </div> */
-.fig-border {
-  margin-top: -15px;
-  padding-top: 0px;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid lightgray;
-}
-
-/* Apply horizontal scroll to a specific container */
-/* Use: Wrap large kable tables/math blocks in */
-/* <div class="scroll-container"> ... </div> */
-.scroll-container {
-  max-width: max-content;
-  overflow-x: auto;
-}
 
 
 /* --- FONTS --- */
@@ -41,7 +9,7 @@
 :root {
   /* Font sizes */
   --title-size:      2rem;
-  --body-size:       .975rem;
+  --body-size:       .95rem;
   --code-size:       .85rem;
   --aside-size:      .875rem;
   --fig-cap-size:    .875rem;
@@ -72,11 +40,13 @@ h2, h3, h4, h5, h6 {
 code, pre {
   font-family: default;
   font-size: var(--code-size);
+  /* font-size: default; */
 }
 
 body {
   font-family: default;
   font-size: var(--body-size);
+  /* font-size: default; */
 }
 
 .navbar, .nav-link {
@@ -86,6 +56,7 @@ body {
 
 figcaption, .figure-caption {
   font-size: var(--fig-cap-size);
+  /* font-size: default; */
   color: default;
   font-style: normal;
   text-align: left;
@@ -98,7 +69,7 @@ figcaption, .figure-caption {
 
 /* Body text line height */
 body {
-  font-weight: normal;
+  font-weight: 350;
   letter-spacing: normal;
   line-height: default;
 }
@@ -107,16 +78,22 @@ body {
 /* --- HEADER SPACING -- */
 
 /* --- Fixed letter spacing, weights, line heights  --- */
-h1, h2, h3 {
-  font-weight: 300;
+h1 {
+  font-weight: 375;
   letter-spacing: normal;
-  line-height: normal;
+  line-height: default;
+}
+
+h2, h3 {
+  font-weight: 350;
+  letter-spacing: normal;
+  line-height: default;
 }
 
 h4, h5, h6 {
-  font-weight: 300;
+  font-weight: 350;
   letter-spacing: 2px;
-  line-height: normal;
+  line-height: default;
 }
 
 /* --- Fixed padding -- */
