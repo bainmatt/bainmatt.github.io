@@ -1,12 +1,14 @@
 project:
   type: website
   output-dir: docs
+  pre-render:
+    - make process-eq-r
+    # - bash scripts/pre-render.sh
   render:
     - "*.qmd"
     - "!**/archive/"
-    # - "!posts/2024-12-28_blog-post/folder"
-
-# -- Optional additions ------------------------------------------------------
+  post-render:
+    - make process-eq
 
 execute:
   freeze: auto
