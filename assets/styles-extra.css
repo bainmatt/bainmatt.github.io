@@ -107,9 +107,14 @@ body {
 /* --- HEADER SPACING -- */
 
 /* --- Fixed letter spacing, weights, line heights  --- */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
   font-weight: 300;
-  /* letter-spacing: normal; */
+  letter-spacing: normal;
+  line-height: normal;
+}
+
+h4, h5, h6 {
+  font-weight: 300;
   letter-spacing: 2px;
   line-height: normal;
 }

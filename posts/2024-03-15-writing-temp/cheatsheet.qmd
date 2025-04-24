@@ -6,8 +6,7 @@ date: 2024-03-18
 categories: [Reference, Orphan]
 image: thumbnail.jpg
 image-alt: "The Concord Meadow by Childe Hassam, public domain."
-bibliography:
-  - ../../assets/references.bib
+# bibliography: references.bib
 
 format:
   html:

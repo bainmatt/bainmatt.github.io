@@ -8,8 +8,7 @@ date: 2024-03-22
 categories: [Reference]
 image: thumbnail.jpg
 image-alt: "The Concord Meadow by Childe Hassam, public domain."
-bibliography:
-  - ../../assets/references.bib
+# bibliography: references.bib
 code-links:
   - text: Cheat sheet
     icon: file-code
