@@ -7,7 +7,6 @@ date: 2024-03-18
 categories: [Bayesian inference, Learning theory]
 image: ../../images/childe-hassam-the-concord-meadow-comp.jpg
 image-alt: "The Concord Meadow by Childe Hassam, public domain."
-bibliography: ../../assets/references.bib
 
 draft: true
 ---

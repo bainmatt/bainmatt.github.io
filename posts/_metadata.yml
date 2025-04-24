@@ -65,6 +65,9 @@ code-tools:
 # Default fields for HTML text output
 strip-comments: false
 
+# Default bibliography
+bibliography: ../../assets/references.bib
+
 # Link to shared environment lock file by default
 # code-links:
 #   - text: Lockfile
