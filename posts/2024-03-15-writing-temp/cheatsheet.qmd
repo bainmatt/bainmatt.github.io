@@ -11,7 +11,7 @@ format:
   html:
     number-sections: true
 
-draft: false
+draft: true
 draft-mode: unlinked
 ---
 

@@ -87,13 +87,13 @@ h1 {
 h2, h3 {
   font-weight: 350;
   letter-spacing: normal;
-  line-height: default;
+  line-height: unset;
 }
 
 h4, h5, h6 {
   font-weight: 350;
   letter-spacing: 2px;
-  line-height: default;
+  line-height: unset;
 }
 
 /* --- Fixed padding -- */

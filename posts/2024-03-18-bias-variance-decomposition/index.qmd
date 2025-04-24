@@ -9,7 +9,7 @@ image: ../../images/childe-hassam-the-concord-meadow-comp.jpg
 image-alt: "The Concord Meadow by Childe Hassam, public domain."
 # bibliography: references.bib
 
-draft: false
+draft: true
 ---
 
 # Header 1
