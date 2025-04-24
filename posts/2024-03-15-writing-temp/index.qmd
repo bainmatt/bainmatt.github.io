@@ -8,14 +8,12 @@ date: 2024-03-22
 categories: [Reference]
 image: thumbnail.jpg
 image-alt: "The Concord Meadow by Childe Hassam, public domain."
+
+number-sections: true
 code-links:
   - text: Cheat sheet
     icon: file-code
     href: https://bainmatt.github.io/posts/2024-03-15-writing-temp/cheatsheet.html
-
-format:
-  html:
-    number-sections: true
 
 draft: false
 ---

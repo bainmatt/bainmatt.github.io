@@ -4,7 +4,6 @@ project:
   output-dir: docs
   pre-render:
     - make process-eq-r
-    # - bash scripts/pre-render.sh
   render:
     - "*.qmd"
     - "!**/archive/"
@@ -36,7 +35,6 @@ website:
   navbar:
     title: false
     background: "rgb(250, 250, 250)"
-    # background: "white"
     left:
       - href: index.qmd
         text: "Home"
@@ -61,6 +59,7 @@ website:
     center:
       - href: https://bainmatt.github.io/
         text: bainmatt.github.io
+
 format:
   html:
     theme: whale.scss  # default, cosmo, flatly
