@@ -52,14 +52,13 @@ add_card <- function(
   }
   
   lines <- c(
-    '<div class="g-col-12 g-col-md-6 g-col-xl-4">',
+    '<div class="g-col-12 g-col-sm-6 g-col-md-6 g-col-xl-4">',
     '<div class="card h-100">',
     image_block,
     '<div class="card-body" style="padding-top: 0rem;">',
     paste0('<h2 class="card-title">', name, '</h2>'),
     paste0('<div class="mb-1">', type_tag, '</div>'),
-    # "&nbsp;",
-    paste0('<p class="card-text">', text, '</p>'),
+    paste0('<p class="card-text" style="padding-top: .5rem;">', text, '</p>'),
     '</div>',
     '<div class="card-footer">',
     paste0('<div class="mt-1">', tools_tag, '</div>'),
@@ -85,7 +84,6 @@ print_cards <- function(df, keywords) {
     row_list <- as.list(filtered_df[i, ])
     do.call(add_card, row_list)
   }
-  # purrr::pwalk(filtered_df, add_card)
 }
 
 

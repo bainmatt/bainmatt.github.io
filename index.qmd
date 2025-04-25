@@ -58,6 +58,7 @@ from cards import format_projects, sync_projects
 #| eval: false
 
 # 1. Synchronize records (run as needed)
+# Target img aspect: 1:1 or 3:2 (1.5) / 1:1 or 2:1 or 16:9 (1.75) for posts.
 sync_projects(
   src_path="~/Documents/career/resume/R/input/projects.csv",
   targ_path="data/projects.yaml",
