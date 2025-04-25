@@ -77,8 +77,8 @@ gtag('config', 'G-MBBG8HDJQG', { 'anonymize_ip': true});
 </script>
 
 
+<link rel="stylesheet" href="assets/layout.css">
 <link rel="stylesheet" href="assets/styles.css">
-<link rel="stylesheet" href="assets/styles-extra.css">
 <meta property="og:title" content="About me – Matthew Bain">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://bainmatt.github.io/images/icon-comp.jpg">
@@ -91,16 +91,17 @@ gtag('config', 'G-MBBG8HDJQG', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Matthew Bain</span>
+    </a>
+  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./about.html" aria-current="page"> 
 <span class="menu-text">About</span></a>
@@ -114,15 +115,27 @@ gtag('config', 'G-MBBG8HDJQG', { 'anonymize_ip': true});
 <span class="menu-text">Resources</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./music.html"> 
-<span class="menu-text">Music</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="https://bainmatt.github.io/cv/cv_matthewbain.html"> 
 <span class="menu-text">Résumé</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-misc" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Misc</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-misc">    
+        <li>
+    <a class="dropdown-item" href="./music.html">
+ <span class="dropdown-text">Music</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.youtube.com/@fujinai9/featured"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="dropdown-text">YouTube</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/bainmatt"> <i class="bi bi-github" role="img">
 </i> 
@@ -130,11 +143,6 @@ gtag('config', 'G-MBBG8HDJQG', { 'anonymize_ip': true});
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://linkedin.com/in/bainmatt/"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/@fujinai9/featured"> <i class="bi bi-youtube" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -163,30 +171,36 @@ gtag('config', 'G-MBBG8HDJQG', { 'anonymize_ip': true});
   </div>
 </header>
     <div class="about-links">
-  <a href="https://leetcode.com/u/mattbain/" class="about-link" rel="" target="">
-    <i class="bi bi-code"></i>
-     <span class="about-link-text">LeetCode</span>
+  <a href="mailto:bainmatt@proton.me" class="about-link" rel="" target="">
+    <i class="bi bi-envelope"></i>
+     <span class="about-link-text">Email</span>
   </a>
-  <a href="https://www.kaggle.com/mattbain" class="about-link" rel="" target="">
-    <i class="bi bi-trophy"></i>
-     <span class="about-link-text">Kaggle</span>
+  <a href="https://github.com/bainmatt" class="about-link" rel="" target="">
+    <i class="bi bi-github"></i>
+     <span class="about-link-text">GitHub</span>
   </a>
-  <a href="https://public.tableau.com/app/profile/mattbain/vizzes" class="about-link" rel="" target="">
-    <i class="bi bi-bar-chart"></i>
-     <span class="about-link-text">Tableau</span>
-  </a>
-  <a href="https://share.streamlit.io/user/bainmatt" class="about-link" rel="" target="">
-    <i class="bi bi-play-circle"></i>
-     <span class="about-link-text">Streamlit</span>
+  <a href="https://www.linkedin.com/in/bainmatt/" class="about-link" rel="" target="">
+    <i class="bi bi-linkedin"></i>
+     <span class="about-link-text">LinkedIn</span>
   </a>
   <a href="https://www.credly.com/users/mattbain" class="about-link" rel="" target="">
     <i class="bi bi-mortarboard"></i>
      <span class="about-link-text">Credly</span>
   </a>
+  <a href="https://scholar.google.com/citations?user=rwo4JUIAAAAJ" class="about-link" rel="" target="">
+    <i class="bi bi-book"></i>
+     <span class="about-link-text">Scholar</span>
+  </a>
 </div>
   </div>
   <div class="about-contents"><main class="content column-page" id="quarto-document-content">
-<p>Hi there! I’m Matt. To the left is a picture of Mount Fuji, captured during my travels through Japan. Mount Fuji has been the subject of many significant works of art (Hokusai’s <a href="https://en.wikipedia.org/wiki/Thirty-six_Views_of_Mount_Fuji"><em>Thirty-six Views of Mount Fuji</em></a>, for instance). In many ways it is the ideal subject, infinitely patient, beautiful, static against a constantly fluctuating backdrop of weather and seasons. <br><br> When I’m not admiring nature and art, I am working with data. In some ways analyzing data is like drawing Mount Fuji. A data analyst recognizes a subject (structured collection of data points) behind clouds of interference (noise) and approaches that subject with a new way of seeing (statistical tools) to extract meaning (insights). An insight is a nugget of a bigger idea, from which the artist delivers value in the form of an evocative picture, and the analyst delivers value through visualizations, reports, recommendations, and statistical models. <br><br> If you can’t tell, I have a deep fondness for data, and in particular for statistics and machine learning, which are the tools that guide me through the mist toward structure and meaning. I find it especially thrilling to implement statistical ideas through code and neat data analyses. I like to write about my favourite projects and discoveries. You can find some of that <a href="posts.html">here</a>. I also make music on the side – you can find that <a href="music.html">here</a>.</p>
+<p>Hi there! I’m Matt. To the left is a picture of Mount Fuji, captured during my travels through Japan. Mount Fuji has been the subject of many significant works of art (Hokusai’s <a href="https://en.wikipedia.org/wiki/Thirty-six_Views_of_Mount_Fuji"><em>Thirty-six Views of Mount Fuji</em></a>, for instance). In many ways it is the ideal subject, infinitely patient, beautiful, static against a constantly fluctuating backdrop of weather and seasons.</p>
+<p>When I’m not admiring nature and art, I am working with data. In some ways analyzing data is like drawing Mount Fuji. A data analyst recognizes a subject (structured collection of data points) behind clouds of interference (noise) and approaches that subject with a new way of seeing (statistical tools) to extract meaning (insights). An insight is a nugget of a bigger idea, from which the artist delivers value in the form of an evocative picture, and the analyst delivers value through visualizations, reports, recommendations, and statistical models.</p>
+<p>If you can’t tell, I have a deep fondness for data, and in particular for statistics and machine learning, which are the tools that guide me through the mist toward structure and meaning. I find it especially thrilling to implement statistical ideas through code and neat data analyses. I like to write about my favourite projects and discoveries. You can find some of that <a href="posts.html">here</a>. I also make music on the side – you can find that <a href="music.html">here</a>.</p>
+<p><br></p>
+<div class="centered">
+<p><a href="https://leetcode.com/u/mattbain/" class="btn-custom"><i class="bi bi-code"></i> LeetCode </a> <a href="https://www.kaggle.com/mattbain" class="btn-custom"><i class="bi bi-trophy"></i> Kaggle </a> <a href="https://public.tableau.com/app/profile/mattbain/vizzes" class="btn-custom"><i class="bi bi-bar-chart"></i> Tableau </a> <a href="https://share.streamlit.io/user/bainmatt" class="btn-custom"><i class="bi bi-play-circle"></i> Streamlit </a> <!-- <a href="https://huggingface.co/mattbain" class="btn-custom"><i class="bi bi-robot"></i> Hugging Face </a> --></p>
+</div>
 
 
 </main></div>

@@ -173,8 +173,8 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../../assets/layout.css">
 <link rel="stylesheet" href="../../assets/styles.css">
-<link rel="stylesheet" href="../../assets/styles-extra.css">
 <meta property="og:title" content="Writing template – Matthew Bain">
 <meta property="og:description" content="A concise reference for technical writing with Quarto.">
 <meta property="og:image" content="https://bainmatt.github.io/posts/2024-03-15-writing-temp/thumbnail.jpg">
@@ -188,16 +188,17 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top quarto-banner"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Matthew Bain</span>
+    </a>
+  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
@@ -211,15 +212,27 @@ window.Quarto = {
 <span class="menu-text">Resources</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../music.html"> 
-<span class="menu-text">Music</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="https://bainmatt.github.io/cv/cv_matthewbain.html"> 
 <span class="menu-text">Résumé</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-misc" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Misc</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-misc">    
+        <li>
+    <a class="dropdown-item" href="../../music.html">
+ <span class="dropdown-text">Music</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.youtube.com/@fujinai9/featured"><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="dropdown-text">YouTube</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/bainmatt"> <i class="bi bi-github" role="img">
 </i> 
@@ -227,11 +240,6 @@ window.Quarto = {
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://linkedin.com/in/bainmatt/"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.youtube.com/@fujinai9/featured"> <i class="bi bi-youtube" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -254,7 +262,7 @@ window.Quarto = {
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">Reference</div>
-                <div class="quarto-category">Orphan</div>
+                <div class="quarto-category">Cheat sheet</div>
               </div>
                   </div>
   </div>
@@ -283,47 +291,47 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
     <h2 id="toc-title">Contents</h2>
    
-  <ul class="collapse">
+  <ul>
   <li><a href="#definition-theorem-proof" id="toc-definition-theorem-proof" class="nav-link active" data-scroll-target="#definition-theorem-proof"><span class="header-section-number">1</span> Definition, theorem, proof</a>
   <ul class="collapse">
-  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition"><span class="header-section-number">1.1</span> Definition</a></li>
-  <li><a href="#theorem" id="toc-theorem" class="nav-link" data-scroll-target="#theorem"><span class="header-section-number">1.2</span> Theorem</a></li>
-  <li><a href="#proof" id="toc-proof" class="nav-link" data-scroll-target="#proof"><span class="header-section-number">1.3</span> Proof</a></li>
-  <li><a href="#automatic-numbering" id="toc-automatic-numbering" class="nav-link" data-scroll-target="#automatic-numbering"><span class="header-section-number">1.4</span> Automatic numbering</a></li>
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition">Definition</a></li>
+  <li><a href="#theorem" id="toc-theorem" class="nav-link" data-scroll-target="#theorem">Theorem</a></li>
+  <li><a href="#proof" id="toc-proof" class="nav-link" data-scroll-target="#proof">Proof</a></li>
+  <li><a href="#automatic-numbering" id="toc-automatic-numbering" class="nav-link" data-scroll-target="#automatic-numbering">Automatic numbering</a></li>
   </ul></li>
   <li><a href="#sec-math-elements" id="toc-sec-math-elements" class="nav-link" data-scroll-target="#sec-math-elements"><span class="header-section-number">2</span> Assorted math examples</a>
   <ul class="collapse">
-  <li><a href="#brackets-and-braces" id="toc-brackets-and-braces" class="nav-link" data-scroll-target="#brackets-and-braces"><span class="header-section-number">2.1</span> Brackets and braces</a></li>
-  <li><a href="#fractions" id="toc-fractions" class="nav-link" data-scroll-target="#fractions"><span class="header-section-number">2.2</span> Fractions</a></li>
-  <li><a href="#calculus" id="toc-calculus" class="nav-link" data-scroll-target="#calculus"><span class="header-section-number">2.3</span> Calculus</a></li>
-  <li><a href="#linear-algebra" id="toc-linear-algebra" class="nav-link" data-scroll-target="#linear-algebra"><span class="header-section-number">2.4</span> Linear algebra</a></li>
-  <li><a href="#probability" id="toc-probability" class="nav-link" data-scroll-target="#probability"><span class="header-section-number">2.5</span> Probability</a></li>
+  <li><a href="#brackets-and-braces" id="toc-brackets-and-braces" class="nav-link" data-scroll-target="#brackets-and-braces">Brackets and braces</a></li>
+  <li><a href="#fractions" id="toc-fractions" class="nav-link" data-scroll-target="#fractions">Fractions</a></li>
+  <li><a href="#calculus" id="toc-calculus" class="nav-link" data-scroll-target="#calculus">Calculus</a></li>
+  <li><a href="#linear-algebra" id="toc-linear-algebra" class="nav-link" data-scroll-target="#linear-algebra">Linear algebra</a></li>
+  <li><a href="#probability" id="toc-probability" class="nav-link" data-scroll-target="#probability">Probability</a></li>
   </ul></li>
   <li><a href="#math-blocks" id="toc-math-blocks" class="nav-link" data-scroll-target="#math-blocks"><span class="header-section-number">3</span> Math blocks</a>
   <ul class="collapse">
-  <li><a href="#annotations" id="toc-annotations" class="nav-link" data-scroll-target="#annotations"><span class="header-section-number">3.1</span> Annotations</a></li>
-  <li><a href="#numbered-equations" id="toc-numbered-equations" class="nav-link" data-scroll-target="#numbered-equations"><span class="header-section-number">3.2</span> Numbered equations</a></li>
-  <li><a href="#numbered-blocks" id="toc-numbered-blocks" class="nav-link" data-scroll-target="#numbered-blocks"><span class="header-section-number">3.3</span> Numbered blocks</a></li>
-  <li><a href="#inline-notes" id="toc-inline-notes" class="nav-link" data-scroll-target="#inline-notes"><span class="header-section-number">3.4</span> Inline notes</a></li>
+  <li><a href="#annotations" id="toc-annotations" class="nav-link" data-scroll-target="#annotations">Annotations</a></li>
+  <li><a href="#numbered-equations" id="toc-numbered-equations" class="nav-link" data-scroll-target="#numbered-equations">Numbered equations</a></li>
+  <li><a href="#numbered-blocks" id="toc-numbered-blocks" class="nav-link" data-scroll-target="#numbered-blocks">Numbered blocks</a></li>
+  <li><a href="#inline-notes" id="toc-inline-notes" class="nav-link" data-scroll-target="#inline-notes">Inline notes</a></li>
   </ul></li>
   <li><a href="#code-blocks" id="toc-code-blocks" class="nav-link" data-scroll-target="#code-blocks"><span class="header-section-number">4</span> Code blocks</a>
   <ul class="collapse">
-  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables"><span class="header-section-number">4.1</span> Tables</a></li>
-  <li><a href="#paged-tables" id="toc-paged-tables" class="nav-link" data-scroll-target="#paged-tables"><span class="header-section-number">4.2</span> Paged tables</a></li>
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables">Tables</a></li>
+  <li><a href="#paged-tables" id="toc-paged-tables" class="nav-link" data-scroll-target="#paged-tables">Paged tables</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5</span> References</a>
   <ul class="collapse">
-  <li><a href="#cross-references" id="toc-cross-references" class="nav-link" data-scroll-target="#cross-references"><span class="header-section-number">5.1</span> Cross-references</a></li>
-  <li><a href="#in-text-citations" id="toc-in-text-citations" class="nav-link" data-scroll-target="#in-text-citations"><span class="header-section-number">5.2</span> In-text citations</a></li>
-  <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes"><span class="header-section-number">5.3</span> Footnotes</a></li>
+  <li><a href="#cross-references" id="toc-cross-references" class="nav-link" data-scroll-target="#cross-references">Cross-references</a></li>
+  <li><a href="#in-text-citations" id="toc-in-text-citations" class="nav-link" data-scroll-target="#in-text-citations">In-text citations</a></li>
+  <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
   </ul></li>
   <li><a href="#text-formatting" id="toc-text-formatting" class="nav-link" data-scroll-target="#text-formatting"><span class="header-section-number">6</span> Text formatting</a>
   <ul class="collapse">
-  <li><a href="#asides" id="toc-asides" class="nav-link" data-scroll-target="#asides"><span class="header-section-number">6.1</span> Asides</a></li>
-  <li><a href="#scripts-strikethrough" id="toc-scripts-strikethrough" class="nav-link" data-scroll-target="#scripts-strikethrough"><span class="header-section-number">6.2</span> Scripts, strikethrough</a></li>
+  <li><a href="#asides" id="toc-asides" class="nav-link" data-scroll-target="#asides">Asides</a></li>
+  <li><a href="#scripts-strikethrough" id="toc-scripts-strikethrough" class="nav-link" data-scroll-target="#scripts-strikethrough">Scripts, strikethrough</a></li>
   </ul></li>
   <li><a href="#concluding-remarks" id="toc-concluding-remarks" class="nav-link" data-scroll-target="#concluding-remarks"><span class="header-section-number">7</span> Concluding remarks</a></li>
   </ul>
@@ -355,17 +363,17 @@ window.Quarto = {
 </details>
 </div>
 <p>Combining R Markdown with typesetting functionality from the <a href="https://bookdown.org/">Bookdown</a> package and <a href="https://rstudio.github.io/distill/">Distill</a> web publishing format provides a comprehensive set of tools for composing web documents. In this high-level reference I cover the tools that I find most useful for writing organized, easily referenced, math-heavy documents. The examples are arbitrary, only meant to illustrate the syntax. The <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTeX</a> and <a href="https://www.markdownguide.org/">markdown</a> syntax are not explained. For each example I provide the raw text followed by the rendered output.</p>
-<section id="definition-theorem-proof" class="level1 page-columns page-full" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Definition, theorem, proof</h1>
+<section id="definition-theorem-proof" class="level2 page-columns page-full" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="definition-theorem-proof"><span class="header-section-number">1</span> Definition, theorem, proof</h2>
 <p>The familiar math textbook refrain. Here’s the Bookdown syntax for definition, theorem, and proof environments, respectively.</p>
-<section id="definition" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">1.1</span> Definition</h2>
+<section id="definition" class="level3">
+<h3 class="anchored" data-anchor-id="definition">Definition</h3>
 <div id="def-disjoint-sets" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Disjoint sets)</strong></span> Two sets <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> are <em>disjoint</em> if their intersection <span class="math inline">\(A_1 \cap A_2 = \emptyset\)</span>, where <span class="math inline">\(\emptyset\)</span> is the empty set. We say that <span class="math inline">\(n\)</span> sets <span class="math inline">\(A_1, A_2, ..., A_n\)</span> are disjoint if <span class="math inline">\(A_i \cap A_j = \emptyset\)</span> for <span class="math inline">\(i! = j\)</span>.</p>
 </div>
 </section>
-<section id="theorem" class="level2 page-columns page-full" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="theorem"><span class="header-section-number">1.2</span> Theorem</h2>
+<section id="theorem" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="theorem">Theorem</h3>
 <div id="thm-pyth" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1 (Pythagorean theorem)</strong></span> Given a right triangle, if <span class="math inline">\(c\)</span> denotes the length of the hypotenuse and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> the lengths of the other two sides, then <span class="math display">\[a^2 + b^2 = c^2.\]</span></p>
 </div>
@@ -373,8 +381,8 @@ window.Quarto = {
 Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">this</a> page from <em>Authoring Books with R Markdown</em> lists all the other available theorem environments and their respective keywords.
 </aside>
 </section>
-<section id="proof" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="proof"><span class="header-section-number">1.3</span> Proof</h2>
+<section id="proof" class="level3">
+<h3 class="anchored" data-anchor-id="proof">Proof</h3>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em> (Pythagorean theorem). </span>Let <span class="math inline">\(x, y\)</span> be …</p>
 <p>… Thus, <span class="math display">\[a^2 + b^2 = c^2,\]</span> as desired.</p>
@@ -383,8 +391,8 @@ Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by
 \]</span></p>
 </div>
 </section>
-<section id="automatic-numbering" class="level2 page-columns page-full" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="automatic-numbering"><span class="header-section-number">1.4</span> Automatic numbering</h2>
+<section id="automatic-numbering" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="automatic-numbering">Automatic numbering</h3>
 <p>The nice thing about Bookdown is that it will automatically number definitions and theorems so that you can easily cross-reference them later on (see the <a href="#cross-references">Cross-references</a> section below). Just replace the name following the <code>#</code> (<code>pyth-thm</code> in the example below) with a unique label (containing no spaces) that will be convenient to reference.</p>
 <div id="def-cont-map" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Continuous map)</strong></span> A continuous map is a continuous function between two topological spaces.</p>
@@ -394,11 +402,11 @@ Notice that the definition’s number was automatically incremented from the pre
 </aside>
 </section>
 </section>
-<section id="sec-math-elements" class="level1 page-columns page-full" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Assorted math examples</h1>
+<section id="sec-math-elements" class="level2 page-columns page-full" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sec-math-elements"><span class="header-section-number">2</span> Assorted math examples</h2>
 <p>Here is an assortment of LaTeX examples along with their output.</p>
-<section id="brackets-and-braces" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="brackets-and-braces"><span class="header-section-number">2.1</span> Brackets and braces</h2>
+<section id="brackets-and-braces" class="level3">
+<h3 class="anchored" data-anchor-id="brackets-and-braces">Brackets and braces</h3>
 <p><span class="math display">\[
 ( a ), [ b ], \{ c \}, | d |, \| e \|,
 \langle f \rangle, \lfloor g \rfloor,
@@ -409,8 +417,8 @@ Notice that the definition’s number was automatically incremented from the pre
 ( \big( \Big( \bigg( \Bigg(
 \]</span></p>
 </section>
-<section id="fractions" class="level2 page-columns page-full" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="fractions"><span class="header-section-number">2.2</span> Fractions</h2>
+<section id="fractions" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="fractions">Fractions</h3>
 <p><span class="math display">\[
 \begin{equation}
     x = a_0 + \cfrac{1}{a_1
@@ -433,8 +441,8 @@ The <code>\left(</code> / <code>\right)</code> command encloses its contents in 
 }
 \]</span></p>
 </section>
-<section id="calculus" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="calculus"><span class="header-section-number">2.3</span> Calculus</h2>
+<section id="calculus" class="level3">
+<h3 class="anchored" data-anchor-id="calculus">Calculus</h3>
 <p><span class="math display">\[
 \int_0^\infty \mathrm{e}^{-x} ~ \mathrm{d}x
 \]</span></p>
@@ -445,8 +453,8 @@ The <code>\left(</code> / <code>\right)</code> command encloses its contents in 
 \sum_{\substack{0&lt;i&lt;m \\ 0&lt;j&lt;n}} P(i,j)
 \]</span></p>
 </section>
-<section id="linear-algebra" class="level2 page-columns page-full" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="linear-algebra"><span class="header-section-number">2.4</span> Linear algebra</h2>
+<section id="linear-algebra" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="linear-algebra">Linear algebra</h3>
 <p><span class="math display">\[
 \begin{matrix}
     a &amp; b &amp; c \\
@@ -496,8 +504,8 @@ X
 \end{align}
 \]</span></p>
 </section>
-<section id="probability" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="probability"><span class="header-section-number">2.5</span> Probability</h2>
+<section id="probability" class="level3">
+<h3 class="anchored" data-anchor-id="probability">Probability</h3>
 <p><span class="math display">\[
 \left(\!
 \begin{array}{c}
@@ -516,10 +524,10 @@ X
 \]</span></p>
 </section>
 </section>
-<section id="math-blocks" class="level1 page-columns page-full" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Math blocks</h1>
-<section id="annotations" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="annotations"><span class="header-section-number">3.1</span> Annotations</h2>
+<section id="math-blocks" class="level2 page-columns page-full" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="math-blocks"><span class="header-section-number">3</span> Math blocks</h2>
+<section id="annotations" class="level3">
+<h3 class="anchored" data-anchor-id="annotations">Annotations</h3>
 <p><span class="math display">\[
 \underbrace{
     \ln \left( \frac{5}{6} \right)
@@ -529,8 +537,8 @@ X
 }^{\simeq 1.6487}
 \]</span></p>
 </section>
-<section id="numbered-equations" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="numbered-equations"><span class="header-section-number">3.2</span> Numbered equations</h2>
+<section id="numbered-equations" class="level3">
+<h3 class="anchored" data-anchor-id="numbered-equations">Numbered equations</h3>
 <p>Unlike in pure LaTeX, in <code>bookdown</code> we must manually assign labels to every line that should have a number. I do so for significant passages, steps, and equations. Here is an example of a numbered equation:</p>
 <p><span id="eq-binom"><span class="math display">\[
 \begin{equation}
@@ -540,8 +548,8 @@ X
 \end{equation}
 \tag{1}\]</span></span></p>
 </section>
-<section id="numbered-blocks" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="numbered-blocks"><span class="header-section-number">3.3</span> Numbered blocks</h2>
+<section id="numbered-blocks" class="level3">
+<h3 class="anchored" data-anchor-id="numbered-blocks">Numbered blocks</h3>
 <p>Here is an example from the <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">Bookdown documentation</a>. It illustrates how to display a block of math with multiple lines that share a single number and label. We use the LaTeX <code>split</code> environment to split the number across lines and wrap it all in double dollar signs to tell R to treat it as math rather than raw text. To give the block a number we add an <code>(\#eq:&lt;equation-label&gt;)</code> after closing the split environment with <code>\end{split}</code>. Just replace the text after the <code>\#eq:</code> prefix with a memorable label of your choice.</p>
 <p><span id="eq-var-beta"><span class="math display">\[
 \begin{split}
@@ -559,8 +567,8 @@ X
 <li>Each aligned expression begins with the <code>&amp;</code> operator.</li>
 </ul>
 </section>
-<section id="inline-notes" class="level2 page-columns page-full" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="inline-notes"><span class="header-section-number">3.4</span> Inline notes</h2>
+<section id="inline-notes" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="inline-notes">Inline notes</h3>
 <p>We can number lines individually by using the LaTeX <code>align</code> environment and adding a unique <code>(\#eq:&lt;equation-label&gt;)</code> at the end of every line that should have a number. Additionally, we can add in-line comments by placing <code>&amp;&amp;</code> followed by <code>(&lt;my LaTeX-formatted comment&gt;)</code> at the end of the line, before the number label. As with our use of the <code>&amp;</code> operator to align successive lines of math, the <code>&amp;&amp;</code> operator tells the LaTeX compiler to align comments, but to do so to the right of the aligned math.</p>
 <aside>
 We use <code>scriptstyle</code> to make the inline text smaller. Other custom display options are detailed <a href="https://www.overleaf.com/learn/latex/Display_style_in_math_mode">here</a> (by <em>Overleaf</em>).
@@ -581,8 +589,8 @@ We use <code>scriptstyle</code> to make the inline text smaller. Other custom di
 \tag{3}\]</span></span></p>
 </section>
 </section>
-<section id="code-blocks" class="level1 page-columns page-full" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Code blocks</h1>
+<section id="code-blocks" class="level2 page-columns page-full" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="code-blocks"><span class="header-section-number">4</span> Code blocks</h2>
 <p>We can include some nicely formatted Python code:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the Fibonacci sequence</span></span>
@@ -615,8 +623,8 @@ We use <code>scriptstyle</code> to make the inline text smaller. Other custom di
 3</code></pre>
 </div>
 </div>
-<section id="tables" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="tables"><span class="header-section-number">4.1</span> Tables</h2>
+<section id="tables" class="level3">
+<h3 class="anchored" data-anchor-id="tables">Tables</h3>
 <p>We can also display data frames as nicely formatted tables. This example uses <a href="https://bookdown.org/yihui/rmarkdown-cookbook/kable.html"><code>kable</code></a> to render the built-in <code>mtcars</code> dataset as a static table:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
@@ -752,8 +760,8 @@ Table&nbsp;1: This is a table caption
 </div>
 </div>
 </section>
-<section id="paged-tables" class="level2 page-columns page-full" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="paged-tables"><span class="header-section-number">4.2</span> Paged tables</h2>
+<section id="paged-tables" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="paged-tables">Paged tables</h3>
 <p>And this example uses the <a href="https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html"><code>paged_table</code></a> function to generate a table with its columns spread out over several clickable pages:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rmarkdown)</span>
@@ -780,10 +788,10 @@ Use the knitr option <code>layout="l-body-outset"</code> to make the figure or t
 </aside>
 </section>
 </section>
-<section id="references" class="level1 page-columns page-full" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
-<section id="cross-references" class="level2 page-columns page-full" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="cross-references"><span class="header-section-number">5.1</span> Cross-references</h2>
+<section id="references" class="level2 page-columns page-full" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="references"><span class="header-section-number">5</span> References</h2>
+<section id="cross-references" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="cross-references">Cross-references</h3>
 <p>Now that we have some labelled equations and images, we can create hyperlinked references to them. Here are some examples:</p>
 <table class="caption-top table">
 <thead>
@@ -821,8 +829,8 @@ Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by
 </aside>
 <p><strong>Note</strong>: The section 1 header is followed by the label {#math-elements}.</p>
 </section>
-<section id="in-text-citations" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="in-text-citations"><span class="header-section-number">5.2</span> In-text citations</h2>
+<section id="in-text-citations" class="level3">
+<h3 class="anchored" data-anchor-id="in-text-citations">In-text citations</h3>
 <p>Provided you have stored the sources you wish to formally cite in a bibtex document, you can cite them in-text as follows and they will automatically appear, with proper formatting, in the ‘References’ section at the bottom of your document:</p>
 <p><span class="citation" data-cites="james2013introduction">(<a href="#ref-james2013introduction" role="doc-biblioref">James et al. 2013</a>)</span></p>
 <p>This is the bibtex entry in my <code>.bib</code> file to which this example refers:</p>
@@ -834,8 +842,8 @@ Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  publisher={Springer}</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="footnotes" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="footnotes"><span class="header-section-number">5.3</span> Footnotes</h2>
+<section id="footnotes" class="level3">
+<h3 class="anchored" data-anchor-id="footnotes">Footnotes</h3>
 <p>This is a manual citation with a footnote:</p>
 <p>(Axler, 2019)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>At the bottom of my document I have a corresponding footnote entry that looks like:</p>
@@ -843,18 +851,18 @@ Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Springer Science <span class="er">&amp;</span> Business Media.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="text-formatting" class="level1 page-columns page-full" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Text formatting</h1>
+<section id="text-formatting" class="level2 page-columns page-full" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="text-formatting"><span class="header-section-number">6</span> Text formatting</h2>
 <p>Here are some additional text formatting tricks:</p>
-<section id="asides" class="level2 page-columns page-full" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="asides"><span class="header-section-number">6.1</span> Asides</h2>
+<section id="asides" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="asides">Asides</h3>
 <p>I have been using these throughout. Here’s how to create them:</p>
 <aside>
 This content will appear in the gutter of the article.
 </aside>
 </section>
-<section id="scripts-strikethrough" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="scripts-strikethrough"><span class="header-section-number">6.2</span> Scripts, strikethrough</h2>
+<section id="scripts-strikethrough" class="level3">
+<h3 class="anchored" data-anchor-id="scripts-strikethrough">Scripts, strikethrough</h3>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -869,8 +877,8 @@ This content will appear in the gutter of the article.
 </table>
 </section>
 </section>
-<section id="concluding-remarks" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Concluding remarks</h1>
+<section id="concluding-remarks" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="concluding-remarks"><span class="header-section-number">7</span> Concluding remarks</h2>
 <p>And that’s it! As we’ve seen, R Markdown is a powerful integrated tool for text editing, coding, and mathematical typesetting. Combined with the math environments from Bookdown and the handy annotation tools from Distill, we have a fully capable suite of tools at our fingertips for producing beautiful, well-referenced, web-friendly mathematical documents.</p>
 <div class="cell">
 <details class="code-fold">

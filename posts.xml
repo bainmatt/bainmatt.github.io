@@ -27,14 +27,14 @@
 
 
 <p>Combining R Markdown with typesetting functionality from the <a href="https://bookdown.org/">Bookdown</a> package and <a href="https://rstudio.github.io/distill/">Distill</a> web publishing format provides a comprehensive set of tools for composing web documents. In this high-level reference I cover the tools that I find most useful for writing organized, easily referenced, math-heavy documents. The examples are arbitrary, only meant to illustrate the syntax. The <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTeX</a> and <a href="https://www.markdownguide.org/">markdown</a> syntax are not explained. For each example I provide the raw text followed by the rendered output.</p>
-<section id="definition-theorem-proof" class="level1 page-columns page-full" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Definition, theorem, proof</h1>
+<section id="definition-theorem-proof" class="level2 page-columns page-full" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="definition-theorem-proof"><span class="header-section-number">1</span> Definition, theorem, proof</h2>
 <p>The familiar math textbook refrain. Here’s the Bookdown syntax for definition, theorem, and proof environments, respectively.</p>
-<section id="definition" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="definition">Definition</h4>
+<section id="definition" class="level3">
+<h3 class="anchored" data-anchor-id="definition">Definition</h3>
 <div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb1-1">::: {#def-disjoint-sets}</span>
 <span id="cb1-2"></span>
-<span id="cb1-3">## Disjoint sets</span>
+<span id="cb1-3">#### Disjoint sets</span>
 <span id="cb1-4"></span>
 <span id="cb1-5">Two sets <span class="ss" style="color: #20794D;
 background-color: null;
@@ -81,11 +81,11 @@ font-style: inherit;">$i! = j$</span>.</span>
 <p><span class="theorem-title"><strong>Definition 1 (Disjoint sets)</strong></span> Two sets <img src="https://latex.codecogs.com/png.latex?A_1"> and <img src="https://latex.codecogs.com/png.latex?A_2"> are <em>disjoint</em> if their intersection <img src="https://latex.codecogs.com/png.latex?A_1%20%5Ccap%20A_2%20=%20%5Cemptyset">, where <img src="https://latex.codecogs.com/png.latex?%5Cemptyset"> is the empty set. We say that <img src="https://latex.codecogs.com/png.latex?n"> sets <img src="https://latex.codecogs.com/png.latex?A_1,%20A_2,%20...,%20A_n"> are disjoint if <img src="https://latex.codecogs.com/png.latex?A_i%20%5Ccap%20A_j%20=%20%5Cemptyset"> for <img src="https://latex.codecogs.com/png.latex?i!%20=%20j">.</p>
 </div>
 </section>
-<section id="theorem" class="level4 unnumbered page-columns page-full">
-<h4 class="unnumbered anchored" data-anchor-id="theorem">Theorem</h4>
+<section id="theorem" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="theorem">Theorem</h3>
 <div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb2-1">::: {#thm-pyth}</span>
 <span id="cb2-2"></span>
-<span id="cb2-3">## Pythagorean theorem</span>
+<span id="cb2-3">#### Pythagorean theorem</span>
 <span id="cb2-4"></span>
 <span id="cb2-5">Given a right triangle, if <span class="ss" style="color: #20794D;
 background-color: null;
@@ -106,11 +106,11 @@ font-style: inherit;">$$a^2 + b^2 = c^2.$$</span></span>
 Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">this</a> page from <em>Authoring Books with R Markdown</em> lists all the other available theorem environments and their respective keywords.
 </aside>
 </section>
-<section id="proof" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="proof">Proof</h4>
+<section id="proof" class="level3">
+<h3 class="anchored" data-anchor-id="proof">Proof</h3>
 <div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb3-1">::: {.proof}</span>
 <span id="cb3-2"></span>
-<span id="cb3-3">## Pythagorean theorem</span>
+<span id="cb3-3">#### Pythagorean theorem</span>
 <span id="cb3-4"></span>
 <span id="cb3-5">Let <span class="ss" style="color: #20794D;
 background-color: null;
@@ -155,12 +155,12 @@ font-style: inherit;">$$</span></span>
 
 </div>
 </section>
-<section id="automatic-numbering" class="level4 unnumbered page-columns page-full">
-<h4 class="unnumbered anchored" data-anchor-id="automatic-numbering">Automatic numbering</h4>
+<section id="automatic-numbering" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="automatic-numbering">Automatic numbering</h3>
 <p>The nice thing about Bookdown is that it will automatically number definitions and theorems so that you can easily cross-reference them later on (see the Cross-references section below). Just replace the name following the <code>#</code> (<code>pyth-thm</code> in the example below) with a unique label (containing no spaces) that will be convenient to reference.</p>
 <div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb4-1">::: {#def-cont-map}</span>
 <span id="cb4-2"></span>
-<span id="cb4-3">## Continuous map</span>
+<span id="cb4-3">#### Continuous map</span>
 <span id="cb4-4"></span>
 <span id="cb4-5">A continuous map is a continuous function between two topological</span>
 <span id="cb4-6">spaces.</span>
@@ -173,15 +173,880 @@ Notice that the definition’s number was automatically incremented from the pre
 </aside>
 </section>
 </section>
-<section id="sec-math-elements" class="level1 page-columns page-full" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Assorted math examples</h1>
+<section id="sec-math-elements" class="level2 page-columns page-full" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sec-math-elements"><span class="header-section-number">2</span> Assorted math examples</h2>
 <p>Here is an assortment of LaTeX examples along with their output.</p>
-<section id="brace-annotation" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="brace-annotation">Brace annotation</h4>
+<section id="brackets-and-braces" class="level3">
+<h3 class="anchored" data-anchor-id="brackets-and-braces">Brackets and braces</h3>
 <div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb5-1"><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">$$</span></span>
-<span id="cb5-2"><span class="sc" style="color: #5E5E5E;
+<span id="cb5-2"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">( a ), [ b ], </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\{</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> c </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, | d |, </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\|</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> e </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\|</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb5-3"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\langle</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> f </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\rangle</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\lfloor</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> g </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\rfloor</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb5-4"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\lceil</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> h </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\rceil</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\ulcorner</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> i </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\urcorner</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb5-5"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/ j </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\backslash</span></span>
+<span id="cb5-6"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span></code></pre></div>
+<p><img src="https://latex.codecogs.com/png.latex?%0A(%20a%20),%20%5B%20b%20%5D,%20%5C%7B%20c%20%5C%7D,%20%7C%20d%20%7C,%20%5C%7C%20e%20%5C%7C,%0A%5Clangle%20f%20%5Crangle,%20%5Clfloor%20g%20%5Crfloor,%0A%5Clceil%20h%20%5Crceil,%20%5Culcorner%20i%20%5Curcorner,%0A/%20j%20%5Cbackslash%0A"></p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb6-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span>
+<span id="cb6-2"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">( </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\big</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">( </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\Big</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">( </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\bigg</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">( </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\Bigg</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">(</span></span>
+<span id="cb6-3"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span></code></pre></div>
+<p><img src="https://latex.codecogs.com/png.latex?%0A(%20%5Cbig(%20%5CBig(%20%5Cbigg(%20%5CBigg(%0A"></p>
+</section>
+<section id="fractions" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="fractions">Fractions</h3>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb7-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span>
+<span id="cb7-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">equation</span>}</span>
+<span id="cb7-3"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    x = a_0 + </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\cfrac</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{1}{a_1 </span></span>
+<span id="cb7-4"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">            + </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\cfrac</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{1}{a_2 </span></span>
+<span id="cb7-5"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">            + </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\cfrac</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{1}{a_3 + </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\cfrac</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{1}{a_4} } } }</span></span>
+<span id="cb7-6"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\end</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">equation</span>}</span>
+<span id="cb7-7"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span></code></pre></div>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bequation%7D%0A%20%20%20%20x%20=%20a_0%20+%20%5Ccfrac%7B1%7D%7Ba_1%0A%20%20%20%20%20%20%20%20%20%20%20%20+%20%5Ccfrac%7B1%7D%7Ba_2%0A%20%20%20%20%20%20%20%20%20%20%20%20+%20%5Ccfrac%7B1%7D%7Ba_3%20+%20%5Ccfrac%7B1%7D%7Ba_4%7D%20%7D%20%7D%20%7D%0A%5Cend%7Bequation%7D%0A"></p>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb8-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span>
+<span id="cb8-2"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\frac</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb8-3"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">array</span>}<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">[b]{r}</span></span>
+<span id="cb8-4"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">( x_1 x_2 </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">) </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb8-5"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\times</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> </span></span>
+<span id="cb8-6"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">( x'_1 x'_2 </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb8-7"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\end</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">array</span>}<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">} {</span></span>
+<span id="cb8-8"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">( y_1y_2y_3y_4 </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">) </span></span>
+<span id="cb8-9"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb8-10"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span></code></pre></div>
+<aside>
+The <code>\left(</code> / <code>\right)</code> command encloses its contents in big brackets.
+</aside>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%0A%5Cbegin%7Barray%7D%5Bb%5D%7Br%7D%0A%20%20%20%20%5Cleft(%20x_1%20x_2%20%5Cright)%20%5C%5C%0A%20%20%20%20%5Ctimes%0A%20%20%20%20%5Cleft(%20x'_1%20x'_2%20%5Cright)%0A%5Cend%7Barray%7D%7D%20%7B%0A%5Cleft(%20y_1y_2y_3y_4%20%5Cright)%0A%7D%0A"></p>
+</section>
+<section id="calculus" class="level3">
+<h3 class="anchored" data-anchor-id="calculus">Calculus</h3>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb9-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span>
+<span id="cb9-2"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\int</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">_0^</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\infty</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\mathrm</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{e}^{-x} ~ </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\mathrm</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{d}x</span></span>
+<span id="cb9-3"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span></code></pre></div>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cint_0%5E%5Cinfty%20%5Cmathrm%7Be%7D%5E%7B-x%7D%20~%20%5Cmathrm%7Bd%7Dx%0A"></p>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb10-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span>
+<span id="cb10-2"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\int\limits</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">_a^b </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\sin</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">(x) ~ </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\mathrm</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{d}x</span></span>
+<span id="cb10-3"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span></code></pre></div>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cint%5Climits_a%5Eb%20%5Csin(x)%20~%20%5Cmathrm%7Bd%7Dx%0A"></p>
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb11-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span>
+<span id="cb11-2"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\sum</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">_{</span></span>
+<span id="cb11-3"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\substack</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb11-4"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    0&lt;i&lt;m </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb11-5"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    0&lt;j&lt;n </span></span>
+<span id="cb11-6"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">}} </span></span>
+<span id="cb11-7"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">P(i,j)</span></span>
+<span id="cb11-8"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span></code></pre></div>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Csum_%7B%0A%5Csubstack%7B%0A%20%20%20%200%3Ci%3Cm%20%5C%5C%0A%20%20%20%200%3Cj%3Cn%0A%7D%7D%0AP(i,j)%0A"></p>
+</section>
+<section id="linear-algebra" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="linear-algebra">Linear algebra</h3>
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb12-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span>
+<span id="cb12-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">matrix</span>}</span>
+<span id="cb12-3"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    a &amp; b &amp; c </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb12-4"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    d &amp; e &amp; f </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb12-5"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    g &amp; h &amp; i</span></span>
+<span id="cb12-6"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\end</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">matrix</span>}</span>
+<span id="cb12-7"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span></code></pre></div>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bmatrix%7D%0A%20%20%20%20a%20&amp;%20b%20&amp;%20c%20%5C%5C%0A%20%20%20%20d%20&amp;%20e%20&amp;%20f%20%5C%5C%0A%20%20%20%20g%20&amp;%20h%20&amp;%20i%0A%5Cend%7Bmatrix%7D%0A"></p>
+<div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb13-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span>
+<span id="cb13-2"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">A_{m,n} = </span></span>
+<span id="cb13-3"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pmatrix</span>}</span>
+<span id="cb13-4"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    a_{1,1} &amp; a_{1,2} &amp; </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\cdots</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> &amp; a_{1,n} </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb13-5"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    a_{2,1} &amp; a_{2,2} &amp; </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\cdots</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> &amp; a_{2,n} </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb13-6"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\vdots</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  &amp; </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\vdots</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  &amp; </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\ddots</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> &amp; </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\vdots</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb13-7"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    a_{m,1} &amp; a_{m,2} &amp; </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\cdots</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> &amp; a_{m,n} </span></span>
+<span id="cb13-8"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\end</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pmatrix</span>}</span>
+<span id="cb13-9"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span></code></pre></div>
+<p><img src="https://latex.codecogs.com/png.latex?%0AA_%7Bm,n%7D%20=%0A%5Cbegin%7Bpmatrix%7D%0A%20%20%20%20a_%7B1,1%7D%20&amp;%20a_%7B1,2%7D%20&amp;%20%5Ccdots%20&amp;%20a_%7B1,n%7D%20%5C%5C%0A%20%20%20%20a_%7B2,1%7D%20&amp;%20a_%7B2,2%7D%20&amp;%20%5Ccdots%20&amp;%20a_%7B2,n%7D%20%5C%5C%0A%20%20%20%20%5Cvdots%20%20&amp;%20%5Cvdots%20%20&amp;%20%5Cddots%20&amp;%20%5Cvdots%20%20%5C%5C%0A%20%20%20%20a_%7Bm,1%7D%20&amp;%20a_%7Bm,2%7D%20&amp;%20%5Ccdots%20&amp;%20a_%7Bm,n%7D%0A%5Cend%7Bpmatrix%7D%0A"></p>
+<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb14-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span>
+<span id="cb14-2"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">X = </span></span>
+<span id="cb14-3"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">bmatrix</span>}</span>
+<span id="cb14-4"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    x_1 &amp; y_1 </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb14-5"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    x_2 &amp; y_2 </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb14-6"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    x_3 &amp; y_3</span></span>
+<span id="cb14-7"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\end</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">bmatrix</span>}</span>
+<span id="cb14-8"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span></code></pre></div>
+<p><img src="https://latex.codecogs.com/png.latex?%0AX%20=%0A%5Cbegin%7Bbmatrix%7D%0A%20%20%20%20x_1%20&amp;%20y_1%20%5C%5C%0A%20%20%20%20x_2%20&amp;%20y_2%20%5C%5C%0A%20%20%20%20x_3%20&amp;%20y_3%0A%5Cend%7Bbmatrix%7D%0A"></p>
+<div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb15-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span>
+<span id="cb15-2"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">X </span></span>
+<span id="cb15-3"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">= </span></span>
+<span id="cb15-4"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">[</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">matrix</span>}</span>
+<span id="cb15-5"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    a &amp; b &amp; c </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb15-6"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    d &amp; e &amp; f </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb15-7"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    g &amp; h &amp; i</span></span>
+<span id="cb15-8"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\end</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">matrix</span>}<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb15-9"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">[</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">matrix</span>}</span>
+<span id="cb15-10"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    y^{(1)} </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> </span></span>
+<span id="cb15-11"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    y^{(2)} </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb15-12"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    y^{(3)}</span></span>
+<span id="cb15-13"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\end</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">matrix</span>}<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb15-14"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">= </span></span>
+<span id="cb15-15"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">[</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">matrix</span>}</span>
+<span id="cb15-16"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    |                     &amp; |                     &amp; | </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb15-17"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    y^{(1)} ~ </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\vec</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{x}_1   &amp; y^{(2)} ~ </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\vec</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{x}_2   &amp; y^{(3)} ~ </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\vec</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{x}_3 </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb15-18"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    |                     &amp; |                     &amp; |</span></span>
+<span id="cb15-19"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\end</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">matrix</span>}<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb15-20"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\in</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\mathbb</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{R^3}</span></span>
+<span id="cb15-21"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span></code></pre></div>
+<aside>
+The <code>~</code> symbol represents a whitespace character.
+</aside>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0AX%0A&amp;%20=%0A%5Cleft%5B%5Cbegin%7Bmatrix%7D%0A%20%20%20%20a%20&amp;%20b%20&amp;%20c%20%5C%5C%0A%20%20%20%20d%20&amp;%20e%20&amp;%20f%20%5C%5C%0A%20%20%20%20g%20&amp;%20h%20&amp;%20i%0A%5Cend%7Bmatrix%7D%5Cright%5D%0A%5Cleft%5B%5Cbegin%7Bmatrix%7D%0A%20%20%20%20y%5E%7B(1)%7D%20%5C%5C%0A%20%20%20%20y%5E%7B(2)%7D%20%5C%5C%0A%20%20%20%20y%5E%7B(3)%7D%0A%5Cend%7Bmatrix%7D%5Cright%5D%20%5C%5C%0A&amp;%20=%0A%5Cleft%5B%5Cbegin%7Bmatrix%7D%0A%20%20%20%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%20%5C%5C%0A%20%20%20%20y%5E%7B(1)%7D%20~%20%5Cvec%7Bx%7D_1%20%20%20&amp;%20y%5E%7B(2)%7D%20~%20%5Cvec%7Bx%7D_2%20%20%20&amp;%20y%5E%7B(3)%7D%20~%20%5Cvec%7Bx%7D_3%20%5C%5C%0A%20%20%20%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%0A%5Cend%7Bmatrix%7D%5Cright%5D%0A%5Cin%20%5Cmathbb%7BR%5E3%7D%0A%5Cend%7Balign%7D%0A"></p>
+</section>
+<section id="probability" class="level3">
+<h3 class="anchored" data-anchor-id="probability">Probability</h3>
+<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb16-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span>
+<span id="cb16-2"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">(</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\!</span></span>
+<span id="cb16-3"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">array</span>}<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{c}</span></span>
+<span id="cb16-4"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    n </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb16-5"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    r</span></span>
+<span id="cb16-6"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\end</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">array</span>}</span>
+<span id="cb16-7"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\!\right</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">) </span></span>
+<span id="cb16-8"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">= </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\frac</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{n!}{r!(n-r)!}</span></span>
+<span id="cb16-9"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span></code></pre></div>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cleft(%5C!%0A%5Cbegin%7Barray%7D%7Bc%7D%0A%20%20%20%20n%20%5C%5C%0A%20%20%20%20r%0A%5Cend%7Barray%7D%0A%5C!%5Cright)%0A=%20%5Cfrac%7Bn!%7D%7Br!(n-c)!%7D%0A"></p>
+<div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb17-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span>
+<span id="cb17-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">equation</span>}<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> </span></span>
+<span id="cb17-3"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\phi</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">(x; </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\mu</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\sigma</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">) </span></span>
+<span id="cb17-4"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    = </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\frac</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{1}{</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\sqrt</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{2 </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\pi</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\sigma</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">^2}} </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\exp</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> </span></span>
+<span id="cb17-5"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">( - </span></span>
+<span id="cb17-6"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\frac</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">(x - </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\mu\right</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">)^2}{2 </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\sigma</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">^2} </span></span>
+<span id="cb17-7"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb17-8"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\end</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">equation</span>}</span>
+<span id="cb17-9"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span></code></pre></div>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bequation%7D%0A%20%20%20%20%5Cphi%20%5Cleft(x;%20%5Cmu,%20%5Csigma%20%5Cright)%0A%20%20%20%20=%20%5Cfrac%7B1%7D%7B%5Csqrt%7B2%20%5Cpi%20%5Csigma%5E2%7D%7D%20%5Cexp%0A%20%20%20%20%5Cleft(%20-%0A%20%20%20%20%5Cfrac%7B%5Cleft(x%20-%20%5Cmu%5Cright)%5E2%7D%7B2%20%5Csigma%5E2%7D%0A%20%20%20%20%5Cright)%0A%5Cend%7Bequation%7D%0A"></p>
+</section>
+</section>
+<section id="math-blocks" class="level2 page-columns page-full" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="math-blocks"><span class="header-section-number">3</span> Math blocks</h2>
+<section id="numbered-equations" class="level3">
+<h3 class="anchored" data-anchor-id="numbered-equations">Numbered equations</h3>
+<p>Unlike in pure LaTeX, in <code>bookdown</code> we must manually assign labels to every line that should have a number. I do so for significant passages, steps, and equations. Here is an example of a numbered equation:</p>
+<div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb18-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span>
+<span id="cb18-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">equation</span>}<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> </span></span>
+<span id="cb18-3"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\mathbb</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{P} </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">(k</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">) </span></span>
+<span id="cb18-4"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    = </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\binom</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{n}{k}</span></span>
+<span id="cb18-5"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    p^k</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">(1-p</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">)^{n-k}</span></span>
+<span id="cb18-6"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\end</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">equation</span>}</span>
+<span id="cb18-7"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span> {#eq-binom-eq}</span></code></pre></div>
+<p><span id="eq-binom-eq"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bequation%7D%0A%20%20%20%20%5Cmathbb%7BP%7D%20%5Cleft(k%5Cright)%0A%20%20%20%20=%20%5Cbinom%7Bn%7D%7Bk%7D%0A%20%20%20%20p%5Ek%5Cleft(1-p%5Cright)%5E%7Bn-k%7D%0A%5Cend%7Bequation%7D%0A%5Ctag%7B1%7D"></span></p>
+</section>
+<section id="numbered-blocks" class="level3">
+<h3 class="anchored" data-anchor-id="numbered-blocks">Numbered blocks</h3>
+<p>Here is an example from the <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">Bookdown documentation</a>. It illustrates how to display a block of math with multiple lines that share a single number and label. We use the LaTeX <code>split</code> environment to split the number across lines and wrap it all in double dollar signs to tell R to treat it as math rather than raw text. To give the block a number we add an <code>(\#eq:&lt;equation-label&gt;)</code> after closing the split environment with <code>\end{split}</code>. Just replace the text after the <code>\#eq:</code> prefix with a memorable label of your choice.</p>
+<div class="sourceCode" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb19-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span>
+<span id="cb19-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">split</span>}</span>
+<span id="cb19-3"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\mathrm</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{Var}(</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\hat</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\beta</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">}) &amp; =</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\mathrm</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{Var}((X'X)^{-1}X'y) </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb19-4"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    &amp; = (X'X)^{-1}X'</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\mathrm</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{Var}(y)((X'X)^{-1}X')' </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb19-5"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    &amp; = (X'X)^{-1}X'</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\mathrm</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">{Var}(y)X(X'X)^{-1} </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb19-6"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    &amp; = (X'X)^{-1}X'</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\sigma</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">^{2}IX(X'X)^{-1} </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span></span>
+<span id="cb19-7"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    &amp; = (X'X)^{-1}</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\sigma</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">^{2}</span></span>
+<span id="cb19-8"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">\end</span>{<span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">split</span>}</span>
+<span id="cb19-9"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span> {#eq-var-beta}</span></code></pre></div>
+<p><span id="eq-var-beta"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0A%5Cmathrm%7BVar%7D(%5Chat%7B%5Cbeta%7D)%20&amp;%20=%5Cmathrm%7BVar%7D((X'X)%5E%7B-1%7DX'y)%20%5C%5C%0A%20%20%20%20&amp;%20=%20(X'X)%5E%7B-1%7DX'%5Cmathrm%7BVar%7D(y)((X'X)%5E%7B-1%7DX')'%20%5C%5C%0A%20%20%20%20&amp;%20=%20(X'X)%5E%7B-1%7DX'%5Cmathrm%7BVar%7D(y)X(X'X)%5E%7B-1%7D%20%5C%5C%0A%20%20%20%20&amp;%20=%20(X'X)%5E%7B-1%7DX'%5Csigma%5E%7B2%7DIX(X'X)%5E%7B-1%7D%20%5C%5C%0A%20%20%20%20&amp;%20=%20(X'X)%5E%7B-1%7D%5Csigma%5E%7B2%7D%0A%5Cend%7Bsplit%7D%0A%5Ctag%7B2%7D"></span></p>
+<p>Some additional notes:</p>
+<ul>
+<li>Each new line is preceded by a <code>\\</code> operator.</li>
+<li>Each aligned expression begins with the <code>&amp;</code> operator.</li>
+</ul>
+</section>
+<section id="annotations" class="level3">
+<h3 class="anchored" data-anchor-id="annotations">Annotations</h3>
+<div class="sourceCode" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb20-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$$</span></span>
+<span id="cb20-2"><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">\underbrace</span><span class="ss" style="color: #20794D;
 background-color: null;
@@ -206,7 +1071,7 @@ background-color: null;
 font-style: inherit;">\simeq</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;"> -0.1823} &lt;</span></span>
-<span id="cb5-3"><span class="sc" style="color: #5E5E5E;
+<span id="cb20-3"><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">\overbrace</span><span class="ss" style="color: #20794D;
 background-color: null;
@@ -231,878 +1096,13 @@ background-color: null;
 font-style: inherit;">\simeq</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;"> 1.6487}</span></span>
-<span id="cb5-4"><span class="ss" style="color: #20794D;
+<span id="cb20-4"><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">$$</span></span></code></pre></div>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Cunderbrace%7B%5Cln%20%5Cleft(%20%5Cfrac%7B5%7D%7B6%7D%20%5Cright)%7D_%7B%5Csimeq%20-0.1823%7D%20%3C%0A%5Coverbrace%7B%5Cexp%20%5Cleft(%5Cfrac%7B1%7D%7B2%7D%20%5Cright)%7D%5E%7B%5Csimeq%201.6487%7D%0A"></p>
 </section>
-<section id="brackets-and-braces" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="brackets-and-braces">Brackets and braces</h4>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb6-1"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span>
-<span id="cb6-2"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">( a ), [ b ], </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\{</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> c </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\}</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">, | d |, </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\|</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> e </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\|</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb6-3"><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\langle</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> f </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\rangle</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\lfloor</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> g </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\rfloor</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb6-4"><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\lceil</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> h </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\rceil</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\ulcorner</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> i </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\urcorner</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">,</span></span>
-<span id="cb6-5"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/ j </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\backslash</span></span>
-<span id="cb6-6"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span></code></pre></div>
-<p><img src="https://latex.codecogs.com/png.latex?%0A(%20a%20),%20%5B%20b%20%5D,%20%5C%7B%20c%20%5C%7D,%20%7C%20d%20%7C,%20%5C%7C%20e%20%5C%7C,%0A%5Clangle%20f%20%5Crangle,%20%5Clfloor%20g%20%5Crfloor,%0A%5Clceil%20h%20%5Crceil,%20%5Culcorner%20i%20%5Curcorner,%0A/%20j%20%5Cbackslash%0A"></p>
-<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb7-1"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span>
-<span id="cb7-2"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">( </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\big</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">( </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\Big</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">( </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\bigg</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">( </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\Bigg</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">(</span></span>
-<span id="cb7-3"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span></code></pre></div>
-<p><img src="https://latex.codecogs.com/png.latex?%0A(%20%5Cbig(%20%5CBig(%20%5Cbigg(%20%5CBigg(%0A"></p>
-</section>
-<section id="fractions" class="level4 unnumbered page-columns page-full">
-<h4 class="unnumbered anchored" data-anchor-id="fractions">Fractions</h4>
-<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb8-1"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span>
-<span id="cb8-2"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">equation</span>}</span>
-<span id="cb8-3"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    x = a_0 + </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\cfrac</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{1}{a_1 </span></span>
-<span id="cb8-4"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">            + </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\cfrac</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{1}{a_2 </span></span>
-<span id="cb8-5"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">            + </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\cfrac</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{1}{a_3 + </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\cfrac</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{1}{a_4} } } }</span></span>
-<span id="cb8-6"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\end</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">equation</span>}</span>
-<span id="cb8-7"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span></code></pre></div>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bequation%7D%0A%20%20%20%20x%20=%20a_0%20+%20%5Ccfrac%7B1%7D%7Ba_1%0A%20%20%20%20%20%20%20%20%20%20%20%20+%20%5Ccfrac%7B1%7D%7Ba_2%0A%20%20%20%20%20%20%20%20%20%20%20%20+%20%5Ccfrac%7B1%7D%7Ba_3%20+%20%5Ccfrac%7B1%7D%7Ba_4%7D%20%7D%20%7D%20%7D%0A%5Cend%7Bequation%7D%0A"></p>
-<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb9-1"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span>
-<span id="cb9-2"><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\frac</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb9-3"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">array</span>}<span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">[b]{r}</span></span>
-<span id="cb9-4"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">( x_1 x_2 </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">) </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb9-5"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\times</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> </span></span>
-<span id="cb9-6"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">( x'_1 x'_2 </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span id="cb9-7"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\end</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">array</span>}<span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">} {</span></span>
-<span id="cb9-8"><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">( y_1y_2y_3y_4 </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">) </span></span>
-<span id="cb9-9"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">}</span></span>
-<span id="cb9-10"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span></code></pre></div>
-<aside>
-The <code>\left(</code> / <code>\right)</code> command encloses its contents in big brackets.
-</aside>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%0A%5Cbegin%7Barray%7D%5Bb%5D%7Br%7D%0A%20%20%20%20%5Cleft(%20x_1%20x_2%20%5Cright)%20%5C%5C%0A%20%20%20%20%5Ctimes%0A%20%20%20%20%5Cleft(%20x'_1%20x'_2%20%5Cright)%0A%5Cend%7Barray%7D%7D%20%7B%0A%5Cleft(%20y_1y_2y_3y_4%20%5Cright)%0A%7D%0A"></p>
-</section>
-<section id="calculus-expressions" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="calculus-expressions">Calculus expressions</h4>
-<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb10-1"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span>
-<span id="cb10-2"><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\int</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">_0^</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\infty</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\mathrm</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{e}^{-x} ~ </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\mathrm</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{d}x</span></span>
-<span id="cb10-3"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span></code></pre></div>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cint_0%5E%5Cinfty%20%5Cmathrm%7Be%7D%5E%7B-x%7D%20~%20%5Cmathrm%7Bd%7Dx%0A"></p>
-<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb11-1"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span>
-<span id="cb11-2"><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\int\limits</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">_a^b </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\sin</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">(x) ~ </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\mathrm</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{d}x</span></span>
-<span id="cb11-3"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span></code></pre></div>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cint%5Climits_a%5Eb%20%5Csin(x)%20~%20%5Cmathrm%7Bd%7Dx%0A"></p>
-<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb12-1"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span>
-<span id="cb12-2"><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\sum</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">_{</span></span>
-<span id="cb12-3"><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\substack</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span id="cb12-4"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    0&lt;i&lt;m </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb12-5"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    0&lt;j&lt;n </span></span>
-<span id="cb12-6"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">}} </span></span>
-<span id="cb12-7"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">P(i,j)</span></span>
-<span id="cb12-8"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span></code></pre></div>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Csum_%7B%0A%5Csubstack%7B%0A%20%20%20%200%3Ci%3Cm%20%5C%5C%0A%20%20%20%200%3Cj%3Cn%0A%7D%7D%0AP(i,j)%0A"></p>
-</section>
-<section id="linear-algebra-expressions" class="level4 unnumbered page-columns page-full">
-<h4 class="unnumbered anchored" data-anchor-id="linear-algebra-expressions">Linear algebra expressions</h4>
-<div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb13-1"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span>
-<span id="cb13-2"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">matrix</span>}</span>
-<span id="cb13-3"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    a &amp; b &amp; c </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb13-4"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    d &amp; e &amp; f </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb13-5"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    g &amp; h &amp; i</span></span>
-<span id="cb13-6"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\end</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">matrix</span>}</span>
-<span id="cb13-7"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span></code></pre></div>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bmatrix%7D%0A%20%20%20%20a%20&amp;%20b%20&amp;%20c%20%5C%5C%0A%20%20%20%20d%20&amp;%20e%20&amp;%20f%20%5C%5C%0A%20%20%20%20g%20&amp;%20h%20&amp;%20i%0A%5Cend%7Bmatrix%7D%0A"></p>
-<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb14-1"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span>
-<span id="cb14-2"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">A_{m,n} = </span></span>
-<span id="cb14-3"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">pmatrix</span>}</span>
-<span id="cb14-4"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    a_{1,1} &amp; a_{1,2} &amp; </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\cdots</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> &amp; a_{1,n} </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb14-5"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    a_{2,1} &amp; a_{2,2} &amp; </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\cdots</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> &amp; a_{2,n} </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb14-6"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\vdots</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">  &amp; </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\vdots</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">  &amp; </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\ddots</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> &amp; </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\vdots</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">  </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb14-7"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    a_{m,1} &amp; a_{m,2} &amp; </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\cdots</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> &amp; a_{m,n} </span></span>
-<span id="cb14-8"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\end</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">pmatrix</span>}</span>
-<span id="cb14-9"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span></code></pre></div>
-<p><img src="https://latex.codecogs.com/png.latex?%0AA_%7Bm,n%7D%20=%0A%5Cbegin%7Bpmatrix%7D%0A%20%20%20%20a_%7B1,1%7D%20&amp;%20a_%7B1,2%7D%20&amp;%20%5Ccdots%20&amp;%20a_%7B1,n%7D%20%5C%5C%0A%20%20%20%20a_%7B2,1%7D%20&amp;%20a_%7B2,2%7D%20&amp;%20%5Ccdots%20&amp;%20a_%7B2,n%7D%20%5C%5C%0A%20%20%20%20%5Cvdots%20%20&amp;%20%5Cvdots%20%20&amp;%20%5Cddots%20&amp;%20%5Cvdots%20%20%5C%5C%0A%20%20%20%20a_%7Bm,1%7D%20&amp;%20a_%7Bm,2%7D%20&amp;%20%5Ccdots%20&amp;%20a_%7Bm,n%7D%0A%5Cend%7Bpmatrix%7D%0A"></p>
-<div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb15-1"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span>
-<span id="cb15-2"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">X = </span></span>
-<span id="cb15-3"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">bmatrix</span>}</span>
-<span id="cb15-4"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    x_1 &amp; y_1 </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb15-5"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    x_2 &amp; y_2 </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb15-6"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    x_3 &amp; y_3</span></span>
-<span id="cb15-7"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\end</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">bmatrix</span>}</span>
-<span id="cb15-8"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span></code></pre></div>
-<p><img src="https://latex.codecogs.com/png.latex?%0AX%20=%0A%5Cbegin%7Bbmatrix%7D%0A%20%20%20%20x_1%20&amp;%20y_1%20%5C%5C%0A%20%20%20%20x_2%20&amp;%20y_2%20%5C%5C%0A%20%20%20%20x_3%20&amp;%20y_3%0A%5Cend%7Bbmatrix%7D%0A"></p>
-<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb16-1"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span>
-<span id="cb16-2"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">X </span></span>
-<span id="cb16-3"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">= </span></span>
-<span id="cb16-4"><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">[</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">matrix</span>}</span>
-<span id="cb16-5"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    a &amp; b &amp; c </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb16-6"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    d &amp; e &amp; f </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb16-7"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    g &amp; h &amp; i</span></span>
-<span id="cb16-8"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\end</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">matrix</span>}<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">]</span></span>
-<span id="cb16-9"><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">[</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">matrix</span>}</span>
-<span id="cb16-10"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    y^{(1)} </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> </span></span>
-<span id="cb16-11"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    y^{(2)} </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb16-12"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    y^{(3)}</span></span>
-<span id="cb16-13"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\end</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">matrix</span>}<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">]</span></span>
-<span id="cb16-14"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">= </span></span>
-<span id="cb16-15"><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">[</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">matrix</span>}</span>
-<span id="cb16-16"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    |                     &amp; |                     &amp; | </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb16-17"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    y^{(1)} ~ </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\vec</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{x}_1   &amp; y^{(2)} ~ </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\vec</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{x}_2   &amp; y^{(3)} ~ </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\vec</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{x}_3 </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb16-18"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    |                     &amp; |                     &amp; |</span></span>
-<span id="cb16-19"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\end</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">matrix</span>}<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">]</span></span>
-<span id="cb16-20"><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\in</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\mathbb</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{R^3}</span></span>
-<span id="cb16-21"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span></code></pre></div>
-<aside>
-The <code>~</code> symbol represents a whitespace character.
-</aside>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0AX%0A&amp;%20=%0A%5Cleft%5B%5Cbegin%7Bmatrix%7D%0A%20%20%20%20a%20&amp;%20b%20&amp;%20c%20%5C%5C%0A%20%20%20%20d%20&amp;%20e%20&amp;%20f%20%5C%5C%0A%20%20%20%20g%20&amp;%20h%20&amp;%20i%0A%5Cend%7Bmatrix%7D%5Cright%5D%0A%5Cleft%5B%5Cbegin%7Bmatrix%7D%0A%20%20%20%20y%5E%7B(1)%7D%20%5C%5C%0A%20%20%20%20y%5E%7B(2)%7D%20%5C%5C%0A%20%20%20%20y%5E%7B(3)%7D%0A%5Cend%7Bmatrix%7D%5Cright%5D%20%5C%5C%0A&amp;%20=%0A%5Cleft%5B%5Cbegin%7Bmatrix%7D%0A%20%20%20%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%20%5C%5C%0A%20%20%20%20y%5E%7B(1)%7D%20~%20%5Cvec%7Bx%7D_1%20%20%20&amp;%20y%5E%7B(2)%7D%20~%20%5Cvec%7Bx%7D_2%20%20%20&amp;%20y%5E%7B(3)%7D%20~%20%5Cvec%7Bx%7D_3%20%5C%5C%0A%20%20%20%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20%7C%0A%5Cend%7Bmatrix%7D%5Cright%5D%0A%5Cin%20%5Cmathbb%7BR%5E3%7D%0A%5Cend%7Balign%7D%0A"></p>
-</section>
-<section id="probability-expressions" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="probability-expressions">Probability expressions</h4>
-<div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb17-1"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span>
-<span id="cb17-2"><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">(</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\!</span></span>
-<span id="cb17-3"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">array</span>}<span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{c}</span></span>
-<span id="cb17-4"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    n </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb17-5"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    r</span></span>
-<span id="cb17-6"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\end</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">array</span>}</span>
-<span id="cb17-7"><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\!\right</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">) </span></span>
-<span id="cb17-8"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">= </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\frac</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{n!}{r!(n-r)!}</span></span>
-<span id="cb17-9"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span></code></pre></div>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cleft(%5C!%0A%5Cbegin%7Barray%7D%7Bc%7D%0A%20%20%20%20n%20%5C%5C%0A%20%20%20%20r%0A%5Cend%7Barray%7D%0A%5C!%5Cright)%0A=%20%5Cfrac%7Bn!%7D%7Br!(n-c)!%7D%0A"></p>
-<div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb18-1"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span>
-<span id="cb18-2"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">equation</span>}<span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> </span></span>
-<span id="cb18-3"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\phi</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">(x; </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\mu</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\sigma</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">) </span></span>
-<span id="cb18-4"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    = </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\frac</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{1}{</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\sqrt</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{2 </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\pi</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\sigma</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">^2}} </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\exp</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> </span></span>
-<span id="cb18-5"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">( - </span></span>
-<span id="cb18-6"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\frac</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">(x - </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\mu\right</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">)^2}{2 </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\sigma</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">^2} </span></span>
-<span id="cb18-7"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span id="cb18-8"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\end</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">equation</span>}</span>
-<span id="cb18-9"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span></code></pre></div>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bequation%7D%0A%20%20%20%20%5Cphi%20%5Cleft(x;%20%5Cmu,%20%5Csigma%20%5Cright)%0A%20%20%20%20=%20%5Cfrac%7B1%7D%7B%5Csqrt%7B2%20%5Cpi%20%5Csigma%5E2%7D%7D%20%5Cexp%0A%20%20%20%20%5Cleft(%20-%0A%20%20%20%20%5Cfrac%7B%5Cleft(x%20-%20%5Cmu%5Cright)%5E2%7D%7B2%20%5Csigma%5E2%7D%0A%20%20%20%20%5Cright)%0A%5Cend%7Bequation%7D%0A"></p>
-</section>
-</section>
-<section id="numbered-equations" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Numbered equations</h1>
-<p>Unlike in pure LaTeX, in <code>bookdown</code> we must manually assign labels to every line that should have a number. I do so for significant passages, steps, and equations. Here is an example of a numbered equation:</p>
-<div class="sourceCode" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb19-1"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span>
-<span id="cb19-2"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">equation</span>}<span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> </span></span>
-<span id="cb19-3"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\mathbb</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{P} </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">(k</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">) </span></span>
-<span id="cb19-4"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    = </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\binom</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{n}{k}</span></span>
-<span id="cb19-5"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    p^k</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\left</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">(1-p</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\right</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">)^{n-k}</span></span>
-<span id="cb19-6"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\end</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">equation</span>}</span>
-<span id="cb19-7"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span> {#eq-binom-eq}</span></code></pre></div>
-<p><span id="eq-binom-eq"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bequation%7D%0A%20%20%20%20%5Cmathbb%7BP%7D%20%5Cleft(k%5Cright)%0A%20%20%20%20=%20%5Cbinom%7Bn%7D%7Bk%7D%0A%20%20%20%20p%5Ek%5Cleft(1-p%5Cright)%5E%7Bn-k%7D%0A%5Cend%7Bequation%7D%0A%5Ctag%7B1%7D"></span></p>
-</section>
-<section id="math-blocks" class="level1 page-columns page-full" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Math blocks</h1>
-<section id="numbered-blocks" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="numbered-blocks">Numbered blocks</h4>
-<p>Here is an example from the <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">Bookdown documentation</a>. It illustrates how to display a block of math with multiple lines that share a single number and label. We use the LaTeX <code>split</code> environment to split the number across lines and wrap it all in double dollar signs to tell R to treat it as math rather than raw text. To give the block a number we add an <code>(\#eq:&lt;equation-label&gt;)</code> after closing the split environment with <code>\end{split}</code>. Just replace the text after the <code>\#eq:</code> prefix with a memorable label of your choice.</p>
-<div class="sourceCode" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb20-1"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span></span>
-<span id="cb20-2"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\begin</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">split</span>}</span>
-<span id="cb20-3"><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\mathrm</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{Var}(</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\hat</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\beta</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">}) &amp; =</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\mathrm</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{Var}((X'X)^{-1}X'y) </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb20-4"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    &amp; = (X'X)^{-1}X'</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\mathrm</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{Var}(y)((X'X)^{-1}X')' </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb20-5"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    &amp; = (X'X)^{-1}X'</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\mathrm</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">{Var}(y)X(X'X)^{-1} </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb20-6"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    &amp; = (X'X)^{-1}X'</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\sigma</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">^{2}IX(X'X)^{-1} </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span></span>
-<span id="cb20-7"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">    &amp; = (X'X)^{-1}</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\sigma</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">^{2}</span></span>
-<span id="cb20-8"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">\end</span>{<span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">split</span>}</span>
-<span id="cb20-9"><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$$</span> {#eq-var-beta}</span></code></pre></div>
-<p><span id="eq-var-beta"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0A%5Cmathrm%7BVar%7D(%5Chat%7B%5Cbeta%7D)%20&amp;%20=%5Cmathrm%7BVar%7D((X'X)%5E%7B-1%7DX'y)%20%5C%5C%0A%20%20%20%20&amp;%20=%20(X'X)%5E%7B-1%7DX'%5Cmathrm%7BVar%7D(y)((X'X)%5E%7B-1%7DX')'%20%5C%5C%0A%20%20%20%20&amp;%20=%20(X'X)%5E%7B-1%7DX'%5Cmathrm%7BVar%7D(y)X(X'X)%5E%7B-1%7D%20%5C%5C%0A%20%20%20%20&amp;%20=%20(X'X)%5E%7B-1%7DX'%5Csigma%5E%7B2%7DIX(X'X)%5E%7B-1%7D%20%5C%5C%0A%20%20%20%20&amp;%20=%20(X'X)%5E%7B-1%7D%5Csigma%5E%7B2%7D%0A%5Cend%7Bsplit%7D%0A%5Ctag%7B2%7D"></span></p>
-<p>Some additional notes:</p>
-<ul>
-<li>Each new line is preceded by a <code>\\</code> operator.</li>
-<li>Each aligned expression begins with the <code>&amp;</code> operator.</li>
-</ul>
-</section>
-<section id="numbered-lines-and-inline-notes" class="level4 unnumbered page-columns page-full">
-<h4 class="unnumbered anchored" data-anchor-id="numbered-lines-and-inline-notes">Numbered lines and inline notes</h4>
+<section id="inline-notes" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="inline-notes">Inline notes</h3>
 <p>We can number lines individually by using the LaTeX <code>align</code> environment and adding a unique <code>(\#eq:&lt;equation-label&gt;)</code> at the end of every line that should have a number. Additionally, we can add in-line comments by placing <code>&amp;&amp;</code> followed by <code>(&lt;my LaTeX-formatted comment&gt;)</code> at the end of the line, before the number label. As with our use of the <code>&amp;</code> operator to align successive lines of math, the <code>&amp;&amp;</code> operator tells the LaTeX compiler to align comments, but to do so to the right of the aligned math.</p>
 <div class="sourceCode" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb21-1"><span class="ss" style="color: #20794D;
 background-color: null;
@@ -1271,8 +1271,10 @@ We use <code>scriptstyle</code> to make the inline text smaller. Other custom di
 <p><span id="eq-var"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%5Csum_%7Bi=1%7D%5E%7Bn%7D%20%5Cleft(%20X_i%20-%20%5Coverline%7BX%7D%20%5Cright%20)%0A%20%20%20%20&amp;%20=%20%5Csum_%7Bi=1%7D%5E%7Bn%7DX_i%20-%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20%5Coverline%7BX%7D%0A%20%20%20%20%20%20%20%20&amp;&amp;&amp;%20%5Cscriptstyle%7B%5Ctext%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20(comment%201)%0A%20%20%20%20%20%20%20%20%7D%7D%20%20%5Ctag%7Ba%7D%0A%20%20%20%20%5C%5C%0A%20%20%20%20&amp;%20=%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20X_i%20-%20n%20%5Coverline%7BX%7D%0A%20%20%20%20%20%20%20%20&amp;&amp;&amp;%20%5Cscriptstyle%7B%5Cleft(%5Cbegin%7Barray%7D%7Bc%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%5Ctext%7Bcomment%202%20has%20symbols:%20%7D%20%5Cint_%7Ba%7D%5E%7Bb%7D%204%20%5Cpi%20r%5E2%20%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%5Ctext%7B...%20and%20carries%20over%20to%20a%20second%20line.%0A%20%20%20%20%20%20%20%20%7D%5Cend%7Barray%7D%5Cright)%7D%0A%20%20%20%20%5C%5C%0A%20%20%20%20&amp;%20=%20%5Csum_%7Bi=1%7D%5E%7Bn%7DX_i%20-%20%5Csum_%7Bi=1%7D%5E%7Bn%7DX_i%0A%20%20%20%20%5C%5C%0A%20%20%20%20&amp;%20=%200%20%20%5Ctag%7Bb%7D%0A%5Cend%7Balign%7D%0A%5Ctag%7B3%7D"></span></p>
 </section>
 </section>
-<section id="code-blocks" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Code blocks</h1>
+<section id="code-blocks" class="level2 page-columns page-full" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="code-blocks"><span class="header-section-number">4</span> Code blocks</h2>
+<section id="python-code" class="level3">
+<h3 class="anchored" data-anchor-id="python-code">Python code</h3>
 <p>We can include some nicely formatted Python code:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><span class="co" style="color: #5E5E5E;
@@ -1374,10 +1376,8 @@ font-style: inherit;">1</span></span></code></pre></div>
 </div>
 </div>
 </section>
-<section id="figures-tables-images" class="level1 page-columns page-full" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Figures, tables, images</h1>
-<section id="figures" class="level4 unnumbered page-columns page-full">
-<h4 class="unnumbered anchored" data-anchor-id="figures">Figures</h4>
+<section id="r-code" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="r-code">R code</h3>
 <p>We can also execute the code within R Markdown and display the output. Here’s an example using ggplot2 that also illustrates how to display a numbered figure with a caption:</p>
 <div class="fig-border">
 
@@ -1621,6 +1621,12 @@ A good reference for theme options is <a href="https://ggplot2.tidyverse.org/ref
 <li>To cross-reference a figure, image, or table rendered with R code, give the chunk a unique label in its <a href="https://yihui.org/knitr/options/">knitr</a> header following the <code>r</code> prefix.</li>
 <li>To give your figure a caption with a numbered prefix as shown in this example, add fig.cap=“&lt;Your figure caption.&gt;” to the knitr header, replacing the string inside the quotation marks.</li>
 </ul>
+</section>
+</section>
+<section id="figures-tables-images" class="level2 page-columns page-full" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="figures-tables-images"><span class="header-section-number">5</span> Figures, tables, images</h2>
+<section id="figures" class="level3">
+<h3 class="anchored" data-anchor-id="figures">Figures</h3>
 <p>Here’s a more involved example that uses some more fine-tuning to achieve desired aesthetics. In the first cell we define the data. I include this example because 1) I like this plot, and 2) I think it is a good example of how to manually enter data points into a structure that ggplot can work with and then to use that structure to produce a meaningful plot.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><span class="co" style="color: #5E5E5E;
@@ -2051,8 +2057,8 @@ Figure&nbsp;2: Figure caption.
 
 </div>
 </section>
-<section id="tables" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="tables">Tables</h4>
+<section id="tables" class="level3">
+<h3 class="anchored" data-anchor-id="tables">Tables</h3>
 <p>We can also display data frames as nicely formatted tables. This example uses <a href="https://bookdown.org/yihui/rmarkdown-cookbook/kable.html"><code>kable</code></a> to render the built-in <code>mtcars</code> dataset as a static table:</p>
 <div class="scroll-container">
 <div class="cell">
@@ -2196,8 +2202,8 @@ Table&nbsp;1: This is a table caption
 </div>
 </div>
 </section>
-<section id="paged-tables" class="level4 unnumbered page-columns page-full">
-<h4 class="unnumbered anchored" data-anchor-id="paged-tables">Paged tables</h4>
+<section id="paged-tables" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="paged-tables">Paged tables</h3>
 <p>And this example uses the <a href="https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html"><code>paged_table</code></a> function to generate a table with its columns spread out over several clickable pages:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><span class="fu" style="color: #4758AB;
@@ -2227,8 +2233,8 @@ Table&nbsp;2: This is another table caption
 Use the knitr option <code>layout="l-body-outset"</code> to make the figure or table span the width of the page. More information <a href="https://rstudio.github.io/distill/figures.html">here</a> and <a href="https://rstudio.github.io/distill/figures.html">here</a> (from the <em>Distill for R Markdown documentation</em>).
 </aside>
 </section>
-<section id="images" class="level4 unnumbered page-columns page-full">
-<h4 class="unnumbered anchored" data-anchor-id="images">Images</h4>
+<section id="images" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="images">Images</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1">knitr<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2251,8 +2257,10 @@ The <code>"class=external"</code> knitr option creates a frame around the image.
 </aside>
 </section>
 </section>
-<section id="cross-references" class="level1 page-columns page-full" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Cross-references</h1>
+<section id="references" class="level2 page-columns page-full" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="references"><span class="header-section-number">6</span> References</h2>
+<section id="cross-references" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="cross-references">Cross-references</h3>
 <p>Now that we have some labelled equations and images, we can create hyperlinked references to them. Here are some examples:</p>
 <table class="caption-top table">
 <colgroup>
@@ -2289,10 +2297,8 @@ Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by
 </aside>
 <p><strong>Note</strong>: The section 1 header is followed by the label {#math-elements}.</p>
 </section>
-<section id="references" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> References</h1>
-<section id="in-text-citations" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="in-text-citations">In-text citations</h4>
+<section id="in-text-citations" class="level3">
+<h3 class="anchored" data-anchor-id="in-text-citations">In-text citations</h3>
 <p>Provided you have stored the sources you wish to formally cite in a bibtex document, you can cite them in-text as follows and they will automatically appear, with proper formatting, in the ‘References’ section at the bottom of your document:</p>
 <div class="sourceCode" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb31-1">[@james2013introduction]</span></code></pre></div>
 <p><span class="citation" data-cites="james2013introduction">(James et al. 2013)</span></p>
@@ -2305,8 +2311,8 @@ Table 2.1 on <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by
 <span id="cb32-6">  publisher={Springer}</span>
 <span id="cb32-7">}</span></code></pre></div>
 </section>
-<section id="footnotes" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="footnotes">Footnotes</h4>
+<section id="footnotes" class="level3">
+<h3 class="anchored" data-anchor-id="footnotes">Footnotes</h3>
 <p>This is a manual citation with a footnote:</p>
 <div class="sourceCode" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb33-1">(Axler, 2019)[^1].</span></code></pre></div>
 <p>(Axler, 2019)<sup>1</sup>.</p>
@@ -2317,8 +2323,10 @@ background-color: null;
 font-style: inherit;">&amp;</span> Business Media.</span></code></pre></div>
 </section>
 </section>
-<section id="asides" class="level1 page-columns page-full" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Asides</h1>
+<section id="layouts" class="level2 page-columns page-full" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="layouts"><span class="header-section-number">7</span> Layouts</h2>
+<section id="asides" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="asides">Asides</h3>
 <p>I have been using these throughout. Here’s how to create them:</p>
 <div class="sourceCode" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb35-1"><span class="dt" style="color: #AD0000;
 background-color: null;
@@ -2343,8 +2351,8 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
 This content will appear in the gutter of the article.
 </aside>
 </section>
-<section id="columns" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Columns</h1>
+<section id="columns" class="level3">
+<h3 class="anchored" data-anchor-id="columns">Columns</h3>
 <p>Using some <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> magic, we can create a two-column layout with both columns occupying 50% of the width of the screen like so:</p>
 <div class="sourceCode" id="cb36" style="background: #f1f3f5;"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb36-1"><span class="in" style="color: #5E5E5E;
 background-color: null;
@@ -2509,11 +2517,12 @@ font-style: inherit;">:::</span></span></code></pre></div>
 <li>The image width is set to 100% so that it spans the width of the column.</li>
 </ul>
 </section>
-<section id="text-formatting" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> Text formatting</h1>
+</section>
+<section id="text-formatting" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="text-formatting"><span class="header-section-number">8</span> Text formatting</h2>
 <p>Here are some additional text formatting tricks:</p>
-<section id="scripts-strikethrough" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="scripts-strikethrough">Scripts, strikethrough</h4>
+<section id="scripts-strikethrough" class="level3">
+<h3 class="anchored" data-anchor-id="scripts-strikethrough">Scripts, strikethrough</h3>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -2527,8 +2536,8 @@ font-style: inherit;">:::</span></span></code></pre></div>
 </tbody>
 </table>
 </section>
-<section id="centering-colour" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="centering-colour">Centering, colour</h4>
+<section id="centering-colour" class="level3">
+<h3 class="anchored" data-anchor-id="centering-colour">Centering, colour</h3>
 <p>And to finish it off, let’s use some <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference">HTML</a> magic to center, enlarge, and change the colour of some text:</p>
 <div class="fig-border">
 
@@ -2578,8 +2587,8 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
 </div>
 </section>
 </section>
-<section id="concluding-remarks" class="level1 unnumbered">
-<h1 class="unnumbered">Concluding remarks</h1>
+<section id="concluding-remarks" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="concluding-remarks">Concluding remarks</h2>
 <p>And that’s it! As we’ve seen, R Markdown is a powerful integrated tool for text editing, coding, and mathematical typesetting. Combined with the math environments from Bookdown and the handy annotation tools from Distill, we have a fully capable suite of tools at our fingertips for producing beautiful, well-referenced, web-friendly mathematical documents.</p>
 
 
