@@ -2,7 +2,7 @@
 title: "Ways to connect with me"
 ---
 
-#### Main Links
+##### Main Links
 
 -   <i class="bi bi-envelope"></i>&nbsp; Email:
     [bainmatt\@proton.me](mailto:bainmatt@proton.me)
@@ -13,44 +13,48 @@ title: "Ways to connect with me"
 
 ---
 
-#### Certifications
+##### Certifications
 
 -   <i class="bi bi-mortarboard"></i>&nbsp; Credly:
-    [credly.com/users/mattbain](https://www.credly.com/users/mattbain)
+    [credly.com/users/mattbain](https://www.credly.com/users/mattbain)<br>
     [(Verified badges & credentials)]{.text-muted-small}
 
 ---
 
-#### Academic Profiles
+##### Academic Profiles
 
 -   <i class="bi bi-book"></i>&nbsp; Scholar:
-    [scholar.google.com/citations?user=rwo4JUIAAAAJ](https://scholar.google.com/citations?user=rwo4JUIAAAAJ)
+    [scholar.google.com/citations?user=rwo4JUIAAAAJ](https://scholar.google.com/citations?user=rwo4JUIAAAAJ)<br>
     [(Publications & citations)]{.text-muted-small}
+
 <!-- -   <i class="bi bi-bug"></i>&nbsp; Orcid: -->
-<!--     [orcid.org/0009-0001-0084-6001](https://orcid.org/0009-0001-0084-6001) -->
+<!--     [orcid.org/0009-0001-0084-6001](https://orcid.org/0009-0001-0084-6001)<br> -->
 <!--     [(Researcher identifier)]{.text-muted-small} -->
 
 ---
 
-#### Coding & Data Platforms
+##### Coding & Data Platforms
 
 -   <i class="bi bi-code"></i>&nbsp; LeetCode:
-    [leetcode.com/u/mattbain](https://leetcode.com/u/mattbain/) [(Coding
-    challenges & contests)]{.text-muted-small}
+    [leetcode.com/u/mattbain](https://leetcode.com/u/mattbain/)<br>
+    [(Coding challenges & contests)]{.text-muted-small}
+
 -   <i class="bi bi-trophy"></i>&nbsp; Kaggle:
-    [kaggle.com/mattbain](https://www.kaggle.com/mattbain) [(Data
-    science competitions)]{.text-muted-small}
+    [kaggle.com/mattbain](https://www.kaggle.com/mattbain)<br>
+    [(Data science competitions)]{.text-muted-small}
 
 ---
 
-#### Interactive Applications
+##### Interactive Applications
 
 -   <i class="bi bi-bar-chart"></i>&nbsp; Tableau:
-    [public.tableau.com/app/profile/mattbain/vizzes](https://public.tableau.com/app/profile/mattbain/vizzes)
+    [public.tableau.com/app/profile/mattbain/vizzes](https://public.tableau.com/app/profile/mattbain/vizzes)<br>
     [(Dashboards & data storytelling)]{.text-muted-small}
+
 -   <i class="bi bi-play-circle"></i> &nbsp; Streamlit:
-    [share.streamlit.io/user/bainmatt](https://share.streamlit.io/user/bainmatt)
+    [share.streamlit.io/user/bainmatt](https://share.streamlit.io/user/bainmatt)<br>
     [(Data apps & experiments)]{.text-muted-small}
+
 <!-- -   <i class="bi bi-robot"></i>&nbsp; Hugging Face: -->
-<!--     [huggingface.co/mattbain](https://huggingface.co/mattbain) [(ML -->
-<!--     models & datasets)]{.text-muted-small} -->
+<!--     [huggingface.co/mattbain](https://huggingface.co/mattbain)<br> -->
+<!--     [(ML models & datasets)]{.text-muted-small} -->
