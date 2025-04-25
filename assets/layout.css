@@ -1,0 +1,80 @@
+/* Custom css containers. */
+
+.circular {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.centered {
+  text-align: center;
+}
+
+.banner {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card-footer {
+  background-color: #ffffff;
+  border: none;
+}
+
+.card-footer > p {
+  margin-bottom: 10px;
+}
+
+.info-icon {
+  font-size: 0.8rem;
+  font-weight: 350;
+  letter-spacing: 0px;
+  vertical-align: top;
+  text-decoration: none;
+  color: inherit;
+}
+
+.text-muted-small {
+  color: gray;
+  font-size: 0.9em;
+}
+
+/* Ruled container (wrap figures/images/proofs) */
+.fig-border {
+  margin-top: -15px;
+  padding-top: 0px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+/* Horizontal scroll container (wrap large kable tables/math blocks) */
+.scroll-container {
+  max-width: max-content;
+  overflow-x: auto;
+}
+
+/* Custom button */
+.btn-custom {
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background-color: transparent;
+  color: black;
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+/* Space between custom buttons */
+.btn-custom + .btn-custom {
+  margin-left: 0.5rem;
+}
+
+/* Custom button hover behaviour */
+.btn-custom:hover {
+  border-color: #007bff;
+  color: #007bff;
+  background-color: transparent;
+}

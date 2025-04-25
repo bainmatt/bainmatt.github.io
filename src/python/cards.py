@@ -57,7 +57,11 @@ def format_projects(
   Prepare project data for printing in portfolio cards.
   """
   # Replace missing values
-  df["text"] = df["text"].fillna(df["short_summary"])
+  df["text"] = (
+    df["text"]
+    .fillna(df["short_summary"])
+    .apply(lambda x: "I " + x[:1].lower() + x[1:] + ".")
+  )
   df["img"] = df["img"].fillna(default_img)
   df["img_alt"] = df["img_alt"].fillna(default_img_alt)
   

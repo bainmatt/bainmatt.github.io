@@ -9,11 +9,12 @@ categories: [Reference]
 image: thumbnail.jpg
 image-alt: "The Concord Meadow by Childe Hassam, public domain."
 
+toc-expand: 1
 number-sections: true
 code-links:
   - text: Cheat sheet
     icon: file-code
-    href: https://bainmatt.github.io/posts/2024-03-15-writing-temp/cheatsheet.html
+    href: cheatsheet.html
 
 draft: false
 ---
@@ -29,17 +30,17 @@ are arbitrary, only meant to illustrate the syntax. The
 [markdown](https://www.markdownguide.org/) syntax are not explained. For
 each example I provide the raw text followed by the rendered output.
 
-# Definition, theorem, proof
+## Definition, theorem, proof
 
 The familiar math textbook refrain. Here's the Bookdown syntax for
 definition, theorem, and proof environments, respectively.
 
-#### Definition {.unnumbered}
+### Definition
 
 ``` latex
 ::: {#def-disjoint-sets}
 
-## Disjoint sets
+#### Disjoint sets
 
 Two sets $A_1$ and $A_2$ are *disjoint* if their intersection
 $A_1 \cap A_2 = \emptyset$, where $\emptyset$ is the empty set. We say
@@ -49,7 +50,7 @@ $A_i \cap A_j = \emptyset$ for $i! = j$.
 ```
 
 ::: {#def-disjoint-sets}
-## Disjoint sets
+#### Disjoint sets
 
 Two sets $A_1$ and $A_2$ are *disjoint* if their intersection
 $A_1 \cap A_2 = \emptyset$, where $\emptyset$ is the empty set. We say
@@ -57,12 +58,12 @@ that $n$ sets $A_1, A_2, ..., A_n$ are disjoint if
 $A_i \cap A_j = \emptyset$ for $i! = j$.
 :::
 
-#### Theorem {.unnumbered}
+### Theorem
 
 ``` latex
 ::: {#thm-pyth}
 
-## Pythagorean theorem
+#### Pythagorean theorem
 
 Given a right triangle, if $c$ denotes the length of the hypotenuse and
 $a$ and $b$ the lengths of the other two sides, then
@@ -71,7 +72,7 @@ $$a^2 + b^2 = c^2.$$
 ```
 
 ::: {#thm-pyth}
-## Pythagorean theorem
+#### Pythagorean theorem
 
 Given a right triangle, if $c$ denotes the length of the hypotenuse and
 $a$ and $b$ the lengths of the other two sides, then
@@ -83,12 +84,12 @@ $$a^2 + b^2 = c^2.$$
 page from *Authoring Books with R Markdown* lists all the other
 available theorem environments and their respective keywords.</aside>
 
-#### Proof {.unnumbered}
+### Proof
 
 ``` latex
 ::: {.proof}
 
-## Pythagorean theorem
+#### Pythagorean theorem
 
 Let $x, y$ be ...
 
@@ -106,7 +107,7 @@ $$
 :::
 
 ::: proof
-## Pythagorean theorem
+#### Pythagorean theorem
 
 Let $x, y$ be ...
 
@@ -122,7 +123,7 @@ $$
 ::: fig-border
 :::
 
-#### Automatic numbering {.unnumbered}
+### Automatic numbering
 
 The nice thing about Bookdown is that it will automatically number
 definitions and theorems so that you can easily cross-reference them
@@ -134,7 +135,7 @@ convenient to reference.
 ``` latex
 ::: {#def-cont-map}
 
-## Continuous map
+#### Continuous map
 
 A continuous map is a continuous function between two topological
 spaces.
@@ -142,7 +143,7 @@ spaces.
 ```
 
 ::: {#def-cont-map}
-## Continuous map
+#### Continuous map
 
 A continuous map is a continuous function between two topological
 spaces.
@@ -151,25 +152,11 @@ spaces.
 <aside>Notice that the definition's number was automatically incremented
 from the previous definition.</aside>
 
-# Assorted math examples {#sec-math-elements}
+## Assorted math examples {#sec-math-elements}
 
 Here is an assortment of LaTeX examples along with their output.
 
-#### Brace annotation {.unnumbered}
-
-``` latex
-$$
-\underbrace{\ln \left( \frac{5}{6} \right)}_{\simeq -0.1823} <
-\overbrace{\exp \left(\frac{1}{2} \right)}^{\simeq 1.6487}
-$$
-```
-
-$$
-\underbrace{\ln \left( \frac{5}{6} \right)}_{\simeq -0.1823} <
-\overbrace{\exp \left(\frac{1}{2} \right)}^{\simeq 1.6487}
-$$
-
-#### Brackets and braces {.unnumbered}
+### Brackets and braces
 
 ``` latex
 $$
@@ -197,7 +184,7 @@ $$
 ( \big( \Big( \bigg( \Bigg(
 $$
 
-#### Fractions {.unnumbered}
+### Fractions
 
 ``` latex
 $$
@@ -244,7 +231,7 @@ $$
 }
 $$
 
-#### Calculus expressions {.unnumbered}
+### Calculus
 
 ``` latex
 $$
@@ -286,7 +273,7 @@ $$
 P(i,j)
 $$
 
-#### Linear algebra expressions {.unnumbered}
+### Linear algebra
 
 ``` latex
 $$
@@ -398,7 +385,7 @@ X
 \end{align}
 $$
 
-#### Probability expressions {.unnumbered}
+### Probability
 
 ``` latex
 $$
@@ -444,7 +431,9 @@ $$
 \end{equation}
 $$
 
-# Numbered equations
+## Math blocks
+
+### Numbered equations
 
 Unlike in pure LaTeX, in `bookdown` we must manually assign labels to
 every line that should have a number. I do so for significant passages,
@@ -468,9 +457,7 @@ $$
 \end{equation}
 $$ {#eq-binom-eq}
 
-# Math blocks
-
-#### Numbered blocks {.unnumbered}
+### Numbered blocks
 
 Here is an example from the [Bookdown
 documentation](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html).
@@ -509,7 +496,21 @@ Some additional notes:
 -   Each new line is preceded by a `\\` operator.
 -   Each aligned expression begins with the `&` operator.
 
-#### Numbered lines and inline notes {.unnumbered}
+### Annotations
+
+``` latex
+$$
+\underbrace{\ln \left( \frac{5}{6} \right)}_{\simeq -0.1823} <
+\overbrace{\exp \left(\frac{1}{2} \right)}^{\simeq 1.6487}
+$$
+```
+
+$$
+\underbrace{\ln \left( \frac{5}{6} \right)}_{\simeq -0.1823} <
+\overbrace{\exp \left(\frac{1}{2} \right)}^{\simeq 1.6487}
+$$
+
+### Inline notes
 
 We can number lines individually by using the LaTeX `align` environment
 and adding a unique `(\#eq:<equation-label>)` at the end of every line
@@ -567,7 +568,9 @@ $$
 \end{align}
 $$ {#eq-var}
 
-# Code blocks
+## Code blocks
+
+### Python code
 
 We can include some nicely formatted Python code:
 
@@ -600,9 +603,7 @@ else:
 
 ```
 
-# Figures, tables, images
-
-#### Figures {.unnumbered}
+### R code
 
 We can also execute the code within R Markdown and display the output.
 Here's an example using ggplot2 that also illustrates how to display a
@@ -677,6 +678,10 @@ A couple notes:
 -   To give your figure a caption with a numbered prefix as shown in
     this example, add fig.cap="\<Your figure caption.\>" to the knitr
     header, replacing the string inside the quotation marks.
+
+## Figures, tables, images
+
+### Figures
 
 Here's a more involved example that uses some more fine-tuning to
 achieve desired aesthetics. In the first cell we define the data. I
@@ -772,7 +777,7 @@ p
 ::: fig-border
 :::
 
-#### Tables {.unnumbered}
+### Tables
 
 We can also display data frames as nicely formatted tables. This example
 uses [`kable`](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html)
@@ -788,7 +793,7 @@ kable(head(mtcars))
 ```
 :::
 
-#### Paged tables {.unnumbered}
+### Paged tables
 
 And this example uses the
 [`paged_table`](https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html)
@@ -809,7 +814,7 @@ or table span the width of the page. More information
 [here](https://rstudio.github.io/distill/figures.html) (from the
 *Distill for R Markdown documentation*).</aside>
 
-#### Images {.unnumbered}
+### Images
 
 ```{r}
 #| label: img1
@@ -824,7 +829,9 @@ knitr::include_graphics("thumbnail.jpg")
 <aside>The `"class=external"` knitr option creates a frame around the
 image.</aside>
 
-# Cross-references {#cross-references}
+## References
+
+### Cross-references {#cross-references}
 
 Now that we have some labelled equations and images, we can create
 hyperlinked references to them. Here are some examples:
@@ -845,9 +852,7 @@ here).</aside>
 **Note**: The section 1 header is followed by the label
 {#math-elements}.
 
-# References
-
-#### In-text citations {.unnumbered}
+### In-text citations
 
 Provided you have stored the sources you wish to formally cite in a
 bibtex document, you can cite them in-text as follows and they will
@@ -872,7 +877,7 @@ This is the bibtex entry in my `.bib` file to which this example refers:
 }
 ```
 
-#### Footnotes {.unnumbered}
+### Footnotes
 
 This is a manual citation with a footnote:
 
@@ -890,7 +895,9 @@ looks like:
 Springer Science & Business Media.
 ```
 
-# Asides
+## Layouts
+
+### Asides
 
 I have been using these throughout. Here's how to create them:
 
@@ -904,7 +911,7 @@ This content will appear in the gutter of the article.
 
 <aside>This content will appear in the gutter of the article.</aside>
 
-# Columns
+### Columns
 
 Using some [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 magic, we can create a two-column layout with both columns occupying 50%
@@ -959,18 +966,18 @@ A few other notes:
 -   The image width is set to 100% so that it spans the width of the
     column.
 
-# Text formatting
+## Text formatting
 
 Here are some additional text formatting tricks:
 
-#### Scripts, strikethrough {.unnumbered}
+### Scripts, strikethrough
 
 |                                   |                                  |
 |-----------------------------------|----------------------------------|
 | A ~subscript~ and a ^superscript^ | `A~subscript~and a^superscript^` |
 | This is a ~~strikethrough~~       | `This is a ~~strikethrough~~`    |
 
-#### Centering, colour {.unnumbered}
+### Centering, colour
 
 And to finish it off, let's use some
 [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference)
@@ -993,7 +1000,7 @@ magic to center, enlarge, and change the colour of some text:
 ::: fig-border
 :::
 
-# Concluding remarks {.unnumbered}
+## Concluding remarks {.unnumbered}
 
 And that's it! As we've seen, R Markdown is a powerful integrated tool
 for text editing, coding, and mathematical typesetting. Combined with
