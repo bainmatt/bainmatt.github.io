@@ -64,12 +64,14 @@
   background-color: transparent;
   color: black;
   text-decoration: none;
+  display: inline-block;
   transition: color 0.2s, border-color 0.2s;
 }
 
 /* Space between custom buttons */
 .btn-custom + .btn-custom {
   margin-left: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 /* Custom button hover behaviour */
@@ -77,4 +79,11 @@
   border-color: #007bff;
   color: #007bff;
   background-color: transparent;
+}
+
+.button-group {
+  display: flexbox;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 1.5rem 0;
 }
