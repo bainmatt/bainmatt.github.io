@@ -24,6 +24,8 @@ website:
 #       chapters:
 #         - posts/2024-03-15-writing-temp/cheatsheet.qmd
 #         - posts/2024-03-15-writing-temp/index.qmd
+#     - part: "Writing"
+#       chapters:
 #         - posts/2024-03-18-bias-variance-decomposition/index.qmd
   google-analytics:
     tracking-id: "G-MBBG8HDJQG"
@@ -35,28 +37,31 @@ website:
   open-graph: true
   search: true
   navbar:
-    title: false
+    title: "Matthew Bain"
     background: "rgb(250, 250, 250)"
     left:
-      - href: index.qmd
-        text: "Home"
+      # - href: index.qmd
+      #   text: "Home"
       - href: about.qmd
         text: "About"
       - href: contact.qmd
         text: "Contact"
       - href: posts.qmd
         text: "Resources"
-      - href: music.qmd
-        text: "Music"
       - href: https://bainmatt.github.io/cv/cv_matthewbain.html
         text: "Résumé"
     right:
+      - text: Misc
+        menu:
+        - href: music.qmd
+          text: "Music"
+        - icon: youtube
+          text: "YouTube"
+          href: https://www.youtube.com/@fujinai9/featured
       - icon: github
         href: https://github.com/bainmatt
       - icon: linkedin
         href: https://linkedin.com/in/bainmatt/
-      - icon: youtube
-        href: https://www.youtube.com/@fujinai9/featured
   page-footer:
     center:
       - href: https://bainmatt.github.io/
@@ -66,5 +71,11 @@ format:
   html:
     theme: whale.scss  # default, cosmo, flatly
     css:
+      - assets/layout.css
       - assets/styles.css
-      - assets/styles-extra.css
+      
+crossref:
+  custom:
+    - kind: float
+      reference-prefix: Info
+      key: inf

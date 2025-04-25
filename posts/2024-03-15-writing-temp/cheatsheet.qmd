@@ -3,7 +3,7 @@ title: "Writing template"
 description: |
   A concise reference for technical writing with Quarto.
 date: 2024-03-18
-categories: [Reference, Orphan]
+categories: [Reference, Cheat sheet]
 image: thumbnail.jpg
 image-alt: "The Concord Meadow by Childe Hassam, public domain."
 
@@ -38,12 +38,12 @@ are arbitrary, only meant to illustrate the syntax. The
 [markdown](https://www.markdownguide.org/) syntax are not explained. For
 each example I provide the raw text followed by the rendered output.
 
-# Definition, theorem, proof
+## Definition, theorem, proof
 
 The familiar math textbook refrain. Here's the Bookdown syntax for
 definition, theorem, and proof environments, respectively.
 
-## Definition
+### Definition
 
 ::: {#def-disjoint-sets}
 ### Disjoint sets
@@ -54,10 +54,10 @@ that $n$ sets $A_1, A_2, ..., A_n$ are disjoint if
 $A_i \cap A_j = \emptyset$ for $i! = j$.
 :::
 
-## Theorem
+### Theorem
 
 ::: {#thm-pyth}
-### Pythagorean theorem
+#### Pythagorean theorem
 
 Given a right triangle, if $c$ denotes the length of the hypotenuse and
 $a$ and $b$ the lengths of the other two sides, then
@@ -69,10 +69,10 @@ $$a^2 + b^2 = c^2.$$
 page from *Authoring Books with R Markdown* lists all the other
 available theorem environments and their respective keywords.</aside>
 
-## Proof
+### Proof
 
 ::: proof
-### Pythagorean theorem
+#### Pythagorean theorem
 
 Let $x, y$ be ...
 
@@ -85,7 +85,7 @@ $$
 $$
 :::
 
-## Automatic numbering
+### Automatic numbering
 
 The nice thing about Bookdown is that it will automatically number
 definitions and theorems so that you can easily cross-reference them
@@ -95,7 +95,7 @@ below) with a unique label (containing no spaces) that will be
 convenient to reference.
 
 ::: {#def-cont-map}
-### Continuous map
+#### Continuous map
 
 A continuous map is a continuous function between two topological
 spaces.
@@ -104,11 +104,11 @@ spaces.
 <aside>Notice that the definition's number was automatically incremented
 from the previous definition.</aside>
 
-# Assorted math examples {#sec-math-elements}
+## Assorted math examples {#sec-math-elements}
 
 Here is an assortment of LaTeX examples along with their output.
 
-## Brackets and braces
+### Brackets and braces
 
 $$
 ( a ), [ b ], \{ c \}, | d |, \| e \|,
@@ -121,7 +121,7 @@ $$
 ( \big( \Big( \bigg( \Bigg(
 $$
 
-## Fractions
+### Fractions
 
 $$
 \begin{equation}
@@ -146,7 +146,7 @@ $$
 }
 $$
 
-## Calculus
+### Calculus
 
 $$
 \int_0^\infty \mathrm{e}^{-x} ~ \mathrm{d}x
@@ -160,7 +160,7 @@ $$
 \sum_{\substack{0<i<m \\ 0<j<n}} P(i,j)
 $$
 
-## Linear algebra
+### Linear algebra
 
 $$
 \begin{matrix}
@@ -213,7 +213,7 @@ X
 \end{align}
 $$
 
-## Probability
+### Probability
 
 $$
 \left(\!
@@ -233,9 +233,9 @@ $$
 \end{equation}
 $$
 
-# Math blocks
+## Math blocks
 
-## Annotations
+### Annotations
 
 $$
 \underbrace{
@@ -246,7 +246,7 @@ $$
 }^{\simeq 1.6487}
 $$
 
-## Numbered equations
+### Numbered equations
 
 Unlike in pure LaTeX, in `bookdown` we must manually assign labels to
 every line that should have a number. I do so for significant passages,
@@ -260,7 +260,7 @@ $$
 \end{equation}
 $$ {#eq-binom}
 
-## Numbered blocks
+### Numbered blocks
 
 Here is an example from the [Bookdown
 documentation](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html).
@@ -288,7 +288,7 @@ Some additional notes:
 -   Each new line is preceded by a `\\` operator.
 -   Each aligned expression begins with the `&` operator.
 
-## Inline notes
+### Inline notes
 
 We can number lines individually by using the LaTeX `align` environment
 and adding a unique `(\#eq:<equation-label>)` at the end of every line
@@ -319,7 +319,7 @@ $$
 \end{align}
 $$ {#eq-var}
 
-# Code blocks
+## Code blocks
 
 We can include some nicely formatted Python code:
 
@@ -352,7 +352,7 @@ else:
 
 ```
 
-## Tables
+### Tables
 
 We can also display data frames as nicely formatted tables. This example
 uses [`kable`](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html)
@@ -366,7 +366,7 @@ kable(head(mtcars))
 
 ```
 
-## Paged tables
+### Paged tables
 
 And this example uses the
 [`paged_table`](https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html)
@@ -387,9 +387,9 @@ or table span the width of the page. More information
 [here](https://rstudio.github.io/distill/figures.html) (from the
 *Distill for R Markdown documentation*).</aside>
 
-# References
+## References
 
-## Cross-references {#cross-references}
+### Cross-references {#cross-references}
 
 Now that we have some labelled equations and images, we can create
 hyperlinked references to them. Here are some examples:
@@ -410,7 +410,7 @@ here).</aside>
 **Note**: The section 1 header is followed by the label
 {#math-elements}.
 
-## In-text citations
+### In-text citations
 
 Provided you have stored the sources you wish to formally cite in a
 bibtex document, you can cite them in-text as follows and they will
@@ -431,7 +431,7 @@ This is the bibtex entry in my `.bib` file to which this example refers:
 }
 ```
 
-## Footnotes
+### Footnotes
 
 This is a manual citation with a footnote:
 
@@ -445,24 +445,24 @@ looks like:
 Springer Science & Business Media.
 ```
 
-# Text formatting
+## Text formatting
 
 Here are some additional text formatting tricks:
 
-## Asides
+### Asides
 
 I have been using these throughout. Here's how to create them:
 
 <aside>This content will appear in the gutter of the article.</aside>
 
-## Scripts, strikethrough
+### Scripts, strikethrough
 
 |                                   |                                  |
 |-----------------------------------|----------------------------------|
 | A ~subscript~ and a ^superscript^ | `A~subscript~and a^superscript^` |
 | This is a ~~strikethrough~~       | `This is a ~~strikethrough~~`    |
 
-# Concluding remarks
+## Concluding remarks
 
 And that's it! As we've seen, R Markdown is a powerful integrated tool
 for text editing, coding, and mathematical typesetting. Combined with

@@ -10,44 +10,36 @@ format:
     number_sections: false
 ---   
 
-# Original music
+## Original music
 
----
+### *Under Moonlight*
 
-## *Under Moonlight*
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3Qzj4wrZyOQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-
-</iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3Qzj4wrZyOQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <!--
-<hr>
+### *Picnic*
 
-<br>
-!-->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3Qzj4wrZyOQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<!--
-# Collections
+## Collections
 
-# Covers
-!-->
+## Covers
+-->
 
-# Just the music
+## Just the music
 
----
+<iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/914419177&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"></iframe>
 
-<iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/914419177&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true">
-
-</iframe>
-
-::: {style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"}
+::: {style="font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif; font-weight: 100;"}
 <a href="https://soundcloud.com/user-752823440" title="fujinai" target="_blank" style="color: #cccccc; text-decoration: none;">fujinai</a>
 ·
 <a href="https://soundcloud.com/user-752823440/sets/daydreams" title="Daydreams" target="_blank" style="color: #cccccc; text-decoration: none;">Daydreams</a>
 :::
 
-::: {style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"}
+<!--
+::: {style="font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif; font-weight: 100;"}
 <a href="https://soundcloud.com/user-752823440" title="Fujinai" target="_blank" style="color: #cccccc; text-decoration: none;">Fujinai</a>
 ·
 <a href="https://soundcloud.com/user-752823440/sets/loops" title="Corridors" target="_blank" style="color: #cccccc; text-decoration: none;">Corridors</a>
 :::
+-->

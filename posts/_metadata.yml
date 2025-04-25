@@ -13,13 +13,14 @@ abstract-title: abstract
 
 # Disable section numbering
 number-sections: false
+number-depth: 2
 
 # Default fields for table of contents
 toc: true
-toc-depth: 2
+toc-depth: 3
+toc-expand: 2
 toc-location: left
 toc-title: Contents
-toc-expand: true
 
 # Default knitr options
 execute:
@@ -36,12 +37,6 @@ author:
 
 # Enable CC licence appendix
 license: "CC BY"
-
-# Default fields for cross-referencing
-crossrefs-hover: true
-footnotes-hover: true
-citations-hover: true
-notebook-links: true
 
 # Default fields for figures
 # fig-format: svg
@@ -61,6 +56,12 @@ code-tools:
   source: repo
   toggle: true
   caption: none
+
+# Default fields for cross-referencing
+crossrefs-hover: true
+footnotes-hover: true
+citations-hover: true
+notebook-links: true
   
 # Default fields for HTML text output
 strip-comments: false
