@@ -4,7 +4,8 @@ description: |
   A concise reference for technical writing with Quarto.
 date: 2024-03-18
 categories: [Reference, Cheat sheet]
-image: thumbnail.jpg
+# image: thumbnail.jpg
+image: ../../images/mlvizz-icon.png
 image-alt: "The Concord Meadow by Childe Hassam, public domain."
 
 number-sections: true

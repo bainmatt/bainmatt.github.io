@@ -5,7 +5,8 @@ description: |
   the theoretical basis of model validation in machine learning.
 date: 2024-03-18
 categories: [Bayesian inference, Learning theory]
-image: ../../images/childe-hassam-the-concord-meadow-comp.jpg
+# image: ../../images/childe-hassam-the-concord-meadow-comp.jpg
+image: ../../images/mathvizz-icon.png
 image-alt: "The Concord Meadow by Childe Hassam, public domain."
 # bibliography: references.bib
 
