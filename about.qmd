@@ -67,9 +67,7 @@ neat data analyses. I like to write about my favourite projects and
 discoveries. You can find some of that [here](posts.html). I also make
 music on the side -- you can find that [here](music.html).
 
-<br>
-
-::: centered
+::: button-group
 <a href="https://leetcode.com/u/mattbain/" class="btn-custom"><i class="bi bi-code"></i> LeetCode </a>
 <a href="https://www.kaggle.com/mattbain" class="btn-custom"><i class="bi bi-trophy"></i> Kaggle </a>
 <a href="https://public.tableau.com/app/profile/mattbain/vizzes" class="btn-custom"><i class="bi bi-bar-chart"></i> Tableau </a>

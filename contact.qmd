@@ -11,11 +11,15 @@ title: "Ways to connect with me"
 -   <i class="bi bi-linkedin"></i>&nbsp; LinkedIn:
     [linkedin.com/in/bainmatt](https://www.linkedin.com/in/bainmatt/)
 
+---
+
 #### Certifications
 
 -   <i class="bi bi-mortarboard"></i>&nbsp; Credly:
     [credly.com/users/mattbain](https://www.credly.com/users/mattbain)
     [(Verified badges & credentials)]{.text-muted-small}
+
+---
 
 #### Academic Profiles
 
@@ -26,6 +30,8 @@ title: "Ways to connect with me"
 <!--     [orcid.org/0009-0001-0084-6001](https://orcid.org/0009-0001-0084-6001) -->
 <!--     [(Researcher identifier)]{.text-muted-small} -->
 
+---
+
 #### Coding & Data Platforms
 
 -   <i class="bi bi-code"></i>&nbsp; LeetCode:
@@ -34,6 +40,8 @@ title: "Ways to connect with me"
 -   <i class="bi bi-trophy"></i>&nbsp; Kaggle:
     [kaggle.com/mattbain](https://www.kaggle.com/mattbain) [(Data
     science competitions)]{.text-muted-small}
+
+---
 
 #### Interactive Applications
 

@@ -55,7 +55,7 @@ add_card <- function(
     '<div class="g-col-12 g-col-md-6 g-col-xl-4">',
     '<div class="card h-100">',
     image_block,
-    '<div class="card-body">',
+    '<div class="card-body" style="padding-top: 0rem;">',
     paste0('<h2 class="card-title">', name, '</h2>'),
     paste0('<div class="mb-1">', type_tag, '</div>'),
     # "&nbsp;",
