@@ -22,13 +22,11 @@ crossref:
 
 ---
 
-Data scientist, machine learning expert, lover of statistics, and
-part-time musician. I build interpretable, robust, responsible machine
-learning applications.
+Statistician, machine learning expert, and musician on the side. I build interpretable, robust, responsible machine learning tools.
 :::
 
 ::: {#inf-software style="display: none;"}
-I design end-to-end data management, data analytic, and machine learning software, allowing you to harness the power of AI in your own business workflows with fine-grained control, transparency, and scalability. I use Python and R for scripting, scikit-learn and TensorFlow for machine learning, and SQL, Spark, and Google Cloud Platform to do it all at scale. 
+I design end-to-end data management, data analytic, and machine learning software, allowing you to harness the power of AI in your own business workflows with fine-grained control, transparency, and scalability. I use Python and R for scripting, scikit-learn and TensorFlow for machine learning, and SQL, Spark, and Google Cloud Platform to do it all at scale.
 :::
 
 ::: {#inf-apps style="display: none;"}
@@ -48,10 +46,9 @@ import sys
 import yaml
 import pandas as pd
 
-sys.path.append("src/python")
+sys.path.append("src/blogtools")
 from cards import format_projects, sync_projects
 ```
-
 
 ```{python sync}
 #| echo: false
